@@ -21,6 +21,7 @@ Give the deck the droidcon Kenya 2026 look (palette, Montserrat, logo, cube hero
 - Screen recordings, screenshots and presenter photos (phase 3, once the presenters choose).
 - Rehearsal polish, app identity rename (`ke.don.ski`, "ski") (phase 4).
 - Removing the `:segments:introduction` module and the component gallery.
+- Deferred: a different checker alpha per theme (light vs dark); one value, 0.10, for now (review 3, 2026-10-23).
 - Any change to the published library `:shared:components`.
 - Deferred: removing unused code and resources (review 2 asked; maintainer chose to skip for now, 2026-10-23). Candidates: `MainHeader`'s `mode` param, unread `LocalChaiColors`, `prepareCubeMarks`, `CubeBullet`, Google Sans and Roboto Mono ExtraLight TTFs, IAN/IVANA/ANDROID_ROBOT images, `APP_NAME`, `VideoPlayer*` and `sample_video.mov`, `:segments:introduction`, the component gallery.
 

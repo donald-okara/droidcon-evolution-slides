@@ -40,7 +40,7 @@
 - **Check:** `grep -rn "ke.don.demos\.\(FeatureSlide\|FramesDemo\|RevealDemo\|KodeViewerSlide\)" composeApp` returns nothing; `ls segments/demos/src/commonMain/kotlin/ke/don/demos` shows only `droidcon/` and `VideoPlayer.kt`.
 
 ### R8. Droidcon background
-- The deck background is a checkered floor in perspective (Star Wars crawl style) in the Chai neon green at a very low alpha, scrolling slowly and continuously toward the horizon; it is barely noticeable and never hurts text legibility in light or dark.
+- The deck background is a checkered floor in perspective (Star Wars crawl style) in the Chai neon green at alpha 0.10 (same in light and dark), scrolling slowly and continuously toward the horizon; it is visible at a glance but quiet, and never hurts text legibility in light or dark.
 - The animated cube hero is the background decorator at bottom-right, replacing the Android robot.
 - Built in `:composeApp` against the public `Background` interface; `:shared:components` is unchanged.
 - **Check:** `./gradlew :desktopApp:run`; both windows show the faint moving floor and the animated cube; slide text stays readable.

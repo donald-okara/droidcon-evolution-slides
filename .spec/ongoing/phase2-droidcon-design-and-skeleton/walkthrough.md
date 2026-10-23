@@ -2,12 +2,13 @@
 
 ## Current state
 
-- Done: all 12 tasks. Review 2's changes are in: logo-only header, green dot footer bullet, and `DroidconBackground` (faint neon-green perspective checkered floor scrolling toward the horizon, full-opacity animated cube at bottom-right).
-- Next: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
+- Done: Tasks 1 to 12 (logo-only header, green footer dot, checkered floor background with full-opacity cube decorator).
+- Next: Task 13 (checker alpha 0.06 to 0.10, from review 3); then the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
 - Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (faint, moving, text readable in light and dark), cube animation, 19 slides in order, no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
 - Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; the maintainer's "full opacity" was applied to the decorator only.
 - Deferred: removals of unused code and resources (see the overview's Out of Scope).
+- Deferred: per-theme checker alpha.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 

@@ -6,7 +6,7 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 1. Montserrat font ───────────────┐
 2. Droidcon colours ──────────────┼─> 7. Placeholder + sections 1-3 ─> 8. Sections 4-8 ─┐
 3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos ─┬─> 11. Logo-only header, green dot bullet
-4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘                    └─> 12. Checkered floor background + cube decorator
+4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘                    └─> 12. Checkered floor background + cube decorator ─> 13. Checker alpha 0.10
    (5 also needs 2; 11 and 12 are independent of each other)
 ```
 
@@ -143,3 +143,11 @@ This task writes perspective drawing code; run the implementer on Sonnet.
 - [x] In `Deck.kt`, pass `DroidconBackground()` in place of the `BackgroundBuilder` chain; drop imports that become unused. Leave `Resources.Images.ANDROID_ROBOT` in `Resources.kt` (removals are deferred).
 - [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` and `./gradlew :webApp:wasmJsBrowserDistribution` pass; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show a faint green checkered floor drifting toward the horizon, noticeable only on a close look, with the animated cube at bottom-right and slide text readable in light and dark.
 - [x] Commit: `feat: add checkered floor background with cube decorator`
+
+### Task 13: Raise checker alpha to 0.10 (revises Task 12)
+**Serves:** R8
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/background/DroidconBackground.kt` (edit)
+
+- [ ] Change the floor cells' alpha from 0.06 to 0.10, the same in light and dark. Change nothing else (horizon, scroll speed and cube unchanged; the cube stays at full opacity).
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are visible at a glance and slide text stays readable in light and dark.
+- [ ] Commit: `feat: make background checkers more visible`
