@@ -10,11 +10,11 @@ Already documented elsewhere, so not repeated here:
 
 ## The talk
 
-- Subject: the droidcon Kenya Android app from 2023 to 2026. It has had several maintainers, rotated through the community; this year it has been updated alongside 2 other apps.
+- Subject: the droidcon Kenya Android app from 2018 to 2026, as in Harun Wangereka's overview (`docs/talk/harun-overview.md`).
 - Source of truth for the story: the app's local clone at `/Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin` (2023-02-11 to 2026-10-23, no git tags). Read its history with `git -C <path> log`; never edit that repo from here.
-- Presenters and segments: Annunziata Kinya (history), Donald Isoe (about to launch), Ian Nthuli (future). Photos still come from the user.
+- Slides: S01-S31 in seven acts, 30 minutes plus 10 for Q&A; contributors are credited by name.
 - Talk planning docs (history, outline, abstract, design inventory) live in `docs/talk/`.
-- Session length: `SlidesConstants.SESSION_DURATION` (45 min). Time budgets in the outline must add up to it.
+- Session length: `SlidesConstants.SESSION_DURATION` (40 min). Act budgets in the outline add up to 30.
 
 ## Decisions
 
@@ -34,6 +34,11 @@ Already documented elsewhere, so not repeated here:
 - Going back into a slide shows it fully revealed, and table-of-contents jumps start at step 0, because a presenter who steps back to point at something shouldn't re-click the reveals.
 - Media that isn't chosen yet is a labelled outlined placeholder (`MediaPlaceholder`), so gaps are visible in a dry run.
 - Commit-backed claims show a small monospace SHA tag (`CommitTag`), and improvements are animated stat tiles (`StatTile`) that count up. Direction (arrow) and meaning (green or red) are separate, so a drop that is good still reads green.
+- Startup figures follow `docs/performance.md` (cold start -22%, 1,335 to 1,047 ms, median of 15 runs); the 35% claim was dropped because it had no source command.
+- `EvolutionTimeline` uses common `hoverable` and click; the lit or clicked stage shows its details and hover only previews, and reveal steps light stages in order.
+- Every slide has a named delight moment built from shared blocks (`popIn`, `Confetti`, count-ups); one-shot effects fire from the reveal step or slide entry so both windows show them.
+- Only the Gradle `rootProject.name` is "droidcon-evolution-slides"; modules, packages and the published artifact keep the Ski names.
+- The corner background cube hides on S01 (`COLD_TITLE_LABEL`) so the hero is the only cube.
 
 ## Known stale facts
 
