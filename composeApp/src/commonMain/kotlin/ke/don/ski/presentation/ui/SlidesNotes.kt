@@ -86,19 +86,24 @@ val launchPerfNotes = listOf(
     AnnotatedString("The APK and size figures measure download size, not memory or frame time. Takeaway to return to: startup, download size and the CI gate. Hand-off cue: \"Those are the numbers. Next, the design.\"")
 )
 
-val launchDesignNotes = placeholderNotes(
-    "Donald Isoe",
-    "Chai on Material 3 Expressive (`87d23cb7`) and the 2026 identity (`eb7c436e`)"
+val launchDesignNotes = listOf(
+    AnnotatedString("The top row is the palette the app used before 2026, and the bottom row is the live 2026 scheme, so the bottom row changes when the theme does."),
+    AnnotatedString("Chai moved onto Material 3 and Material 3 Expressive in commit 87d23cb7 on 2026-10-04, and the 2026 droidcon identity, blue and neon green, came in commit eb7c436e on 2026-10-06."),
+    AnnotatedString("Takeaway to return to: the same app, with the colours now assigned to Material roles. Hand-off cue: \"Here is the home screen, before and after. Next, what shipped as features.\"")
 )
 
-val launchFeaturesNotes = placeholderNotes(
-    "Donald Isoe",
-    "Done features on main: cube hero (`5941f20f`) and Glance widget (`4492346b`)"
+val launchFeaturesNotes = listOf(
+    AnnotatedString("Five features and fixes are done and on main. Each press of Right adds one, starting with the cube hero."),
+    AnnotatedString("The cube hero came in commit 5941f20f on 2026-10-15, and the Glance widget in commit 4492346b on 2026-10-09."),
+    AnnotatedString("The adaptive large-screen layouts, the speaker details fix and the sponsor logo contrast fix are done too, and this talk gives them no commit SHA, so describe them in words."),
+    AnnotatedString("Takeaway to return to: the cube and the widget are what people see, and the other three make the app work on more screens. Hand-off cue: \"Everything there is on main. Here is what is not there yet.\"")
 )
 
-val launchWipNotes = placeholderNotes(
-    "Donald Isoe",
-    "In progress: notifications module on branch `feat/notifications` (not yet on main at 2026-10-23)"
+val launchWipNotes = listOf(
+    AnnotatedString("Notifications is still in progress. It lives on the feat/notifications branch, and as of 2026-10-23 it is not on main."),
+    AnnotatedString("Four parts are done: channels, reminders, preferences and deep links. Two are still to do: topic subscriptions and reminder actions, which are the notification leftovers on the improvement plan's roadmap."),
+    AnnotatedString("Takeaway to return to: this is the one feature that is not finished, and the next slides show what the team plans next. Hand-off cue: \"That is where the 2026 update stands. Now, the plan for what comes after.\""),
+    AnnotatedString("Reminder for Donald: check whether notifications has merged to main by talk day, and if it has, change this slide's status line and the done list.")
 )
 
 val futurePlanNotes = placeholderNotes(

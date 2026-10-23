@@ -127,12 +127,12 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/launch/LaunchSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/launch/LaunchSlides.kt
 
-- [ ] `LaunchDesignSlide`: two labelled swatch rows. "Then" uses `ke.don.design.theme.Pre2026Palette` (ChaiBlue, ChaiRed, ChaiTeal, ChaiCoal, ChaiLightGrey); "now" uses the live `MaterialTheme.colorScheme` (primary, secondary, secondaryContainer, tertiary, background). Each swatch has its hex below. Add `CommitTag`s `87d23cb7` (Chai on Material 3 Expressive) and `eb7c436e` (2026 identity). Add a `MediaPlaceholder("Screenshot: home, before and after")`.
-- [ ] `LaunchFeaturesSlide`: a reveal of five done items: cube hero (`5941f20f`), Glance widget (`4492346b`), adaptive large-screen layouts, speaker details fix, sponsor logo contrast fix. Add a `MediaPlaceholder("Screen recording: cube hero and widget")`. `LAUNCH_FEATURES_STEPS = 5`.
-- [ ] `LaunchWipSlide`: "Notifications, on `feat/notifications`, not yet on main (2026-10-23)". Reveal "Done so far": channels, reminders, preferences, deep links. Then "Still to do": topic subscriptions, reminder actions, styled in `onSurfaceVariant`. `LAUNCH_WIP_STEPS = 6`.
-- [ ] Register both step constants. Replace `launchDesignNotes`, `launchFeaturesNotes` and `launchWipNotes` with real notes. The WIP notes remind Donald to check whether notifications has merged by talk day.
-- [ ] Check: the standard check.
-- [ ] Commit: `feat: launch design, features and WIP slides`
+- [x] `LaunchDesignSlide`: two labelled swatch rows. "Then" uses `ke.don.design.theme.Pre2026Palette` (ChaiBlue, ChaiRed, ChaiTeal, ChaiCoal, ChaiLightGrey); "now" uses the live `MaterialTheme.colorScheme` (primary, secondary, secondaryContainer, tertiary, background). Each swatch has its hex below. Add `CommitTag`s `87d23cb7` (Chai on Material 3 Expressive) and `eb7c436e` (2026 identity). Add a `MediaPlaceholder("Screenshot: home, before and after")`.
+- [x] `LaunchFeaturesSlide`: a reveal of five done items: cube hero (`5941f20f`), Glance widget (`4492346b`), adaptive large-screen layouts, speaker details fix, sponsor logo contrast fix. Add a `MediaPlaceholder("Screen recording: cube hero and widget")`. `LAUNCH_FEATURES_STEPS = 5`.
+- [x] `LaunchWipSlide`: "Notifications, on `feat/notifications`, not yet on main (2026-10-23)". Reveal "Done so far": channels, reminders, preferences, deep links. Then "Still to do": topic subscriptions, reminder actions, styled in `onSurfaceVariant`. `LAUNCH_WIP_STEPS = 6`.
+- [x] Register both step constants. Replace `launchDesignNotes`, `launchFeaturesNotes` and `launchWipNotes` with real notes. The WIP notes remind Donald to check whether notifications has merged by talk day.
+- [x] Check: the standard check.
+- [x] Commit: `feat: launch design, features and WIP slides`
 
 ### Task 10: Future slides
 **Serves:** R7, R9

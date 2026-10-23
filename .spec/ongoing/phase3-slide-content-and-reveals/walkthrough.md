@@ -2,11 +2,11 @@
 
 ## Current state
 
-- Tasks 1 to 8 done and committed (through the launch stack, modules and perf slides).
-- Next: Task 9 (launch: design, features, WIP), then 10 to 12.
-- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tiles count up and shrink, history reveals 4 then 3, `detour-kmp` 3 steps, `launch-modules` 3 groups) are left to the user.
+- Tasks 1 to 9 done and committed (through the launch design, features and WIP slides).
+- Next: Task 10 (future slides), then 11 and 12.
+- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tiles, history reveals 4 then 3, `detour-kmp` 3, `launch-modules` 3, `launch-features` 5, `launch-wip` 6) are left to the user.
 - `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
-- Presenters should check the KMP note's attribution wording (see Task 7).
+- Presenters: check the KMP note's attribution (Task 7); check whether notifications has merged by talk day (Task 9).
 
 ## How to verify
 
@@ -19,6 +19,7 @@
 - Task 6: compile check passes. User: on desktop, Right reveals 4 steps on `history-bootstrap` and 3 on `history-plugins`.
 - Task 7: compile check passes. User: on desktop, Right reveals 3 rollback items on `detour-kmp`.
 - Task 8: compile check passes. User: on desktop, the three perf tiles count up, shrink, show down arrows, all green; Right reveals 3 module groups.
+- Task 9: compile check passes. User: on desktop, Right reveals 5 items on `launch-features` and 6 on `launch-wip`; swatch labels fit on `launch-design`.
 
 ## Changes by task
 
@@ -61,6 +62,11 @@
 - `SlidesNotes.kt`: real launch notes for Donald Isoe, no draft line. Perf note says APK and size figures are download size and the 35% figure is startup only.
 - `docs/talk/history.md` and `outline.md`: added the sourced "startup time 35% faster (Harun Wangereka)" fact, as the task asks.
 - Reviewer NOTE: `launchModulesNotes` says the split came with the pull request workflow (outline's `pr.yml` claim, `d66ca423`); supported, optionally name the commit.
+
+### Task 9: Launch: design, features, WIP
+- `LaunchSlides.kt`: `LaunchDesignSlide` (`Pre2026Palette` swatches vs live `colorScheme` swatches with hex labels, `87d23cb7`, `eb7c436e`, media placeholder), `LaunchFeaturesSlide` (5 reveals, `LAUNCH_FEATURES_STEPS = 5`; only cube hero and widget carry SHAs, as the outline gives no others), `LaunchWipSlide` (6 reveals: four done, two muted still to do; `LAUNCH_WIP_STEPS = 6`). Steps registered.
+- `SlidesNotes.kt`: real notes for Donald Isoe, with a reminder to check whether notifications has merged by talk day.
+- Reviewer NOTE: swatch labels such as "secondaryContainer" and "ChaiLightGrey" may wrap on a small window.
 
 ## Deviations from spec
 

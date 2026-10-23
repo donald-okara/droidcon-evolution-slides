@@ -17,7 +17,9 @@ import ke.don.demos.droidcon.history.HISTORY_PLUGINS_STEPS
 import ke.don.demos.droidcon.history.HistoryBootstrapSlide
 import ke.don.demos.droidcon.history.HistoryChurnSlide
 import ke.don.demos.droidcon.history.HistoryPluginsSlide
+import ke.don.demos.droidcon.launch.LAUNCH_FEATURES_STEPS
 import ke.don.demos.droidcon.launch.LAUNCH_MODULES_STEPS
+import ke.don.demos.droidcon.launch.LAUNCH_WIP_STEPS
 import ke.don.demos.droidcon.launch.LaunchDesignSlide
 import ke.don.demos.droidcon.launch.LaunchFeaturesSlide
 import ke.don.demos.droidcon.launch.LaunchModulesSlide
@@ -109,12 +111,22 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             slide(label = "launch-design", notes = launchDesignNotes, transition = ScreenTransition.Fade) {
                 LaunchDesignSlide()
             }
-            slide(label = "launch-features", notes = launchFeaturesNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "launch-features",
+                notes = launchFeaturesNotes,
+                transition = ScreenTransition.Fade,
+                steps = LAUNCH_FEATURES_STEPS
+            ) {
                 LaunchFeaturesSlide()
             }
 
             // Section 5: 2026 update, work in progress
-            slide(label = "launch-wip", notes = launchWipNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "launch-wip",
+                notes = launchWipNotes,
+                transition = ScreenTransition.Fade,
+                steps = LAUNCH_WIP_STEPS
+            ) {
                 LaunchWipSlide()
             }
 
