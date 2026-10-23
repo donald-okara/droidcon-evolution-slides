@@ -24,12 +24,12 @@
 **Serves:** R2
 **Files:** docs/talk/outline.md (new)
 
-- [ ] Read `docs/talk/history.md`, `context.md` (rules 1 and 2), and `docs/architecture.md` ("The talk").
-- [ ] Write a one-line thesis, then the arc: an opening, one section per era (or merged eras), lessons, and Q&A.
-- [ ] Give each section a minute budget, adding up to 45 including Q&A, and a presenter (`Presenter 1`, `Presenter 2`, `Presenter 3`; all three used). Show the sum at the bottom.
-- [ ] Add a slide list table: section, slide label, one-line intent, and a "Reveal" column for slides that disclose points step by step (one slide, not duplicates).
-- [ ] Check: budgets add up to 45, every section has a presenter, and no duplicated reveal slides.
-- [ ] Commit: `docs: draft talk outline`
+- [x] Read `docs/talk/history.md`, `context.md` (rules 1 and 2), and `docs/architecture.md` ("The talk").
+- [x] Write a one-line thesis, then the arc: an opening, one section per era (or merged eras), lessons, and Q&A.
+- [x] Give each section a minute budget, adding up to 45 including Q&A, and a presenter (`Presenter 1`, `Presenter 2`, `Presenter 3`; all three used). Show the sum at the bottom.
+- [x] Add a slide list table: section, slide label, one-line intent, and a "Reveal" column for slides that disclose points step by step (one slide, not duplicates).
+- [x] Check: budgets add up to 45, every section has a presenter, and no duplicated reveal slides.
+- [x] Commit: `docs: draft talk outline`
 
 ### Task 3: Write the abstract
 **Serves:** R3
