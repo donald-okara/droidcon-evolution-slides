@@ -46,72 +46,72 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             ) {
                 OpeningTitleSlide()
             }
-            slide(label = "opening-thesis", notes = openingThesisNotes) {
+            slide(label = "opening-thesis", notes = openingThesisNotes, transition = ScreenTransition.Fade) {
                 OpeningThesisSlide()
             }
 
             // Section 2: History, 2023
-            slide(label = "history-bootstrap", notes = historyBootstrapNotes) {
+            slide(label = "history-bootstrap", notes = historyBootstrapNotes, transition = ScreenTransition.Fade) {
                 HistoryBootstrapSlide()
             }
-            slide(label = "history-plugins", notes = historyPluginsNotes) {
+            slide(label = "history-plugins", notes = historyPluginsNotes, transition = ScreenTransition.Fade) {
                 HistoryPluginsSlide()
             }
-            slide(label = "history-churn", notes = historyChurnNotes) {
+            slide(label = "history-churn", notes = historyChurnNotes, transition = ScreenTransition.Fade) {
                 HistoryChurnSlide()
             }
 
             // Section 3: Detours and dormant years
-            slide(label = "detour-kmm", notes = detourKmmNotes) {
+            slide(label = "detour-kmm", notes = detourKmmNotes, transition = ScreenTransition.Fade) {
                 DetourKmmSlide()
             }
-            slide(label = "detour-kmp", notes = detourKmpNotes) {
+            slide(label = "detour-kmp", notes = detourKmpNotes, transition = ScreenTransition.Fade) {
                 DetourKmpSlide()
             }
-            slide(label = "dormant-years", notes = dormantYearsNotes) {
+            slide(label = "dormant-years", notes = dormantYearsNotes, transition = ScreenTransition.Fade) {
                 DormantYearsSlide()
             }
 
             // Section 4: 2026 update, done
-            slide(label = "launch-stack", notes = launchStackNotes) {
+            slide(label = "launch-stack", notes = launchStackNotes, transition = ScreenTransition.Fade) {
                 LaunchStackSlide()
             }
-            slide(label = "launch-modules", notes = launchModulesNotes) {
+            slide(label = "launch-modules", notes = launchModulesNotes, transition = ScreenTransition.Fade) {
                 LaunchModulesSlide()
             }
-            slide(label = "launch-perf", notes = launchPerfNotes) {
+            slide(label = "launch-perf", notes = launchPerfNotes, transition = ScreenTransition.Fade) {
                 LaunchPerfSlide()
             }
-            slide(label = "launch-design", notes = launchDesignNotes) {
+            slide(label = "launch-design", notes = launchDesignNotes, transition = ScreenTransition.Fade) {
                 LaunchDesignSlide()
             }
-            slide(label = "launch-features", notes = launchFeaturesNotes) {
+            slide(label = "launch-features", notes = launchFeaturesNotes, transition = ScreenTransition.Fade) {
                 LaunchFeaturesSlide()
             }
 
             // Section 5: 2026 update, work in progress
-            slide(label = "launch-wip", notes = launchWipNotes) {
+            slide(label = "launch-wip", notes = launchWipNotes, transition = ScreenTransition.Fade) {
                 LaunchWipSlide()
             }
 
             // Section 6: The improvement plan
-            slide(label = "future-plan", notes = futurePlanNotes) {
+            slide(label = "future-plan", notes = futurePlanNotes, transition = ScreenTransition.Fade) {
                 FuturePlanSlide()
             }
-            slide(label = "future-roadmap", notes = futureRoadmapNotes) {
+            slide(label = "future-roadmap", notes = futureRoadmapNotes, transition = ScreenTransition.Fade) {
                 FutureRoadmapSlide()
             }
-            slide(label = "future-invite", notes = futureInviteNotes) {
+            slide(label = "future-invite", notes = futureInviteNotes, transition = ScreenTransition.Fade) {
                 FutureInviteSlide()
             }
 
             // Section 7: Lessons and close
-            slide(label = "lessons", notes = lessonsNotes) {
+            slide(label = "lessons", notes = lessonsNotes, transition = ScreenTransition.Fade) {
                 LessonsSlide()
             }
 
             // Section 8: Q&A
-            slide(label = "qa", notes = qaNotes, showFooter = false) {
+            slide(label = "qa", notes = qaNotes, transition = ScreenTransition.Fade, showFooter = false) {
                 QaSlide()
             }
         }

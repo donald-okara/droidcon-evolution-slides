@@ -157,9 +157,9 @@ This task writes perspective drawing code; run the implementer on Sonnet.
 **Serves:** R9
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit)
 
-- [ ] In `skiPresentationSlides()`, give every `slide(...)` call `transition = ScreenTransition.Fade` (`opening-title` already has it). Change nothing else: labels, notes, `showFooter` and order stay as they are. Do not edit `:core:domain` or `:shared:components`.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "ScreenTransition.Fade" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` prints 19; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) slides fade forward and back in both windows.
-- [ ] Commit: `feat: fade between slides`
+- [x] In `skiPresentationSlides()`, give every `slide(...)` call `transition = ScreenTransition.Fade` (`opening-title` already has it). Change nothing else: labels, notes, `showFooter` and order stay as they are. Do not edit `:core:domain` or `:shared:components`.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "ScreenTransition.Fade" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` prints 19; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) slides fade forward and back in both windows.
+- [x] Commit: `feat: fade between slides`
 
 ### Task 15: Per-theme checker alpha (revises Task 13)
 **Serves:** R8
