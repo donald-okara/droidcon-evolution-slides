@@ -36,10 +36,10 @@
 **Files:** docs/talk/abstract.md (new)
 **Pattern:** docs/abstract-template.md
 
-- [ ] Fill every section of `docs/abstract-template.md` from `docs/talk/outline.md` (thesis, approach) and `docs/talk/history.md` (facts). Remove the template comments.
-- [ ] Title is a claim or question under 10 words. Level, prerequisites, and format (45 min, with Q&A) are filled in. The speaker line lists `Presenter 1`, `Presenter 2`, `Presenter 3`.
-- [ ] Check: the body (excluding title and the metadata lines) is 100 to 150 words by `wc -w`, and every template section is present.
-- [ ] Commit: `docs: add talk abstract`
+- [x] Fill every section of `docs/abstract-template.md` from `docs/talk/outline.md` (thesis, approach) and `docs/talk/history.md` (facts). Remove the template comments.
+- [x] Title is a claim or question under 10 words. Level, prerequisites, and format (45 min, with Q&A) are filled in. The speaker line lists `Presenter 1`, `Presenter 2`, `Presenter 3`.
+- [x] Check: the body (excluding title and the metadata lines) is 100 to 150 words by `wc -w`, and every template section is present.
+- [x] Commit: `docs: add talk abstract`
 
 ### Task 4: Inventory the droidcon design language
 **Serves:** R4, NF1
