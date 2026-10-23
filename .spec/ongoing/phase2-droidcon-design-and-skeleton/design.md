@@ -49,3 +49,8 @@
 **Decision:** The floor cells use alpha 0.10 in both themes, up from 0.06. Changes R8; Task 13 reworks Task 12.
 **Why:** Maintainer review 3, 2026-10-23: the checkers were too faint.
 **Tradeoff:** Neon green reads weaker on light surfaces than on dark; a per-theme alpha is deferred.
+
+### Fade transitions and per-theme checker alpha (2026-10-23)
+**Decision:** Every slide uses `ScreenTransition.Fade`, set per slide in `skiPresentationSlides()` (adds R9; Task 14). The floor cells use alpha 0.20 in light and 0.25 in dark (changes R8; Task 15 reworks Task 13), which drops the per-theme deferral. Ticked Tasks 12 and 13 need no change beyond Task 15.
+**Why:** Maintainer review 4, 2026-10-23.
+**Tradeoff:** Setting the transition on each slide repeats it 19 times but keeps `:core:domain` and the library untouched. A stronger floor raises the risk to text legibility, so it is checked on desktop.

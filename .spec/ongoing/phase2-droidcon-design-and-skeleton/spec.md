@@ -40,10 +40,14 @@
 - **Check:** `grep -rn "ke.don.demos\.\(FeatureSlide\|FramesDemo\|RevealDemo\|KodeViewerSlide\)" composeApp` returns nothing; `ls segments/demos/src/commonMain/kotlin/ke/don/demos` shows only `droidcon/` and `VideoPlayer.kt`.
 
 ### R8. Droidcon background
-- The deck background is a checkered floor in perspective (Star Wars crawl style) in the Chai neon green at alpha 0.10 (same in light and dark), scrolling slowly and continuously toward the horizon; it is visible at a glance but quiet, and never hurts text legibility in light or dark.
+- The deck background is a checkered floor in perspective (Star Wars crawl style) in the Chai neon green at alpha 0.20 in light and 0.25 in dark, scrolling slowly and continuously toward the horizon; it is clearly visible and never hurts text legibility in light or dark.
 - The animated cube hero is the background decorator at bottom-right, replacing the Android robot.
 - Built in `:composeApp` against the public `Background` interface; `:shared:components` is unchanged.
 - **Check:** `./gradlew :desktopApp:run`; both windows show the faint moving floor and the animated cube; slide text stays readable.
+
+### R9. Fade transitions
+- Every slide enters and leaves with a fade (`ScreenTransition.Fade`), not a swipe, in both windows and in both directions.
+- **Check:** every `slide(...)` call in `SkiPresentationSlides.kt` passes `transition = ScreenTransition.Fade`; stepping forward and back on `./gradlew :desktopApp:run` shows fades.
 
 ## Non-Functional Requirements
 

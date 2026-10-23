@@ -2,12 +2,13 @@
 
 ## Current state
 
-- Done: Tasks 1 to 13 (all tasks; checker alpha now 0.10 in light and dark).
-- Next: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
-- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (visible at a glance, moving, text readable in light and dark), cube animation, 19 slides in order, no footer on opening-title and qa.
+- Done: Tasks 1 to 13.
+- Next: Task 14 (fade transitions), then Task 15 (checker alpha 0.20 light / 0.25 dark), from review 4.
+- Then: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
+- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (clearly visible, moving, text readable in light and dark), fades forward and back, cube animation, 19 slides in order, no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
-- Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; the maintainer's "full opacity" was applied to the decorator only.
-- Deferred: removals of unused code and resources (see the overview's Out of Scope); per-theme checker alpha.
+- Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; "full opacity" was applied to the decorator only.
+- Deferred: removals of unused code and resources (see the overview's Out of Scope).
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 

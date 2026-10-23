@@ -6,8 +6,9 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 1. Montserrat font ───────────────┐
 2. Droidcon colours ──────────────┼─> 7. Placeholder + sections 1-3 ─> 8. Sections 4-8 ─┐
 3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos ─┬─> 11. Logo-only header, green dot bullet
-4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘                    └─> 12. Checkered floor background + cube decorator ─> 13. Checker alpha 0.10
-   (5 also needs 2; 11 and 12 are independent of each other)
+4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘                    ├─> 12. Checkered floor background + cube decorator ─> 13. Checker alpha 0.10 ─> 15. Per-theme checker alpha
+                                                                                                                                    └─> 14. Fade transitions
+   (5 also needs 2; 11, 12 and 14 are independent of each other)
 ```
 
 ---
@@ -151,3 +152,19 @@ This task writes perspective drawing code; run the implementer on Sonnet.
 - [x] Change the floor cells' alpha from 0.06 to 0.10, the same in light and dark. Change nothing else (horizon, scroll speed and cube unchanged; the cube stays at full opacity).
 - [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are visible at a glance and slide text stays readable in light and dark.
 - [x] Commit: `feat: make background checkers more visible`
+
+### Task 14: Fade transitions on every slide
+**Serves:** R9
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit)
+
+- [ ] In `skiPresentationSlides()`, give every `slide(...)` call `transition = ScreenTransition.Fade` (`opening-title` already has it). Change nothing else: labels, notes, `showFooter` and order stay as they are. Do not edit `:core:domain` or `:shared:components`.
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "ScreenTransition.Fade" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` prints 19; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) slides fade forward and back in both windows.
+- [ ] Commit: `feat: fade between slides`
+
+### Task 15: Per-theme checker alpha (revises Task 13)
+**Serves:** R8
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/background/DroidconBackground.kt` (edit)
+
+- [ ] Change the floor cells' alpha from 0.10 to 0.20 in light and 0.25 in dark, choosing by the same dark-theme signal the deck already uses (e.g. the one that picks the light or dark logo). Change nothing else: horizon, scroll speed and cube stay as they are.
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.10f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are clearly visible and slide text stays readable in light and dark.
+- [ ] Commit: `feat: per-theme checker alpha`

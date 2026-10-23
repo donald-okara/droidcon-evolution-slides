@@ -11,7 +11,8 @@ Give the deck the droidcon Kenya 2026 look (palette, Montserrat, logo, cube hero
 - The droidcon logo (light and dark) as SVG resources.
 - The cube hero ported to common Compose code, with a static cube bullet.
 - The snake frame as the deck's main frame, with a header showing only the logo and a footer with a neon-green dot bullet.
-- A deck background: a faint neon-green checkered floor scrolling toward the horizon (Star Wars crawl style), with the animated cube as the decorator.
+- A deck background: a neon-green checkered floor scrolling toward the horizon (Star Wars crawl style), with the animated cube as the decorator.
+- Fade transitions between every slide.
 - The 19 slides from `docs/talk/outline.md`, in order, with exact labels, each a named placeholder composable with placeholder notes.
 - The 18 Ski demo slides, their notes and their demo-only composables removed.
 
@@ -21,13 +22,12 @@ Give the deck the droidcon Kenya 2026 look (palette, Montserrat, logo, cube hero
 - Screen recordings, screenshots and presenter photos (phase 3, once the presenters choose).
 - Rehearsal polish, app identity rename (`ke.don.ski`, "ski") (phase 4).
 - Removing the `:segments:introduction` module and the component gallery.
-- Deferred: a different checker alpha per theme (light vs dark); one value, 0.10, for now (review 3, 2026-10-23).
 - Any change to the published library `:shared:components`.
 - Deferred: removing unused code and resources (review 2 asked; maintainer chose to skip for now, 2026-10-23). Candidates: `MainHeader`'s `mode` param, unread `LocalChaiColors`, `prepareCubeMarks`, `CubeBullet`, Google Sans and Roboto Mono ExtraLight TTFs, IAN/IVANA/ANDROID_ROBOT images, `APP_NAME`, `VideoPlayer*` and `sample_video.mov`, `:segments:introduction`, the component gallery.
 
 ## Success Criteria
 
-- `./gradlew :desktopApp:run` opens both windows on `opening-title`, and stepping through shows 19 slides in outline order, droidcon colours, Montserrat text, the logo in the header, a green dot bullet in the footer, and the faint checkered floor with the animated cube behind the slides.
+- `./gradlew :desktopApp:run` opens both windows on `opening-title`, and stepping through shows 19 slides in outline order, droidcon colours, Montserrat text, the logo in the header, a green dot bullet in the footer, the checkered floor with the animated cube behind the slides, and fades between slides.
 - No Ski demo slide or Ski purple remains in the deck.
 - `./gradlew :webApp:wasmJsBrowserDistribution` succeeds.
 
