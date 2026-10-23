@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import ke.don.demos.droidcon.talk.BreakItSlide
+import ke.don.demos.droidcon.talk.COLD_TITLE_LABEL
 import ke.don.demos.droidcon.talk.CodeGrewSlide
 import ke.don.demos.droidcon.talk.ChaiSlide
 import ke.don.demos.droidcon.talk.CommunityPeakSlide
@@ -54,7 +55,7 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
         ) {
             // Act 0: Cold open
             slide(
-                label = "cold-title",
+                label = COLD_TITLE_LABEL,
                 notes = titleNotes,
                 transition = ScreenTransition.Fade,
                 showFooter = false

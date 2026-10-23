@@ -36,9 +36,15 @@ private const val ROWS = 30
 private const val COLUMNS_ACROSS = 6f
 private const val TILE_MILLIS = 4000
 
-/** Checkered perspective floor scrolling toward the horizon, with the cube hero at bottom-end. */
+/**
+ * Checkered perspective floor scrolling toward the horizon, with the cube hero at bottom-end.
+ *
+ * @param cubeVisible Whether the corner cube is drawn right now. Read on every composition, so a slide can hide it.
+ */
 @Stable
-class DroidconBackground : Background {
+class DroidconBackground(
+    private val cubeVisible: () -> Boolean = { true },
+) : Background {
     // Unused: Render() draws everything itself.
     override val pattern: Pattern = Pattern.Wavy(colors = emptyList())
     override val decoratorImage: DecoratorImage? = null
@@ -91,10 +97,12 @@ class DroidconBackground : Background {
                     }
                 }
             }
-            CubeHero(
-                size = 200.dp,
-                modifier = Modifier.align(alignment).padding(16.dp),
-            )
+            if (cubeVisible()) {
+                CubeHero(
+                    size = 200.dp,
+                    modifier = Modifier.align(alignment).padding(16.dp),
+                )
+            }
         }
     }
 }

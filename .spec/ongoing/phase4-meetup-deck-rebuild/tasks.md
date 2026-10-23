@@ -160,6 +160,6 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Serves:** R12, R11
 **Files:** `segments/demos/.../droidcon/talk/ColdOpenSlides.kt` (edit)
 
-- [ ] On `TitleSlide` (S01), use the cube hero (the current decorator background image) as a large hero, filling most of the slide height. Keep the face-on turn entrance and the title and subtitle readable over or beside it.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: look at S01 on `:desktopApp:run`.
-- [ ] Commit: `feat: big cube hero on the title slide`
+- [x] On `TitleSlide` (S01), use the cube hero (the current decorator background image) as a large hero, filling most of the slide height. Keep the face-on turn entrance and the title and subtitle readable over or beside it.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: look at S01 on `:desktopApp:run`.
+- [x] Commit: `feat: big cube hero on the title slide`

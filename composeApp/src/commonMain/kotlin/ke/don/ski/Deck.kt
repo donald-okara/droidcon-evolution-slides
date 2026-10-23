@@ -3,6 +3,7 @@ package ke.don.ski
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import ke.don.demos.droidcon.talk.COLD_TITLE_LABEL
 import ke.don.domain.frames.FrameBuilder
 import io.github.donald_okara.components.frames.defaultSkiFrames
 import ke.don.domain.frames.LocalSkiFrames
@@ -45,7 +46,10 @@ fun Deck(
             .setOpacity(FRAME_OPACITY)
             .build()
 
-        val background = remember { DroidconBackground() }
+        // The title slide shows the cube as its own large hero, so the background cube steps aside there.
+        val background = remember(navigator) {
+            DroidconBackground(cubeVisible = { navigator.currentSlide.label != COLD_TITLE_LABEL })
+        }
 
 
         CompositionLocalProvider(
