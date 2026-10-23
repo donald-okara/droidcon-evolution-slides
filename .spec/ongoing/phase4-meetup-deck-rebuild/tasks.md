@@ -129,10 +129,10 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit), `SlidesNotes.kt` (edit), `segments/demos/.../droidcon/{opening,history,launch,future,close}/` (delete)
 **Pattern:** the current `SkiPresentationSlides.kt`
 
-- [ ] Rewrite `skiPresentationSlides()` to register the 31 slides in outline order with outline labels, `transition = ScreenTransition.Fade`, `steps = *_STEPS` for reveal slides (S04, S24, S29) and `showFooter = false` where noted.
-- [ ] Delete the phase 3 slide files listed above and every now-unused notes constant; keep `common/` and anything the new slides import (move `LaunchDesignSlide` swatch helpers into `common/` first if Task 8 imports them).
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "label =" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` equals 31; `git diff --stat e02c712 -- shared/components` is empty.
-- [ ] Commit: `feat: register meetup deck, remove phase 3 slides`
+- [x] Rewrite `skiPresentationSlides()` to register the 31 slides in outline order with outline labels, `transition = ScreenTransition.Fade`, `steps = *_STEPS` for reveal slides (S04, S24, S29) and `showFooter = false` where noted.
+- [x] Delete the phase 3 slide files listed above and every now-unused notes constant; keep `common/` and anything the new slides import (move `LaunchDesignSlide` swatch helpers into `common/` first if Task 8 imports them).
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "label =" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` equals 31; `git diff --stat e02c712 -- shared/components` is empty.
+- [x] Commit: `feat: register meetup deck, remove phase 3 slides`
 
 ### Task 12: Delight audit, polish and full build
 **Serves:** R9, R11, NF1, NF2

@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-10 done (through lessons and close slides S27-S31).
-- Next: Task 11 (register the 31 slides, remove phase 3 slides).
-- Open: old phase 3 note at SlidesNotes.kt:79 contains "35% faster"; Task 11 removes it. S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. S31 `showFooter` decided in Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
+- Tasks 1-11 done: the 31-slide meetup deck is registered and phase 3 slides are removed.
+- Next: Task 12 (delight audit, polish, full build; user steps through on `:desktopApp:run`).
+- Open: confirm `showFooter = false` on S01 and S31 against the outline. Notes constants use the talk tasks' names, not literal `<label>Notes` as spec.md:41 says. S05 marks only the Oct 2026 meetup month. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs`; `grep -c "label ="` on SkiPresentationSlides.kt is 31; `git diff --stat e02c712 -- shared/components` is empty.
 - Task 10: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 9: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 8: Task 5 compile check; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
@@ -72,6 +73,11 @@
 - `talk/LessonsActSlides.kt`: `LostAndFoundSlide`, `UncomfortableChartSlide`, `EightYearsTeachSlide` (`EIGHT_YEARS_STEPS = 4`), `ThankYouSlide`, `BreakItSlide`; notes in `SlidesNotes.kt` (S30 has the "Pass the mic" guest list).
 - Delight: S27 rows drop in staggered; S28 flat community bar vs growing code bar, tagline pops in; S29 numbered disc per lesson; S30 names pop in; S31 cockroach wiggles.
 - NOTE: S28 large number is "5" (people committing in 2026, 41 in 2023); each chart scales to its own max. Review fix round: added the focal number.
+
+### Task 11: Register the new deck and remove the old slides
+- `SkiPresentationSlides.kt` registers 31 slides in outline order, Fade transition; steps on S04, S24, S29; `showFooter = false` on S01 and S31.
+- Deleted `droidcon/{opening,history,launch,future,close}/` and 130 lines of phase 3 notes (the "35% faster" note is gone). `common/` untouched.
+- NOTE: notes constants keep the talk tasks' names rather than literal `<label>Notes` (spec.md:41).
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.

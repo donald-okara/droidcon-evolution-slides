@@ -3,33 +3,40 @@ package ke.don.ski.presentation.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import ke.don.demos.droidcon.close.LESSONS_STEPS
-import ke.don.demos.droidcon.close.LessonsSlide
-import ke.don.demos.droidcon.close.QaSlide
-import ke.don.demos.droidcon.future.FutureInviteSlide
-import ke.don.demos.droidcon.future.FuturePlanSlide
-import ke.don.demos.droidcon.future.FUTURE_ROADMAP_STEPS
-import ke.don.demos.droidcon.future.FutureRoadmapSlide
-import ke.don.demos.droidcon.history.DetourKmmSlide
-import ke.don.demos.droidcon.history.DetourKmpSlide
-import ke.don.demos.droidcon.history.DETOUR_KMP_STEPS
-import ke.don.demos.droidcon.history.DormantYearsSlide
-import ke.don.demos.droidcon.history.HISTORY_BOOTSTRAP_STEPS
-import ke.don.demos.droidcon.history.HISTORY_PLUGINS_STEPS
-import ke.don.demos.droidcon.history.HistoryBootstrapSlide
-import ke.don.demos.droidcon.history.HistoryChurnSlide
-import ke.don.demos.droidcon.history.HistoryPluginsSlide
-import ke.don.demos.droidcon.launch.LAUNCH_FEATURES_STEPS
-import ke.don.demos.droidcon.launch.LAUNCH_MODULES_STEPS
-import ke.don.demos.droidcon.launch.LAUNCH_WIP_STEPS
-import ke.don.demos.droidcon.launch.LaunchDesignSlide
-import ke.don.demos.droidcon.launch.LaunchFeaturesSlide
-import ke.don.demos.droidcon.launch.LaunchModulesSlide
-import ke.don.demos.droidcon.launch.LaunchPerfSlide
-import ke.don.demos.droidcon.launch.LaunchStackSlide
-import ke.don.demos.droidcon.launch.LaunchWipSlide
-import ke.don.demos.droidcon.opening.OpeningThesisSlide
-import ke.don.demos.droidcon.opening.OpeningTitleSlide
+import ke.don.demos.droidcon.talk.BreakItSlide
+import ke.don.demos.droidcon.talk.CodeGrewSlide
+import ke.don.demos.droidcon.talk.ChaiSlide
+import ke.don.demos.droidcon.talk.CommunityPeakSlide
+import ke.don.demos.droidcon.talk.CubeWidgetSlide
+import ke.don.demos.droidcon.talk.EIGHT_YEARS_STEPS
+import ke.don.demos.droidcon.talk.EightYearsTeachSlide
+import ke.don.demos.droidcon.talk.FAMILY_TREE_STEPS
+import ke.don.demos.droidcon.talk.FamilyTreeSlide
+import ke.don.demos.droidcon.talk.FollowsConferenceSlide
+import ke.don.demos.droidcon.talk.KmpThreadSlide
+import ke.don.demos.droidcon.talk.LIVE_DEMO_STEPS
+import ke.don.demos.droidcon.talk.LiveDemoSlide
+import ke.don.demos.droidcon.talk.LostAndFoundSlide
+import ke.don.demos.droidcon.talk.MeasuredSlide
+import ke.don.demos.droidcon.talk.ModulesSlide
+import ke.don.demos.droidcon.talk.Navigation3Slide
+import ke.don.demos.droidcon.talk.NewLookSlide
+import ke.don.demos.droidcon.talk.OneRepoSlide
+import ke.don.demos.droidcon.talk.QuietYearSlide
+import ke.don.demos.droidcon.talk.SameAppSlide
+import ke.don.demos.droidcon.talk.SeasonsSlide
+import ke.don.demos.droidcon.talk.StackSlide
+import ke.don.demos.droidcon.talk.ThankYouSlide
+import ke.don.demos.droidcon.talk.TitleSlide
+import ke.don.demos.droidcon.talk.TodaySlide
+import ke.don.demos.droidcon.talk.TwoReadersSlide
+import ke.don.demos.droidcon.talk.UncomfortableChartSlide
+import ke.don.demos.droidcon.talk.Y2018CloneSlide
+import ke.don.demos.droidcon.talk.Y2018FirstSlide
+import ke.don.demos.droidcon.talk.Y2019Slide
+import ke.don.demos.droidcon.talk.Y2020ModularSlide
+import ke.don.demos.droidcon.talk.Y2020NoConferenceSlide
+import ke.don.demos.droidcon.talk.Y2022ComposeSlide
 import ke.don.domain.ScreenTransition
 import ke.don.domain.SlideConfig
 import ke.don.domain.SlidesConstants.SESSION_DURATION
@@ -45,122 +52,150 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
         generateDeck(
             timerController = timerController
         ) {
-            // Section 1: Opening
+            // Act 0: Cold open
             slide(
-                label = "opening-title",
-                notes = openingTitleNotes,
+                label = "cold-title",
+                notes = titleNotes,
                 transition = ScreenTransition.Fade,
                 showFooter = false
             ) {
-                OpeningTitleSlide()
+                TitleSlide()
             }
-            slide(label = "opening-thesis", notes = openingThesisNotes, transition = ScreenTransition.Fade) {
-                OpeningThesisSlide()
+            slide(label = "cold-today", notes = todayNotes, transition = ScreenTransition.Fade) {
+                TodaySlide()
+            }
+            slide(label = "cold-same-app", notes = sameAppNotes, transition = ScreenTransition.Fade) {
+                SameAppSlide()
+            }
+            slide(
+                label = "cold-family-tree",
+                notes = familyTreeNotes,
+                transition = ScreenTransition.Fade,
+                steps = FAMILY_TREE_STEPS
+            ) {
+                FamilyTreeSlide()
+            }
+            slide(label = "cold-seasons", notes = seasonsNotes, transition = ScreenTransition.Fade) {
+                SeasonsSlide()
             }
 
-            // Section 2: History, 2023
-            slide(
-                label = "history-bootstrap",
-                notes = historyBootstrapNotes,
-                transition = ScreenTransition.Fade,
-                steps = HISTORY_BOOTSTRAP_STEPS
-            ) {
-                HistoryBootstrapSlide()
+            // Act 1: 2018, an I/O clone
+            slide(label = "y2018-first", notes = y2018FirstNotes, transition = ScreenTransition.Fade) {
+                Y2018FirstSlide()
             }
-            slide(
-                label = "history-plugins",
-                notes = historyPluginsNotes,
-                transition = ScreenTransition.Fade,
-                steps = HISTORY_PLUGINS_STEPS
-            ) {
-                HistoryPluginsSlide()
-            }
-            slide(label = "history-churn", notes = historyChurnNotes, transition = ScreenTransition.Fade) {
-                HistoryChurnSlide()
+            slide(label = "y2018-clone", notes = y2018CloneNotes, transition = ScreenTransition.Fade) {
+                Y2018CloneSlide()
             }
 
-            // Section 3: Detours and dormant years
-            slide(label = "detour-kmm", notes = detourKmmNotes, transition = ScreenTransition.Fade) {
-                DetourKmmSlide()
-            }
-            slide(
-                label = "detour-kmp",
-                notes = detourKmpNotes,
-                transition = ScreenTransition.Fade,
-                steps = DETOUR_KMP_STEPS
-            ) {
-                DetourKmpSlide()
-            }
-            slide(label = "dormant-years", notes = dormantYearsNotes, transition = ScreenTransition.Fade) {
-                DormantYearsSlide()
+            // Act 2: 2019, all Jetpack
+            slide(label = "y2019-all-jetpack", notes = y2019AllJetpackNotes, transition = ScreenTransition.Fade) {
+                Y2019Slide()
             }
 
-            // Section 4: 2026 update, done
-            slide(label = "launch-stack", notes = launchStackNotes, transition = ScreenTransition.Fade) {
-                LaunchStackSlide()
+            // Act 3: 2020, the modular one
+            slide(label = "y2020-modular", notes = y2020ModularNotes, transition = ScreenTransition.Fade) {
+                Y2020ModularSlide()
             }
             slide(
-                label = "launch-modules",
-                notes = launchModulesNotes,
-                transition = ScreenTransition.Fade,
-                steps = LAUNCH_MODULES_STEPS
+                label = "y2020-no-conference",
+                notes = y2020NoConferenceNotes,
+                transition = ScreenTransition.Fade
             ) {
-                LaunchModulesSlide()
-            }
-            slide(label = "launch-perf", notes = launchPerfNotes, transition = ScreenTransition.Fade) {
-                LaunchPerfSlide()
-            }
-            slide(label = "launch-design", notes = launchDesignNotes, transition = ScreenTransition.Fade) {
-                LaunchDesignSlide()
-            }
-            slide(
-                label = "launch-features",
-                notes = launchFeaturesNotes,
-                transition = ScreenTransition.Fade,
-                steps = LAUNCH_FEATURES_STEPS
-            ) {
-                LaunchFeaturesSlide()
+                Y2020NoConferenceSlide()
             }
 
-            // Section 5: 2026 update, work in progress
-            slide(
-                label = "launch-wip",
-                notes = launchWipNotes,
-                transition = ScreenTransition.Fade,
-                steps = LAUNCH_WIP_STEPS
-            ) {
-                LaunchWipSlide()
+            // Act 4: 2022, Compose arrives
+            slide(label = "y2022-compose", notes = y2022ComposeNotes, transition = ScreenTransition.Fade) {
+                Y2022ComposeSlide()
+            }
+            slide(label = "y2022-chai", notes = chaiNotes, transition = ScreenTransition.Fade) {
+                ChaiSlide()
             }
 
-            // Section 6: The improvement plan
-            slide(label = "future-plan", notes = futurePlanNotes, transition = ScreenTransition.Fade) {
-                FuturePlanSlide()
+            // Act 5: 2023 to 2025, one repo
+            slide(label = "y2023-one-repo", notes = oneRepoNotes, transition = ScreenTransition.Fade) {
+                OneRepoSlide()
             }
-            slide(
-                label = "future-roadmap",
-                notes = futureRoadmapNotes,
-                transition = ScreenTransition.Fade,
-                steps = FUTURE_ROADMAP_STEPS
-            ) {
-                FutureRoadmapSlide()
+            slide(label = "y2023-community-peak", notes = communityPeakNotes, transition = ScreenTransition.Fade) {
+                CommunityPeakSlide()
             }
-            slide(label = "future-invite", notes = futureInviteNotes, transition = ScreenTransition.Fade) {
-                FutureInviteSlide()
+            slide(label = "y2024-quiet-year", notes = quietYearNotes, transition = ScreenTransition.Fade) {
+                QuietYearSlide()
             }
-
-            // Section 7: Lessons and close
-            slide(
-                label = "lessons",
-                notes = lessonsNotes,
-                transition = ScreenTransition.Fade,
-                steps = LESSONS_STEPS
-            ) {
-                LessonsSlide()
+            slide(label = "kmp-thread", notes = kmpThreadNotes, transition = ScreenTransition.Fade) {
+                KmpThreadSlide()
+            }
+            slide(label = "y2025-navigation3", notes = navigation3Notes, transition = ScreenTransition.Fade) {
+                Navigation3Slide()
             }
 
-            // Section 8: Q&A
-            slide(label = "qa", notes = qaNotes, transition = ScreenTransition.Fade, showFooter = false) {
-                QaSlide()
+            // Act 6: 2026, measured
+            slide(label = "y2026-two-readers", notes = twoReadersNotes, transition = ScreenTransition.Fade) {
+                TwoReadersSlide()
+            }
+            slide(label = "y2026-modules", notes = modulesNotes, transition = ScreenTransition.Fade) {
+                ModulesSlide()
+            }
+            slide(label = "y2026-measured", notes = measuredNotes, transition = ScreenTransition.Fade) {
+                MeasuredSlide()
+            }
+            slide(label = "y2026-new-look", notes = newLookNotes, transition = ScreenTransition.Fade) {
+                NewLookSlide()
+            }
+            slide(label = "y2026-cube-widget", notes = cubeWidgetNotes, transition = ScreenTransition.Fade) {
+                CubeWidgetSlide()
+            }
+            slide(
+                label = "y2026-follows-conference",
+                notes = followsConferenceNotes,
+                transition = ScreenTransition.Fade
+            ) {
+                FollowsConferenceSlide()
+            }
+            slide(
+                label = "y2026-live-demo",
+                notes = liveDemoNotes,
+                transition = ScreenTransition.Fade,
+                steps = LIVE_DEMO_STEPS
+            ) {
+                LiveDemoSlide()
+            }
+            slide(label = "y2026-stack", notes = stackNotes, transition = ScreenTransition.Fade) {
+                StackSlide()
+            }
+            slide(label = "y2026-code-grew", notes = codeGrewNotes, transition = ScreenTransition.Fade) {
+                CodeGrewSlide()
+            }
+
+            // Act 7: Lessons and the ask
+            slide(label = "lessons-lost-and-found", notes = lostAndFoundNotes, transition = ScreenTransition.Fade) {
+                LostAndFoundSlide()
+            }
+            slide(
+                label = "lessons-uncomfortable-chart",
+                notes = uncomfortableChartNotes,
+                transition = ScreenTransition.Fade
+            ) {
+                UncomfortableChartSlide()
+            }
+            slide(
+                label = "lessons-eight-years",
+                notes = eightYearsTeachNotes,
+                transition = ScreenTransition.Fade,
+                steps = EIGHT_YEARS_STEPS
+            ) {
+                EightYearsTeachSlide()
+            }
+            slide(label = "lessons-thank-you", notes = thankYouNotes, transition = ScreenTransition.Fade) {
+                ThankYouSlide()
+            }
+            slide(
+                label = "lessons-break-it",
+                notes = breakItNotes,
+                transition = ScreenTransition.Fade,
+                showFooter = false
+            ) {
+                BreakItSlide()
             }
         }
     }
