@@ -18,6 +18,7 @@ import ke.don.domain.LocalDeckMode
 import ke.don.domain.SlideConfig
 import ke.don.domain.SlidesConstants.FRAME_OPACITY
 import ke.don.ski.presentation.PresentationDeck
+import ke.don.ski.presentation.frame.droidconFrameFactory
 import ke.don.ski.presentation.ui.skiPresentationSlides
 import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
@@ -45,7 +46,7 @@ fun Deck(
             .build()
 
         val mainFrame = FrameBuilder()
-            .setFrame { snake }
+            .setFrame { droidconFrameFactory }
             .setOpacity(FRAME_OPACITY)
             .build()
 

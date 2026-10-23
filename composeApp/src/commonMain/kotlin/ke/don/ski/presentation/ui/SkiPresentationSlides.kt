@@ -132,7 +132,7 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
                         )
                     )
                 }
-                slide("Questions", notes = questionsNotes, footer = null) {
+                slide("Questions", notes = questionsNotes, showFooter = false) {
                     FeatureSlide(
                         title = "Questions",
                         points = listOf(

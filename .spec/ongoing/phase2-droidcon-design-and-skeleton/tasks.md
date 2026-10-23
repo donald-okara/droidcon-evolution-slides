@@ -71,12 +71,12 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/frame/DroidconFrame.kt` (new), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt` (edit)
 **Pattern:** `shared/components/src/commonMain/kotlin/io/github/donald_okara/components/frames/basic_frame/BasicFrame.kt`
 
-- [ ] Add `DroidconFrame` implementing `ke.don.domain.frames.SkiFrame`, laid out like `BasicFrame` (header row, content box, footer row), using theme colours. Expose it as a `SkiFrameFactory` (`droidconFrameFactory`).
-- [ ] In `MainHeader` (`Components.kt:102`), show the droidcon logo (`Resources.Images.DROIDCON_LOGO`, or `_DARK` when the scheme is dark) with `CubeHero` beside it, keeping anything the header already shows for `DeckMode`.
-- [ ] In `MainFooter` (`Components.kt:37`), use `CubeBullet` as the leading bullet in place of the current marker.
-- [ ] In `Deck.kt`, build `mainFrame` from the droidcon frame instead of `snake`. Leave `guidesFrame` as is. Do not edit `:shared:components`.
-- [ ] Check: `./gradlew :desktopApp:run`; both windows show the logo and animated cube in the header and the cube bullet in the footer; the "Questions" slide (footer = null) has no footer.
-- [ ] Commit: `feat: add droidcon frame with logo, cube and cube bullet`
+- [x] Add `DroidconFrame` implementing `ke.don.domain.frames.SkiFrame`, laid out like `BasicFrame` (header row, content box, footer row), using theme colours. Expose it as a `SkiFrameFactory` (`droidconFrameFactory`).
+- [x] In `MainHeader` (`Components.kt:102`), show the droidcon logo (`Resources.Images.DROIDCON_LOGO`, or `_DARK` when the scheme is dark) with `CubeHero` beside it, keeping anything the header already shows for `DeckMode`.
+- [x] In `MainFooter` (`Components.kt:37`), use `CubeBullet` as the leading bullet in place of the current marker.
+- [x] In `Deck.kt`, build `mainFrame` from the droidcon frame instead of `snake`. Leave `guidesFrame` as is. Do not edit `:shared:components`.
+- [x] Check: `./gradlew :desktopApp:run`; both windows show the logo and animated cube in the header and the cube bullet in the footer; the "Questions" slide (footer = null) has no footer.
+- [x] Commit: `feat: add droidcon frame with logo, cube and cube bullet`
 
 ### Task 7: Placeholder slide and sections 1 to 3
 **Serves:** R6

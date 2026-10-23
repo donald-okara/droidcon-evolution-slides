@@ -3,12 +3,14 @@ package ke.don.ski.presentation.ui
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,15 +19,19 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import io.github.donald_okara.components.DotBullet
 import io.github.donald_okara.components.LinearBullet
 import io.github.donald_okara.components.timer.TimerComponent
+import ke.don.design.cube.CubeBullet
+import ke.don.design.cube.CubeHero
 import ke.don.domain.DeckMode
 import ke.don.domain.timer.TimerIntentHandler
 import ke.don.domain.timer.TimerState
 import ke.don.domain.values.Values
+import ke.don.resources.Resources
+import org.jetbrains.compose.resources.painterResource
 
 
 /**
@@ -65,7 +71,7 @@ fun MainFooter(
                 ).padding(horizontal = 14.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            DotBullet()
+            CubeBullet()
 
             Spacer(Modifier.width(10.dp))
 
@@ -131,5 +137,23 @@ fun MainHeader(
                 color = if (mode == DeckMode.Presenter) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.error
             )
         }
+
+        Spacer(Modifier.width(16.dp))
+
+        // Logo intrinsic size is 1246x246; the width is fixed and the aspect ratio keeps its height.
+        val isDarkTheme = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+        Image(
+            painter = painterResource(
+                if (isDarkTheme) Resources.Images.DROIDCON_LOGO_DARK else Resources.Images.DROIDCON_LOGO
+            ),
+            contentDescription = "droidcon logo",
+            modifier = Modifier
+                .width(180.dp)
+                .aspectRatio(1246f / 246f)
+        )
+
+        Spacer(Modifier.width(16.dp))
+
+        CubeHero(size = 96.dp)
     }
 }

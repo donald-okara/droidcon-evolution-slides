@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Done: Tasks 1 to 5 (Montserrat font, droidcon colours, logo SVGs, cube model and painter, `CubeHero`/`CubeBullet`). Nothing checked visually on desktop yet; the Task 6 run must confirm fonts, colours, logo, and that the cube's perspective looks right.
-- Next: Task 6 (droidcon frame).
-- Logos are 1246x246 intrinsic size; the Task 6 header must size them explicitly.
+- Done: Tasks 1 to 6 (font, colours, logos, cube model, painter and composables, droidcon frame with `showFooter`).
+- Next: Task 7 (placeholder slide and sections 1 to 3).
+- Task 9: use `showFooter = false` (not `footer = null`) on `opening-title` and `qa`; the user decided this during Task 6.
+- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, logo, cube perspective and animation, cube bullet, and that Questions has no footer.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
 - Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`; delete them in a cleanup if wanted.
 - Open: the spec/tasks check `grep "import android"` also matches `androidx`; use `grep "import android\."` instead.
-- Known issues: none. Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too (`:shared:design:compileKotlinWasmJs`), since JVM-only calls compile on jvm.
+- Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify
 
@@ -17,6 +18,7 @@
 - Task 3: `./gradlew :shared:resources:compileKotlinJvm` passes; `xmllint --noout` on both SVGs; logos render in the header after Task 6.
 - Task 4: `./gradlew :shared:design:compileKotlinJvm :shared:design:compileKotlinWasmJs` passes; `grep -rn "import android\." shared/design/src/commonMain` returns nothing.
 - Task 5: same compile and grep checks as Task 4; the cube animates without distortion in the header after Task 6 (not yet checked visually).
+- Task 6: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `git diff --stat -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the logo and animated cube in the header and the cube bullet in the footer, and the Questions slide has no footer (not yet checked visually).
 
 ## Changes by task
 
@@ -46,7 +48,16 @@
 - `CubeHero(modifier, size = 240.dp)` runs `CubeMotion.run()` while composed. The animate flag, lifecycle pause/resume, visibility callback, test tag, saveable scene and click handling were dropped. `CubeBullet(modifier, size = 12.dp)` draws a solved cube at `Poses[0]`, with no animation.
 - No `@Preview`, because `:shared:design` has none.
 - Reviewer NOTE: the matrix index mapping matches `android.graphics.Matrix` perspective behaviour. Visual output is unchecked; confirm in the Task 6 run.
+### Task 6: Droidcon frame
+- `DroidconFrame.kt` (new, `composeApp/.../presentation/frame/`): uses `BasicFrame`'s layout (header, curved weighted content box, footer) with theme colours; `droidconFrameFactory` is a top-level `SkiFrameFactory`.
+- `MainHeader`: keeps the "Ski" title, the `DeckMode` subtitle and the bullet rail, and adds the logo (180dp wide, 1246/246 aspect ratio, dark variant when surface luminance is below 0.5) and `CubeHero(96.dp)`.
+- `MainFooter`: `CubeBullet` replaces `DotBullet`.
+- `Deck.kt`: `mainFrame` uses `droidconFrameFactory`; `guidesFrame` is unchanged.
+- User decision: `footer = null` could not hide the footer (it defaults to null on every slide, and `PresentationDeck` never read it). Added `showFooter: Boolean = true` to `SlideConfig` and `slide()` in `:core:domain`; `PresentationDeck` omits `MainFooter` when it is false; the Questions slide uses `showFooter = false`.
+- Not checked visually: the agent could not see the windows. The cleanup ran `pkill -f desktopApp`.
+- Reviewer NOTE: `SlideConfig` is constructed only in `DeckBuilder.kt`, so no other caller breaks. The visual Check is still pending.
 
 ## Deviations from spec
 
+- Task 6: slides hide their footer with `showFooter = false` (new flag in `:core:domain`), not `footer = null`. This also applies to Task 9.
 - Task 4: not a pure copy. JVM-only calls were replaced so common code compiles for wasm (see Changes by task).

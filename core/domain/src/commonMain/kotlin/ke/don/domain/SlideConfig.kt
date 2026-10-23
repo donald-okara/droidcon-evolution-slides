@@ -19,6 +19,7 @@ data class SlideConfig(
     val frame: (@Composable () -> SkiFrame?)?,
     val header: (@Composable () -> Unit)? = null,
     val footer: (@Composable () -> Unit)? = null,
+    val showFooter: Boolean = true,
     val content: @Composable () -> Unit,
 ) {
     @Composable
@@ -26,7 +27,7 @@ data class SlideConfig(
         frame?.invoke()?.Render(
             modifier = modifier,
             header = header,
-            footer = footer
+            footer = if (showFooter) footer else null
         ) {
             Box(
                 modifier = Modifier
