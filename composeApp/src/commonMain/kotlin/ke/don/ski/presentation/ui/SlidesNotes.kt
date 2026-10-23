@@ -134,3 +134,33 @@ val qaNotes = listOf(
     AnnotatedString("Backup question two: why was KMP dropped on 2025-10-23 in commit c42e0cdb, and rolled back on 2025-11-04 in commit c29b4d01? No commit message gives a reason, and the team does not know one."),
     AnnotatedString("If nobody asks, close on the invitation: join with a pull request, the way every maintainer started.")
 )
+
+val titleNotes = listOf(
+    AnnotatedString("Welcome. Thank both communities, Android254 and Kotlin Kenya, and the hosts for putting this meetup together."),
+    AnnotatedString("Three things today: a story about how this app grew from an I/O clone, a bug hunt, and a build."),
+    AnnotatedString("Takeaway to return to: the app began as someone else's app, and eight years later it is the community's own.")
+)
+
+val todayNotes = listOf(
+    AnnotatedString("Install or update the app now, because you will need it within the hour: the talk starts at 10:05, the bounty at 10:55, the feature bash at 13:05, and results at 15:35."),
+    AnnotatedString("If you have a ticket and did not add it at home, wait and use mobile data for the lookup."),
+    AnnotatedString("The ticket lookup is rate limited per Wi-Fi address, so one shared connection can hit the limit before everyone has finished.")
+)
+
+val sameAppNotes = listOf(
+    AnnotatedString("Both of these screenshots are the droidcon Kenya app. The one on the left began as a copy of somebody else's app."),
+    AnnotatedString("Everything between them is in git, and we read all of it."),
+    AnnotatedString("The counter shows how many commits the five app repos have between them. It does not measure effort, review time, or how large each change was.")
+)
+
+val familyTreeNotes = listOf(
+    AnnotatedString("Each press lights the next stage on the timeline, in order: 2018, 2019, 2020, 2022, 2023, 2025, then 2026."),
+    AnnotatedString("Hover or click a stage to open its details card. Every fact on the card is cited in the overview, so you can point to it if someone asks."),
+    AnnotatedString("A new repo almost every year until 2023. After that, one repo with no year in its name. Keep the gap in 2021 in mind; we come back to it.")
+)
+
+val seasonsNotes = listOf(
+    AnnotatedString("It's a volunteer project, and volunteers work to a deadline. The quiet stretches matter as much as the spikes."),
+    AnnotatedString("The chart counts commits per month in droidconKeKotlin. It does not measure effort, review time, or how big each commit was."),
+    AnnotatedString("Takeaway to return to: hold on to the quiet months for the end of the talk.")
+)

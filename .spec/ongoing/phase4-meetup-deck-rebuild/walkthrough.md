@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-4 done (rename, outline/40 min session, chart blocks and callout card, evolution timeline).
-- Next: Task 5 (cold open slides S01-S05); use `gapAfterIndex = 2` for the 2021 gap.
-- Open: check the S04 detail-line citations (e.g. "173 of 177 Kotlin files kept their path") against the overview.
+- Tasks 1-5 done (rename, outline/40 min session, chart blocks, evolution timeline, cold open slides S01-S05).
+- Next: Task 6 (2018-2020 slides S06-S10).
+- Open: S05 marks only the Oct 2026 meetup month (overview gives no dates for earlier conferences). Slides and notes are not registered until Task 11.
 - Known issues: none.
 
 ## How to verify
 
+- Task 5: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; step through S04 on `:desktopApp:run` once registered (Task 11).
 - Task 4: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; look at it in S04 (Task 5).
 - Task 3: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`.
 - Task 2: `./gradlew :core:domain:compileKotlinJvm`; outline act minutes sum to 30.
@@ -34,6 +35,12 @@
 - `common/EvolutionTimeline.kt`: `TimelineStage`, `EvolutionStages` (7 stages, 2-3 detail lines each), `EvolutionTimeline(stages, modifier, gapAfterIndex)`.
 - Stage i lights at `LocalRevealStep >= i+1`; springs, pulses once, line draws on (tween 500); hover/click shows details; gap "?" wobbles on hover.
 - NOTE: no `@Preview`; some detail citations not verified by reviewer, check in S04.
+
+### Task 5: Cold open slides S01-S05
+- `talk/ColdOpenSlides.kt`: `TitleSlide`, `TodaySlide`, `SameAppSlide`, `FamilyTreeSlide` (`FAMILY_TREE_STEPS = 7`, `gapAfterIndex = 2`), `SeasonsSlide`. Notes added to `SlidesNotes.kt`.
+- Delight: S01 cube turns face-on; S02 QR cards pop in staggered; S03 commit count-up; S04 nodes light per step; S05 meetup-month flag pops in.
+- S04 detail citations in EvolutionTimeline.kt verified against the overview (all 21 supported).
+- NOTE: S05 only highlights the 2026-10 meetup month; S04 sibling lines are plain text, not drawn.
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.

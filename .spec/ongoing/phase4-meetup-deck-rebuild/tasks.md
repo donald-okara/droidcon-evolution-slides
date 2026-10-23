@@ -63,11 +63,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/ColdOpenSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `segments/demos/.../droidcon/opening/OpeningSlides.kt`
 
-- [ ] `TitleSlide` (S01), `TodaySlide` (S02, three QR `MediaPlaceholder`s), `SameAppSlide` (S03, one large "~2,100 commits", two side-by-side screenshot placeholders), `FamilyTreeSlide` (S04, `EvolutionTimeline` with `gapAfterIndex` at 2021; `FAMILY_TREE_STEPS = 7`), `SeasonsSlide` (S05, `ColumnChart` of D1).
-- [ ] Notes: `titleNotes`, `todayNotes`, `sameAppNotes`, `familyTreeNotes` (what each press shows), `seasonsNotes` (what commit counts do not measure).
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S01 cube spins in, S03 count-up, S05 conference flags pop) and list them one line per slide in your report.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
-- [ ] Commit: `feat: cold open slides S01-S05`
+- [x] `TitleSlide` (S01), `TodaySlide` (S02, three QR `MediaPlaceholder`s), `SameAppSlide` (S03, one large "~2,100 commits", two side-by-side screenshot placeholders), `FamilyTreeSlide` (S04, `EvolutionTimeline` with `gapAfterIndex` at 2021; `FAMILY_TREE_STEPS = 7`), `SeasonsSlide` (S05, `ColumnChart` of D1).
+- [x] Notes: `titleNotes`, `todayNotes`, `sameAppNotes`, `familyTreeNotes` (what each press shows), `seasonsNotes` (what commit counts do not measure).
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S01 cube spins in, S03 count-up, S05 conference flags pop) and list them one line per slide in your report.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- [x] Commit: `feat: cold open slides S01-S05`
 
 ### Task 6: 2018 to 2020 slides S06 to S10
 **Serves:** R5, R11
