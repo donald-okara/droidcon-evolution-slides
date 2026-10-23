@@ -5,9 +5,9 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 ```
 1. Montserrat font ───────────────┐
 2. Droidcon colours ──────────────┼─> 7. Placeholder + sections 1-3 ─> 8. Sections 4-8 ─┐
-3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos
-4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘
-   (5 also needs 2)
+3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos ─┬─> 11. Logo-only header, green dot bullet
+4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘                    └─> 12. Checkered floor background + cube decorator
+   (5 also needs 2; 11 and 12 are independent of each other)
 ```
 
 ---
@@ -119,3 +119,27 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 - [x] Delete `DroidconFrame.kt`. Keep `CubeBullet` in `MainFooter` and the `showFooter` handling in `PresentationDeck`.
 - [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer.
 - [x] Commit: `feat: use snake frame with logo-and-cube header`
+
+### Task 11: Logo-only header and green dot footer bullet (revises Task 10)
+**Serves:** R5
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit)
+
+- [ ] In `MainHeader`, remove `CubeHero` so the header shows only the droidcon logo (light or dark per theme, same size as now). Keep the `mode` parameter (removals are deferred).
+- [ ] In `MainFooter`, replace `CubeBullet` with an 8dp filled circle in the Chai neon green (from the Task 2 colours, design-inventory §1.2). Do not delete `CubeBullet` from `:shared:design`.
+- [ ] Remove imports that become unused in `Components.kt`.
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the header shows only the logo and the footer a green dot.
+- [ ] Commit: `feat: logo-only header and green dot footer bullet`
+
+### Task 12: Droidcon background with checkered floor and cube decorator
+**Serves:** R8, R4
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/background/DroidconBackground.kt` (new), `composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt` (edit)
+**Pattern:** `shared/components/src/commonMain/kotlin/io/github/donald_okara/components/backgrounds/Background.kt` (interface), `.../backgrounds/BackgroundComponent.kt` (decorator placement)
+
+This task writes perspective drawing code; run the implementer on Sonnet.
+
+- [ ] Add `DroidconBackground` implementing the public `Background` interface (`pattern` and `decoratorImage` may be null/unused; `Render()` does the drawing). Do not edit `:shared:components`.
+- [ ] In `Render()`, fill the theme background, then draw a checkered floor in perspective, Star Wars crawl style: horizon at about 40% of the height, the floor below it; alternating cells filled with the Chai neon green at alpha 0.06 (other cells empty); cells shrink toward the horizon; the floor scrolls continuously away from the viewer, about one tile depth every 4 s (infinite transition, seamless loop). Draw with `Canvas`/`DrawScope` paths only.
+- [ ] On top, draw `CubeHero(size = 200.dp)` aligned `BottomEnd` with 16dp padding, replacing the Android robot decorator.
+- [ ] In `Deck.kt`, pass `DroidconBackground()` in place of the `BackgroundBuilder` chain; drop imports that become unused. Leave `Resources.Images.ANDROID_ROBOT` in `Resources.kt` (removals are deferred).
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` and `./gradlew :webApp:wasmJsBrowserDistribution` pass; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show a faint green checkered floor drifting toward the horizon, noticeable only on a close look, with the animated cube at bottom-right and slide text readable in light and dark.
+- [ ] Commit: `feat: add checkered floor background with cube decorator`

@@ -21,11 +21,11 @@
 ### R4. Cube hero in common code
 - The cube hero renders and animates (hold, travel, marks) from `commonMain`, with no `android.*` import.
 - A static cube composable is available at bullet size.
-- **Check:** `grep -rn "import android" shared/design/src/commonMain` returns nothing; the cube animates in the desktop header.
+- **Check:** `grep -rn "import android\." shared/design/src/commonMain` returns nothing; the cube animates as the background decorator (R8).
 
 ### R5. Snake frame with droidcon header
 - The deck's main frame is the stock snake frame in both windows.
-- Its header shows only the droidcon logo (light or dark per theme) and the animated cube: no "Ski" title, deck-mode subtitle or bullet rail. Its footer uses the static cube as the bullet.
+- Its header shows only the droidcon logo (light or dark per theme): no cube, "Ski" title, deck-mode subtitle or bullet rail. Its footer bullet is a small neon-green dot.
 - Slides registered with `showFooter = false` show no footer.
 - **Check:** `./gradlew :desktopApp:run`; look at the presenter and audience windows.
 
@@ -38,6 +38,12 @@
 ### R7. Ski demos removed
 - No Ski demo slide, demo notes constant or demo-only composable remains; `VideoPlayer*` stays.
 - **Check:** `grep -rn "ke.don.demos\.\(FeatureSlide\|FramesDemo\|RevealDemo\|KodeViewerSlide\)" composeApp` returns nothing; `ls segments/demos/src/commonMain/kotlin/ke/don/demos` shows only `droidcon/` and `VideoPlayer.kt`.
+
+### R8. Droidcon background
+- The deck background is a checkered floor in perspective (Star Wars crawl style) in the Chai neon green at a very low alpha, scrolling slowly and continuously toward the horizon; it is barely noticeable and never hurts text legibility in light or dark.
+- The animated cube hero is the background decorator at bottom-right, replacing the Android robot.
+- Built in `:composeApp` against the public `Background` interface; `:shared:components` is unchanged.
+- **Check:** `./gradlew :desktopApp:run`; both windows show the faint moving floor and the animated cube; slide text stays readable.
 
 ## Non-Functional Requirements
 

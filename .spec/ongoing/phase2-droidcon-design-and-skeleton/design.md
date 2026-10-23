@@ -39,3 +39,8 @@
 **Decision:** The main frame goes back to the stock `snake` frame; `DroidconFrame` is deleted. `MainHeader` shows only the droidcon logo and `CubeHero`, dropping the "Ski" title, deck-mode subtitle and bullet rail. The footer keeps `CubeBullet`, and slides hide it with `showFooter = false` (the flag added in Task 6). Replaces "Droidcon frame in `:composeApp`" (R5).
 **Why:** Maintainer review 1, 2026-10-23.
 **Tradeoff:** The presenter window loses its deck-mode label in the header. The `showFooter` flag in `:core:domain` stays as a small addition to the domain API.
+
+### Cube as background decorator, checkered floor (2026-10-23)
+**Decision:** The animated cube leaves the header and footer and becomes the background decorator (bottom-right, 200dp), so its turning faces "loop through" the six marks. The header shows only the logo; the footer bullet is an 8dp neon-green dot. The background is a custom `DroidconBackground` in `:composeApp` (implementing the public `Background` interface) that draws a perspective checkered floor in neon green at alpha 0.06, scrolling toward the horizon. Changes R4's check and R5; adds R8. Tasks 4 and 5 (ticked, R4) need no change, since the cube code is reused as is; Task 11 reworks Task 10 (R5).
+**Why:** Maintainer review 2, 2026-10-23. `BackgroundBuilder`'s `Pattern` is sealed and has no perspective support, so a deck-specific `Background` is the only route that leaves the library untouched (NF2).
+**Tradeoff:** A continuously animating full-screen background costs some rendering in both windows. `CubeBullet` and `ANDROID_ROBOT` become unused and stay until removals are picked up.

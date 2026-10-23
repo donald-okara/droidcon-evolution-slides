@@ -2,14 +2,13 @@
 
 ## Current state
 
-- Done: all 10 tasks. The deck now registers the 19 placeholder slides in outline order; Ski demos removed.
-- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
-- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube animation, cube bullet, 19 slides in order in both windows, and no footer on opening-title and qa.
-- Open: placeholder titles were chosen by the implementer (the outline has none); presenters to confirm.
-- Open: `MainHeader`'s `mode` parameter is unused since Task 10.
-- Open: the `segments/introduction` module is still wired in settings and composeApp but unused since Task 9.
-- Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
-- Open: unused Google Sans TTFs (about 4 MB) remain in `shared/resources/.../font/`. The R4 check should use `grep "import android\."`.
+- Done: Tasks 1 to 10. Review 2 (changes requested) added Tasks 11 and 12.
+- Next: Task 11 (logo-only header, green dot footer bullet), then Task 12 (checkered floor background with the cube as decorator; Sonnet).
+- Open: nothing has been checked visually; the user runs `./gradlew :desktopApp:run` after Task 12 for font, colours, frame, header, footer dot, background, cube, 19 slides, and no footer on opening-title and qa.
+- Open: placeholder titles were chosen by the implementer; presenters to confirm.
+- Deferred: removals of unused code and resources (see the overview's Out of Scope).
+- Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
+- Open: the R4 check uses `grep "import android\."`.
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify
