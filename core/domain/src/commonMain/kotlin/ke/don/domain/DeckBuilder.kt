@@ -9,7 +9,7 @@ import kotlin.time.Duration.Companion.minutes
 import kotlin.time.Duration.Companion.seconds
 
 object SlidesConstants {
-    val SESSION_DURATION = 45.minutes
+    val SESSION_DURATION = 40.minutes
     val TIMER_ADJUST_STEP = 1.minutes
     const val FRAME_OPACITY = Values.FRAME_OPACITY
 }

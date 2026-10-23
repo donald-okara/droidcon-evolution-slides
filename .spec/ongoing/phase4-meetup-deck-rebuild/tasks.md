@@ -25,11 +25,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Serves:** R2
 **Files:** `docs/talk/outline.md` (edit), `core/domain/src/commonMain/kotlin/ke/don/domain/DeckBuilder.kt` (edit)
 
-- [ ] Replace the outline's arc, sections and slide list with S01 to S31 from Harun's "Shape: seven acts" table (section 1.7) and Part 4: a row per slide with label (kebab-case, e.g. `cold-same-app`, `y2018-clone`), one-line intent, reveal steps (S04 7 stages, S24 6 demo steps, S29 4 lessons; others 0) and minutes per act. Mark S25 optional.
-- [ ] Keep the thesis line as "From I/O clone to our own app"; note the 3-presenter droidcon plan is superseded by phase 4.
-- [ ] In `DeckBuilder.kt` set `SESSION_DURATION` to 40 minutes, keeping the existing type and unit.
-- [ ] Check: act minutes in the outline sum to 30; `./gradlew :core:domain:compileKotlinJvm` passes.
-- [ ] Commit: `docs: outline for meetup deck and 40 minute session`
+- [x] Replace the outline's arc, sections and slide list with S01 to S31 from Harun's "Shape: seven acts" table (section 1.7) and Part 4: a row per slide with label (kebab-case, e.g. `cold-same-app`, `y2018-clone`), one-line intent, reveal steps (S04 7 stages, S24 6 demo steps, S29 4 lessons; others 0) and minutes per act. Mark S25 optional.
+- [x] Keep the thesis line as "From I/O clone to our own app"; note the 3-presenter droidcon plan is superseded by phase 4.
+- [x] In `DeckBuilder.kt` set `SESSION_DURATION` to 40 minutes, keeping the existing type and unit.
+- [x] Check: act minutes in the outline sum to 30; `./gradlew :core:domain:compileKotlinJvm` passes.
+- [x] Commit: `docs: outline for meetup deck and 40 minute session`
 
 ### Task 3: Chart blocks and callout card
 **Serves:** R4, R11, NF1

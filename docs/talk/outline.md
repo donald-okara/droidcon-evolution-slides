@@ -1,95 +1,69 @@
-# Talk outline: droidcon Kenya Android app, 2023 to 2026
+# Talk outline: eight years of the droidcon Kenya app
 
-**Thesis:** The droidcon Kenya app has outlived years of contributors joining through pull requests and stepping back when busy, and two multiplatform detours, because it stays a shared teaching codebase. The 2026 update shows what that buys, and the improvement plan is an invitation to make the app your own.
+**Thesis:** From I/O clone to our own app.
 
-**Speakers:** Annunziata Kinya (history; brings her own content, so the history rows below are a placeholder fact base from `history.md`), Donald Isoe (current: about to be launched), Ian Nthuli (the future).
+**Speaker:** Donald Isoe, with guest voices from the 2020 team (Pass the mic, act 3).
 
-**Format:** 45 minutes including Q&A, three presenters, one topic segment each. Slides, with screen recordings and screenshots on some slides. Facts come from `docs/talk/history.md` and the app repo; anything marked (inferred) there stays marked on stage.
+**Format:** 40 minutes: 30 minutes of acts, then 10 minutes of Q&A (from the run of show in `docs/talk/harun-overview.md`). Slides only, with screenshot and screen-recording placeholders.
 
-## Arc
+**Supersedes:** the earlier 45-minute, three-presenter plan (Annunziata Kinya, Donald Isoe, Ian Nthuli). That plan is replaced by this phase 4 outline and the S01 to S31 deck in `docs/talk/harun-overview.md`, Part 4.
 
-Three topic segments, history to now to future:
+**Source:** `docs/talk/harun-overview.md`, section 1.7 (acts) and Part 4 (slides). Chart data is in its Appendix D.
 
-1. **Opening:** what the app is and the thesis (Annunziata Kinya).
-2. **History (Annunziata Kinya):** the eras so far, compressed: the 2023 bootstrap and convention plugins, then the KMM and KMP detours and the dormant years.
-3. **About to be launched (Donald Isoe):** what is done in the 2026 update, and what is still work in progress.
-4. **The future (Ian Nthuli):** the improvement plan. It was Harun Wangereka's idea, the team is not married to it, and everyone is encouraged to make the app their own. Framed as an invitation to contribute, matching the community rotation model.
-5. **Lessons and close (Ian Nthuli leads; option: one lesson per speaker).** Three lessons that tie the segments together; see "Lessons (draft)" below.
-6. **Q&A (all, moderated by Annunziata Kinya).**
+## Acts and budgets
 
-## Sections and budgets
+Section 1.7 numbers the cold open as act 0, so the table has eight rows. Act minutes sum to 30.
 
-| # | Section | Segment | Eras | Minutes | Presenter |
-|---|---------|---------|------|---------|-----------|
-| 1 | Opening | History | none | 2 | Annunziata Kinya |
-| 2 | 2023: bootstrap, plugins, Chai | History | 1, 2 | 5 | Annunziata Kinya |
-| 3 | Detours: KMM, KMP, and the dormant years | History | 3, 4 | 5 | Annunziata Kinya |
-| 4 | 2026 update: done | About to be launched | 5 | 12 | Donald Isoe |
-| 5 | 2026 update: work in progress | About to be launched | 5 | 3 | Donald Isoe |
-| 6 | The improvement plan: an invitation | The future | none | 10 | Ian Nthuli |
-| 7 | Lessons and close | The future | none | 3 | Ian Nthuli |
-| 8 | Q&A | all | none | 5 | all, Annunziata Kinya moderates |
-| | **Total** | | | **45** | |
+| Act | Name | Slides | Minutes |
+|-----|------|--------|---------|
+| 0 | Cold open | S01 to S05 | 2 |
+| 1 | 2018: an I/O clone | S06 to S07 | 4 |
+| 2 | 2019: all Jetpack | S08 | 2 |
+| 3 | 2020: the modular one | S09 to S10 | 3 |
+| 4 | 2022: Compose arrives | S11 to S12 | 3 |
+| 5 | 2023 to 2025: one repo | S13 to S17 | 5 |
+| 6 | 2026: measured | S18 to S26 | 8 |
+| 7 | Lessons and the ask | S27 to S31 | 3 |
+| | **Total** | | **30** |
 
-Sum check: 2 + 5 + 5 + 12 + 3 + 10 + 3 + 5 = 45. Annunziata Kinya has 12 minutes, Donald Isoe has 15, Ian Nthuli has 13, and the 5-minute Q&A is shared.
-
-## Source of the improvement plan
-
-`docs/IMPROVEMENT_PLAN.md` in the app repo (added in `62f45e2a`, "Docs: add improvement plan, AGENTS.md, and CLAUDE.md"; last pruned 2026-10-12, with finished items deleted as they land). It is a living roadmap of pending work only. Main items, by its section 16:
-
-- Accessibility listening pass: TalkBack, Switch Access and keyboard (section 14). Next up, needs a person.
-- Ticketing and QR (section 7), waiting on a backend question (section 17.2).
-- Notifications leftovers: topic subscriptions and reminder actions (sections 8.4, 8.5).
-- Other surfaces: session notes (5.5), calendar export (11.4a), venue map (11.6).
-- Intelligent (AI) experiences behind default-off flags (section 6), deliberately last.
-- Ship it: perf and size pass, E2E tests in CI, Play Store presence, staged rollout (sections 9, 10.3, 13).
-- Foundations and developer experience: the event slug into Remote Config so the 2027 app is a config edit (3.6), CI and contributor tooling (15).
-- Parallel tracks for a small contributor pool: Foundations, Design system, Adaptive, AI, Conference ops.
-- Deliberately deferred: job board, code challenge, booking, connections, each needing a backend or a named content owner.
+Ten minutes remain in the 40-minute session for Q&A.
 
 ## Slide list
 
-Labels match `slide(label = ...)`. The Reveal column marks slides that disclose points step by step, using state inside a single slide (`context.md` rule 1). No slide is duplicated to show a bullet. Some slides use screen recordings or screenshots; which ones is to be chosen with the presenters.
+Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them. Reveal steps come from the slide's reveal state (`context.md` rule 1); S04 has 7 stages, S24 has 6 demo steps, S29 has 4 lessons, and the rest have 0. S25 is optional.
 
-| Section | Slide label | One-line intent | Reveal |
-|---------|-------------|-----------------|--------|
-| 1 | `opening-title` | Talk title, the app, and the three presenters | none |
-| 1 | `opening-thesis` | Thesis on screen and the arc: history, about to launch, future | none |
-| 2 | `history-bootstrap` | 2023 layered modules (app, chai, data, domain, presentation), Chai colours (`740ce113`) | Stack items appear one per click: Hilt, Room, Ktor, Compose |
-| 2 | `history-plugins` | Convention plugins replace per-module build setup (`6a6845e4`, `996ca6fe`) | Three plugin bullets appear one per click: Hilt, Compose, Kotlin application |
-| 2 | `history-churn` | Contributor rotation, offline-first feed (`91322d29`), and the silence after 2023-11-09 | none |
-| 3 | `detour-kmm` | 2024 KMM experiment in parallel with the Android modules (`3433931f`, `26f6a3d0`), gone within a quarter | none |
-| 3 | `detour-kmp` | 2025 Compose Multiplatform attempt (`cdd713bd`) and its rollback (`c42e0cdb`, `26a9e9cf`) | Rollback steps appear one per click: drop KMP, CI fixes, five-layer layout back |
-| 3 | `dormant-years` | Droidcon 2024 work (`c02c6652`) and the Navigation 3 move (`8faf624f`) | none |
-| 4 | `launch-stack` | Stack jump from Kotlin 2.1.21 and AGP 8.10.1 to Kotlin 2.4.21 and AGP 9.3.1 | none |
-| 4 | `launch-modules` | Module split: 17 modules and `:presentation` removed (`ac81b8ac`), then 21 modules | Module groups appear one per click: core, feature, widget and benchmarks |
-| 4 | `launch-perf` | Baseline profile, release APK down 28% (`5a42a5a7`), size gate in CI (`1fc20ee5`), startup time 35% faster (Harun Wangereka) | none |
-| 4 | `launch-design` | Chai on Material 3 Expressive (`87d23cb7`) and the 2026 identity (`eb7c436e`) | none |
-| 4 | `launch-features` | Done features on main: cube hero (`5941f20f`) and Glance widget (`4492346b`) | Feature items appear one per click: cube hero, widget |
-| 5 | `launch-wip` | In progress: notifications module on branch `feat/notifications` (not yet on main at 2026-10-23) | Items appear one per click: notifications done so far (channels, reminders, preferences, deep links), then what remains (topic subscriptions, reminder actions) |
-| 6 | `future-plan` | The improvement plan: what it is, whose idea it was (Harun Wangereka), and that it is a living roadmap, not a commitment | none |
-| 6 | `future-roadmap` | The ranked items: accessibility pass, ticketing and QR, notifications leftovers, venue map and calendar, AI last | Roadmap stages appear one per click |
-| 6 | `future-invite` | Make the app your own: tracks for a small contributor pool, how to join through a pull request, the rotation model | none |
-| 7 | `lessons` | Three lessons from a codebase that changes hands: write it down for the next person, let CI guard it while people are away, make it easy to start (details in "Lessons (draft)") | Lessons appear one per click |
-| 8 | `qa` | Questions, with the open questions from `docs/talk/history.md` as backup | none |
+| # | Act | Label | Intent | Reveal steps |
+|---|-----|-------|--------|--------------|
+| S01 | 0 | `cold-title` | Title: eight years of the app, the meetup date | 0 |
+| S02 | 0 | `cold-today` | Today's schedule and the install QR codes | 0 |
+| S03 | 0 | `cold-same-app` | "Same app. Eight years. Five repos. About 2,100 commits." | 0 |
+| S04 | 0 | `cold-family-tree` | Repo family tree from 2018, with the 2021 gap | 7 |
+| S05 | 0 | `cold-seasons` | Commits come in seasons (D1) | 0 |
+| S06 | 1 | `y2018-first` | Started in Java, Firebase for everything (D6) | 0 |
+| S07 | 1 | `y2018-clone` | Born as a clone of Google's I/O app (the highlight) | 0 |
+| S08 | 2 | `y2019-all-jetpack` | All Kotlin, all Jetpack; `com.android254` enters the package | 0 |
+| S09 | 3 | `y2020-modular` | The modular app, 13 modules, 120 stars | 0 |
+| S10 | 3 | `y2020-no-conference` | The conference that didn't happen; hand the mic to 2020 | 0 |
+| S11 | 4 | `y2022-compose` | Compose arrives, about two dozen volunteers, five months | 0 |
+| S12 | 4 | `y2022-chai` | Standing on its own: chai, its own designs and system | 0 |
+| S13 | 5 | `y2023-one-repo` | One repo to keep: a carry-forward, not a rewrite | 0 |
+| S14 | 5 | `y2023-community-peak` | The 2023 community peak, about 41 people | 0 |
+| S15 | 5 | `y2024-quiet-year` | The quiet year: a three-line Droidcon 2024 change | 0 |
+| S16 | 5 | `kmp-thread` | The KMP thread: tried, removed, a port not a rewrite | 0 |
+| S17 | 5 | `y2025-navigation3` | Navigation 3 and multiple back stacks | 0 |
+| S18 | 6 | `y2026-two-readers` | Written for two readers: `AGENTS.md` and the plan | 0 |
+| S19 | 6 | `y2026-modules` | Seven modules to twenty | 0 |
+| S20 | 6 | `y2026-measured` | Measured wins: cold start, APK, download, full AOT slower (D7) | 0 |
+| S21 | 6 | `y2026-new-look` | A new look: Material 3 Expressive and the 2026 rebrand | 0 |
+| S22 | 6 | `y2026-cube-widget` | The cube hero and the Glance widget | 0 |
+| S23 | 6 | `y2026-follows-conference` | An app that follows the conference: before, during, after | 0 |
+| S24 | 6 | `y2026-live-demo` | Live demo: time travel, clashes, widget, purchase to pass | 6 |
+| S25 | 6 | `y2026-stack` *(optional)* | The stack, layer by layer, 2018 to 2026 | 0 |
+| S26 | 6 | `y2026-code-grew` | How the code grew: LOC and test files (D4) | 0 |
+| S27 | 7 | `lessons-lost-and-found` | Lost and found: what came back, what didn't | 0 |
+| S28 | 7 | `lessons-uncomfortable-chart` | The code grew; the community didn't (D5) | 0 |
+| S29 | 7 | `lessons-eight-years` | What eight years teach: four lessons | 4 |
+| S30 | 7 | `lessons-thank-you` | Thank you: contributors grouped by era | 0 |
+| S31 | 7 | `lessons-break-it` | Now, let's break it: hand over to the bounty | 0 |
 
-## Lessons (draft)
-
-The `lessons` slide (3 min) closes the talk. Each lesson draws on one segment, so it works as a recap: history, then now, then the future. Each one shows a short headline plus one line of evidence.
-
-1. **Write it down for the next person.** People join through pull requests and step back when life gets busy, so the docs are the handover. In 2026 the work is guided by `AGENTS.md`, `CLAUDE.md` and `docs/IMPROVEMENT_PLAN.md`. The cautionary case comes from history: multiplatform was dropped (`c42e0cdb`) and rolled back (`c29b4d01`) with no recorded reason, and nobody on the team can say why today. *(From Annie's history segment.)*
-2. **Let CI guard the codebase while people are away.** Volunteers can't review everything, so the PR workflow added with the 2026 module split (`d66ca423`, `pr.yml`) and the size gate check every change for them. *(From Donald's "about to launch" segment.)*
-3. **Make it easy to start.** Every maintainer, Harun included, started with a pull request. The improvement plan's five contributor tracks (Foundations, Design system, Adaptive, AI, Conference ops) give a newcomer a lane to pick, which leads into Q&A as an invitation. *(From Ian's future segment.)*
-
-Notes:
-- Lesson 3 overlaps with `future-invite` (slide 6). Keep it to one line on the `lessons` slide, or move the tracks detail out of `future-invite`.
-- Option: each speaker delivers the lesson from their own segment, so the close is shared (about 1 min each) instead of Ian alone.
-- Lesson 1 depends on Annie's content. If her history segment doesn't cover the multiplatform reversal, drop the cautionary line or have Ian set it up in a sentence.
-
-## Open items
-
-- Wording on `future-plan` ("not married to it", "make it your own") needs the presenters' sign-off. Harun Wangereka is credited by name (confirmed by the user).
-- `adaptive-large-screen`, `fix/speaker-details` and `fix/sponsor-logo-contrast` are done (confirmed by the user); they belong on `launch-done`. Re-check whether notifications has merged by talk day.
-- Presenter photos still come from the user. Names are known.
-- Which slides use screen recordings or screenshots is to be chosen with the presenters.
-- Lessons redone (see "Lessons (draft)"); wording and the shared-close option need the presenters' sign-off.
+Reveal total: 7 + 6 + 4 = 17 steps across three slides.
