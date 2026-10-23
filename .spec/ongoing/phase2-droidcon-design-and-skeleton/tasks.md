@@ -47,10 +47,10 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 **Files:** `shared/design/src/commonMain/kotlin/ke/don/design/cube/CubeState.kt`, `CubeMotion.kt`, `CubeProjection.kt`, `CubeMarks.kt`, `CubeArt.kt`, `Orientation.kt` (all new)
 **Pattern:** `DS/hero/` (the same file names)
 
-- [ ] Copy the six files from `DS/hero/` into `ke.don.design.cube`, changing only the package and imports. Do not copy `CubePainter`, `CubeHero`, `CubeHeroBanner` or `CubeHeroStage`.
-- [ ] Replace any `ChaiTheme`/Chai colour reference with `CubeColors` from Task 2 (or a parameter); drop anything Android-only.
-- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -rn "import android" shared/design/src/commonMain` returns nothing.
-- [ ] Commit: `feat: port cube hero model to common code`
+- [x] Copy the six files from `DS/hero/` into `ke.don.design.cube`, changing only the package and imports. Do not copy `CubePainter`, `CubeHero`, `CubeHeroBanner` or `CubeHeroStage`.
+- [x] Replace any `ChaiTheme`/Chai colour reference with `CubeColors` from Task 2 (or a parameter); drop anything Android-only.
+- [x] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -rn "import android" shared/design/src/commonMain` returns nothing.
+- [x] Commit: `feat: port cube hero model to common code`
 
 ### Task 5: Cube painter and composables
 **Serves:** R4
