@@ -42,21 +42,21 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 - [x] `CalloutCard(title, modifier, content)`: rounded outlined box with a small title chip ("Kotlin Kenya corner") using `MaterialTheme` colours.
 - [x] `Modifier.popIn(delayMillis: Int = 0)`: scale 0.8 to 1 and fade in with a spring that overshoots slightly. `Confetti(trigger: Boolean, modifier)`: a 1.2 s burst of 24 coloured dots from `Canvas` using theme colours, playing once per `trigger` change.
 - [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
-- [ ] Commit: `feat: chart blocks and callout card`
+- [x] Commit: `feat: chart blocks and callout card`
 
 ### Task 4: Evolution timeline
 **Serves:** R3, R11
 **Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/EvolutionTimeline.kt` (new)
 **Pattern:** `.../common/Reveal.kt` (reading `LocalRevealStep`), `.../common/StatTile.kt`
 
-- [ ] `TimelineStage(year: String, title: String, repo: String, details: List<String>)`.
-- [ ] `EvolutionTimeline(stages, modifier, gapAfterIndex: Int? = null)`: a horizontal line with a node per stage, year above and title below; a dashed gap marker after `gapAfterIndex` labelled with the missing year.
-- [ ] Highlight: stage i is lit when `LocalRevealStep.current >= i + 1`; unlit stages are muted; nodes scale up with a spring when lit.
-- [ ] Hover: `Modifier.hoverable` with `collectIsHoveredAsState` and `clickable` toggle show a details card under the hovered/selected stage listing `details`.
-- [ ] Lit nodes pulse once on lighting; the line up to the lit stage draws on with `tween(500)`; the 2021 gap marker shows a "?" that wobbles on hover.
-- [ ] Add `val EvolutionStages: List<TimelineStage>` with the seven stages (2018 `droidconKE`, 2019 `droidconKE2019App`, 2020 `droidconKE2020App`, 2022 `droidconKE2022Android`, 2023 `droidconKeKotlin`, 2025 `droidconKeKMP`, 2026 ticketing and new look) and two to three cited detail lines each from Harun's overview sections 1.1 and 1.2.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: look at it in Task 5's slide S04.
-- [ ] Commit: `feat: evolution timeline with hover details`
+- [x] `TimelineStage(year: String, title: String, repo: String, details: List<String>)`.
+- [x] `EvolutionTimeline(stages, modifier, gapAfterIndex: Int? = null)`: a horizontal line with a node per stage, year above and title below; a dashed gap marker after `gapAfterIndex` labelled with the missing year.
+- [x] Highlight: stage i is lit when `LocalRevealStep.current >= i + 1`; unlit stages are muted; nodes scale up with a spring when lit.
+- [x] Hover: `Modifier.hoverable` with `collectIsHoveredAsState` and `clickable` toggle show a details card under the hovered/selected stage listing `details`.
+- [x] Lit nodes pulse once on lighting; the line up to the lit stage draws on with `tween(500)`; the 2021 gap marker shows a "?" that wobbles on hover.
+- [x] Add `val EvolutionStages: List<TimelineStage>` with the seven stages (2018 `droidconKE`, 2019 `droidconKE2019App`, 2020 `droidconKE2020App`, 2022 `droidconKE2022Android`, 2023 `droidconKeKotlin`, 2025 `droidconKeKMP`, 2026 ticketing and new look) and two to three cited detail lines each from Harun's overview sections 1.1 and 1.2.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: look at it in Task 5's slide S04.
+- [x] Commit: `feat: evolution timeline with hover details`
 
 ### Task 5: Cold open slides S01 to S05
 **Serves:** R5, R11, NF1, NF2
