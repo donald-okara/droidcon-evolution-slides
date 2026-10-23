@@ -6,7 +6,8 @@
 - Next: Task 4 (design inventory), the last task in the phase.
 - User answers folded in: speakers (Donald Isoe, Annunziata Kinya, Ian Nthuli), community rotation model replaces "handovers" in thesis, aliases confirmed, 2 other apps and KMP reversal reason unknown, format includes screen recordings/screenshots.
 - Talk restructured into three topic segments (history / about to launch / future = droidconKeKotlin docs/IMPROVEMENT_PLAN.md, framed as an invitation, not a commitment). Level Intermediate confirmed; Donald's bio shortened; same Harun confirmed.
-- Open: which speaker takes which segment; lessons wording; whether to call the improvement plan "Harun's" on a slide (repo doesn't name an author); WIP status of branches other than feat/notifications.
+- Speakers mapped: Annunziata Kinya = history (brings her own content), Donald Isoe = about to launch, Ian Nthuli = future. Harun credited by name. adaptive-large-screen, fix/speaker-details, fix/sponsor-logo-contrast are done.
+- Open: lessons wording; presenter photos.
 - Known issues: Haiku implementer ran out of turns mining git history; for repo-mining tasks, ask for batched git queries or use Sonnet.
 
 ## How to verify

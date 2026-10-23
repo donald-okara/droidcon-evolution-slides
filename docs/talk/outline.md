@@ -2,7 +2,7 @@
 
 **Thesis:** The droidcon Kenya app has outlived years of contributors joining through pull requests and stepping back when busy, and two multiplatform detours, because it stays a shared teaching codebase. The 2026 update shows what that buys, and the improvement plan is an invitation to make the app your own.
 
-**Speakers:** Donald Isoe, Annunziata Kinya, and Ian Nthuli. Which presenter (1, 2 or 3) maps to which name is TBD, so the tables keep the Presenter 1/2/3 placeholders.
+**Speakers:** Annunziata Kinya (history; brings her own content, so the history rows below are a placeholder fact base from `history.md`), Donald Isoe (current: about to be launched), Ian Nthuli (the future).
 
 **Format:** 45 minutes including Q&A, three presenters, one topic segment each. Slides, with screen recordings and screenshots on some slides. Facts come from `docs/talk/history.md` and the app repo; anything marked (inferred) there stays marked on stage.
 
@@ -10,28 +10,28 @@
 
 Three topic segments, history to now to future:
 
-1. **Opening:** what the app is and the thesis (Presenter 1).
-2. **History (Presenter 1):** the eras so far, compressed: the 2023 bootstrap and convention plugins, then the KMM and KMP detours and the dormant years.
-3. **About to be launched (Presenter 2):** what is done in the 2026 update, and what is still work in progress.
-4. **The future (Presenter 3):** the improvement plan. It was Harun Wangereka's idea, the team is not married to it, and everyone is encouraged to make the app their own. Framed as an invitation to contribute, matching the community rotation model.
-5. **Lessons and close (Presenter 3).**
-6. **Q&A (all, moderated by Presenter 1).**
+1. **Opening:** what the app is and the thesis (Annunziata Kinya).
+2. **History (Annunziata Kinya):** the eras so far, compressed: the 2023 bootstrap and convention plugins, then the KMM and KMP detours and the dormant years.
+3. **About to be launched (Donald Isoe):** what is done in the 2026 update, and what is still work in progress.
+4. **The future (Ian Nthuli):** the improvement plan. It was Harun Wangereka's idea, the team is not married to it, and everyone is encouraged to make the app their own. Framed as an invitation to contribute, matching the community rotation model.
+5. **Lessons and close (Ian Nthuli).**
+6. **Q&A (all, moderated by Annunziata Kinya).**
 
 ## Sections and budgets
 
 | # | Section | Segment | Eras | Minutes | Presenter |
 |---|---------|---------|------|---------|-----------|
-| 1 | Opening | History | none | 2 | Presenter 1 |
-| 2 | 2023: bootstrap, plugins, Chai | History | 1, 2 | 5 | Presenter 1 |
-| 3 | Detours: KMM, KMP, and the dormant years | History | 3, 4 | 5 | Presenter 1 |
-| 4 | 2026 update: done | About to be launched | 5 | 12 | Presenter 2 |
-| 5 | 2026 update: work in progress | About to be launched | 5 | 3 | Presenter 2 |
-| 6 | The improvement plan: an invitation | The future | none | 10 | Presenter 3 |
-| 7 | Lessons and close | The future | none | 3 | Presenter 3 |
-| 8 | Q&A | all | none | 5 | all, Presenter 1 moderates |
+| 1 | Opening | History | none | 2 | Annunziata Kinya |
+| 2 | 2023: bootstrap, plugins, Chai | History | 1, 2 | 5 | Annunziata Kinya |
+| 3 | Detours: KMM, KMP, and the dormant years | History | 3, 4 | 5 | Annunziata Kinya |
+| 4 | 2026 update: done | About to be launched | 5 | 12 | Donald Isoe |
+| 5 | 2026 update: work in progress | About to be launched | 5 | 3 | Donald Isoe |
+| 6 | The improvement plan: an invitation | The future | none | 10 | Ian Nthuli |
+| 7 | Lessons and close | The future | none | 3 | Ian Nthuli |
+| 8 | Q&A | all | none | 5 | all, Annunziata Kinya moderates |
 | | **Total** | | | **45** | |
 
-Sum check: 2 + 5 + 5 + 12 + 3 + 10 + 3 + 5 = 45. Presenter 1 has 12 minutes, Presenter 2 has 15, Presenter 3 has 13, and the 5-minute Q&A is shared.
+Sum check: 2 + 5 + 5 + 12 + 3 + 10 + 3 + 5 = 45. Annunziata Kinya has 12 minutes, Donald Isoe has 15, Ian Nthuli has 13, and the 5-minute Q&A is shared.
 
 ## Source of the improvement plan
 
@@ -66,7 +66,7 @@ Labels match `slide(label = ...)`. The Reveal column marks slides that disclose 
 | 4 | `launch-perf` | Baseline profile, release APK down 28% (`5a42a5a7`), size gate in CI (`1fc20ee5`) | none |
 | 4 | `launch-design` | Chai on Material 3 Expressive (`87d23cb7`) and the 2026 identity (`eb7c436e`) | none |
 | 4 | `launch-features` | Done features on main: cube hero (`5941f20f`) and Glance widget (`4492346b`) | Feature items appear one per click: cube hero, widget |
-| 5 | `launch-wip` | In progress: notifications module on branch `feat/notifications` (not yet on main at 2026-10-23); other open branches to be confirmed | Items appear one per click: notifications done so far (channels, reminders, preferences, deep links), then what remains (topic subscriptions, reminder actions) |
+| 5 | `launch-wip` | In progress: notifications module on branch `feat/notifications` (not yet on main at 2026-10-23) | Items appear one per click: notifications done so far (channels, reminders, preferences, deep links), then what remains (topic subscriptions, reminder actions) |
 | 6 | `future-plan` | The improvement plan: what it is, whose idea it was (Harun Wangereka), and that it is a living roadmap, not a commitment | none |
 | 6 | `future-roadmap` | The ranked items: accessibility pass, ticketing and QR, notifications leftovers, venue map and calendar, AI last | Roadmap stages appear one per click |
 | 6 | `future-invite` | Make the app your own: tracks for a small contributor pool, how to join through a pull request, the rotation model | none |
@@ -75,9 +75,8 @@ Labels match `slide(label = ...)`. The Reveal column marks slides that disclose 
 
 ## Open items
 
-- Speaker-to-presenter mapping (Presenter 1, 2, 3 to Donald Isoe, Annunziata Kinya, Ian Nthuli) is TBD.
-- Wording on `future-plan` ("not married to it", "make it your own") needs the presenters' sign-off; confirm Harun Wangereka is happy to be credited by name.
-- Merge state of open branches (`adaptive-large-screen`, `fix/speaker-details`, `fix/sponsor-logo-contrast`) was not verified; confirm before `launch-wip` goes final. Re-check whether notifications has merged by talk day.
+- Wording on `future-plan` ("not married to it", "make it your own") needs the presenters' sign-off. Harun Wangereka is credited by name (confirmed by the user).
+- `adaptive-large-screen`, `fix/speaker-details` and `fix/sponsor-logo-contrast` are done (confirmed by the user); they belong on `launch-done`. Re-check whether notifications has merged by talk day.
 - Presenter photos still come from the user. Names are known.
 - Which slides use screen recordings or screenshots is to be chosen with the presenters.
 - Lesson wording on `lessons` is a draft and needs the presenters' sign-off.
