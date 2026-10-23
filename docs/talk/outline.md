@@ -14,7 +14,7 @@ Three topic segments, history to now to future:
 2. **History (Annunziata Kinya):** the eras so far, compressed: the 2023 bootstrap and convention plugins, then the KMM and KMP detours and the dormant years.
 3. **About to be launched (Donald Isoe):** what is done in the 2026 update, and what is still work in progress.
 4. **The future (Ian Nthuli):** the improvement plan. It was Harun Wangereka's idea, the team is not married to it, and everyone is encouraged to make the app their own. Framed as an invitation to contribute, matching the community rotation model.
-5. **Lessons and close (Ian Nthuli).**
+5. **Lessons and close (Ian Nthuli leads; option: one lesson per speaker).** Three lessons that tie the segments together; see "Lessons (draft)" below.
 6. **Q&A (all, moderated by Annunziata Kinya).**
 
 ## Sections and budgets
@@ -70,8 +70,21 @@ Labels match `slide(label = ...)`. The Reveal column marks slides that disclose 
 | 6 | `future-plan` | The improvement plan: what it is, whose idea it was (Harun Wangereka), and that it is a living roadmap, not a commitment | none |
 | 6 | `future-roadmap` | The ranked items: accessibility pass, ticketing and QR, notifications leftovers, venue map and calendar, AI last | Roadmap stages appear one per click |
 | 6 | `future-invite` | Make the app your own: tracks for a small contributor pool, how to join through a pull request, the rotation model | none |
-| 7 | `lessons` | Three lessons that carry across rotations (docs for the next contributor, CI gates, recorded reversals) | Lessons appear one per click |
+| 7 | `lessons` | Three lessons from a codebase that changes hands: write it down for the next person, let CI guard it while people are away, make it easy to start (details in "Lessons (draft)") | Lessons appear one per click |
 | 8 | `qa` | Questions, with the open questions from `docs/talk/history.md` as backup | none |
+
+## Lessons (draft)
+
+The `lessons` slide (3 min) closes the talk. Each lesson draws on one segment, so it works as a recap: history, then now, then the future. Each one shows a short headline plus one line of evidence.
+
+1. **Write it down for the next person.** People join through pull requests and step back when life gets busy, so the docs are the handover. In 2026 the work is guided by `AGENTS.md`, `CLAUDE.md` and `docs/IMPROVEMENT_PLAN.md`. The cautionary case comes from history: multiplatform was dropped (`c42e0cdb`) and rolled back (`c29b4d01`) with no recorded reason, and nobody on the team can say why today. *(From Annie's history segment.)*
+2. **Let CI guard the codebase while people are away.** Volunteers can't review everything, so the PR workflow added with the 2026 module split (`d66ca423`, `pr.yml`) and the size gate check every change for them. *(From Donald's "about to launch" segment.)*
+3. **Make it easy to start.** Every maintainer, Harun included, started with a pull request. The improvement plan's five contributor tracks (Foundations, Design system, Adaptive, AI, Conference ops) give a newcomer a lane to pick, which leads into Q&A as an invitation. *(From Ian's future segment.)*
+
+Notes:
+- Lesson 3 overlaps with `future-invite` (slide 6). Keep it to one line on the `lessons` slide, or move the tracks detail out of `future-invite`.
+- Option: each speaker delivers the lesson from their own segment, so the close is shared (about 1 min each) instead of Ian alone.
+- Lesson 1 depends on Annie's content. If her history segment doesn't cover the multiplatform reversal, drop the cautionary line or have Ian set it up in a sentence.
 
 ## Open items
 
@@ -79,4 +92,4 @@ Labels match `slide(label = ...)`. The Reveal column marks slides that disclose 
 - `adaptive-large-screen`, `fix/speaker-details` and `fix/sponsor-logo-contrast` are done (confirmed by the user); they belong on `launch-done`. Re-check whether notifications has merged by talk day.
 - Presenter photos still come from the user. Names are known.
 - Which slides use screen recordings or screenshots is to be chosen with the presenters.
-- Lesson wording on `lessons` is a draft and needs the presenters' sign-off.
+- Lessons redone (see "Lessons (draft)"); wording and the shared-close option need the presenters' sign-off.
