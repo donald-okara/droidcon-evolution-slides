@@ -107,11 +107,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/LiveSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `.../talk/MeasuredSlides.kt`
 
-- [ ] `CubeWidgetSlide` (S22), `FollowsConferenceSlide` (S23), `LiveDemoSlide` (S24, `RevealBulletList` of the six demo steps from section 1.7, `LIVE_DEMO_STEPS = 6`), `StackSlide` (S25, optional: layer table from section 1.3), `CodeGrewSlide` (S26, D4 `ColumnChart`).
-- [ ] `liveDemoNotes` include the "set the date back before step 5" and fallback-video cues.
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S24 demo steps check themselves off; others of your choice) and list them one line per slide in your report.
-- [ ] Check: compile check from Task 5 passes.
-- [ ] Commit: `feat: live demo and stack slides S22-S26`
+- [x] `CubeWidgetSlide` (S22), `FollowsConferenceSlide` (S23), `LiveDemoSlide` (S24, `RevealBulletList` of the six demo steps from section 1.7, `LIVE_DEMO_STEPS = 6`), `StackSlide` (S25, optional: layer table from section 1.3), `CodeGrewSlide` (S26, D4 `ColumnChart`).
+- [x] `liveDemoNotes` include the "set the date back before step 5" and fallback-video cues.
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S24 demo steps check themselves off; others of your choice) and list them one line per slide in your report.
+- [x] Check: compile check from Task 5 passes.
+- [x] Commit: `feat: live demo and stack slides S22-S26`
 
 ### Task 10: Lessons and close slides S27 to S31
 **Serves:** R8, R11

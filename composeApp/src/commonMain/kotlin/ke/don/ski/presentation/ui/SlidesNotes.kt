@@ -260,3 +260,34 @@ val newLookNotes = listOf(
     AnnotatedString("Credit Joel Kanyi for the shared-element transitions and mutukuian for the redesigned speakers. The WCAG AA check covers every colour pair, and it does not measure how the palette feels to a reader with low vision."),
     AnnotatedString("Takeaway to return to: nothing of the I/O app is left on screen, and the brand, the motion and the cube are droidcon Kenya's own. Hand-off cue: \"That is 2026. The next act is the live demo.\"")
 )
+
+val cubeWidgetNotes = listOf(
+    AnnotatedString("The cube is pure play. It is drawn on a Compose canvas, and the plan has a list of easter eggs it could grow, so say that before anyone asks whether it does anything useful."),
+    AnnotatedString("The widget is donald-okara's, and it was written as a design spec first, then a plan, then code. A spec does not prove the widget works on every launcher, so the phone demo on the next slides is the proof."),
+    AnnotatedString("Takeaway to return to: spec, plan, code, and each one is a file you can read. Hand-off cue: \"The app also follows the conference. Let's see it.\"")
+)
+
+val followsConferenceNotes = listOf(
+    AnnotatedString("The app reads the clock and the schedule, and the home screen changes with the event: a countdown before, today's agenda with clashes during, and a thank-you with a feedback link after."),
+    AnnotatedString("The three screens are goldens, so they are placeholders here. The phase comes from the clock and the session times, not from a switch, which is why the live demo can move the phone's date to show the agenda."),
+    AnnotatedString("Takeaway to return to: the app changes with the event, not with a release. Hand-off cue: \"Let's see it live.\"")
+)
+
+val liveDemoNotes = listOf(
+    AnnotatedString("This is the live demo, about four minutes of the act. Mirror the phone with scrcpy, and have the fallback video recorded on Friday ready to play if the mirror drops or the phone misbehaves."),
+    AnnotatedString("Set the phone's date to conference day 1 for step 2, and the home screen switches to the agenda with clashes. Rehearse that change first. Set the date back before step 5, as rehearsed, so the purchase runs on the right day."),
+    AnnotatedString("Step 5 needs the chosen volunteer on mobile data, not venue Wi-Fi. If the email is slow, carry on and come back to it at the end of act 7; if it never arrives, use the ticket from Friday's dry run. Do not scan the pass with the real gate check-in."),
+    AnnotatedString("Takeaway to return to: turn on airplane mode and reopen the pass, and it is still there. The checks fill as each step arrives, so keep to the order. Hand-off cue: \"Now the stack, layer by layer.\"")
+)
+
+val stackNotes = listOf(
+    AnnotatedString("This slide is optional, so cut it if the demo ran long. Read across a row to see one layer change over the years, from the Java and XML of 2018 to Compose and convention plugins now."),
+    AnnotatedString("The table is condensed to five layers, so it leaves out navigation, images, async and the quality tools in the full table. It shows the shape of the change, not the whole inventory of libraries."),
+    AnnotatedString("Takeaway to return to: Android's history is in the rows. Hand-off cue: \"And how the code grew, in lines and in tests.\"")
+)
+
+val codeGrewNotes = listOf(
+    AnnotatedString("Flat for three years, then a step. Kotlin lines went from 14.7 thousand in March 2023 to 39.9 thousand on 22 October 2026, and test files went from 24 to 110."),
+    AnnotatedString("Lines of code do not measure quality, complexity or how much of the app a user touches. The test file count does not measure coverage, so it does not say whether those tests check the right things."),
+    AnnotatedString("The 180 screenshot goldens are a check that screens still look the way they did, and they do not show that a screen works. Takeaway to return to: the tests grew faster than the code. Hand-off cue: \"Now, what it means.\"")
+)

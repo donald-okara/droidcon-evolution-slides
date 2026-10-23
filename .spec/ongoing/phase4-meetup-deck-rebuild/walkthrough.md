@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-8 done (through 2026 slides S18-S21).
-- Next: Task 9 (live and stack slides S22-S26).
+- Tasks 1-9 done (through live and stack slides S22-S26).
+- Next: Task 10 (lessons and close slides S27-S31).
 - Open: old phase 3 note at SlidesNotes.kt:79 contains "35% faster"; Task 11 removes it. S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 9: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 8: Task 5 compile check; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
 - Task 7: same compile check as Task 5.
 - Task 6: same compile check as Task 5 (`:segments:demos` JVM and WasmJs).
@@ -60,6 +61,11 @@
 - `SwatchRow`, `hexOf` and palette lists moved from `LaunchSlides.kt` to `common/Swatches.kt` (internal); `LaunchDesignSlide` unchanged in output.
 - Delight: S18 quote pops in; S19 module count 7 to 20; S20 tiles count up and shrink; S21 form-factor placeholders pop in staggered.
 - NOTE: S19 third rule taken from overview S19 text (feature tests and fakes, core:testing).
+
+### Task 9: Live and stack slides S22-S26
+- `talk/LiveSlides.kt`: `CubeWidgetSlide`, `FollowsConferenceSlide`, `LiveDemoSlide` (`LIVE_DEMO_STEPS = 6`), `StackSlide`, `CodeGrewSlide`; notes in `SlidesNotes.kt` (`liveDemoNotes` has the date-back and fallback-video cues).
+- Delight: S22 widget and Spec/Plan/Code chips pop in; S23 Before/During/After placeholders pop in; S24 step numbers turn into springing checks; S25 layer rows drop in; S26 StatTiles count up.
+- NOTE: S24 uses a `RevealItem`-based `DemoStepRow` checklist instead of `RevealBulletList` (same reveal mechanism). S22 cube is a `MediaPlaceholder`. S26 is a D4 `ColumnChart` of Kotlin LOC plus test-file StatTile.
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.
