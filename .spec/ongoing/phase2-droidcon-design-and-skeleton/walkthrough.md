@@ -2,13 +2,12 @@
 
 ## Current state
 
-- Done: Tasks 1 to 12 (logo-only header, green footer dot, checkered floor background with full-opacity cube decorator).
-- Next: Task 13 (checker alpha 0.06 to 0.10, from review 3); then the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
-- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (faint, moving, text readable in light and dark), cube animation, 19 slides in order, no footer on opening-title and qa.
+- Done: Tasks 1 to 13 (all tasks; checker alpha now 0.10 in light and dark).
+- Next: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
+- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (visible at a glance, moving, text readable in light and dark), cube animation, 19 slides in order, no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
 - Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; the maintainer's "full opacity" was applied to the decorator only.
-- Deferred: removals of unused code and resources (see the overview's Out of Scope).
-- Deferred: per-theme checker alpha.
+- Deferred: removals of unused code and resources (see the overview's Out of Scope); per-theme checker alpha.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
@@ -26,6 +25,8 @@
 - Task 9: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show 19 slides in outline order (user to check).
 - Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet"` on `Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, the header shows only the logo and the footer a green dot (user to check).
 - Task 12: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the faint moving checkered floor and the full-opacity cube at bottom-right, with readable text in light and dark (user to check).
+
+- Task 13: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, checkers are visible at a glance and text stays readable in light and dark (user to check).
 
 ## Changes by task
 
@@ -95,6 +96,10 @@
 - Escalated to Sonnet (as the task required).
 - Maintainer instruction during the run: the cube is at full opacity. The reviewer confirmed there is no alpha on the cube or its container.
 - Reviewer NOTE: the perspective maths is sane (near depth ≥ 0.5, so nothing blows up at the horizon). The cube painter's own edge/sheen alphas predate this task and are unchanged.
+
+### Task 13: Raise checker alpha to 0.10
+- `DroidconBackground.kt`: `private const val FLOOR_ALPHA` changed from 0.06f to 0.10f (one-line diff); used once, so light and dark share it. Horizon, scroll speed and cube unchanged.
+- Reviewer NOTE: compile, grep and `shared/components` checks pass; visual check left to the user.
 
 ## Deviations from spec
 

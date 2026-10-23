@@ -28,7 +28,7 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 private const val HORIZON = 0.4f
-private const val FLOOR_ALPHA = 0.06f
+private const val FLOOR_ALPHA = 0.10f
 private const val TILE_DEPTH = 0.5f
 private const val ROWS = 30
 private const val COLUMNS_ACROSS = 6f

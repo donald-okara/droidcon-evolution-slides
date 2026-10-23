@@ -148,6 +148,6 @@ This task writes perspective drawing code; run the implementer on Sonnet.
 **Serves:** R8
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/background/DroidconBackground.kt` (edit)
 
-- [ ] Change the floor cells' alpha from 0.06 to 0.10, the same in light and dark. Change nothing else (horizon, scroll speed and cube unchanged; the cube stays at full opacity).
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are visible at a glance and slide text stays readable in light and dark.
-- [ ] Commit: `feat: make background checkers more visible`
+- [x] Change the floor cells' alpha from 0.06 to 0.10, the same in light and dark. Change nothing else (horizon, scroll speed and cube unchanged; the cube stays at full opacity).
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are visible at a glance and slide text stays readable in light and dark.
+- [x] Commit: `feat: make background checkers more visible`
