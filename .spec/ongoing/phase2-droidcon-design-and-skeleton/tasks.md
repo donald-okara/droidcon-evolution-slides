@@ -59,12 +59,12 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 
 This task rewrites Android graphics code; run the implementer on Sonnet.
 
-- [ ] Port `CubePainter` replacing `android.graphics.Matrix` and `nativeCanvas` (source lines 18, 27, 56, 74) with `androidx.compose.ui.graphics.Matrix`, `Path.transform`, and `DrawScope.drawIntoCanvas`/`drawPath`. Same visual output.
-- [ ] Port `CubeHero(modifier, size)` as the animated cube (hold 2600 ms, travel 1300 ms, `CubicBezierEasing(0.2f, 0f, 0f, 1f)`); drop click handling if it needs anything not in common code.
-- [ ] Add `CubeBullet(modifier, size = 12.dp)`: the cube drawn statically in its first orientation, no animation.
-- [ ] Add a `@Preview` for `CubeHero` and `CubeBullet` inside `AppTheme`, if previews already exist in `:shared:design`; otherwise skip.
-- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; no `android.` import in `shared/design/src/commonMain`.
-- [ ] Commit: `feat: port cube painter and add cube hero and bullet`
+- [x] Port `CubePainter` replacing `android.graphics.Matrix` and `nativeCanvas` (source lines 18, 27, 56, 74) with `androidx.compose.ui.graphics.Matrix`, `Path.transform`, and `DrawScope.drawIntoCanvas`/`drawPath`. Same visual output.
+- [x] Port `CubeHero(modifier, size)` as the animated cube (hold 2600 ms, travel 1300 ms, `CubicBezierEasing(0.2f, 0f, 0f, 1f)`); drop click handling if it needs anything not in common code.
+- [x] Add `CubeBullet(modifier, size = 12.dp)`: the cube drawn statically in its first orientation, no animation.
+- [x] Add a `@Preview` for `CubeHero` and `CubeBullet` inside `AppTheme`, if previews already exist in `:shared:design`; otherwise skip.
+- [x] Check: `./gradlew :shared:design:compileKotlinJvm` passes; no `android.` import in `shared/design/src/commonMain`.
+- [x] Commit: `feat: port cube painter and add cube hero and bullet`
 
 ### Task 6: Droidcon frame
 **Serves:** R5

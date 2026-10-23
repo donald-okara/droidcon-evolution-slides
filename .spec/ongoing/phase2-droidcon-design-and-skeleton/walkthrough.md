@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Done: Tasks 1 to 4 (Montserrat font, droidcon colours, logo SVGs, cube model port). Nothing checked visually on desktop yet; the Task 6 run covers fonts, colours, logo and cube.
-- Next: Task 5 (cube painter and composables, on Sonnet).
+- Done: Tasks 1 to 5 (Montserrat font, droidcon colours, logo SVGs, cube model and painter, `CubeHero`/`CubeBullet`). Nothing checked visually on desktop yet; the Task 6 run must confirm fonts, colours, logo, and that the cube's perspective looks right.
+- Next: Task 6 (droidcon frame).
 - Logos are 1246x246 intrinsic size; the Task 6 header must size them explicitly.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
 - Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`; delete them in a cleanup if wanted.
@@ -16,6 +16,7 @@
 - Task 2: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -n "6D538B" shared/design/src` returns nothing; deck shows blue/green/black in light and dark (not yet checked visually).
 - Task 3: `./gradlew :shared:resources:compileKotlinJvm` passes; `xmllint --noout` on both SVGs; logos render in the header after Task 6.
 - Task 4: `./gradlew :shared:design:compileKotlinJvm :shared:design:compileKotlinWasmJs` passes; `grep -rn "import android\." shared/design/src/commonMain` returns nothing.
+- Task 5: same compile and grep checks as Task 4; the cube animates without distortion in the header after Task 6 (not yet checked visually).
 
 ## Changes by task
 
@@ -39,6 +40,12 @@
 - For wasm: `Math.toRadians`/`toDegrees` replaced with `kotlin.math.PI` arithmetic (`CubeProjection.kt`, `Orientation.kt`); `synchronized(this)` dropped from `CubeMark.layers` in `CubeMarks.kt`.
 - Reviewer NOTE: the PI arithmetic is correct. Without the lock, a mark can be cut twice in a race, with the same result, which is harmless. The reviewer could not find the source on disk to diff against.
 - Reviewer NOTE: the literal `grep "import android"` check matches `androidx`; `import android\.` finds nothing.
+### Task 5: Cube painter and composables
+- Added `CubePainter.kt` and `CubeHero.kt` in `ke.don.design.cube`. Escalated to Sonnet (as the task required).
+- `CubePainter`: uses `drawIntoCanvas` with `save`/`concat`/`restore` and a Compose `Matrix` rather than `Path.transform`. A private `setProjective` loads the 3x3 homography into the 4x4 matrix. Colours come from `CubeColors`.
+- `CubeHero(modifier, size = 240.dp)` runs `CubeMotion.run()` while composed. The animate flag, lifecycle pause/resume, visibility callback, test tag, saveable scene and click handling were dropped. `CubeBullet(modifier, size = 12.dp)` draws a solved cube at `Poses[0]`, with no animation.
+- No `@Preview`, because `:shared:design` has none.
+- Reviewer NOTE: the matrix index mapping matches `android.graphics.Matrix` perspective behaviour. Visual output is unchecked; confirm in the Task 6 run.
 
 ## Deviations from spec
 
