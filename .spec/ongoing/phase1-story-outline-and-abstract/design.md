@@ -14,3 +14,8 @@
 **Decision:** The eras and maintainers come from the app clone's git log, with SHAs cited.
 **Why:** The clone has 713 commits and no tags. Citing commits keeps the talk's claims checkable.
 **Tradeoff:** Commits without context (no PR text) may need the user to explain them; those are marked "(inferred)".
+
+### Design port: inventory in phase 1, port in phase 2 (2026-10-23)
+**Decision:** Phase 1 adds a design inventory doc (R4). Porting the theme and assets into `:shared:design` and `:shared:resources` happens in phase 2, before content slides.
+**Why:** Phase 1 stays docs-only. The inventory gives phase 2 concrete paths and conversion verdicts, and the design timeline feeds the talk itself.
+**Tradeoff:** The deck keeps the purple Ski theme until phase 2. Theme changes live in `:shared:design`, which the published `ski` library does not depend on, so the port won't leak into it.

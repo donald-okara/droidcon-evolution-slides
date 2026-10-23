@@ -21,6 +21,14 @@
 - The body is 100 to 150 words. The speaker line lists three presenter placeholders.
 - **Check:** `wc -w` on the body (title and metadata lines excluded) gives 100 to 150, and every template section is present.
 
+### R4. Design inventory
+- `docs/talk/design-inventory.md` lists the current (2026) design tokens from the app's `core/designsystem` module: light and dark color schemes with hex values, `ChaiColors` extras, typography (font, sizes, weights), shapes, motion scheme. Each entry cites its source file path.
+- It lists the brand assets (logos, launcher, cube SVGs, `ChaiIcons`, images, fonts) with path, format, size, license where known, and a conversion verdict for Compose Multiplatform: `as-is`, `convert to SVG/ImageVector`, or `skip`.
+- It lists the signature components (e.g. cube hero) with paths and whether they are portable as plain Compose.
+- It gives a design timeline (palette and theme changes, with commit SHAs and dates), including the pre-2026 palette, for "then vs now" slides.
+- It maps each token and asset to its target in the slides repo (`shared/design/.../theme/Color.kt`, `Type.kt`, `Dimens.kt`, `shared/resources/.../composeResources/font|drawable/`, `Resources.kt`), and ends with "Decisions for phase 2" open questions.
+- **Check:** spot-check three hex values and two asset paths against the app repo; every asset row has a verdict.
+
 ## Non-Functional Requirements
 
 - **NF1. Read-only source:** no file in the droidcon app clone is modified (`git -C /Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin status` shows no new changes).
