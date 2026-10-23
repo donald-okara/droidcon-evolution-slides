@@ -46,6 +46,10 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.PointerEventPass
+import androidx.compose.ui.input.pointer.PointerEventType
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -195,9 +199,25 @@ fun EvolutionTimeline(
     var hoveredStage by remember { mutableStateOf<Int?>(null) }
     var selectedStage by remember { mutableStateOf<Int?>(null) }
     var shownStage by remember { mutableStateOf(0) }
-    val activeStage = selectedStage ?: hoveredStage
+    var rowHeightPx by remember { mutableStateOf(0) }
+    var columnWidthPx by remember { mutableStateOf(0) }
+
+    // The lit stage is the last one revealed. A click pins a stage until the next reveal step, so the lit stage
+    // shows its details on every step. Hover previews any stage, and leaving it falls back to the pin or lit stage.
+    val litStage = if (litCount > 0) litCount - 1 else null
+    val activeStage = hoveredStage ?: selectedStage ?: litStage
+    LaunchedEffect(step) {
+        selectedStage = null
+    }
     LaunchedEffect(activeStage) {
         activeStage?.let { shownStage = it }
+    }
+
+    // Maps a slot to its stage index, or null for the gap slot.
+    fun stageAtSlot(slot: Int): Int? = when {
+        gapSlot == null || slot < gapSlot -> slot
+        slot == gapSlot -> null
+        else -> slot - 1
     }
 
     BoxWithConstraints(modifier = modifier.fillMaxWidth()) {
@@ -206,8 +226,38 @@ fun EvolutionTimeline(
         val shownSlot = slotOf(shownStage)
         val cardLeft = (slotWidth * (shownSlot + 0.5f) - cardWidth / 2).coerceIn(0.dp, maxWidth - cardWidth)
 
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Row(modifier = Modifier.fillMaxWidth()) {
+        // One pointer region covers the node row and the details card, so hover does not drop when the pointer
+        // moves from a stage down onto its card. Only pointers in the node row change the previewed stage.
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .onSizeChanged { columnWidthPx = it.width }
+                .pointerInput(slotCount, gapSlot) {
+                    awaitPointerEventScope {
+                        while (true) {
+                            val event = awaitPointerEvent(PointerEventPass.Main)
+                            val change = event.changes.firstOrNull() ?: continue
+                            when (event.type) {
+                                PointerEventType.Exit -> hoveredStage = null
+                                PointerEventType.Enter, PointerEventType.Move -> {
+                                    val inRow = change.position.y < rowHeightPx
+                                    if (inRow && columnWidthPx > 0) {
+                                        val slotPx = columnWidthPx.toFloat() / slotCount
+                                        val slot = (change.position.x / slotPx).toInt().coerceIn(0, slotCount - 1)
+                                        stageAtSlot(slot)?.let { hoveredStage = it }
+                                    }
+                                }
+                                else -> Unit
+                            }
+                        }
+                    }
+                }
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .onSizeChanged { rowHeightPx = it.height }
+            ) {
                 for (slot in 0 until slotCount) {
                     val isGap = slot == gapSlot
                     val stageIndex = when {
@@ -229,7 +279,6 @@ fun EvolutionTimeline(
                             leftDashed = true,
                             rightDashed = true,
                             drawn = drawn,
-                            onHover = null,
                             onClick = null
                         )
                     } else {
@@ -245,13 +294,6 @@ fun EvolutionTimeline(
                             leftDashed = leftDashed,
                             rightDashed = rightDashed,
                             drawn = drawn,
-                            onHover = { hovered ->
-                                hoveredStage = when {
-                                    hovered -> stageIndex
-                                    hoveredStage == stageIndex -> null
-                                    else -> hoveredStage
-                                }
-                            },
                             onClick = {
                                 selectedStage = if (selectedStage == stageIndex) null else stageIndex
                             }
@@ -291,17 +333,12 @@ private fun TimelineSlot(
     leftDashed: Boolean,
     rightDashed: Boolean,
     drawn: State<Float>,
-    onHover: ((Boolean) -> Unit)?,
     onClick: (() -> Unit)?,
     modifier: Modifier = Modifier
 ) {
     val scheme = MaterialTheme.colorScheme
     val interaction = remember { MutableInteractionSource() }
     val hovered by interaction.collectIsHoveredAsState()
-
-    LaunchedEffect(hovered) {
-        onHover?.invoke(hovered)
-    }
 
     val wobble = remember { Animatable(0f) }
     LaunchedEffect(hovered) {

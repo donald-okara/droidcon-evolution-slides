@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-12 done; phase 4 review 1 requested changes.
-- Next: Task 13 (timeline details stable, selected stage shows details), Task 14 (big cube hero on S01), then `/donatello:phase-review` again.
-- Open: `showFooter = false` on S01 and S31, S14 confetti across the two windows, notes constant names vs spec.md:41, S05 marks only the Oct 2026 meetup month, optional `iosName` to `ioName` tidy. The "missing pieces" notes are deferred.
-- Known issues: none.
+- Tasks 1-13 done; phase 4 review 1 requested changes.
+- Next: Task 14 (big cube hero on S01), then `/donatello:phase-review` again.
+- Open: `showFooter = false` on S01 and S31, S14 confetti across the two windows, notes constant names vs spec.md:41, S05 marks only the Oct 2026 meetup month, optional `iosName` to `ioName` tidy. Task 13 flicker fix needs a manual check on `:desktopApp:run` S04.
+- Known issues: none (a Gradle build-cache store error can appear once and passes on retry).
 
 ## How to verify
 
+- Task 13: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; user: on `:desktopApp:run` S04, move across stages without flicker and see the lit stage's details on each step.
 - Task 12: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution`; user steps through the deck on `:desktopApp:run`.
 - Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs`; `grep -c "label ="` on SkiPresentationSlides.kt is 31; `git diff --stat e02c712 -- shared/components` is empty.
 - Task 10: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
@@ -79,6 +80,11 @@
 - `SkiPresentationSlides.kt` registers 31 slides in outline order, Fade transition; steps on S04, S24, S29; `showFooter = false` on S01 and S31.
 - Deleted `droidcon/{opening,history,launch,future,close}/` and 130 lines of phase 3 notes (the "35% faster" note is gone). `common/` untouched.
 - NOTE: notes constants keep the talk tasks' names rather than literal `<label>Notes` (spec.md:41).
+
+### Task 13: Timeline details without flicker
+- `EvolutionTimeline.kt`: flicker was per-slot hover dropping when the pointer moved from a node onto its card. Now one pointer region covers node row plus card; per-slot hover kept only for the gap "?" wobble.
+- Card precedence: hovered, then clicked, then lit stage (`LocalRevealStep - 1`). A click pins a stage until the next reveal step. Reveal logic untouched.
+- NOTE: hovering an unlit stage previews its details (allowed by the task).
 
 ### Task 12: Delight audit, polish and full build
 - `SlideTitle` fades in and rises over 400ms; `BulletList` rows stagger 120ms; `RevealBulletList`/`RevealItem` untouched.
