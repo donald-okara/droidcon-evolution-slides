@@ -74,11 +74,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/EarlyYearsSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `.../talk/ColdOpenSlides.kt`
 
-- [ ] `Y2018FirstSlide` (S06, D6 Java to Kotlin as a `BarChart`), `Y2018CloneSlide` (S07, side-by-side README and screenshot placeholders, the highlight slide), `Y2019Slide` (S08), `Y2020ModularSlide` (S09), `Y2020NoConferenceSlide` (S10, with a "pass the mic" `CalloutCard` naming Oliver Muthomi, Jabez Magomere, David Odari).
-- [ ] Notes for each, prefixed by the mic-hand-over cue where the overview has one.
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S07 matching-line highlight sweep across the two READMEs, S10 shrug on the 2021 gap; others of your choice) and list them one line per slide in your report.
-- [ ] Check: compile check from Task 5 passes.
-- [ ] Commit: `feat: 2018-2020 slides S06-S10`
+- [x] `Y2018FirstSlide` (S06, D6 Java to Kotlin as a `BarChart`), `Y2018CloneSlide` (S07, side-by-side README and screenshot placeholders, the highlight slide), `Y2019Slide` (S08), `Y2020ModularSlide` (S09), `Y2020NoConferenceSlide` (S10, with a "pass the mic" `CalloutCard` naming Oliver Muthomi, Jabez Magomere, David Odari).
+- [x] Notes for each, prefixed by the mic-hand-over cue where the overview has one.
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S07 matching-line highlight sweep across the two READMEs, S10 shrug on the 2021 gap; others of your choice) and list them one line per slide in your report.
+- [x] Check: compile check from Task 5 passes.
+- [x] Commit: `feat: 2018-2020 slides S06-S10`
 
 ### Task 7: 2022 to 2025 slides S11 to S17
 **Serves:** R6, R11

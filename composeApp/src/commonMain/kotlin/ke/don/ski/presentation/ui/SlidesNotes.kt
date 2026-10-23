@@ -164,3 +164,33 @@ val seasonsNotes = listOf(
     AnnotatedString("The chart counts commits per month in droidconKeKotlin. It does not measure effort, review time, or how big each commit was."),
     AnnotatedString("Takeaway to return to: hold on to the quiet months for the end of the talk.")
 )
+
+val y2018FirstNotes = listOf(
+    AnnotatedString("Kotlin had been official on Android for a year, and this app still started in Java."),
+    AnnotatedString("A Kotlin branch ran beside the Java code from August 2018 and took over by April 2019, and the chart shows the Java count collapsing to two that month."),
+    AnnotatedString("Takeaway to return to: real migrations look like that, a branch, then a long overlap, then a switch. Hand-off cue: \"Here is where the app started, copied from somebody else.\"")
+)
+
+val y2018CloneNotes = listOf(
+    AnnotatedString("Give this one time. The first droidcon Kenya app was a clone of Google's I/O app, and the highlight sweeps across the two READMEs, which share the same line word for word."),
+    AnnotatedString("The screens had the same names, so fragment_info, fragment_event and fragment_travel came across unchanged. The I/O code was already Kotlin, and we cloned its screens in Java anyway."),
+    AnnotatedString("Takeaway to return to: copy the best app you can find and learn from it. The rest of this talk is the app slowly becoming its own.")
+)
+
+val y2019AllJetpackNotes = listOf(
+    AnnotatedString("The app was 100 percent Kotlin from day one, and it was built on Jetpack Navigation, Safe Args, LiveData and Firestore KTX."),
+    AnnotatedString("The community's name went into the package that year, com.android254, and it is still there today."),
+    AnnotatedString("Still one module. The README promised phones and tablets. Remember that promise.")
+)
+
+val y2020ModularNotes = listOf(
+    AnnotatedString("This is the biggest jump in ambition: 13 modules, 7 of them dynamic features, plus static analysis and CI through GitHub Actions."),
+    AnnotatedString("Dynamic features were the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
+    AnnotatedString("On the I/O thread, this is the first README without the I/O app's words, and the first architecture the team designed for itself. Takeaway to return to: the team learned modules here.")
+)
+
+val y2020NoConferenceNotes = listOf(
+    AnnotatedString("Mic hand-over: pass the mic to a guest from the 2020 team for 90 seconds, and ask what building an app for a conference that was cancelled was like."),
+    AnnotatedString("Both apps call themselves the third droidcon, one for August 2020 and one for November 2022. Nothing was held in 2021, and the shrug is for that gap."),
+    AnnotatedString("Takeaway to return to: the 2020 team built something for a conference that never happened. Hand-off cue: \"Now the 2022 Compose year.\"")
+)

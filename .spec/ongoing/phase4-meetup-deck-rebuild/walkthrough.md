@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-5 done (rename, outline/40 min session, chart blocks, evolution timeline, cold open slides S01-S05).
-- Next: Task 6 (2018-2020 slides S06-S10).
-- Open: S05 marks only the Oct 2026 meetup month (overview gives no dates for earlier conferences). Slides and notes are not registered until Task 11.
+- Tasks 1-6 done (through 2018-2020 slides S06-S10).
+- Next: Task 7 (2022-2025 slides S11-S17).
+- Open: S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 6: same compile check as Task 5 (`:segments:demos` JVM and WasmJs).
 - Task 5: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; step through S04 on `:desktopApp:run` once registered (Task 11).
 - Task 4: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; look at it in S04 (Task 5).
 - Task 3: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`.
@@ -41,6 +42,11 @@
 - Delight: S01 cube turns face-on; S02 QR cards pop in staggered; S03 commit count-up; S04 nodes light per step; S05 meetup-month flag pops in.
 - S04 detail citations in EvolutionTimeline.kt verified against the overview (all 21 supported).
 - NOTE: S05 only highlights the 2026-10 meetup month; S04 sibling lines are plain text, not drawn.
+
+### Task 6: 2018-2020 slides S06-S10
+- `talk/EarlyYearsSlides.kt`: `Y2018FirstSlide`, `Y2018CloneSlide`, `Y2019Slide`, `Y2020ModularSlide`, `Y2020NoConferenceSlide`; notes in `SlidesNotes.kt`.
+- Delight: S06 bars grow; S07 matching-line sweep across both READMEs; S08 package chip pops in; S09 module count-up; S10 shrug tilts upright.
+- NOTE: S07 sweep and S10 shrug are local composables. S06 chart shows Java files only; Kotlin counts are in the caption. `iosName` parameter in `ScreenNameRow` should read `ioName`.
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.
