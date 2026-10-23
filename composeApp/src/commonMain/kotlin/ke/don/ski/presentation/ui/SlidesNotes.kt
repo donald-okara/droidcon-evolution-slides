@@ -10,14 +10,17 @@ private fun placeholderNotes(presenter: String, intent: String) = listOf(
     AnnotatedString("PLACEHOLDER. Presenter: $presenter. $intent")
 )
 
-val openingTitleNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "Talk title, the app, and the three presenters"
+val openingTitleNotes = listOf(
+    AnnotatedString("Welcome, and thank you for coming. I'm Annunziata Kinya, and I'm presenting with Donald Isoe and Ian Nthuli."),
+    AnnotatedString("This talk is about the droidcon Kenya Android app from 2023 to 2026, and why it is the community's shared teaching codebase."),
+    AnnotatedString("Donald and Ian follow my history section, so please hold questions for the Q&A at the end.")
 )
 
-val openingThesisNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "Thesis on screen and the arc: history, about to launch, future"
+val openingThesisNotes = listOf(
+    AnnotatedString("Here is the whole talk in one sentence, and I'll read it slowly."),
+    AnnotatedString("The app has outlived years of contributors joining through pull requests and stepping back when busy, and two multiplatform detours, because it stays a shared teaching codebase."),
+    AnnotatedString("The 2026 update shows what that buys us, and the improvement plan is an invitation to make the app your own."),
+    AnnotatedString("Takeaway to return to: history, then about to launch, then the future. Hand-off cue: \"So let's start in 2023, with the bootstrap.\"")
 )
 
 val historyBootstrapNotes = placeholderNotes(

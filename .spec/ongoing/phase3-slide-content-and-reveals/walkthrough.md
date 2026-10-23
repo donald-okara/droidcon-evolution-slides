@@ -2,9 +2,10 @@
 
 ## Current state
 
-- Tasks 1 to 4 done and committed (navigator steps; host and web sync; shared slide blocks; stat tile).
-- Next: Task 5 (opening slides).
-- Open: desktop manual checks (one Right press on `opening-title`, window and web popup sync, stat tile animation) are left to the user.
+- Tasks 1 to 5 done and committed (through the opening slides).
+- Next: Task 6 (history: bootstrap, plugins, churn).
+- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile animation, opening slides look) are left to the user.
+- `placeholderNotes` stays in `SlidesNotes.kt` until Task 12.
 
 ## How to verify
 
@@ -13,6 +14,7 @@
 - Task 2: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes. User: on `:desktopApp:run`, one Right press on `opening-title` changes slides.
 - Task 3: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 4: same compile check as Task 3 passes.
+- Task 5: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes. User: look at `opening-title` and `opening-thesis` on `:desktopApp:run`.
 
 ## Changes by task
 
@@ -35,6 +37,10 @@
 - New `StatTile.kt`: `StatTile(value, unit, label, direction, modifier, improvement, sha, source, decimals)` and `StatDirection { Increase, Decrease }`. Count-up via one `Animatable` (1200 ms); decrease shrinks the number with `graphicsLayer`; arrow fades in after 600 ms and slides 24 dp toward its settled position.
 - Colour: improvement uses `secondary` on light and `primary` on dark; not improvement uses `error`.
 - Reviewer NOTE: `modifier` sits after `direction` in the parameter list rather than last; use named arguments at call sites.
+
+### Task 5: Opening slides
+- `OpeningSlides.kt`: `OpeningTitleSlide` (title, subtitle, three presenter cards with photo placeholders) and `OpeningThesisSlide` (thesis verbatim from the outline, then History / About to launch / Future chips). Cube hero skipped (optional in the task).
+- `SlidesNotes.kt`: real `openingTitleNotes` and `openingThesisNotes` for Annunziata Kinya. No "draft, Annie to replace" line, since the task doesn't ask for it.
 
 ## Deviations from spec
 

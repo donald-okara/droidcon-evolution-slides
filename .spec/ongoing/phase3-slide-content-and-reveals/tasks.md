@@ -79,11 +79,11 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/opening/OpeningSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt
 
-- [ ] `OpeningTitleSlide`: the title "The droidcon Kenya app, 2023 to 2026", a subtitle saying it is the community's shared teaching codebase (`history.md` era 5, README line), and a row of three presenter cards (`MediaPlaceholder("Photo: <name>")` above the name and segment: Annunziata Kinya / History, Donald Isoe / About to launch, Ian Nthuli / The future). The cube hero (`ke.don.design.cube.CubeHero`) is optional, used only if it fits beside the title without crowding.
-- [ ] `OpeningThesisSlide`: the outline's thesis as a quote in `headlineMedium`, then three arc chips: History, About to launch, Future.
-- [ ] Replace `openingTitleNotes` and `openingThesisNotes` with real notes for Annunziata Kinya: the welcome and introductions, then the thesis said aloud and a hand-off cue into history.
-- [ ] Check: the standard check.
-- [ ] Commit: `feat: opening slides content and notes`
+- [x] `OpeningTitleSlide`: the title "The droidcon Kenya app, 2023 to 2026", a subtitle saying it is the community's shared teaching codebase (`history.md` era 5, README line), and a row of three presenter cards (`MediaPlaceholder("Photo: <name>")` above the name and segment: Annunziata Kinya / History, Donald Isoe / About to launch, Ian Nthuli / The future). The cube hero (`ke.don.design.cube.CubeHero`) is optional, used only if it fits beside the title without crowding.
+- [x] `OpeningThesisSlide`: the outline's thesis as a quote in `headlineMedium`, then three arc chips: History, About to launch, Future.
+- [x] Replace `openingTitleNotes` and `openingThesisNotes` with real notes for Annunziata Kinya: the welcome and introductions, then the thesis said aloud and a hand-off cue into history.
+- [x] Check: the standard check.
+- [x] Commit: `feat: opening slides content and notes`
 
 ### Task 6: History, bootstrap to churn
 **Serves:** R5, R9
