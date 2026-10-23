@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Done: Tasks 1 to 7 and 10 (snake frame with a logo-and-cube-only header; placeholder slides for sections 1 to 3).
-- Next: Tasks 8 and 9.
+- Done: Tasks 1 to 8 and 10 (snake frame with a logo-and-cube-only header; placeholder slides for all 8 sections, not yet registered).
+- Next: Task 9 (register the 19 slides, remove the demos).
 - Open: the outline has no slide titles, so the placeholder titles were chosen by the implementer (e.g. "Thesis"); presenters to confirm.
 - Task 9 uses `showFooter = false` on `opening-title` and `qa`.
 - Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube perspective and animation, cube bullet, and that Questions has no footer.
@@ -23,6 +23,7 @@
 - Task 6: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `git diff --stat -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the logo and animated cube in the header and the cube bullet in the footer, and the Questions slide has no footer (not yet checked visually).
 - Task 10: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer (user to check).
 - Task 7: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- Task 8: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 
 ## Changes by task
 
@@ -70,6 +71,11 @@
 - `droidcon/opening/OpeningSlides.kt` (2 slides) and `droidcon/history/HistorySlides.kt` (6 slides): intents copied verbatim from `docs/talk/outline.md`, commit hashes included; presenter Annunziata Kinya for all of them (sections 1 to 3). Reveal notes are omitted.
 - Titles chosen by the implementer, since the outline has none.
 - Reviewer NOTE: intents and presenters match the outline; the extra `modifier` parameter is harmless; titles need the presenters' confirmation.
+### Task 8: Sections 4 to 8
+- `droidcon/launch/LaunchSlides.kt` (6), `droidcon/future/FutureSlides.kt` (3), `droidcon/close/CloseSlides.kt` (2), using the function names from the task and following the `HistorySlides` pattern; short titles chosen by the implementer.
+- Presenters: Donald Isoe (launch); Ian Nthuli (future, lessons); "All, moderated by Annunziata Kinya" (qa).
+- The Lessons intent drops the outline's `(details in "Lessons (draft)")` aside.
+- Reviewer NOTE: all 11 intents match the outline apart from that aside, which is acceptable (it points to an outline section, not slide content).
 
 ## Deviations from spec
 

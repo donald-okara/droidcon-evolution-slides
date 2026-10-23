@@ -93,12 +93,12 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/launch/LaunchSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/future/FutureSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/close/CloseSlides.kt` (new)
 **Pattern:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt`
 
-- [ ] `LaunchSlides.kt`: `LaunchStackSlide()`, `LaunchModulesSlide()`, `LaunchPerfSlide()`, `LaunchDesignSlide()`, `LaunchFeaturesSlide()`, `LaunchWipSlide()`.
-- [ ] `FutureSlides.kt`: `FuturePlanSlide()`, `FutureRoadmapSlide()`, `FutureInviteSlide()`.
-- [ ] `CloseSlides.kt`: `LessonsSlide()`, `QaSlide()`.
-- [ ] Each calls `PlaceholderSlide` with intent and presenter from `docs/talk/outline.md`, as in Task 7.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
-- [ ] Commit: `feat: add placeholder slides for launch, future and close`
+- [x] `LaunchSlides.kt`: `LaunchStackSlide()`, `LaunchModulesSlide()`, `LaunchPerfSlide()`, `LaunchDesignSlide()`, `LaunchFeaturesSlide()`, `LaunchWipSlide()`.
+- [x] `FutureSlides.kt`: `FuturePlanSlide()`, `FutureRoadmapSlide()`, `FutureInviteSlide()`.
+- [x] `CloseSlides.kt`: `LessonsSlide()`, `QaSlide()`.
+- [x] Each calls `PlaceholderSlide` with intent and presenter from `docs/talk/outline.md`, as in Task 7.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
+- [x] Commit: `feat: add placeholder slides for launch, future and close`
 
 ### Task 9: Register the talk and remove the demos
 **Serves:** R6, R7, NF1
