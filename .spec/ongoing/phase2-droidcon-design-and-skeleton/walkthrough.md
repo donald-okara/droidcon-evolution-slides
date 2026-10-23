@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Done: Tasks 1 to 10. Review 2 (changes requested) added Tasks 11 and 12.
-- Next: Task 11 (logo-only header, green dot footer bullet), then Task 12 (checkered floor background with the cube as decorator; Sonnet).
+- Done: Tasks 1 to 11 (Task 11: header shows only the logo; footer bullet is an 8dp neon-green dot).
+- Next: Task 12 (checkered floor background with the cube as decorator; Sonnet). It can share Task 11's green rather than adding another hex.
 - Open: nothing has been checked visually; the user runs `./gradlew :desktopApp:run` after Task 12 for font, colours, frame, header, footer dot, background, cube, 19 slides, and no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
 - Deferred: removals of unused code and resources (see the overview's Out of Scope).
@@ -23,6 +23,7 @@
 - Task 7: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 8: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 9: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show 19 slides in outline order (user to check).
+- Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet"` on `Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, the header shows only the logo and the footer a green dot (user to check).
 
 ## Changes by task
 
@@ -80,6 +81,10 @@
 - `SlidesNotes.kt`: demo notes removed; 19 constants built by a private `placeholderNotes(...)` helper producing "PLACEHOLDER. Presenter: <name>. <intent>".
 - Deleted the eight demo files in `segments/demos`; `VideoPlayer.kt` and its actuals kept.
 - Reviewer NOTE: the helper is equivalent to literal constants. `segments/introduction` is now unused but still wired; cleanup candidate.
+### Task 11: Logo-only header and green dot footer bullet
+- `Components.kt`: `MainHeader` shows only the logo (180dp wide, same aspect ratio); `CubeHero` and its spacer removed; `mode` kept. `MainFooter` uses an 8dp `CircleShape` box in a file-private `NeonGreen = Color(0xFF00FF4F)` instead of `CubeBullet`; cube imports removed.
+- `CubeBullet` stays in `:shared:design`, now unused (removals deferred).
+- Reviewer NOTE: `NeonGreen` duplicates the hex of `primaryDark`/`secondaryContainerDark` in `Color.kt`; acceptable since no neon constant exists. Task 12 could share it.
 
 ## Deviations from spec
 

@@ -7,22 +7,24 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.unit.dp
 import io.github.donald_okara.components.timer.TimerComponent
-import ke.don.design.cube.CubeBullet
-import ke.don.design.cube.CubeHero
 import ke.don.domain.DeckMode
 import ke.don.domain.timer.TimerIntentHandler
 import ke.don.domain.timer.TimerState
@@ -30,6 +32,9 @@ import ke.don.domain.values.Values
 import ke.don.resources.Resources
 import org.jetbrains.compose.resources.painterResource
 
+
+/** Chai neon green (ChaiGreen500, design-inventory §1.2), used for the footer dot. */
+private val NeonGreen = Color(0xFF00FF4F)
 
 /**
  * Provides a footer composable for the current slide when the slide requests a footer.
@@ -68,7 +73,11 @@ fun MainFooter(
                 ).padding(horizontal = 14.dp, vertical = 10.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            CubeBullet()
+            Box(
+                modifier = Modifier
+                    .size(8.dp)
+                    .background(NeonGreen, CircleShape)
+            )
 
             Spacer(Modifier.width(10.dp))
 
@@ -94,7 +103,7 @@ fun MainFooter(
 
 
 /**
- * The rendered header shows the droidcon logo (dark variant in dark themes) and the animated [CubeHero].
+ * The rendered header shows only the droidcon logo (dark variant in dark themes).
  *
  * @param mode The deck mode. Not used for the header content; kept so the call site is unchanged.
  */
@@ -127,9 +136,5 @@ fun MainHeader(
                 .width(180.dp)
                 .aspectRatio(1246f / 246f)
         )
-
-        Spacer(Modifier.width(16.dp))
-
-        CubeHero(size = 96.dp)
     }
 }

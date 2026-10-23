@@ -124,11 +124,11 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Serves:** R5
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit)
 
-- [ ] In `MainHeader`, remove `CubeHero` so the header shows only the droidcon logo (light or dark per theme, same size as now). Keep the `mode` parameter (removals are deferred).
-- [ ] In `MainFooter`, replace `CubeBullet` with an 8dp filled circle in the Chai neon green (from the Task 2 colours, design-inventory §1.2). Do not delete `CubeBullet` from `:shared:design`.
-- [ ] Remove imports that become unused in `Components.kt`.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the header shows only the logo and the footer a green dot.
-- [ ] Commit: `feat: logo-only header and green dot footer bullet`
+- [x] In `MainHeader`, remove `CubeHero` so the header shows only the droidcon logo (light or dark per theme, same size as now). Keep the `mode` parameter (removals are deferred).
+- [x] In `MainFooter`, replace `CubeBullet` with an 8dp filled circle in the Chai neon green (from the Task 2 colours, design-inventory §1.2). Do not delete `CubeBullet` from `:shared:design`.
+- [x] Remove imports that become unused in `Components.kt`.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the header shows only the logo and the footer a green dot.
+- [x] Commit: `feat: logo-only header and green dot footer bullet`
 
 ### Task 12: Droidcon background with checkered floor and cube decorator
 **Serves:** R8, R4
