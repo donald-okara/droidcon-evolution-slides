@@ -211,10 +211,10 @@ Pre-2026 `ChaiColors` extras: loadingShimmerColor, tealAccentColor (#7DE1C3), se
 Answered by the maintainer on 2026-10-23, pending a review with the other presenters later that evening.
 
 1. **Identity:** adopt the 2026 identity (blue/neon green/black) fully and everywhere, replacing Ski purple, including framework demo slides.
-2. **Font:** switch to Montserrat everywhere. This means fixing `Resources.kt` (including the `GOOGLE_SANS_EXTRA_LIGHT` bug) and `Type.kt`. Whether slides need a bigger type ramp than the app's is still open.
+2. **Font:** switch to Montserrat everywhere. This means fixing `Resources.kt` (including the `GOOGLE_SANS_EXTRA_LIGHT` bug) and `Type.kt`. Keep Ski's existing type sizes and weights in `Type.kt`, which are already tuned for slides; swap only the font family, not the app's type ramp.
 3. **Cube hero:** port it, and show it in the header next to the droidcon logo. It needs `CubePainter` rewritten off `android.graphics.Matrix`/`nativeCanvas`.
 4. **Footer:** use the cube as the footer bullet.
 5. **Frame:** probably a custom frame for this talk (header with logo and cube, footer with the cube bullet), not one of the stock Ski frames.
 6. **Marks:** full permission to use the Kotlin, React and Swift cube marks and the team/smiling photos.
 7. **Then vs now:** definitely include a "then vs now" slide, using the pre-2026 palette from section 4.
-8. **Still open:** logo format (SVG or Kotlin `ImageVector`, given that Compose Resources SVG support differs per target).
+8. **Logo:** convert the Android vector XML logos to SVG.

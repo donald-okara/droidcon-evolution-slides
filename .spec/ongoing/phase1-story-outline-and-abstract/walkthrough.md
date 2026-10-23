@@ -4,7 +4,7 @@
 
 - Done: all 4 tasks. Task 1 (`docs/talk/history.md`, 5 eras plus 8 open questions); Task 2 (`docs/talk/outline.md`, 8 sections, 45 min); Task 3 (`docs/talk/abstract.md`, 135 words); Task 4 (`docs/talk/design-inventory.md`, tokens/assets/components/timeline/mapping, ends with phase 2 decisions).
 - Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
-- Phase 2 decisions recorded in design-inventory.md section 6: 2026 identity and Montserrat everywhere, cube hero in the header next to the logo, cube as the footer bullet, likely a custom frame, marks cleared, then-vs-now slide. Still open: logo format. Presenters review this evening.
+- Phase 2 decisions recorded in design-inventory.md section 6: 2026 identity and Montserrat everywhere, cube hero in the header next to the logo, cube as the footer bullet, likely a custom frame, marks cleared, then-vs-now slide, logo as SVG, Ski type sizes kept with Montserrat swapped in. Presenters review this evening.
 - User answers folded in: speakers (Donald Isoe, Annunziata Kinya, Ian Nthuli), community rotation model replaces "handovers" in thesis, aliases confirmed, 2 other apps and KMP reversal reason unknown, format includes screen recordings/screenshots.
 - Talk restructured into three topic segments (history / about to launch / future = droidconKeKotlin docs/IMPROVEMENT_PLAN.md, framed as an invitation, not a commitment). Level Intermediate confirmed; Donald's bio shortened; same Harun confirmed.
 - Speakers mapped: Annunziata Kinya = history (brings her own content), Donald Isoe = about to launch, Ian Nthuli = future. Harun credited by name. adaptive-large-screen, fix/speaker-details, fix/sponsor-logo-contrast are done.
