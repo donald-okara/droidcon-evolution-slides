@@ -65,14 +65,14 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/StatTile.kt (new)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt
 
-- [ ] Add `enum class StatDirection { Increase, Decrease }` and `StatTile(value: Float, unit: String, label: String, direction: StatDirection, improvement: Boolean = true, sha: String? = null, source: String? = null, decimals: Int = 0, modifier)`.
-- [ ] The number animates from 0 to `value` over about 1200 ms when the tile first composes (`Animatable` in a `LaunchedEffect(Unit)`, `FastOutSlowInEasing`). It is shown with `decimals` places plus `unit` (for example "7.4%") in `displayLarge` bold. Use string padding, not `String.format`, because this is common code.
-- [ ] For `Decrease`, the number also shrinks progressively during the count. Drive `Modifier.graphicsLayer { scaleX = s; scaleY = s }` from the same animation progress `p` (0 to 1), with `s = 1f - p * (value / 100f) * 0.5f` (so 28% ends at 0.86 scale). Use transform origin centre, so the tile doesn't resize. `Increase` keeps scale 1.
-- [ ] The arrow (`Icons.Default.ArrowUpward` or `ArrowDownward`, or a drawn triangle if those icons aren't available in common) fades and slides in from 24 dp below or above, then settles. Up for `Increase`, down for `Decrease`.
-- [ ] When `improvement` is true, the colour is the scheme's green: `colorScheme.secondary` (0xFF06752A) in light and `colorScheme.primary` (0xFF00FF4F) in dark. Pick dark when `colorScheme.background.luminance() < 0.5f`, so the tile follows the deck theme rather than the system setting. When it is false, the colour is `colorScheme.error`. The colour depends only on `improvement`, never on `direction`. It applies to the number and the arrow. The label is in `onSurface`. Under the label sits `CommitTag(sha)` when given, else `source` in `labelMedium`/`onSurfaceVariant` when given.
-- [ ] Put the tile in a rounded `surfaceContainer` card with `Values.Dimens` padding.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
-- [ ] Commit: `feat: animated stat tile`
+- [x] Add `enum class StatDirection { Increase, Decrease }` and `StatTile(value: Float, unit: String, label: String, direction: StatDirection, improvement: Boolean = true, sha: String? = null, source: String? = null, decimals: Int = 0, modifier)`.
+- [x] The number animates from 0 to `value` over about 1200 ms when the tile first composes (`Animatable` in a `LaunchedEffect(Unit)`, `FastOutSlowInEasing`). It is shown with `decimals` places plus `unit` (for example "7.4%") in `displayLarge` bold. Use string padding, not `String.format`, because this is common code.
+- [x] For `Decrease`, the number also shrinks progressively during the count. Drive `Modifier.graphicsLayer { scaleX = s; scaleY = s }` from the same animation progress `p` (0 to 1), with `s = 1f - p * (value / 100f) * 0.5f` (so 28% ends at 0.86 scale). Use transform origin centre, so the tile doesn't resize. `Increase` keeps scale 1.
+- [x] The arrow (`Icons.Default.ArrowUpward` or `ArrowDownward`, or a drawn triangle if those icons aren't available in common) fades and slides in from 24 dp below or above, then settles. Up for `Increase`, down for `Decrease`.
+- [x] When `improvement` is true, the colour is the scheme's green: `colorScheme.secondary` (0xFF06752A) in light and `colorScheme.primary` (0xFF00FF4F) in dark. Pick dark when `colorScheme.background.luminance() < 0.5f`, so the tile follows the deck theme rather than the system setting. When it is false, the colour is `colorScheme.error`. The colour depends only on `improvement`, never on `direction`. It applies to the number and the arrow. The label is in `onSurface`. Under the label sits `CommitTag(sha)` when given, else `source` in `labelMedium`/`onSurfaceVariant` when given.
+- [x] Put the tile in a rounded `surfaceContainer` card with `Values.Dimens` padding.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- [x] Commit: `feat: animated stat tile`
 
 ### Task 5: Opening slides
 **Serves:** R4, R9

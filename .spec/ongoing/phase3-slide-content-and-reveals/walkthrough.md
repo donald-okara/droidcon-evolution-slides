@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Tasks 1 to 3 done and committed (navigator steps; host and web sync; shared slide blocks).
-- Next: Task 4 (stat tile).
-- Open: desktop manual checks (one Right press on `opening-title`, window and web popup sync) are left to the user.
+- Tasks 1 to 4 done and committed (navigator steps; host and web sync; shared slide blocks; stat tile).
+- Next: Task 5 (opening slides).
+- Open: desktop manual checks (one Right press on `opening-title`, window and web popup sync, stat tile animation) are left to the user.
 
 ## How to verify
 
@@ -12,6 +12,7 @@
 
 - Task 2: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes. User: on `:desktopApp:run`, one Right press on `opening-title` changes slides.
 - Task 3: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- Task 4: same compile check as Task 3 passes.
 
 ## Changes by task
 
@@ -29,6 +30,11 @@
 - New `SlideBlocks.kt`: `SlideTitle`, `BulletList`, `CommitTag`, `MediaPlaceholder` (solid outlined border, since Compose has no built-in dashed border), internal `BulletRow`.
 - New `Reveal.kt`: `RevealItem(index, content)` (alpha fade, `tween(300)`, keeps its space when hidden) and `RevealBulletList` (item i uses step i+1).
 - Fix round: the fade first used the default spring; changed to `tween(300)` after review.
+
+### Task 4: Stat tile
+- New `StatTile.kt`: `StatTile(value, unit, label, direction, modifier, improvement, sha, source, decimals)` and `StatDirection { Increase, Decrease }`. Count-up via one `Animatable` (1200 ms); decrease shrinks the number with `graphicsLayer`; arrow fades in after 600 ms and slides 24 dp toward its settled position.
+- Colour: improvement uses `secondary` on light and `primary` on dark; not improvement uses `error`.
+- Reviewer NOTE: `modifier` sits after `direction` in the parameter list rather than last; use named arguments at call sites.
 
 ## Deviations from spec
 
