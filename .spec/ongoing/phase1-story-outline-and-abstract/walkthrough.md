@@ -5,7 +5,8 @@
 - Done: Task 1 (`docs/talk/history.md`, 5 eras plus 8 open questions); Task 2 (`docs/talk/outline.md`, 8 sections, 45 min); Task 3 (`docs/talk/abstract.md`, 135 words).
 - Next: Task 4 (design inventory), the last task in the phase.
 - User answers folded in: speakers (Donald Isoe, Annunziata Kinya, Ian Nthuli), community rotation model replaces "handovers" in thesis, aliases confirmed, 2 other apps and KMP reversal reason unknown, format includes screen recordings/screenshots.
-- Open: presenter-to-era mapping (Presenter 1/2/3 placeholders), lessons wording, Level "Intermediate", and whether to keep "Professional spammer of Command + Click" in the abstract bio.
+- Talk restructured into three topic segments (history / about to launch / future = droidconKeKotlin docs/IMPROVEMENT_PLAN.md, framed as an invitation, not a commitment). Level Intermediate confirmed; Donald's bio shortened; same Harun confirmed.
+- Open: which speaker takes which segment; lessons wording; whether to call the improvement plan "Harun's" on a slide (repo doesn't name an author); WIP status of branches other than feat/notifications.
 - Known issues: Haiku implementer ran out of turns mining git history; for repo-mining tasks, ask for batched git queries or use Sonnet.
 
 ## How to verify

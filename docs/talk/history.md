@@ -64,7 +64,7 @@ Note: the catalog's `agp` key was not bumped in step with the Gradle plugin vers
 
 Mark as its own era. The "two other apps" claim comes from the user brief, per the brief; not identifiable in git. The user confirmed those apps are unknown (open question 4), so do not state them as fact.
 
-- Maintainers: donald-okara / donald (same person, confirmed by the user) 144 commits; Harun Wangereka 60 (first appears in Q3, 2026, earlier only in 2023 bootstrap with 8 commits); mutukuian 7 and Joel Kanyi 5 (UI contributions); dependabot 42. Sub-phases:
+- Maintainers: donald-okara / donald (same person, confirmed by the user) 144 commits; Harun Wangereka 60 (same person as the 2023 bootstrap contributor with 8 commits, confirmed by the user; returns in Q3 2026); mutukuian 7 and Joel Kanyi 5 (UI contributions); dependabot 42. Sub-phases:
   - 2026-01 to 2026-05-28 (quiet, 34 human commits): donald on session list stepper, status-based UI (`d2ca0bd4`, `deed6637`, `eb64eb13`, 2026-04) and periodic sync (`0bc2d4b5`, 2026-05-28).
   - 2026-08 to 2026-09 modernisation, driven by Harun Wangereka: drop year names so the app reads evergreen (`79e929a2`, 2026-08-13), AGP 9, Gradle 9.7, Kotlin 2.4 (`6bb9b99c`), minSdk 26 (`8f7577d5`), swipe-refresh replaced by Material 3 `PullToRefreshBox` (`ccef8a24`), docs and static analysis (`850096a4`), "Finish Phase 0" with screenshot baselines and Credential Manager (`1c9a1176`, 2026-09-04).
   - 2026-09 module split: "Start the module split" (`d66ca423`, 2026-09-07, `:feature:speakers` as worked example), "Complete the module split: 17 modules, :presentation gone" (`ac81b8ac`, 2026-09-10), baseline profile and benchmarks, release APK -28% (`5a42a5a7`, 2026-09-14), size -7.4% gated in CI (`1fc20ee5`).
@@ -80,7 +80,7 @@ Status is shown after each question. Answered items are resolved with the answer
 2. Why was KMP dropped on 2025-10-23 (`c42e0cdb`) and rolled back 2025-11-04 (`c29b4d01`)? Unknown (user confirmed). No commit message gives a reason, and the user does not know one.
 3. Why did the 2024 KMM experiment (`3433931f`, `26f6a3d0`) stop after one month, and how did it relate to the 2025 attempt (different people)? Still open.
 4. What are the "2 other apps" updated alongside droidcon in 2026, and which commits belong to that parallel work? Unknown (user confirmed). Not identifiable in this repo.
-5. How did Harun Wangereka join in 2026-08 (no commits from him between 2023-Q3 and 2026-Q3)? Presumably by opening PRs under the rotation model (user), not verified. Is the recurring "Harun" the same maintainer as in 2023 (same name; inferred yes, still unconfirmed)?
+5. How did Harun Wangereka join in 2026-08 (no commits from him between 2023-Q3 and 2026-Q3)? Presumably by opening PRs under the rotation model (user), not verified. Same Harun as in 2023: confirmed by the user.
 6. Resolved: `donald` and `donald-okara` are one person; `chepsi`, `chepsiror` and Evans Chepsiror are one person (confirmed by the user).
 7. Speakers: names resolved as Donald Isoe, Annunziata Kinya, and Ian Nthuli. Still open: which presenter maps to each era's maintainer.
 8. Was the 2025-06 KMP work (Michael Ndiritu) done for an event, a bounty, or personal interest? Still open.
