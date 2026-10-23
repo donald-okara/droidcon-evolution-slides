@@ -29,3 +29,8 @@
 **Decision:** Every slide task adds a named delight moment built from shared blocks (`popIn`, `Confetti`, count-ups, timeline pulses), instead of leaving it to a final polish task (R11).
 **Why:** The phase 3 review asked for more pleasant, entertaining slides, and the user wants it applied at every chance.
 **Tradeoff:** More work per slide task and more animation code to keep in sync across both windows; the Task 12 audit catches slides that skipped it.
+
+### Timeline details follow the lit stage, hero cube goes big (2026-10-23)
+**Decision:** The timeline shows details for the lit or clicked stage by default and hover only previews; the title slide shows the cube hero large (R3, R12).
+**Why:** Phase 4 review 1: hover details flickered, the selected phase needed no hover, and the intro cube was too small.
+**Tradeoff:** The details card is always visible on S04, so it takes slide space. Task 4 and Task 5 stay ticked as written; Tasks 13 and 14 revise them.

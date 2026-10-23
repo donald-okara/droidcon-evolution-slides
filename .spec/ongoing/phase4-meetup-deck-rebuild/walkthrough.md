@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Tasks 1-12 done: all phase 4 tasks ticked; deck registered, polished, full web build passes.
-- Next: user steps through on `:desktopApp:run` (Task 12 Check), then `/donatello:phase-review` and `/donatello:phase-archive`.
-- Open: decide `showFooter = false` on S01 and S31 (outline has no footer column; it comes from tasks.md "candidate"). S14 confetti fires after a fixed delay from slide entry; not checked across the two windows. Notes constants use talk task names, not literal `<label>Notes` (spec.md:41). S05 marks only the Oct 2026 meetup month. Optional tidy: `iosName` to `ioName` in `ScreenNameRow`.
+- Tasks 1-12 done; phase 4 review 1 requested changes.
+- Next: Task 13 (timeline details stable, selected stage shows details), Task 14 (big cube hero on S01), then `/donatello:phase-review` again.
+- Open: `showFooter = false` on S01 and S31, S14 confetti across the two windows, notes constant names vs spec.md:41, S05 marks only the Oct 2026 meetup month, optional `iosName` to `ioName` tidy. The "missing pieces" notes are deferred.
 - Known issues: none.
 
 ## How to verify

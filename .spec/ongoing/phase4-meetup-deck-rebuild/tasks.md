@@ -7,7 +7,8 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 2. Outline + session length
 3. Chart blocks + callout  ──┐
 4. Evolution timeline ───────┤
-                             ├─> 5. S01-S05 ─> 6. S06-S10 ─> 7. S11-S17 ─> 8. S18-S21 ─> 9. S22-S26 ─> 10. S27-S31 ─> 11. Register + remove old ─> 12. Polish + full build
+                             ├─> 5. S01-S05 ─> 6. S06-S10 ─> 7. S11-S17 ─> 8. S18-S21 ─> 9. S22-S26 ─> 10. S27-S31 ─> 11. Register + remove old ─> 12. Polish + full build ─┬─> 13. Timeline details stable
+                                                              └─> 14. Big cube hero
 ```
 
 ---
@@ -144,3 +145,21 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 - [x] Make one-shot effects (Confetti, pulses) fire from the reveal step or slide entry, not from window-local timers, so both windows show them.
 - [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes. User: step through on `:desktopApp:run`.
 - [x] Commit: `feat: delight audit, entrances and shared source line`
+
+### Task 13: Timeline details without flicker (revises Task 4)
+**Serves:** R3, R11
+**Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/EvolutionTimeline.kt` (edit)
+
+- [ ] Find why the details card flickers on and off (likely the card appearing or moving under the pointer, or hover toggling between node and card). Make the hover target cover node plus card, or keep the card in layout space, so it stays steady while the pointer is over a stage.
+- [ ] The lit stage (`LocalRevealStep.current - 1`) or the clicked stage shows its details card with no hover. Hovering another stage previews it; leaving returns to the lit or selected stage.
+- [ ] Keep the card change out of the reveal logic, so Right and Left still step one stage at a time and the two windows stay in sync.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: on `:desktopApp:run` S04, move across stages without flicker, and see the lit stage's details on each step.
+- [ ] Commit: `fix: stable timeline details, selected stage shows without hover`
+
+### Task 14: Big cube hero on the title slide (revises Task 5)
+**Serves:** R12, R11
+**Files:** `segments/demos/.../droidcon/talk/ColdOpenSlides.kt` (edit)
+
+- [ ] On `TitleSlide` (S01), use the cube hero (the current decorator background image) as a large hero, filling most of the slide height. Keep the face-on turn entrance and the title and subtitle readable over or beside it.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes. User: look at S01 on `:desktopApp:run`.
+- [ ] Commit: `feat: big cube hero on the title slide`

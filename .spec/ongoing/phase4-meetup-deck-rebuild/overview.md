@@ -22,6 +22,7 @@ Rebuild the deck as the 30-minute meetup talk in Harun Wangereka's overview (`do
 - The phase 2 cleanup (unused fonts and images, `:segments:introduction`, the gallery).
 - Any change to the published library `:shared:components`.
 - Tests and lint, per `docs/architecture.md`.
+- Deferred: Notes on what is missing from our side to tie it all together (review 1): to be added later.
 
 ## Success Criteria
 

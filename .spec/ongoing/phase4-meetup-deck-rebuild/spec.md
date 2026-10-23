@@ -13,8 +13,8 @@
 
 ### R3. Evolution timeline
 - `EvolutionTimeline` shows stages 2018, 2019, 2020, 2022, 2023, 2025 and 2026, each with a label, the repo or era name, and a gap marker at 2021.
-- Hovering a stage (click on touch) shows its details: dates, main change and one cited fact. Reveal steps highlight stages left to right.
-- **Check:** on `:desktopApp:run`, hover each stage on the timeline slide and see its details; Right highlights the next stage.
+- Hovering a stage (click on touch) shows its details: dates, main change and one cited fact, without flicker. The lit stage (or the clicked one) shows its details with no hover. Reveal steps highlight stages left to right.
+- **Check:** on `:desktopApp:run`, hover each stage and see steady details; Right highlights the next stage and shows its details without hover.
 
 ### R4. Chart and callout blocks
 - `BarChart` and `ColumnChart` render labelled values from lists, animate in, and use `MaterialTheme` colours. `CalloutCard` renders a titled box ("Kotlin Kenya corner").
@@ -48,6 +48,10 @@
 ### R11. Delight on every slide
 - Every slide has at least one named delight moment: an entrance, count-up, animated reveal, hover or tap surprise, or playful copy. It never hides content, delays stepping, or desynchronises the two windows.
 - **Check:** each slide task's report lists one line per slide naming its moment; on `:desktopApp:run` each slide shows it.
+
+### R12. Intro hero
+- The title slide (S01) shows the cube hero large, filling most of the slide height, with the title still readable.
+- **Check:** look at S01 on `:desktopApp:run`.
 
 ## Non-Functional Requirements
 
