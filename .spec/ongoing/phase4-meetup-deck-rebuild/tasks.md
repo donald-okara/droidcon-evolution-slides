@@ -85,11 +85,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/OneRepoSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `.../talk/EarlyYearsSlides.kt`
 
-- [ ] `Y2022ComposeSlide` (S11), `ChaiSlide` (S12), `OneRepoSlide` (S13), `CommunityPeakSlide` (S14, D5 `ColumnChart`), `QuietYearSlide` (S15), `KmpThreadSlide` (S16, "Kotlin Kenya corner" `CalloutCard` and the D8 module line as a `ColumnChart`), `Navigation3Slide` (S17, screen-recording placeholder).
-- [ ] Notes for each.
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S12 chai colours spill in one by one, S14 confetti on the peak; others of your choice) and list them one line per slide in your report.
-- [ ] Check: compile check from Task 5 passes.
-- [ ] Commit: `feat: 2022-2025 slides S11-S17`
+- [x] `Y2022ComposeSlide` (S11), `ChaiSlide` (S12), `OneRepoSlide` (S13), `CommunityPeakSlide` (S14, D5 `ColumnChart`), `QuietYearSlide` (S15), `KmpThreadSlide` (S16, "Kotlin Kenya corner" `CalloutCard` and the D8 module line as a `ColumnChart`), `Navigation3Slide` (S17, screen-recording placeholder).
+- [x] Notes for each.
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S12 chai colours spill in one by one, S14 confetti on the peak; others of your choice) and list them one line per slide in your report.
+- [x] Check: compile check from Task 5 passes.
+- [x] Commit: `feat: 2022-2025 slides S11-S17`
 
 ### Task 8: 2026 slides S18 to S21
 **Serves:** R7, R11, NF1

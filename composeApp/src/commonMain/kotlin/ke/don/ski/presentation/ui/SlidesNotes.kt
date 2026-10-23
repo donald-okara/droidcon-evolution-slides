@@ -194,3 +194,45 @@ val y2020NoConferenceNotes = listOf(
     AnnotatedString("Both apps call themselves the third droidcon, one for August 2020 and one for November 2022. Nothing was held in 2021, and the shrug is for that gap."),
     AnnotatedString("Takeaway to return to: the 2020 team built something for a conference that never happened. Hand-off cue: \"Now the 2022 Compose year.\"")
 )
+
+val y2022ComposeNotes = listOf(
+    AnnotatedString("Compose 1.0 came out in July 2021, and a year later this volunteer team shipped a Compose app to the Play Store. It was built on alpha Material 3, which took some nerve."),
+    AnnotatedString("The chart shows commits per month in droidconKE2022Android: 212 in July alone, then 80 to 121 a month. Commits count activity, not effort or review time, and they do not measure how big each change was."),
+    AnnotatedString("Takeaway to return to: sign-in was switched off the day before the conference, so ship what works. Hand-off cue: \"Standing on its own came next, with chai.\"")
+)
+
+val chaiNotes = listOf(
+    AnnotatedString("Remember the I/O clone from 2018? This is the year the app stopped looking like anyone else's. The swatches spill in one at a time, so let each one land before you go on."),
+    AnnotatedString("The team had its own designs and named its design system after tea. Chai got its own repo in March 2023, and it still lives in the app as core:designsystem, with the same com.droidconke.chai package."),
+    AnnotatedString("The swatches show the four theme colours, not a full palette, so do not describe them as the complete chai set. Takeaway to return to: the same app, with its own look. Hand-off cue: \"In 2023 the code moved into one repo and stayed there.\"")
+)
+
+val oneRepoNotes = listOf(
+    AnnotatedString("Every earlier year started a fresh repo, and every fresh repo reset the contributor list. In February 2023 the code moved over and stayed, and the count shows how many files came along on day three."),
+    AnnotatedString("The 280 files and 15,888 lines come from commit f3b81067, and 173 of the 177 Kotlin files kept their path. The count of files does not measure code quality, test coverage or how much was rewritten."),
+    AnnotatedString("Takeaway to return to: this was a carry-forward, not a rewrite. Hand-off cue: \"Then came the busiest year for people.\"")
+)
+
+val communityPeakNotes = listOf(
+    AnnotatedString("2023 was the busiest year for people, with about 41 distinct authors, and the confetti is for them. Name a few: Hannah Olukoye's convention plugins, Peter Chege's offline-first work, Kenneth Mathari's injected dispatchers and robert-nganga's loading states."),
+    AnnotatedString("The chart counts distinct author names per year with bots left out, and the names are approximate, because some people commit under two names. It does not measure effort, review time or how much each person did."),
+    AnnotatedString("Takeaway to return to: the peak was a crowd, and most of them stepped back, with no formal handover. Hand-off cue: \"Quiet years come next, and they are fine.\"")
+)
+
+val quietYearNotes = listOf(
+    AnnotatedString("Quiet years happen in volunteer projects, and that is fine. The 2024 change was the Droidcon 2024 event slug, and it touched three lines across three files."),
+    AnnotatedString("The 55 commits in 2024 count activity in this repo only. They do not measure work done outside it, or whether the three lines were the only thing anyone cared about that year."),
+    AnnotatedString("Takeaway to return to: what matters is whether the next person can pick it up. Hand-off cue: \"That question shaped the Kotlin Multiplatform thread.\"")
+)
+
+val kmpThreadNotes = listOf(
+    AnnotatedString("This is the Kotlin Kenya corner. KMP was tried twice, in 2024 and in 2025, and both times it was taken out to keep the Android app shippable. That is not a failure, it is a decision about what ships."),
+    AnnotatedString("The chart shows the Gradle module count from D8: 7, then 11, then 14, then back to 7 when KMP was removed, and 20 by October 2026. The highlighted bars are the KMP stretch. A module count does not measure build time, code size or how well the split works."),
+    AnnotatedString("Today core:model is JVM-only, so a third attempt would be a port, not a rewrite. The plan asks one question: does someone want to build the iOS app? Takeaway to return to: a port, not a rewrite. Hand-off cue: \"Last, the newest work: Navigation 3.\"")
+)
+
+val navigation3Notes = listOf(
+    AnnotatedString("donald-okara carried the app through the winter. The Navigation 3 move with multiple back stacks landed in December 2025, in commit 8faf624f and the commits after it."),
+    AnnotatedString("Most of what the app now does with live sessions started here. The Now and Up next chips are the live rail, and the recording shows tabs switching with each back stack kept."),
+    AnnotatedString("The recording shows the behaviour, not the performance of it, so do not quote timings from it. Takeaway to return to: the back stacks kept, so the app remembers where you were. Hand-off cue: \"That is where 2025 ended. Now, 2026.\"")
+)

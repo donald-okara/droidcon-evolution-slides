@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-6 done (through 2018-2020 slides S06-S10).
-- Next: Task 7 (2022-2025 slides S11-S17).
+- Tasks 1-7 done (through 2022-2025 slides S11-S17).
+- Next: Task 8 (2026 slides S18-S21).
 - Open: S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 7: same compile check as Task 5.
 - Task 6: same compile check as Task 5 (`:segments:demos` JVM and WasmJs).
 - Task 5: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; step through S04 on `:desktopApp:run` once registered (Task 11).
 - Task 4: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; look at it in S04 (Task 5).
@@ -47,6 +48,11 @@
 - `talk/EarlyYearsSlides.kt`: `Y2018FirstSlide`, `Y2018CloneSlide`, `Y2019Slide`, `Y2020ModularSlide`, `Y2020NoConferenceSlide`; notes in `SlidesNotes.kt`.
 - Delight: S06 bars grow; S07 matching-line sweep across both READMEs; S08 package chip pops in; S09 module count-up; S10 shrug tilts upright.
 - NOTE: S07 sweep and S10 shrug are local composables. S06 chart shows Java files only; Kotlin counts are in the caption. `iosName` parameter in `ScreenNameRow` should read `ioName`.
+
+### Task 7: 2022-2025 slides S11-S17
+- `talk/OneRepoSlides.kt`: `Y2022ComposeSlide`, `ChaiSlide`, `OneRepoSlide`, `CommunityPeakSlide`, `QuietYearSlide`, `KmpThreadSlide`, `Navigation3Slide`; notes in `SlidesNotes.kt`.
+- Delight: S11 columns grow, July highlighted; S12 chai swatches pop in; S13 file count 0 to 280; S14 confetti on "41"; S15 "3" pops in; S16 callout pops in after module chart; S17 chips pop in.
+- NOTE: S11 also has a D2 chart; S14 shows four named contributors, not a wall of names; S16 omits "-2,111 lines" and the "14 modules" figure appears only in the chart.
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.
