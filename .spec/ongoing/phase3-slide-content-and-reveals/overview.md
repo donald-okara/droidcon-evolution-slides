@@ -22,6 +22,7 @@ Turn the 19 placeholder slides into the finished talk, with real on-screen conte
 - The cleanup deferred in phase 2 (unused fonts, images, `VideoPlayer*`, `:segments:introduction`, the gallery).
 - Any change to the published library `:shared:components`.
 - Tests and lint, per `docs/architecture.md`.
+- Deferred: Rebuild the deck from Harun Wangereka's 2018-to-2026 meetup overview (new slide list, the "I/O clone to its own app" thread, an animated evolution timeline, a polish pass, and the 22% versus 35% startup figure): moved to phase 4 on 2026-10-23.
 
 ## Success Criteria
 
