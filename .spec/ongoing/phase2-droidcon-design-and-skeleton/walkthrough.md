@@ -2,10 +2,11 @@
 
 ## Current state
 
-- Done: Tasks 1 to 6. Review 1 (partial) requested changes: snake frame, header with only the logo and cube.
-- Next: Task 10 (snake frame with logo-and-cube header, revises Task 6), then Tasks 7, 8 and 9.
+- Done: Tasks 1 to 6 and 10 (snake frame again; header shows only the logo and cube, as review 1 asked).
+- Next: Tasks 7, 8 and 9.
 - Task 9 uses `showFooter = false` on `opening-title` and `qa`.
-- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, logo, cube perspective and animation, cube bullet, and that Questions has no footer.
+- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube perspective and animation, cube bullet, and that Questions has no footer.
+- Open: `MainHeader`'s `mode` parameter is unused since Task 10 (kept so the `PresentationDeck` call is unchanged).
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
 - Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`.
 - Open: the R4 check `grep "import android"` also matches `androidx`; use `grep "import android\."` instead.
@@ -19,6 +20,7 @@
 - Task 4: `./gradlew :shared:design:compileKotlinJvm :shared:design:compileKotlinWasmJs` passes; `grep -rn "import android\." shared/design/src/commonMain` returns nothing.
 - Task 5: same compile and grep checks as Task 4; the cube animates without distortion in the header after Task 6 (not yet checked visually).
 - Task 6: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `git diff --stat -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the logo and animated cube in the header and the cube bullet in the footer, and the Questions slide has no footer (not yet checked visually).
+- Task 10: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer (user to check).
 
 ## Changes by task
 
@@ -56,6 +58,11 @@
 - User decision: `footer = null` could not hide the footer (it defaults to null on every slide, and `PresentationDeck` never read it). Added `showFooter: Boolean = true` to `SlideConfig` and `slide()` in `:core:domain`; `PresentationDeck` omits `MainFooter` when it is false; the Questions slide uses `showFooter = false`.
 - Not checked visually: the agent could not see the windows. The cleanup ran `pkill -f desktopApp`.
 - Reviewer NOTE: `SlideConfig` is constructed only in `DeckBuilder.kt`, so no other caller breaks. The visual Check is still pending.
+### Task 10: Snake frame with logo-and-cube header
+- `Deck.kt`: `mainFrame` uses the stock `snake` frame again; `droidconFrameFactory` import dropped; `guidesFrame` unchanged.
+- `MainHeader`: only the logo (light/dark by luminance, 180dp wide, 1246:246) and `CubeHero(96.dp)`; "Ski" title, subtitle and `LinearBullet` rail removed with their imports; KDoc updated. The `mode` parameter is now unused but kept.
+- `DroidconFrame.kt` deleted (with the empty `frame/` directory). `CubeBullet` and `showFooter` handling untouched.
+- Reviewer NOTE: compile, grep and `shared/components` checks pass; visual check left to the user.
 
 ## Deviations from spec
 

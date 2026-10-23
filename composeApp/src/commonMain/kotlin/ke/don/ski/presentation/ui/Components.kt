@@ -7,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -20,9 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.luminance
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import io.github.donald_okara.components.LinearBullet
 import io.github.donald_okara.components.timer.TimerComponent
 import ke.don.design.cube.CubeBullet
 import ke.don.design.cube.CubeHero
@@ -97,12 +94,9 @@ fun MainFooter(
 
 
 /**
+ * The rendered header shows the droidcon logo (dark variant in dark themes) and the animated [CubeHero].
  *
- * The rendered header shows a short title ("Ski") and a mode-dependent subtitle:
- * - If `mode` is `DeckMode.Presenter`, subtitle is "Presentation Demo" with `onSurfaceVariant` color.
- * - Otherwise, subtitle is "Presenter's panel (Do not present)" with the `error` color.
- *
- * @param mode The deck mode used to decide subtitle text and color.
+ * @param mode The deck mode. Not used for the header content; kept so the call site is unchanged.
  */
 @Composable
 fun MainHeader(
@@ -122,24 +116,6 @@ fun MainHeader(
             ).padding(horizontal = 20.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Accent rail
-        LinearBullet()
-
-        Spacer(Modifier.width(16.dp))
-
-        Column {
-            Text(
-                "Ski", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold
-            )
-            Text(
-                if (mode == DeckMode.Presenter) "Presentation Demo" else "Presenter's panel (Do not present)",
-                style = MaterialTheme.typography.bodySmall,
-                color = if (mode == DeckMode.Presenter) MaterialTheme.colorScheme.onSurfaceVariant else MaterialTheme.colorScheme.error
-            )
-        }
-
-        Spacer(Modifier.width(16.dp))
-
         // Logo intrinsic size is 1246x246; the width is fixed and the aspect ratio keeps its height.
         val isDarkTheme = MaterialTheme.colorScheme.surface.luminance() < 0.5f
         Image(

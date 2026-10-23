@@ -114,8 +114,8 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Serves:** R5
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/frame/DroidconFrame.kt` (delete)
 
-- [ ] In `Deck.kt`, build `mainFrame` from the stock `snake` frame again (as before Task 6) and drop the `droidconFrameFactory` import. Leave `guidesFrame` as is. Do not edit `:shared:components`.
-- [ ] In `MainHeader` (`Components.kt`), remove the "Ski" title, the `DeckMode` subtitle ("Ski presentation deck" text) and the bullet rail, so the header shows only the droidcon logo (light or dark per theme, sized explicitly) and `CubeHero`. Remove imports that become unused.
-- [ ] Delete `DroidconFrame.kt`. Keep `CubeBullet` in `MainFooter` and the `showFooter` handling in `PresentationDeck`.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer.
-- [ ] Commit: `feat: use snake frame with logo-and-cube header`
+- [x] In `Deck.kt`, build `mainFrame` from the stock `snake` frame again (as before Task 6) and drop the `droidconFrameFactory` import. Leave `guidesFrame` as is. Do not edit `:shared:components`.
+- [x] In `MainHeader` (`Components.kt`), remove the "Ski" title, the `DeckMode` subtitle ("Ski presentation deck" text) and the bullet rail, so the header shows only the droidcon logo (light or dark per theme, sized explicitly) and `CubeHero`. Remove imports that become unused.
+- [x] Delete `DroidconFrame.kt`. Keep `CubeBullet` in `MainFooter` and the `showFooter` handling in `PresentationDeck`.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer.
+- [x] Commit: `feat: use snake frame with logo-and-cube header`
