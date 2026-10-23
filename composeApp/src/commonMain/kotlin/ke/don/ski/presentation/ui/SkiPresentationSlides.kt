@@ -3,6 +3,7 @@ package ke.don.ski.presentation.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import ke.don.demos.droidcon.close.LESSONS_STEPS
 import ke.don.demos.droidcon.close.LessonsSlide
 import ke.don.demos.droidcon.close.QaSlide
 import ke.don.demos.droidcon.future.FutureInviteSlide
@@ -148,7 +149,12 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             }
 
             // Section 7: Lessons and close
-            slide(label = "lessons", notes = lessonsNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "lessons",
+                notes = lessonsNotes,
+                transition = ScreenTransition.Fade,
+                steps = LESSONS_STEPS
+            ) {
                 LessonsSlide()
             }
 

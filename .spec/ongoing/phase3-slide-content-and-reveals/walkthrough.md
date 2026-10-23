@@ -2,11 +2,10 @@
 
 ## Current state
 
-- Tasks 1 to 10 done and committed (through the future slides).
-- Next: Task 11 (close slides), then 12 (remove placeholders, full build).
+- Tasks 1 to 11 done and committed (through the close slides).
+- Next: Task 12 (remove `PlaceholderSlide.kt`, `placeholderNotes` and unused constants; full build).
 - Open: desktop manual checks (reveal step counts on all reveal slides, stat tiles, window and web sync) are left to the user.
-- `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
-- Presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" wording sign-off and the "Harun included" line in `futureInviteNotes` (Task 10).
+- Presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" sign-off and the "Harun included" line (Task 10); shared close is the presenters' call (Task 11).
 
 ## How to verify
 
@@ -21,6 +20,7 @@
 - Task 8: compile check passes. User: on desktop, the three perf tiles count up, shrink, show down arrows, all green; Right reveals 3 module groups.
 - Task 9: compile check passes. User: on desktop, Right reveals 5 items on `launch-features` and 6 on `launch-wip`; swatch labels fit on `launch-design`.
 - Task 10: compile check passes. User: on desktop, Right reveals 5 stages on `future-roadmap`.
+- Task 11: compile check passes. User: on desktop, Right reveals 3 lessons on `lessons`; `qa` shows no footer.
 
 ## Changes by task
 
@@ -73,6 +73,11 @@
 - `FutureSlides.kt`: `FuturePlanSlide` (plan path, `62f45e2a`, Harun credit, "not married to it"), `FutureRoadmapSlide` (5 revealed stages, last muted; `FUTURE_ROADMAP_STEPS = 5`, registered), `FutureInviteSlide` (five track chips, join line).
 - `SlidesNotes.kt`: real notes for Ian Nthuli. `futurePlanNotes` opens with a "Sign-off needed" line for the "not married to it" wording. `docs/IMPROVEMENT_PLAN.md` is not in this repo, so facts come from the outline only.
 - Reviewer NOTE: "Harun included" in `futureInviteNotes` is not backed by the outline or history; drop it or verify before the talk. Left as is, since fixing it is outside the task's pass criteria.
+
+### Task 11: Close slides
+- `CloseSlides.kt`: `LessonsSlide` (3 revealed lessons, headline plus one evidence line; `LESSONS_STEPS = 3`, registered) and `QaSlide` ("Questions?" with the three presenter names; `showFooter = false` kept).
+- `SlidesNotes.kt`: real `lessonsNotes` (Ian delivers all three; shared close flagged as the presenters' decision) and `qaNotes` (Annunziata Kinya moderates; backup questions from `history.md` open questions 1 and 2). The private `placeholderNotes()` helper is now unused; Task 12 removes it.
+- Reviewer NOTE: lessons notes say "Each press of Right"; keep consistent with other reveal slides' wording.
 
 ## Deviations from spec
 

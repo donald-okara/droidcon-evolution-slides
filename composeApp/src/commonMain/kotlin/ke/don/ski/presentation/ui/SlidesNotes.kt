@@ -126,12 +126,16 @@ val futureInviteNotes = listOf(
     AnnotatedString("Every maintainer started with a pull request, Harun included, so the way in is the same for you. Takeaway to return to: join with a pull request. Hand-off cue: \"That is the plan. Now, three lessons to close.\"")
 )
 
-val lessonsNotes = placeholderNotes(
-    "Ian Nthuli",
-    "Three lessons from a codebase that changes hands: write it down for the next person, let CI guard it while people are away, make it easy to start"
+val lessonsNotes = listOf(
+    AnnotatedString("Ian Nthuli delivers all three lessons. Presenters: the shared close, where each speaker takes one lesson from their own segment, is an option for you to decide before the talk."),
+    AnnotatedString("Each press of Right reveals one lesson, each with one line of evidence. The first is to write it down for the next person, because the KMP reversal, commit c42e0cdb, was dropped with no recorded reason."),
+    AnnotatedString("The second is to let CI guard the codebase while people are away, with the pr.yml workflow and the size gate added in commit d66ca423, and the third is to make it easy to start."),
+    AnnotatedString("Takeaway to return to: write it down, let CI guard it, make it easy to start. Hand-off cue: \"That is the talk. Here are your questions.\"")
 )
 
-val qaNotes = placeholderNotes(
-    "All, moderated by Annunziata Kinya",
-    "Questions, with the open questions from `docs/talk/history.md` as backup"
+val qaNotes = listOf(
+    AnnotatedString("Annunziata Kinya moderates the Q&A, with Donald Isoe and Ian Nthuli on stage. If a question touches the open questions below, say plainly that git does not answer it, and do not guess."),
+    AnnotatedString("Backup question one: why did the 2024 and 2025 gaps happen, and who owned the app between them? Git does not say. The maintainership model was the community rotation, with no formal handovers."),
+    AnnotatedString("Backup question two: why was KMP dropped on 2025-10-23 in commit c42e0cdb, and rolled back on 2025-11-04 in commit c29b4d01? No commit message gives a reason, and the team does not know one."),
+    AnnotatedString("If nobody asks, close on the invitation: join with a pull request, the way every maintainer started.")
 )

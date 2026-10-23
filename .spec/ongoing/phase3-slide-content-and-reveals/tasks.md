@@ -151,11 +151,11 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/close/CloseSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/future/FutureSlides.kt
 
-- [ ] `LessonsSlide`: three revealed lessons, each a headline plus one evidence line from the outline's "Lessons (draft)": 1. Write it down for the next person (`AGENTS.md`, `CLAUDE.md`, the improvement plan; the KMP reversal `c42e0cdb` with no recorded reason). 2. Let CI guard it while people are away (`d66ca423`, `pr.yml`, size gate). 3. Make it easy to start (one line). `LESSONS_STEPS = 3`.
-- [ ] `QaSlide`: a large "Questions?" with the three presenter names. Keep its `showFooter = false` registration.
-- [ ] Register `steps = LESSONS_STEPS`. Replace `lessonsNotes` (Ian delivers all three, with a cue that the shared close is an option for the presenters to decide) and `qaNotes` (Annunziata Kinya moderates, with backup questions drawn from `history.md` open questions 1 and 2) with real notes.
-- [ ] Check: the standard check.
-- [ ] Commit: `feat: lessons and Q&A slides`
+- [x] `LessonsSlide`: three revealed lessons, each a headline plus one evidence line from the outline's "Lessons (draft)": 1. Write it down for the next person (`AGENTS.md`, `CLAUDE.md`, the improvement plan; the KMP reversal `c42e0cdb` with no recorded reason). 2. Let CI guard it while people are away (`d66ca423`, `pr.yml`, size gate). 3. Make it easy to start (one line). `LESSONS_STEPS = 3`.
+- [x] `QaSlide`: a large "Questions?" with the three presenter names. Keep its `showFooter = false` registration.
+- [x] Register `steps = LESSONS_STEPS`. Replace `lessonsNotes` (Ian delivers all three, with a cue that the shared close is an option for the presenters to decide) and `qaNotes` (Annunziata Kinya moderates, with backup questions drawn from `history.md` open questions 1 and 2) with real notes.
+- [x] Check: the standard check.
+- [x] Commit: `feat: lessons and Q&A slides`
 
 ### Task 12: Remove placeholder scaffolding and run the full build
 **Serves:** R9, R10, NF1, NF2
