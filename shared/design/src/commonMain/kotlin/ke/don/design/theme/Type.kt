@@ -4,6 +4,7 @@ import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontVariation
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
@@ -11,22 +12,39 @@ import ke.don.resources.Resources
 import org.jetbrains.compose.resources.Font
 import kotlin.math.roundToInt
 
-val bodyFontFamily: FontFamily
+/** One Montserrat family covering Thin to ExtraBold through the variable font's weight axis. */
+val montserratFontFamily: FontFamily
     @Composable
     get() = FontFamily(
-        Font(Resources.Font.GOOGLE_SANS_EXTRA_LIGHT, FontWeight.Normal),
+        listOf(
+            FontWeight.Thin,
+            FontWeight.ExtraLight,
+            FontWeight.Light,
+            FontWeight.Normal,
+            FontWeight.Medium,
+            FontWeight.SemiBold,
+            FontWeight.Bold,
+            FontWeight.ExtraBold,
+        ).map { weight ->
+            Font(
+                resource = Resources.Font.MONTSERRAT,
+                weight = weight,
+                variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)),
+            )
+        },
     )
+
+val bodyFontFamily: FontFamily
+    @Composable
+    get() = montserratFontFamily
 
 val displayFontFamily: FontFamily
     @Composable
-    get() = FontFamily(
-        Font(Resources.Font.GOOGLE_SANS_BOLD, FontWeight.Bold),
-    )
+    get() = montserratFontFamily
+
 val subheadingsFontFamily: FontFamily
     @Composable
-    get() = FontFamily(
-        Font(Resources.Font.GOOGLE_SANS_EXTRA_LIGHT, FontWeight.Bold),
-    )
+    get() = montserratFontFamily
 
 // Default Material 3 typography values
 

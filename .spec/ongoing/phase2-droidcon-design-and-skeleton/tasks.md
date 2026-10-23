@@ -16,11 +16,11 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 **Serves:** R2
 **Files:** `shared/resources/src/commonMain/composeResources/font/montserrat_variable.ttf` (new), `shared/resources/src/commonMain/composeResources/font/OFL.txt` (new), `shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt` (edit), `shared/design/src/commonMain/kotlin/ke/don/design/theme/Type.kt` (edit)
 
-- [ ] Copy `APP/core/designsystem/src/main/res/font/montserrat_variable.ttf` and `APP/core/designsystem/OFL.txt` into the font directory.
-- [ ] In `Resources.Font`, add `MONTSERRAT = Res.font.montserrat_variable`. Fix `GOOGLE_SANS_EXTRA_LIGHT` (it points at `google_sans_regular`): remove the Google Sans entries if nothing else uses them after the next step, otherwise leave them pointing at real files.
-- [ ] In `Type.kt`, build one Montserrat `FontFamily` with a `Font(Resources.Font.MONTSERRAT, weight, variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)))` per weight Thin to ExtraBold, and use it for every family that is not monospace. Do not change any size, weight, line height or letter spacing. Roboto Mono stays for code.
-- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `git diff Type.kt` touches only font families.
-- [ ] Commit: `feat: switch deck typography to Montserrat`
+- [x] Copy `APP/core/designsystem/src/main/res/font/montserrat_variable.ttf` and `APP/core/designsystem/OFL.txt` into the font directory.
+- [x] In `Resources.Font`, add `MONTSERRAT = Res.font.montserrat_variable`. Fix `GOOGLE_SANS_EXTRA_LIGHT` (it points at `google_sans_regular`): remove the Google Sans entries if nothing else uses them after the next step, otherwise leave them pointing at real files.
+- [x] In `Type.kt`, build one Montserrat `FontFamily` with a `Font(Resources.Font.MONTSERRAT, weight, variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)))` per weight Thin to ExtraBold, and use it for every family that is not monospace. Do not change any size, weight, line height or letter spacing. Roboto Mono stays for code.
+- [x] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `git diff Type.kt` touches only font families.
+- [x] Commit: `feat: switch deck typography to Montserrat`
 
 ### Task 2: Droidcon colours
 **Serves:** R1

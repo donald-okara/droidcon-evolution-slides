@@ -8,8 +8,7 @@ object Resources {
         val APP_NAME = Res.string.app_name
     }
     object Font {
-        val GOOGLE_SANS_EXTRA_LIGHT = Res.font.google_sans_regular
-        val GOOGLE_SANS_BOLD = Res.font.google_sans_bold
+        val MONTSERRAT = Res.font.montserrat_variable
         val ROBOTO_MONO_EXTRA_LIGHT = Res.font.roboto_mono_extra_light
     }
 
