@@ -1,0 +1,111 @@
+# Phase 2: Tasks
+
+Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin`, abbreviated `APP`. `DS` = `APP/core/designsystem/src/main/java/com/droidconke/chai`. Never write to `APP`.
+
+```
+1. Montserrat font ───────────────┐
+2. Droidcon colours ──────────────┼─> 7. Placeholder + sections 1-3 ─> 8. Sections 4-8 ─┐
+3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos
+4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ──────────────┘
+   (5 also needs 2)
+```
+
+---
+
+### Task 1: Montserrat font
+**Serves:** R2
+**Files:** `shared/resources/src/commonMain/composeResources/font/montserrat_variable.ttf` (new), `shared/resources/src/commonMain/composeResources/font/OFL.txt` (new), `shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt` (edit), `shared/design/src/commonMain/kotlin/ke/don/design/theme/Type.kt` (edit)
+
+- [ ] Copy `APP/core/designsystem/src/main/res/font/montserrat_variable.ttf` and `APP/core/designsystem/OFL.txt` into the font directory.
+- [ ] In `Resources.Font`, add `MONTSERRAT = Res.font.montserrat_variable`. Fix `GOOGLE_SANS_EXTRA_LIGHT` (it points at `google_sans_regular`): remove the Google Sans entries if nothing else uses them after the next step, otherwise leave them pointing at real files.
+- [ ] In `Type.kt`, build one Montserrat `FontFamily` with a `Font(Resources.Font.MONTSERRAT, weight, variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)))` per weight Thin to ExtraBold, and use it for every family that is not monospace. Do not change any size, weight, line height or letter spacing. Roboto Mono stays for code.
+- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `git diff Type.kt` touches only font families.
+- [ ] Commit: `feat: switch deck typography to Montserrat`
+
+### Task 2: Droidcon colours
+**Serves:** R1
+**Files:** `shared/design/src/commonMain/kotlin/ke/don/design/theme/Color.kt` (edit), `shared/design/src/commonMain/kotlin/ke/don/design/theme/ChaiColors.kt` (new), `shared/design/src/commonMain/kotlin/ke/don/design/theme/Theme.kt` (edit)
+**Pattern:** `DS/colors/ChaiColorScheme.kt`
+
+- [ ] Replace the Ski purple values in `Color.kt` with the Chai light and dark scheme values from `docs/talk/design-inventory.md` §1.2 (source: `DS/colors/ChaiColorScheme.kt`, atoms in `DS/atoms/Color.kt`), keeping the existing `*Light`/`*Dark` naming that `Theme.kt` reads. Remove the contrast variants if Chai has none and point `Theme.kt` at the base schemes.
+- [ ] In `ChaiColors.kt`, add a `ChaiColors` data class with the extras from §1.3 (`DS/colors/ChaiColors.kt`), light and dark instances, `CubeColors` from §1.4, a `Pre2026Palette` object with the colours from §4 "Pre-2026 palette", and `val LocalChaiColors = staticCompositionLocalOf { lightChaiColors }`.
+- [ ] In `AppTheme` (`Theme.kt`), provide `LocalChaiColors` with the light or dark instance to match the scheme.
+- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -n "6D538B" shared/design/src` returns nothing.
+- [ ] Commit: `feat: adopt the droidcon 2026 colour schemes`
+
+### Task 3: Logo SVGs
+**Serves:** R3
+**Files:** `shared/resources/src/commonMain/composeResources/drawable/droidcon_logo.svg` (new), `shared/resources/src/commonMain/composeResources/drawable/droidcon_logo_dark.svg` (new), `shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt` (edit)
+
+- [ ] Convert `APP/core/ui/src/main/res/drawable/droidcon_logo.xml` and `droidcon_logo_dark.xml` to SVG: `viewBox` from the viewport (1246x246), one `<path d=... fill=...>` per `<path android:pathData=... android:fillColor=...>`, keeping colours (`#000000`/`#FFFFFF` and `#01FF4F`).
+- [ ] Add `DROIDCON_LOGO` and `DROIDCON_LOGO_DARK` to `Resources.Images`.
+- [ ] Check: `./gradlew :shared:resources:compileKotlinJvm` passes; open each SVG in a browser and confirm it matches the original logo.
+- [ ] Commit: `feat: add droidcon logo SVGs`
+
+### Task 4: Cube model port
+**Serves:** R4
+**Files:** `shared/design/src/commonMain/kotlin/ke/don/design/cube/CubeState.kt`, `CubeMotion.kt`, `CubeProjection.kt`, `CubeMarks.kt`, `CubeArt.kt`, `Orientation.kt` (all new)
+**Pattern:** `DS/hero/` (the same file names)
+
+- [ ] Copy the six files from `DS/hero/` into `ke.don.design.cube`, changing only the package and imports. Do not copy `CubePainter`, `CubeHero`, `CubeHeroBanner` or `CubeHeroStage`.
+- [ ] Replace any `ChaiTheme`/Chai colour reference with `CubeColors` from Task 2 (or a parameter); drop anything Android-only.
+- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -rn "import android" shared/design/src/commonMain` returns nothing.
+- [ ] Commit: `feat: port cube hero model to common code`
+
+### Task 5: Cube painter and composables
+**Serves:** R4
+**Files:** `shared/design/src/commonMain/kotlin/ke/don/design/cube/CubePainter.kt` (new), `shared/design/src/commonMain/kotlin/ke/don/design/cube/CubeHero.kt` (new)
+**Pattern:** `DS/hero/CubePainter.kt`, `DS/hero/CubeHero.kt`
+
+This task rewrites Android graphics code; run the implementer on Sonnet.
+
+- [ ] Port `CubePainter` replacing `android.graphics.Matrix` and `nativeCanvas` (source lines 18, 27, 56, 74) with `androidx.compose.ui.graphics.Matrix`, `Path.transform`, and `DrawScope.drawIntoCanvas`/`drawPath`. Same visual output.
+- [ ] Port `CubeHero(modifier, size)` as the animated cube (hold 2600 ms, travel 1300 ms, `CubicBezierEasing(0.2f, 0f, 0f, 1f)`); drop click handling if it needs anything not in common code.
+- [ ] Add `CubeBullet(modifier, size = 12.dp)`: the cube drawn statically in its first orientation, no animation.
+- [ ] Add a `@Preview` for `CubeHero` and `CubeBullet` inside `AppTheme`, if previews already exist in `:shared:design`; otherwise skip.
+- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; no `android.` import in `shared/design/src/commonMain`.
+- [ ] Commit: `feat: port cube painter and add cube hero and bullet`
+
+### Task 6: Droidcon frame
+**Serves:** R5
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/frame/DroidconFrame.kt` (new), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt` (edit)
+**Pattern:** `shared/components/src/commonMain/kotlin/io/github/donald_okara/components/frames/basic_frame/BasicFrame.kt`
+
+- [ ] Add `DroidconFrame` implementing `ke.don.domain.frames.SkiFrame`, laid out like `BasicFrame` (header row, content box, footer row), using theme colours. Expose it as a `SkiFrameFactory` (`droidconFrameFactory`).
+- [ ] In `MainHeader` (`Components.kt:102`), show the droidcon logo (`Resources.Images.DROIDCON_LOGO`, or `_DARK` when the scheme is dark) with `CubeHero` beside it, keeping anything the header already shows for `DeckMode`.
+- [ ] In `MainFooter` (`Components.kt:37`), use `CubeBullet` as the leading bullet in place of the current marker.
+- [ ] In `Deck.kt`, build `mainFrame` from the droidcon frame instead of `snake`. Leave `guidesFrame` as is. Do not edit `:shared:components`.
+- [ ] Check: `./gradlew :desktopApp:run`; both windows show the logo and animated cube in the header and the cube bullet in the footer; the "Questions" slide (footer = null) has no footer.
+- [ ] Commit: `feat: add droidcon frame with logo, cube and cube bullet`
+
+### Task 7: Placeholder slide and sections 1 to 3
+**Serves:** R6
+**Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/PlaceholderSlide.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/opening/OpeningSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt` (new)
+**Pattern:** `segments/demos/src/commonMain/kotlin/ke/don/demos/FeatureSlides.kt`
+
+- [ ] Add `PlaceholderSlide(title: String, intent: String, presenter: String)`: title in `displayMedium`, intent in `bodyLarge`, presenter in `labelLarge`, centred, theme colours only.
+- [ ] In `OpeningSlides.kt` add `OpeningTitleSlide()` and `OpeningThesisSlide()`; in `HistorySlides.kt` add `HistoryBootstrapSlide()`, `HistoryPluginsSlide()`, `HistoryChurnSlide()`, `DetourKmmSlide()`, `DetourKmpSlide()`, `DormantYearsSlide()`. Each calls `PlaceholderSlide` with the intent text copied from the `docs/talk/outline.md` slide list and the presenter from its section table.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
+- [ ] Commit: `feat: add placeholder slides for opening and history`
+
+### Task 8: Sections 4 to 8
+**Serves:** R6
+**Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/launch/LaunchSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/future/FutureSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/close/CloseSlides.kt` (new)
+**Pattern:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt`
+
+- [ ] `LaunchSlides.kt`: `LaunchStackSlide()`, `LaunchModulesSlide()`, `LaunchPerfSlide()`, `LaunchDesignSlide()`, `LaunchFeaturesSlide()`, `LaunchWipSlide()`.
+- [ ] `FutureSlides.kt`: `FuturePlanSlide()`, `FutureRoadmapSlide()`, `FutureInviteSlide()`.
+- [ ] `CloseSlides.kt`: `LessonsSlide()`, `QaSlide()`.
+- [ ] Each calls `PlaceholderSlide` with intent and presenter from `docs/talk/outline.md`, as in Task 7.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
+- [ ] Commit: `feat: add placeholder slides for launch, future and close`
+
+### Task 9: Register the talk and remove the demos
+**Serves:** R6, R7, NF1
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt` (edit), `segments/demos/src/commonMain/kotlin/ke/don/demos/{DemoLayoutExample,DeviceGallery,ExampleSlide,FeatureSlides,KodeViewerExample,SegmentedDemos,VideoSlide,WhiteboardExample}.kt` (delete)
+
+- [ ] In `SlidesNotes.kt`, delete every demo notes constant and add one constant per slide (e.g. `openingTitleNotes`): `"PLACEHOLDER. Presenter: <name>. <intent>"`.
+- [ ] In `skiPresentationSlides()`, replace all demo `slide(...)` calls with the 19 slides in outline order, `slide(label = "<label>", notes = <notes>) { <Composable>() }`, labels exactly as in the outline. `opening-title` uses `transition = ScreenTransition.Fade` and `footer = null`; `qa` uses `footer = null`. Keep the timer setup. Remove unused imports, including `IntroductionScreen`.
+- [ ] Delete the eight demo files listed above. Keep `VideoPlayer.kt` and its platform `actual`s.
+- [ ] Check: `./gradlew :desktopApp:run` shows 19 slides in outline order in both windows; `./gradlew :webApp:wasmJsBrowserDistribution` succeeds; `git diff --stat main -- shared/components` is empty.
+- [ ] Commit: `feat: register talk skeleton and remove Ski demos`
