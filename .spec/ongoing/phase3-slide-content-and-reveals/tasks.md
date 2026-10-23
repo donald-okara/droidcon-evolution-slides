@@ -30,13 +30,13 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** core/domain/src/commonMain/kotlin/ke/don/domain/SlideConfig.kt (edit), core/domain/src/commonMain/kotlin/ke/don/domain/DeckBuilder.kt (edit), core/domain/src/commonMain/kotlin/ke/don/domain/DeckNavigator.kt (edit), core/domain/src/commonMain/kotlin/ke/don/domain/DeckSyncState.kt (edit), core/domain/src/commonMain/kotlin/ke/don/domain/CompositionLocals.kt (edit)
 **Pattern:** core/domain/src/commonMain/kotlin/ke/don/domain/DeckNavigator.kt
 
-- [ ] Add `val steps: Int = 0` to `SlideConfig`, and a `steps: Int = 0` parameter to `DeckBuilder.slide(...)` that is passed through.
-- [ ] In `DeckNavigator` add `var currentStep by mutableStateOf(0)` with a private setter. `next()`: if `currentStep < currentSlide.steps`, increment the step; otherwise go to the next slide with step 0. `previous()`: if `currentStep > 0`, decrement it; otherwise go to the previous slide and set its step to that slide's `steps`. Keep `direction` set as today. At the first or last slide with nothing left to step, do nothing.
-- [ ] Change `goTo(index: Int)` to `goTo(index: Int, step: Int = 0)`. It sets both, with the step clamped to `0..slides[index].steps`, and returns early only when both index and step are unchanged. Existing callers keep step 0.
-- [ ] Add `val step: Int = 0` to `DeckSyncState`.
-- [ ] Add `val LocalRevealStep = compositionLocalOf { Int.MAX_VALUE }` to `CompositionLocals.kt`, with a one-line comment saying that the default shows everything outside a deck.
-- [ ] Check: `./gradlew :core:domain:compileKotlinJvm :core:domain:compileKotlinWasmJs` passes; `git diff --stat dd4c27b -- shared/components` is empty.
-- [ ] Commit: `feat: reveal steps in DeckNavigator`
+- [x] Add `val steps: Int = 0` to `SlideConfig`, and a `steps: Int = 0` parameter to `DeckBuilder.slide(...)` that is passed through.
+- [x] In `DeckNavigator` add `var currentStep by mutableStateOf(0)` with a private setter. `next()`: if `currentStep < currentSlide.steps`, increment the step; otherwise go to the next slide with step 0. `previous()`: if `currentStep > 0`, decrement it; otherwise go to the previous slide and set its step to that slide's `steps`. Keep `direction` set as today. At the first or last slide with nothing left to step, do nothing.
+- [x] Change `goTo(index: Int)` to `goTo(index: Int, step: Int = 0)`. It sets both, with the step clamped to `0..slides[index].steps`, and returns early only when both index and step are unchanged. Existing callers keep step 0.
+- [x] Add `val step: Int = 0` to `DeckSyncState`.
+- [x] Add `val LocalRevealStep = compositionLocalOf { Int.MAX_VALUE }` to `CompositionLocals.kt`, with a one-line comment saying that the default shows everything outside a deck.
+- [x] Check: `./gradlew :core:domain:compileKotlinJvm :core:domain:compileKotlinWasmJs` passes; `git diff --stat dd4c27b -- shared/components` is empty.
+- [x] Commit: `feat: reveal steps in DeckNavigator`
 
 ### Task 2: Wire steps into the deck host and web sync
 **Serves:** R1, R2

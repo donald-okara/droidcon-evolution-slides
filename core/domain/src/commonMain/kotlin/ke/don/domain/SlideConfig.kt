@@ -20,6 +20,7 @@ data class SlideConfig(
     val header: (@Composable () -> Unit)? = null,
     val footer: (@Composable () -> Unit)? = null,
     val showFooter: Boolean = true,
+    val steps: Int = 0,
     val content: @Composable () -> Unit,
 ) {
     @Composable

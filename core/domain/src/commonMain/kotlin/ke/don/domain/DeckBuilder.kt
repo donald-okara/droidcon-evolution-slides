@@ -28,6 +28,7 @@ class DeckBuilder(
         header: (@Composable () -> Unit)? = null,
         footer: (@Composable () -> Unit)? = null,
         showFooter: Boolean = true,
+        steps: Int = 0,
         content: @Composable () -> Unit
     ) {
         _slides += SlideConfig(
@@ -39,6 +40,7 @@ class DeckBuilder(
             footer = footer,
             showFooter = showFooter,
             header = header,
+            steps = steps,
             content = content
         )
     }
