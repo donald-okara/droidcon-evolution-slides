@@ -2,8 +2,9 @@
 
 ## Current state
 
-- Done: Task 1 (`docs/talk/history.md`, 5 eras plus 8 open questions); Task 2 (`docs/talk/outline.md`, 8 sections, 45 min); Task 3 (`docs/talk/abstract.md`, 135 words).
-- Next: Task 4 (design inventory), the last task in the phase.
+- Done: all 4 tasks. Task 1 (`docs/talk/history.md`, 5 eras plus 8 open questions); Task 2 (`docs/talk/outline.md`, 8 sections, 45 min); Task 3 (`docs/talk/abstract.md`, 135 words); Task 4 (`docs/talk/design-inventory.md`, tokens/assets/components/timeline/mapping, ends with phase 2 decisions).
+- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
+- Open for phase 2: 2026 identity vs Ski purple, Montserrat vs Google Sans, cube hero as component or single slide; license clearance for cube marks and team photos.
 - User answers folded in: speakers (Donald Isoe, Annunziata Kinya, Ian Nthuli), community rotation model replaces "handovers" in thesis, aliases confirmed, 2 other apps and KMP reversal reason unknown, format includes screen recordings/screenshots.
 - Talk restructured into three topic segments (history / about to launch / future = droidconKeKotlin docs/IMPROVEMENT_PLAN.md, framed as an invitation, not a commitment). Level Intermediate confirmed; Donald's bio shortened; same Harun confirmed.
 - Speakers mapped: Annunziata Kinya = history (brings her own content), Donald Isoe = about to launch, Ian Nthuli = future. Harun credited by name. adaptive-large-screen, fix/speaker-details, fix/sponsor-logo-contrast are done.
@@ -15,6 +16,8 @@
 - Task 1: `git -C /Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin show --stat <sha>` on three SHAs cited in `docs/talk/history.md` (e.g. c42e0cdb, 6a6845e4, d66ca423) and confirm each matches its claim. `git -C … status` shows no changes.
 - Task 2: in `docs/talk/outline.md`, section budgets add up to 45 (3+5+5+6+8+6+6+6), every section has a presenter (all three used), and each reveal is one slide.
 - Task 3: strip the title and bold metadata lines from `docs/talk/abstract.md`, then `wc -w` the body: 100 to 150 (currently 135). Every template section is present and no comments remain.
+
+- Task 4: in `docs/talk/design-inventory.md`, check ChaiBlue700 #0055FF, ChaiGreen500 #00FF4F, ChaiNavy700 #26343F against `core/designsystem/.../atoms/Color.kt`; confirm `core/ui/src/main/res/drawable/droidcon_logo.xml` and `core/designsystem/src/main/res/font/montserrat_variable.ttf` exist; every asset row has a verdict; `git -C /Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin status` is clean.
 
 ## Changes by task
 
@@ -36,6 +39,15 @@
 - Facts used: the 211-day commit gap (2024-11-13 to 2025-06-12), two multiplatform attempts (KMM 2024, CMP 2025), Kotlin 1.8 to 2.4.
 - Level "Intermediate" and Format "slides only" are the implementer's choices and need sign-off.
 - NOTE (reviewer): "KMP attempted twice" is supported by combining eras 3 and 4, not stated in history.md as such.
+
+### Task 4: Inventory the droidcon design language
+- `docs/talk/design-inventory.md` (new): tokens (palette, light/dark schemes, ChaiColors, cube colors, session accents, typography, shapes/spacing, motion), assets table with verdicts, components, timeline with pre-2026 palette (#000CEB, #FF6E4D, #00E2C3), mapping to slides targets, Decisions for phase 2.
+- Findings: Shapes is the M3 default `Shapes()`; Spacing has no scale (BreathingSpace13 is 15 dp). Only `CubePainter.kt` in the cube hero uses android.* APIs; session cards (R/Coil/LocalContext) and ChaiTypography (R.font) are Android-bound.
+- Dark logo differs only in black fills turned white; launcher background is #0055FF. Art license not stated (repo Apache-2.0, font OFL).
+- Compose Resources SVG support per target is hedged as a phase 2 decision, not verified.
+- NOTE (reviewer): timeline adds a966dae1 and d66ca423 beyond the required list; harmless.
+- NOTE (reviewer): Kotlin, React and Swift cube marks and team/smiling photos have no stated license; flagged in phase 2 decisions.
+- Run on Sonnet from the start, per the known issue on repo-mining tasks.
 
 ## Deviations from spec
 
