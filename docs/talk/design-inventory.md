@@ -208,9 +208,13 @@ Pre-2026 `ChaiColors` extras: loadingShimmerColor, tealAccentColor (#7DE1C3), se
 
 ## 6. Decisions for phase 2
 
-1. Adopt the 2026 identity (blue/neon green/black) over Ski purple for the whole deck, or only for talk slides while keeping Ski purple for framework demos?
-2. Montserrat (brand, OFL, variable TTF 297 KB) versus keeping Google Sans: switching means fixing `Resources.kt` and `Type.kt`; do slides need a bigger type ramp than the app's?
-3. Cube hero: reusable component in `:shared:components`, or one bespoke slide in `:segments:demos`? Either needs `CubePainter` rewritten off `android.graphics.Matrix`/`nativeCanvas`.
-4. Logo format: convert the Android vector XML to SVG, or to Kotlin `ImageVector`, given Compose Resources SVG support differs per target?
-5. Third-party marks in the cube art (Kotlin, React, Swift) and the team/smiling photos: confirm usage permission before shipping.
-6. Include a "then vs now" palette slide using section 4 values?
+Answered by the maintainer on 2026-10-23, pending a review with the other presenters later that evening.
+
+1. **Identity:** adopt the 2026 identity (blue/neon green/black) fully and everywhere, replacing Ski purple, including framework demo slides.
+2. **Font:** switch to Montserrat everywhere. This means fixing `Resources.kt` (including the `GOOGLE_SANS_EXTRA_LIGHT` bug) and `Type.kt`. Whether slides need a bigger type ramp than the app's is still open.
+3. **Cube hero:** port it, and show it in the header next to the droidcon logo. It needs `CubePainter` rewritten off `android.graphics.Matrix`/`nativeCanvas`.
+4. **Footer:** use the cube as the footer bullet.
+5. **Frame:** probably a custom frame for this talk (header with logo and cube, footer with the cube bullet), not one of the stock Ski frames.
+6. **Marks:** full permission to use the Kotlin, React and Swift cube marks and the team/smiling photos.
+7. **Then vs now:** definitely include a "then vs now" slide, using the pre-2026 palette from section 4.
+8. **Still open:** logo format (SVG or Kotlin `ImageVector`, given that Compose Resources SVG support differs per target).
