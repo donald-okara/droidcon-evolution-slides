@@ -8,3 +8,6 @@
 - Remove anything unused for now.
 - Use a checkered carpet background, copying the Star Wars intro.
 - For the decorator image, loop through the images on the cube.
+
+## Review 3: changes requested (2026-10-23, donald-okara)
+- Make the background checkers more visible.
