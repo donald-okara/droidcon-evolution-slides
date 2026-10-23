@@ -139,12 +139,12 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/future/FutureSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/launch/LaunchSlides.kt
 
-- [ ] `FuturePlanSlide`: "The improvement plan", with `docs/IMPROVEMENT_PLAN.md`, `CommitTag("62f45e2a")`, "Harun Wangereka's idea", "A living roadmap, not a commitment", and "We're not married to it."
-- [ ] `FutureRoadmapSlide`: a numbered reveal of five stages: accessibility listening pass, ticketing and QR, notifications leftovers, venue map and calendar export, AI experiences last (behind default-off flags). `FUTURE_ROADMAP_STEPS = 5`.
-- [ ] `FutureInviteSlide`: "Make the app your own", five track chips (Foundations, Design system, Adaptive, AI, Conference ops), and "Join with a pull request: that's how every maintainer started."
-- [ ] Register `steps = FUTURE_ROADMAP_STEPS`. Replace the three notes constants with real notes for Ian Nthuli. Flag that the "not married to it" wording needs the presenters' sign-off.
-- [ ] Check: the standard check.
-- [ ] Commit: `feat: future slides content and notes`
+- [x] `FuturePlanSlide`: "The improvement plan", with `docs/IMPROVEMENT_PLAN.md`, `CommitTag("62f45e2a")`, "Harun Wangereka's idea", "A living roadmap, not a commitment", and "We're not married to it."
+- [x] `FutureRoadmapSlide`: a numbered reveal of five stages: accessibility listening pass, ticketing and QR, notifications leftovers, venue map and calendar export, AI experiences last (behind default-off flags). `FUTURE_ROADMAP_STEPS = 5`.
+- [x] `FutureInviteSlide`: "Make the app your own", five track chips (Foundations, Design system, Adaptive, AI, Conference ops), and "Join with a pull request: that's how every maintainer started."
+- [x] Register `steps = FUTURE_ROADMAP_STEPS`. Replace the three notes constants with real notes for Ian Nthuli. Flag that the "not married to it" wording needs the presenters' sign-off.
+- [x] Check: the standard check.
+- [x] Commit: `feat: future slides content and notes`
 
 ### Task 11: Close slides
 **Serves:** R8, R9

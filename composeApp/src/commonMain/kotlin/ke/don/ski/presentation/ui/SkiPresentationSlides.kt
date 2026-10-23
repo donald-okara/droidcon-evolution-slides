@@ -7,6 +7,7 @@ import ke.don.demos.droidcon.close.LessonsSlide
 import ke.don.demos.droidcon.close.QaSlide
 import ke.don.demos.droidcon.future.FutureInviteSlide
 import ke.don.demos.droidcon.future.FuturePlanSlide
+import ke.don.demos.droidcon.future.FUTURE_ROADMAP_STEPS
 import ke.don.demos.droidcon.future.FutureRoadmapSlide
 import ke.don.demos.droidcon.history.DetourKmmSlide
 import ke.don.demos.droidcon.history.DetourKmpSlide
@@ -134,7 +135,12 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             slide(label = "future-plan", notes = futurePlanNotes, transition = ScreenTransition.Fade) {
                 FuturePlanSlide()
             }
-            slide(label = "future-roadmap", notes = futureRoadmapNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "future-roadmap",
+                notes = futureRoadmapNotes,
+                transition = ScreenTransition.Fade,
+                steps = FUTURE_ROADMAP_STEPS
+            ) {
                 FutureRoadmapSlide()
             }
             slide(label = "future-invite", notes = futureInviteNotes, transition = ScreenTransition.Fade) {

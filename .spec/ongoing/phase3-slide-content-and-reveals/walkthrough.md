@@ -2,11 +2,11 @@
 
 ## Current state
 
-- Tasks 1 to 9 done and committed (through the launch design, features and WIP slides).
-- Next: Task 10 (future slides), then 11 and 12.
-- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tiles, history reveals 4 then 3, `detour-kmp` 3, `launch-modules` 3, `launch-features` 5, `launch-wip` 6) are left to the user.
+- Tasks 1 to 10 done and committed (through the future slides).
+- Next: Task 11 (close slides), then 12 (remove placeholders, full build).
+- Open: desktop manual checks (reveal step counts on all reveal slides, stat tiles, window and web sync) are left to the user.
 - `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
-- Presenters: check the KMP note's attribution (Task 7); check whether notifications has merged by talk day (Task 9).
+- Presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" wording sign-off and the "Harun included" line in `futureInviteNotes` (Task 10).
 
 ## How to verify
 
@@ -20,6 +20,7 @@
 - Task 7: compile check passes. User: on desktop, Right reveals 3 rollback items on `detour-kmp`.
 - Task 8: compile check passes. User: on desktop, the three perf tiles count up, shrink, show down arrows, all green; Right reveals 3 module groups.
 - Task 9: compile check passes. User: on desktop, Right reveals 5 items on `launch-features` and 6 on `launch-wip`; swatch labels fit on `launch-design`.
+- Task 10: compile check passes. User: on desktop, Right reveals 5 stages on `future-roadmap`.
 
 ## Changes by task
 
@@ -67,6 +68,11 @@
 - `LaunchSlides.kt`: `LaunchDesignSlide` (`Pre2026Palette` swatches vs live `colorScheme` swatches with hex labels, `87d23cb7`, `eb7c436e`, media placeholder), `LaunchFeaturesSlide` (5 reveals, `LAUNCH_FEATURES_STEPS = 5`; only cube hero and widget carry SHAs, as the outline gives no others), `LaunchWipSlide` (6 reveals: four done, two muted still to do; `LAUNCH_WIP_STEPS = 6`). Steps registered.
 - `SlidesNotes.kt`: real notes for Donald Isoe, with a reminder to check whether notifications has merged by talk day.
 - Reviewer NOTE: swatch labels such as "secondaryContainer" and "ChaiLightGrey" may wrap on a small window.
+
+### Task 10: Future slides
+- `FutureSlides.kt`: `FuturePlanSlide` (plan path, `62f45e2a`, Harun credit, "not married to it"), `FutureRoadmapSlide` (5 revealed stages, last muted; `FUTURE_ROADMAP_STEPS = 5`, registered), `FutureInviteSlide` (five track chips, join line).
+- `SlidesNotes.kt`: real notes for Ian Nthuli. `futurePlanNotes` opens with a "Sign-off needed" line for the "not married to it" wording. `docs/IMPROVEMENT_PLAN.md` is not in this repo, so facts come from the outline only.
+- Reviewer NOTE: "Harun included" in `futureInviteNotes` is not backed by the outline or history; drop it or verify before the talk. Left as is, since fixing it is outside the task's pass criteria.
 
 ## Deviations from spec
 

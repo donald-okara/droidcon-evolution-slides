@@ -106,19 +106,24 @@ val launchWipNotes = listOf(
     AnnotatedString("Reminder for Donald: check whether notifications has merged to main by talk day, and if it has, change this slide's status line and the done list.")
 )
 
-val futurePlanNotes = placeholderNotes(
-    "Ian Nthuli",
-    "The improvement plan: what it is, whose idea it was (Harun Wangereka), and that it is a living roadmap, not a commitment"
+val futurePlanNotes = listOf(
+    AnnotatedString("Sign-off needed: the presenters must approve the \"not married to it\" wording before the talk."),
+    AnnotatedString("This is the improvement plan, and it was Harun Wangereka's idea, so credit him by name. It lives in the app repo as docs/IMPROVEMENT_PLAN.md, added in commit 62f45e2a."),
+    AnnotatedString("It is a living roadmap of pending work only, last pruned on 2026-10-12, so finished items come off it as they land. Say plainly that we are not married to it."),
+    AnnotatedString("Takeaway to return to: a living roadmap, not a commitment. Hand-off cue: \"So what is on it? Here are the ranked items.\"")
 )
 
-val futureRoadmapNotes = placeholderNotes(
-    "Ian Nthuli",
-    "The ranked items: accessibility pass, ticketing and QR, notifications leftovers, venue map and calendar, AI last"
+val futureRoadmapNotes = listOf(
+    AnnotatedString("Each press of Right reveals one stage, in the order the plan ranks them, starting with the accessibility listening pass, which is next up and needs a person."),
+    AnnotatedString("Ticketing and QR waits on a backend question, and the notifications leftovers are topic subscriptions and reminder actions, the two items still to do on the notifications branch."),
+    AnnotatedString("The venue map and calendar export are the other surfaces on the plan. AI experiences come last on purpose, behind default-off flags, so they never ship on by default."),
+    AnnotatedString("Takeaway to return to: the order is deliberate, and the AI work waits until the basics are in. Hand-off cue: \"Those are the stages. Here is how you can take one on.\"")
 )
 
-val futureInviteNotes = placeholderNotes(
-    "Ian Nthuli",
-    "Make the app your own: tracks for a small contributor pool, how to join through a pull request, the rotation model"
+val futureInviteNotes = listOf(
+    AnnotatedString("This is the invitation. Five tracks give a newcomer a lane to pick: Foundations, Design system, Adaptive, AI and Conference ops."),
+    AnnotatedString("The tracks are for a small contributor pool, so pick one lane rather than the whole plan. The rotation model means people step in and step back, and that is expected."),
+    AnnotatedString("Every maintainer started with a pull request, Harun included, so the way in is the same for you. Takeaway to return to: join with a pull request. Hand-off cue: \"That is the plan. Now, three lessons to close.\"")
 )
 
 val lessonsNotes = placeholderNotes(
