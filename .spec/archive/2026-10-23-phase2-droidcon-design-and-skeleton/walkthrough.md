@@ -2,18 +2,19 @@
 
 ## Current state
 
-- Done: Tasks 1 to 15 (all tasks).
-- Next: the user's visual check, then `/donatello:phase-review`.
-- Then: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
-- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (clearly visible, moving, text readable in light and dark), fades forward and back, cube animation, 19 slides in order, no footer on opening-title and qa.
+- Shipped: Chai 2026 colours, Montserrat, droidcon logo SVGs, cube hero in common code, snake frame with logo-only header and green dot footer, checkered-floor background (alpha 0.20 light / 0.25 dark) with the cube decorator, fades on every slide, and 19 registered placeholder slides with placeholder notes. Ski demos removed. Approved in review 5.
+- Not visually checked by agents: visuals depend on the maintainer's desktop run.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
-- Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; "full opacity" was applied to the decorator only.
-- Deferred: removals of unused code and resources (see the overview's Out of Scope).
-- Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
+- Open: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2 / design decision).
+- Open: the cube painter's own edge/sheen alphas are unchanged; "full opacity" applies to the decorator only.
+- Deferred: removing unused code and resources: `MainHeader`'s `mode` param, unread `LocalChaiColors`, `prepareCubeMarks`, `CubeBullet`, Google Sans and Roboto Mono ExtraLight TTFs, IAN/IVANA/ANDROID_ROBOT images, `APP_NAME`, `VideoPlayer*` and `sample_video.mov`, `:segments:introduction`, the component gallery.
+- Deferred to phase 3: real slide content, reveals, detailed notes, the "then vs now" palette slide, recordings and photos. Phase 4: rehearsal polish, app identity rename.
+- Carried over: none.
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify
 
+- Phase as a whole: `./gradlew :desktopApp:run` opens both windows on `opening-title`; stepping forward and back shows 19 slides in outline order with fades, droidcon colours in light and dark, Montserrat text, the logo-only header, the green dot footer (none on `opening-title` and `qa`), and the moving checkered floor with the animated cube; `./gradlew :webApp:wasmJsBrowserDistribution` succeeds; `git diff --stat main -- shared/components` is empty (compare against the pre-phase commit `9832e28`).
 - Task 1: `./gradlew :shared:design:compileKotlinJvm` passes; `git diff 9832e28 -- shared/design/src/commonMain/kotlin/ke/don/design/theme/Type.kt` touches only font families; slide text renders in Montserrat on `./gradlew :desktopApp:run` (not yet checked visually).
 - Task 2: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -n "6D538B" shared/design/src` returns nothing; deck shows blue/green/black in light and dark (not yet checked visually).
 - Task 3: `./gradlew :shared:resources:compileKotlinJvm` passes; `xmllint --noout` on both SVGs; logos render in the header after Task 6.

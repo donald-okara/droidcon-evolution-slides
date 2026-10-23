@@ -23,7 +23,13 @@ Already documented elsewhere, so not repeated here:
 - No DI and no state management library: slide state is local Compose state; shared context goes through `CompositionLocal`s.
 - No tests and no lint. Verification is running the deck (`./gradlew :desktopApp:run`) and looking at the slide in both windows.
 - Talk claims come from the app's git history with short SHAs cited, and guesses are marked "(inferred)", because the clone has no tags or PR text and the claims must stay checkable.
-- The droidcon theme and assets go in `:shared:design` and `:shared:resources`, not `:shared:components`, so the published `ski` library keeps its own look.
+- The droidcon theme and assets go in `:shared:design` and `:shared:resources`, not `:shared:components`, so the published `ski` library keeps its own look. Deck-specific chrome (header, footer, `DroidconBackground`) lives in `:composeApp` and builds on the library's public interfaces only.
+- The deck uses the droidcon 2026 Chai light/dark schemes, replacing Ski purple; the pre-2026 palette is kept as named constants for the "then vs now" slide.
+- Text uses Montserrat (variable font, weights via `FontVariation.weight`) on Ski's unchanged type ramp, because Ski's sizes are tuned for slides. Code uses a monospace family (currently `FontFamily.Monospace`).
+- The cube hero lives in `ke.don.design.cube` on common Compose graphics (no `android.*`), so desktop and web can draw it.
+- Logos are SVG in Compose Resources; Android doesn't render them, which is accepted because desktop and web are the presenting targets.
+- The main frame is the stock `snake` frame; slides hide the footer with `showFooter = false` (a flag in `:core:domain`).
+- Every slide sets `transition = ScreenTransition.Fade` itself, so `:core:domain` and the library stay untouched.
 
 ## Known stale facts
 

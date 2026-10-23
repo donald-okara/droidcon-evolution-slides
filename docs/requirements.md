@@ -13,3 +13,22 @@ Describes the current state of the talk material; updated as phases ship.
 ## Source repo
 
 - The droidcon app clone is read-only from this repo. No task writes to it.
+
+## Deck look
+
+- `AppTheme` uses the droidcon 2026 Chai light and dark colour schemes; no Ski purple remains. `ChaiColors` extras are provided through `LocalChaiColors`; cube colours and the pre-2026 palette are named constants in `:shared:design`.
+- Every non-code text style uses Montserrat; Ski's sizes, weights, line heights and letter spacing are unchanged.
+- Light and dark droidcon logos are SVG resources in `Resources.Images`.
+- The cube hero renders and animates from common code; a static bullet-size cube is also available.
+- The main frame is the snake frame in both windows. Its header shows only the droidcon logo (per theme), and its footer bullet is a small neon-green dot. Slides registered with `showFooter = false` show no footer.
+- The background is a neon-green checkered floor in perspective, scrolling toward the horizon, at alpha 0.20 in light and 0.25 in dark, with the animated cube at bottom-right. It is built in `:composeApp` on the public `Background` interface.
+- Every slide fades in and out (`ScreenTransition.Fade`) in both directions and both windows.
+
+## Slide skeleton
+
+- The deck registers the outline's 19 slides in order, with labels matching the outline exactly. Each body is a named composable under `ke.don.demos.droidcon`, and each has a notes constant in `SlidesNotes.kt`. Until phase 3 these show placeholder title, intent and presenter.
+- No Ski demo slide, demo notes or demo-only composable remains; `VideoPlayer*` stays.
+
+## Library
+
+- `:shared:components` (the published `ski` library) is not changed by the talk work.
