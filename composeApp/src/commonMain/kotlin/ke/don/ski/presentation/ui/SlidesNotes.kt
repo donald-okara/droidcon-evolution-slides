@@ -3,12 +3,7 @@ package ke.don.ski.presentation.ui
 import androidx.compose.ui.text.AnnotatedString
 
 // One named constant per slide, referenced from skiPresentationSlides().
-// Every constant is a placeholder until the presenter writes the real notes.
 // See docs/speaker-notes.md for how to write these.
-
-private fun placeholderNotes(presenter: String, intent: String) = listOf(
-    AnnotatedString("PLACEHOLDER. Presenter: $presenter. $intent")
-)
 
 val openingTitleNotes = listOf(
     AnnotatedString("Welcome, and thank you for coming. I'm Annunziata Kinya, and I'm presenting with Donald Isoe and Ian Nthuli."),

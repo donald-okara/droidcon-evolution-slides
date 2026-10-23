@@ -161,7 +161,7 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Serves:** R9, R10, NF1, NF2
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/PlaceholderSlide.kt (delete), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit)
 
-- [ ] Delete `PlaceholderSlide.kt`, and remove `placeholderNotes` and the "Every constant is a placeholder" comment from `SlidesNotes.kt`.
-- [ ] Remove any now-unused `private const val` presenter-name constants or imports left in the slide files.
-- [ ] Check: `grep -rn "PlaceholderSlide\|placeholderNotes" segments composeApp/src` and `grep -n "PLACEHOLDER" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt` return nothing; `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat dd4c27b -- shared/components` is empty.
-- [ ] Commit: `chore: remove placeholder slide scaffolding`
+- [x] Delete `PlaceholderSlide.kt`, and remove `placeholderNotes` and the "Every constant is a placeholder" comment from `SlidesNotes.kt`.
+- [x] Remove any now-unused `private const val` presenter-name constants or imports left in the slide files.
+- [x] Check: `grep -rn "PlaceholderSlide\|placeholderNotes" segments composeApp/src` and `grep -n "PLACEHOLDER" composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt` return nothing; `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat dd4c27b -- shared/components` is empty.
+- [x] Commit: `chore: remove placeholder slide scaffolding`

@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Tasks 1 to 11 done and committed (through the close slides).
-- Next: Task 12 (remove `PlaceholderSlide.kt`, `placeholderNotes` and unused constants; full build).
+- All 12 tasks done and committed. The placeholder scaffolding is gone and the full build passes.
+- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
 - Open: desktop manual checks (reveal step counts on all reveal slides, stat tiles, window and web sync) are left to the user.
 - Presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" sign-off and the "Harun included" line (Task 10); shared close is the presenters' call (Task 11).
 
@@ -21,6 +21,7 @@
 - Task 9: compile check passes. User: on desktop, Right reveals 5 items on `launch-features` and 6 on `launch-wip`; swatch labels fit on `launch-design`.
 - Task 10: compile check passes. User: on desktop, Right reveals 5 stages on `future-roadmap`.
 - Task 11: compile check passes. User: on desktop, Right reveals 3 lessons on `lessons`; `qa` shows no footer.
+- Task 12: `grep -rn "PlaceholderSlide\|placeholderNotes" segments composeApp/src` is empty; `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat dd4c27b -- shared/components` is empty.
 
 ## Changes by task
 
@@ -78,6 +79,10 @@
 - `CloseSlides.kt`: `LessonsSlide` (3 revealed lessons, headline plus one evidence line; `LESSONS_STEPS = 3`, registered) and `QaSlide` ("Questions?" with the three presenter names; `showFooter = false` kept).
 - `SlidesNotes.kt`: real `lessonsNotes` (Ian delivers all three; shared close flagged as the presenters' decision) and `qaNotes` (Annunziata Kinya moderates; backup questions from `history.md` open questions 1 and 2). The private `placeholderNotes()` helper is now unused; Task 12 removes it.
 - Reviewer NOTE: lessons notes say "Each press of Right"; keep consistent with other reveal slides' wording.
+
+### Task 12: Remove placeholder scaffolding and run the full build
+- Deleted `PlaceholderSlide.kt`; removed `placeholderNotes` and its header comment from `SlidesNotes.kt`; removed an unused `Box` import in `StatTile.kt`. Presenter-name constants in `OpeningSlides.kt` are still used once each, so they stay.
+- Reviewer NOTE: the build finished in 2s, probably from the Gradle cache; it still reflects current sources.
 
 ## Deviations from spec
 
