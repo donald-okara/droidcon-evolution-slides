@@ -34,7 +34,7 @@ import org.jetbrains.compose.resources.painterResource
 
 
 /** Chai neon green (ChaiGreen500, design-inventory §1.2), used for the footer dot. */
-private val NeonGreen = Color(0xFF00FF4F)
+internal val NeonGreen = Color(0xFF00FF4F)
 
 /**
  * Provides a footer composable for the current slide when the slide requests a footer.

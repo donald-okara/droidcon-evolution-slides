@@ -2,13 +2,13 @@
 
 ## Current state
 
-- Done: Tasks 1 to 11 (Task 11: header shows only the logo; footer bullet is an 8dp neon-green dot).
-- Next: Task 12 (checkered floor background with the cube as decorator; Sonnet). It can share Task 11's green rather than adding another hex.
-- Open: nothing has been checked visually; the user runs `./gradlew :desktopApp:run` after Task 12 for font, colours, frame, header, footer dot, background, cube, 19 slides, and no footer on opening-title and qa.
+- Done: all 12 tasks. Review 2's changes are in: logo-only header, green dot footer bullet, and `DroidconBackground` (faint neon-green perspective checkered floor scrolling toward the horizon, full-opacity animated cube at bottom-right).
+- Next: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
+- Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (faint, moving, text readable in light and dark), cube animation, 19 slides in order, no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
+- Open: the cube painter's own edge/sheen alphas (in `CubePainter.kt`) are unchanged; the maintainer's "full opacity" was applied to the decorator only.
 - Deferred: removals of unused code and resources (see the overview's Out of Scope).
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono (NF2).
-- Open: the R4 check uses `grep "import android\."`.
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify
@@ -24,6 +24,7 @@
 - Task 8: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 9: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show 19 slides in outline order (user to check).
 - Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "CubeHero\|CubeBullet"` on `Components.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, the header shows only the logo and the footer a green dot (user to check).
+- Task 12: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the faint moving checkered floor and the full-opacity cube at bottom-right, with readable text in light and dark (user to check).
 
 ## Changes by task
 
@@ -85,6 +86,14 @@
 - `Components.kt`: `MainHeader` shows only the logo (180dp wide, same aspect ratio); `CubeHero` and its spacer removed; `mode` kept. `MainFooter` uses an 8dp `CircleShape` box in a file-private `NeonGreen = Color(0xFF00FF4F)` instead of `CubeBullet`; cube imports removed.
 - `CubeBullet` stays in `:shared:design`, now unused (removals deferred).
 - Reviewer NOTE: `NeonGreen` duplicates the hex of `primaryDark`/`secondaryContainerDark` in `Color.kt`; acceptable since no neon constant exists. Task 12 could share it.
+### Task 12: Droidcon background with checkered floor and cube decorator
+- `presentation/background/DroidconBackground.kt` (new): implements `Background`; fills the theme background, draws the floor with `Path`/`drawPath` (horizon at 40%, alternate cells in `NeonGreen` at alpha 0.06), scrolling 0 to 2 tiles over 8 s, linear and repeating (one tile per 4 s; the checker parity repeats every 2 tiles, so the loop is seamless). `CubeHero(200.dp)` at `BottomEnd` with 16dp padding.
+- `pattern` holds an unused `Pattern.Wavy(emptyList())` because the interface requires it non-null; `decoratorImage` is null.
+- `Deck.kt`: `remember { DroidconBackground() }` replaces the `BackgroundBuilder` chain; `ANDROID_ROBOT` stays in `Resources.kt`.
+- `Components.kt`: `NeonGreen` made `internal` and shared.
+- Escalated to Sonnet (as the task required).
+- Maintainer instruction during the run: the cube is at full opacity. The reviewer confirmed there is no alpha on the cube or its container.
+- Reviewer NOTE: the perspective maths is sane (near depth ≥ 0.5, so nothing blows up at the horizon). The cube painter's own edge/sheen alphas predate this task and are unchanged.
 
 ## Deviations from spec
 

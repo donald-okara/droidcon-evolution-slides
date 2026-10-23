@@ -137,9 +137,9 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 
 This task writes perspective drawing code; run the implementer on Sonnet.
 
-- [ ] Add `DroidconBackground` implementing the public `Background` interface (`pattern` and `decoratorImage` may be null/unused; `Render()` does the drawing). Do not edit `:shared:components`.
-- [ ] In `Render()`, fill the theme background, then draw a checkered floor in perspective, Star Wars crawl style: horizon at about 40% of the height, the floor below it; alternating cells filled with the Chai neon green at alpha 0.06 (other cells empty); cells shrink toward the horizon; the floor scrolls continuously away from the viewer, about one tile depth every 4 s (infinite transition, seamless loop). Draw with `Canvas`/`DrawScope` paths only.
-- [ ] On top, draw `CubeHero(size = 200.dp)` aligned `BottomEnd` with 16dp padding, replacing the Android robot decorator.
-- [ ] In `Deck.kt`, pass `DroidconBackground()` in place of the `BackgroundBuilder` chain; drop imports that become unused. Leave `Resources.Images.ANDROID_ROBOT` in `Resources.kt` (removals are deferred).
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` and `./gradlew :webApp:wasmJsBrowserDistribution` pass; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show a faint green checkered floor drifting toward the horizon, noticeable only on a close look, with the animated cube at bottom-right and slide text readable in light and dark.
-- [ ] Commit: `feat: add checkered floor background with cube decorator`
+- [x] Add `DroidconBackground` implementing the public `Background` interface (`pattern` and `decoratorImage` may be null/unused; `Render()` does the drawing). Do not edit `:shared:components`.
+- [x] In `Render()`, fill the theme background, then draw a checkered floor in perspective, Star Wars crawl style: horizon at about 40% of the height, the floor below it; alternating cells filled with the Chai neon green at alpha 0.06 (other cells empty); cells shrink toward the horizon; the floor scrolls continuously away from the viewer, about one tile depth every 4 s (infinite transition, seamless loop). Draw with `Canvas`/`DrawScope` paths only.
+- [x] On top, draw `CubeHero(size = 200.dp)` aligned `BottomEnd` with 16dp padding, replacing the Android robot decorator.
+- [x] In `Deck.kt`, pass `DroidconBackground()` in place of the `BackgroundBuilder` chain; drop imports that become unused. Leave `Resources.Images.ANDROID_ROBOT` in `Resources.kt` (removals are deferred).
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` and `./gradlew :webApp:wasmJsBrowserDistribution` pass; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show a faint green checkered floor drifting toward the horizon, noticeable only on a close look, with the animated cube at bottom-right and slide text readable in light and dark.
+- [x] Commit: `feat: add checkered floor background with cube decorator`
