@@ -65,19 +65,25 @@ val dormantYearsNotes = listOf(
     AnnotatedString("Commit 8faf624f, on 2025-12-23, is the Navigation 3 move. Hand-off cue: \"That is where the year ended, and 2026 is where the update starts.\"")
 )
 
-val launchStackNotes = placeholderNotes(
-    "Donald Isoe",
-    "Stack jump from Kotlin 2.1.21 and AGP 8.10.1 to Kotlin 2.4.21 and AGP 9.3.1"
+val launchStackNotes = listOf(
+    AnnotatedString("This is the build stack for the 2026 update, set against the last snapshot before it, from December 2025 at commit 26a9e9cf."),
+    AnnotatedString("Kotlin went from 2.1.21 to 2.4.21, and the Android Gradle Plugin from 8.10.1 to 9.3.1. Gradle moved to 9.7 in commit 6bb9b99c, and minSdk went to 26 in commit 8f7577d5."),
+    AnnotatedString("The snapshots show versions at two dates. They do not show when each change landed, and Gradle and minSdk have no before value in them, so do not quote one."),
+    AnnotatedString("Takeaway to return to: the stack was brought current before the modules were split. Hand-off cue: \"Once the stack was current, the module split was next.\"")
 )
 
-val launchModulesNotes = placeholderNotes(
-    "Donald Isoe",
-    "Module split: 17 modules and `:presentation` removed (`ac81b8ac`), then 21 modules"
+val launchModulesNotes = listOf(
+    AnnotatedString("The module split started on 2026-09-07 with commit d66ca423, and it finished on 2026-09-10 with commit ac81b8ac: 17 modules, and `:presentation` gone."),
+    AnnotatedString("Then the count reached 21 modules. Each press of Right reveals one group: core, then feature, then widget and benchmarks."),
+    AnnotatedString("The count of 21 says how the project is divided up. It does not measure build time, code size, or whether the split is good."),
+    AnnotatedString("Takeaway to return to: the split came with the pull request workflow, which is the same change that let CI guard the codebase. Hand-off cue: \"Splitting the code is one part. Here is what it did to the numbers.\"")
 )
 
-val launchPerfNotes = placeholderNotes(
-    "Donald Isoe",
-    "Baseline profile, release APK down 28% (`5a42a5a7`), size gate in CI (`1fc20ee5`)"
+val launchPerfNotes = listOf(
+    AnnotatedString("These are the 2026 performance gains, and the baseline profile and benchmarks are the cause of them."),
+    AnnotatedString("Startup time is 35% faster. Harun Wangereka confirmed this figure on 2026-10-23, and it has no commit SHA, so credit him by name. It is startup time only, not frame time or memory."),
+    AnnotatedString("The release APK is 28% smaller in commit 5a42a5a7, on 2026-09-14. The size is 7.4% smaller and gated in CI by commit 1fc20ee5."),
+    AnnotatedString("The APK and size figures measure download size, not memory or frame time. Takeaway to return to: startup, download size and the CI gate. Hand-off cue: \"Those are the numbers. Next, the design.\"")
 )
 
 val launchDesignNotes = placeholderNotes(

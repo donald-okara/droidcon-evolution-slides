@@ -17,6 +17,7 @@ import ke.don.demos.droidcon.history.HISTORY_PLUGINS_STEPS
 import ke.don.demos.droidcon.history.HistoryBootstrapSlide
 import ke.don.demos.droidcon.history.HistoryChurnSlide
 import ke.don.demos.droidcon.history.HistoryPluginsSlide
+import ke.don.demos.droidcon.launch.LAUNCH_MODULES_STEPS
 import ke.don.demos.droidcon.launch.LaunchDesignSlide
 import ke.don.demos.droidcon.launch.LaunchFeaturesSlide
 import ke.don.demos.droidcon.launch.LaunchModulesSlide
@@ -94,7 +95,12 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             slide(label = "launch-stack", notes = launchStackNotes, transition = ScreenTransition.Fade) {
                 LaunchStackSlide()
             }
-            slide(label = "launch-modules", notes = launchModulesNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "launch-modules",
+                notes = launchModulesNotes,
+                transition = ScreenTransition.Fade,
+                steps = LAUNCH_MODULES_STEPS
+            ) {
                 LaunchModulesSlide()
             }
             slide(label = "launch-perf", notes = launchPerfNotes, transition = ScreenTransition.Fade) {

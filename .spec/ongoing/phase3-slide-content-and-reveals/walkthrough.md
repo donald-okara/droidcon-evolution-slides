@@ -2,9 +2,9 @@
 
 ## Current state
 
-- Tasks 1 to 7 done and committed (through the detour and dormant-years slides).
-- Next: Task 8 (launch: stack, modules, perf), then 9 to 12.
-- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile, opening slides, history reveals 4 then 3, `detour-kmp` 3 steps) are left to the user.
+- Tasks 1 to 8 done and committed (through the launch stack, modules and perf slides).
+- Next: Task 9 (launch: design, features, WIP), then 10 to 12.
+- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tiles count up and shrink, history reveals 4 then 3, `detour-kmp` 3 steps, `launch-modules` 3 groups) are left to the user.
 - `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
 - Presenters should check the KMP note's attribution wording (see Task 7).
 
@@ -18,6 +18,7 @@
 - Task 5: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes. User: look at `opening-title` and `opening-thesis` on `:desktopApp:run`.
 - Task 6: compile check passes. User: on desktop, Right reveals 4 steps on `history-bootstrap` and 3 on `history-plugins`.
 - Task 7: compile check passes. User: on desktop, Right reveals 3 rollback items on `detour-kmp`.
+- Task 8: compile check passes. User: on desktop, the three perf tiles count up, shrink, show down arrows, all green; Right reveals 3 module groups.
 
 ## Changes by task
 
@@ -54,6 +55,12 @@
 - `HistorySlides.kt`: `DetourKmmSlide` (`3433931f`, `26f6a3d0`, why it stopped: not recorded), `DetourKmpSlide` (`cdd713bd`, 3-step rollback reveal, `DETOUR_KMP_STEPS = 3`, registered), `DormantYearsSlide` (static timeline with 211-day and 126-day gaps, labelled as commits, not effort). Removed unused `ANNUNZIATA` constant and `PlaceholderSlide` import.
 - `SlidesNotes.kt`: real notes for the three slides, each with the draft line; KMP notes say the reason is not recorded (history.md open question 2).
 - Reviewer NOTE: the KMP note credits Michael Ndiritu with leading the attempt, but `cdd713bd` is authored by chepsiror per `history.md`. Wording is accurate to the era; non-blocking.
+
+### Task 8: Launch: stack, modules, perf
+- `LaunchSlides.kt`: `LaunchStackSlide` (before 2025-12 `26a9e9cf` vs after 2026-10 `575e6055`; Gradle and minSdk before values "not in snapshots"), `LaunchModulesSlide` (3 groups: core:*, feature:*, widget and benchmarks; `LAUNCH_MODULES_STEPS = 3`, registered), `LaunchPerfSlide` (three `StatTile`s, all Decrease and green; 35% sourced to Harun Wangereka, others carry SHAs; 7.4% uses `decimals = 1`).
+- `SlidesNotes.kt`: real launch notes for Donald Isoe, no draft line. Perf note says APK and size figures are download size and the 35% figure is startup only.
+- `docs/talk/history.md` and `outline.md`: added the sourced "startup time 35% faster (Harun Wangereka)" fact, as the task asks.
+- Reviewer NOTE: `launchModulesNotes` says the split came with the pull request workflow (outline's `pr.yml` claim, `d66ca423`); supported, optionally name the commit.
 
 ## Deviations from spec
 

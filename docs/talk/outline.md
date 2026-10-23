@@ -63,7 +63,7 @@ Labels match `slide(label = ...)`. The Reveal column marks slides that disclose 
 | 3 | `dormant-years` | Droidcon 2024 work (`c02c6652`) and the Navigation 3 move (`8faf624f`) | none |
 | 4 | `launch-stack` | Stack jump from Kotlin 2.1.21 and AGP 8.10.1 to Kotlin 2.4.21 and AGP 9.3.1 | none |
 | 4 | `launch-modules` | Module split: 17 modules and `:presentation` removed (`ac81b8ac`), then 21 modules | Module groups appear one per click: core, feature, widget and benchmarks |
-| 4 | `launch-perf` | Baseline profile, release APK down 28% (`5a42a5a7`), size gate in CI (`1fc20ee5`) | none |
+| 4 | `launch-perf` | Baseline profile, release APK down 28% (`5a42a5a7`), size gate in CI (`1fc20ee5`), startup time 35% faster (Harun Wangereka) | none |
 | 4 | `launch-design` | Chai on Material 3 Expressive (`87d23cb7`) and the 2026 identity (`eb7c436e`) | none |
 | 4 | `launch-features` | Done features on main: cube hero (`5941f20f`) and Glance widget (`4492346b`) | Feature items appear one per click: cube hero, widget |
 | 5 | `launch-wip` | In progress: notifications module on branch `feat/notifications` (not yet on main at 2026-10-23) | Items appear one per click: notifications done so far (channels, reminders, preferences, deep links), then what remains (topic subscriptions, reminder actions) |
