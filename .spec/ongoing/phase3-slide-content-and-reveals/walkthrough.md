@@ -2,10 +2,11 @@
 
 ## Current state
 
-- Tasks 1 to 6 done and committed (through the history bootstrap, plugins and churn slides).
-- Next: Task 7 (detours: KMM, KMP, dormant years).
-- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile, opening slides, history reveals 4 then 3) are left to the user.
+- Tasks 1 to 7 done and committed (through the detour and dormant-years slides).
+- Next: Task 8 (launch: stack, modules, perf), then 9 to 12.
+- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile, opening slides, history reveals 4 then 3, `detour-kmp` 3 steps) are left to the user.
 - `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
+- Presenters should check the KMP note's attribution wording (see Task 7).
 
 ## How to verify
 
@@ -16,6 +17,7 @@
 - Task 4: same compile check as Task 3 passes.
 - Task 5: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes. User: look at `opening-title` and `opening-thesis` on `:desktopApp:run`.
 - Task 6: compile check passes. User: on desktop, Right reveals 4 steps on `history-bootstrap` and 3 on `history-plugins`.
+- Task 7: compile check passes. User: on desktop, Right reveals 3 rollback items on `detour-kmp`.
 
 ## Changes by task
 
@@ -47,6 +49,11 @@
 - `HistorySlides.kt`: `HistoryBootstrapSlide` (five layer boxes, `740ce113`, reveal; `HISTORY_BOOTSTRAP_STEPS = 4`), `HistoryPluginsSlide` (`6a6845e4`, `996ca6fe`, reveal; `HISTORY_PLUGINS_STEPS = 3`), `HistoryChurnSlide` (no reveal; era counts, `91322d29`, silence after 2023-11-09). Steps registered in `SkiPresentationSlides.kt`.
 - `SlidesNotes.kt`: real notes for the three history slides; each opens with a "Draft from history.md; Annie to replace" line. No on-slide draft marker.
 - Reviewer NOTE: WasmJs compile was not run by the reviewer; the implementer's run passed both targets.
+
+### Task 7: Detours: KMM, KMP, dormant years
+- `HistorySlides.kt`: `DetourKmmSlide` (`3433931f`, `26f6a3d0`, why it stopped: not recorded), `DetourKmpSlide` (`cdd713bd`, 3-step rollback reveal, `DETOUR_KMP_STEPS = 3`, registered), `DormantYearsSlide` (static timeline with 211-day and 126-day gaps, labelled as commits, not effort). Removed unused `ANNUNZIATA` constant and `PlaceholderSlide` import.
+- `SlidesNotes.kt`: real notes for the three slides, each with the draft line; KMP notes say the reason is not recorded (history.md open question 2).
+- Reviewer NOTE: the KMP note credits Michael Ndiritu with leading the attempt, but `cdd713bd` is authored by chepsiror per `history.md`. Wording is accurate to the era; non-blocking.
 
 ## Deviations from spec
 

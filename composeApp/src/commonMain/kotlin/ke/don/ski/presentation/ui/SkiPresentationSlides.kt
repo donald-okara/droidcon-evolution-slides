@@ -10,6 +10,7 @@ import ke.don.demos.droidcon.future.FuturePlanSlide
 import ke.don.demos.droidcon.future.FutureRoadmapSlide
 import ke.don.demos.droidcon.history.DetourKmmSlide
 import ke.don.demos.droidcon.history.DetourKmpSlide
+import ke.don.demos.droidcon.history.DETOUR_KMP_STEPS
 import ke.don.demos.droidcon.history.DormantYearsSlide
 import ke.don.demos.droidcon.history.HISTORY_BOOTSTRAP_STEPS
 import ke.don.demos.droidcon.history.HISTORY_PLUGINS_STEPS
@@ -77,7 +78,12 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             slide(label = "detour-kmm", notes = detourKmmNotes, transition = ScreenTransition.Fade) {
                 DetourKmmSlide()
             }
-            slide(label = "detour-kmp", notes = detourKmpNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "detour-kmp",
+                notes = detourKmpNotes,
+                transition = ScreenTransition.Fade,
+                steps = DETOUR_KMP_STEPS
+            ) {
                 DetourKmpSlide()
             }
             slide(label = "dormant-years", notes = dormantYearsNotes, transition = ScreenTransition.Fade) {

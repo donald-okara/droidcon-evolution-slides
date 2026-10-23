@@ -44,19 +44,25 @@ val historyChurnNotes = listOf(
     AnnotatedString("Commit 91322d29 added the offline-first feed in September 2023. The last commit before the silence is 2023-11-09, and the next is 2024-03-28. The git history does not say why the silence happened.")
 )
 
-val detourKmmNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "2024 KMM experiment in parallel with the Android modules (`3433931f`, `26f6a3d0`), gone within a quarter"
+val detourKmmNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("From March to June 2024 the app ran a Kotlin Multiplatform experiment next to the Android modules. Commit 3433931f, on 2024-05-17, set up KMM, and commit 26f6a3d0, on 2024-06-05, moved the shared modules over."),
+    AnnotatedString("It was kept in parallel, not as a replacement, and the last commit before the quiet was on 2024-06-14. Git does not record why it stopped, so say that plainly."),
+    AnnotatedString("Takeaway to return to: the experiment was gone within a quarter. Hand-off cue: \"After that, the app went quiet for almost five months.\"")
 )
 
-val detourKmpNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "2025 Compose Multiplatform attempt (`cdd713bd`) and its rollback (`c42e0cdb`, `26a9e9cf`)"
+val detourKmpNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("In 2025, Michael Ndiritu led the Compose Multiplatform attempt, which started with commit cdd713bd on 2025-06-12."),
+    AnnotatedString("Each press of Right reveals one rollback step: drop KMP in commit c42e0cdb on 2025-10-23, then the CI fixes, then the five-layer layout back in commit 26a9e9cf."),
+    AnnotatedString("Nobody on the team knows why KMP was dropped, and no commit message says. This is open question 2 in history.md, so do not guess. Takeaway to return to: the reason is not recorded.")
 )
 
-val dormantYearsNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "Droidcon 2024 work (`c02c6652`) and the Navigation 3 move (`8faf624f`)"
+val dormantYearsNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("Commit c02c6652, on 2024-11-05, is the Droidcon 2024 work, and Donald's first commit came on 2024-11-13 with efacf25f."),
+    AnnotatedString("The two long silences are 211 days with no commits, from 2024-11-13 to 2025-06-12, and 126 days, from 2025-06-19 to 2025-10-23. Those day counts measure commits in git. They do not measure effort or work done outside this repo."),
+    AnnotatedString("Commit 8faf624f, on 2025-12-23, is the Navigation 3 move. Hand-off cue: \"That is where the year ended, and 2026 is where the update starts.\"")
 )
 
 val launchStackNotes = placeholderNotes(

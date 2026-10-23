@@ -102,12 +102,12 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt
 
-- [ ] `DetourKmmSlide`: kicker "2024", the KMM experiment in parallel with the Android modules (`3433931f`, `26f6a3d0`), gone within a quarter (dates from `history.md` era 3).
-- [ ] `DetourKmpSlide`: kicker "2025", the Compose Multiplatform attempt (`cdd713bd`), then a reveal of the rollback steps: "Drop KMP" (`c42e0cdb`), "CI fixes", "Five-layer layout back" (`26a9e9cf`). No reason is given for the rollback, and the slide says "reason not recorded". `DETOUR_KMP_STEPS = 3`.
-- [ ] `DormantYearsSlide`: the Droidcon 2024 work (`c02c6652`) and the Navigation 3 move (`8faf624f`, 2025-12-23), with the gaps from `history.md` era 4 as a small timeline.
-- [ ] Register `steps = DETOUR_KMP_STEPS`. Replace `detourKmmNotes`, `detourKmpNotes` and `dormantYearsNotes` with real notes, including the same draft line as Task 6. The KMP notes say plainly that nobody knows why it was dropped (`history.md` open question 2).
-- [ ] Check: the standard check.
-- [ ] Commit: `feat: detour and dormant-years slides`
+- [x] `DetourKmmSlide`: kicker "2024", the KMM experiment in parallel with the Android modules (`3433931f`, `26f6a3d0`), gone within a quarter (dates from `history.md` era 3).
+- [x] `DetourKmpSlide`: kicker "2025", the Compose Multiplatform attempt (`cdd713bd`), then a reveal of the rollback steps: "Drop KMP" (`c42e0cdb`), "CI fixes", "Five-layer layout back" (`26a9e9cf`). No reason is given for the rollback, and the slide says "reason not recorded". `DETOUR_KMP_STEPS = 3`.
+- [x] `DormantYearsSlide`: the Droidcon 2024 work (`c02c6652`) and the Navigation 3 move (`8faf624f`, 2025-12-23), with the gaps from `history.md` era 4 as a small timeline.
+- [x] Register `steps = DETOUR_KMP_STEPS`. Replace `detourKmmNotes`, `detourKmpNotes` and `dormantYearsNotes` with real notes, including the same draft line as Task 6. The KMP notes say plainly that nobody knows why it was dropped (`history.md` open question 2).
+- [x] Check: the standard check.
+- [x] Commit: `feat: detour and dormant-years slides`
 
 ### Task 8: Launch, stack to perf
 **Serves:** R6, R9
