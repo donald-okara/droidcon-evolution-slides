@@ -4,7 +4,8 @@
 
 - Done: Task 1 (`docs/talk/history.md`, 5 eras plus 8 open questions); Task 2 (`docs/talk/outline.md`, 8 sections, 45 min); Task 3 (`docs/talk/abstract.md`, 135 words).
 - Next: Task 4 (design inventory), the last task in the phase.
-- Open: the history's "Open questions for the user" (e.g. which 2 other apps updated in 2026, why KMP was dropped and rolled back) need answers. The outline thesis claims "three maintainer handovers", which history.md does not support (the abstract avoids the number). Lesson wording, abstract Level "Intermediate" and Format "slides only" need presenter sign-off.
+- User answers folded in: speakers (Donald Isoe, Annunziata Kinya, Ian Nthuli), community rotation model replaces "handovers" in thesis, aliases confirmed, 2 other apps and KMP reversal reason unknown, format includes screen recordings/screenshots.
+- Open: presenter-to-era mapping (Presenter 1/2/3 placeholders), lessons wording, Level "Intermediate", and whether to keep "Professional spammer of Command + Click" in the abstract bio.
 - Known issues: Haiku implementer ran out of turns mining git history; for repo-mining tasks, ask for batched git queries or use Sonnet.
 
 ## How to verify
