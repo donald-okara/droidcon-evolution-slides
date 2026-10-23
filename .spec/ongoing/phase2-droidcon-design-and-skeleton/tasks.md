@@ -37,10 +37,10 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 **Serves:** R3
 **Files:** `shared/resources/src/commonMain/composeResources/drawable/droidcon_logo.svg` (new), `shared/resources/src/commonMain/composeResources/drawable/droidcon_logo_dark.svg` (new), `shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt` (edit)
 
-- [ ] Convert `APP/core/ui/src/main/res/drawable/droidcon_logo.xml` and `droidcon_logo_dark.xml` to SVG: `viewBox` from the viewport (1246x246), one `<path d=... fill=...>` per `<path android:pathData=... android:fillColor=...>`, keeping colours (`#000000`/`#FFFFFF` and `#01FF4F`).
-- [ ] Add `DROIDCON_LOGO` and `DROIDCON_LOGO_DARK` to `Resources.Images`.
-- [ ] Check: `./gradlew :shared:resources:compileKotlinJvm` passes; open each SVG in a browser and confirm it matches the original logo.
-- [ ] Commit: `feat: add droidcon logo SVGs`
+- [x] Convert `APP/core/ui/src/main/res/drawable/droidcon_logo.xml` and `droidcon_logo_dark.xml` to SVG: `viewBox` from the viewport (1246x246), one `<path d=... fill=...>` per `<path android:pathData=... android:fillColor=...>`, keeping colours (`#000000`/`#FFFFFF` and `#01FF4F`).
+- [x] Add `DROIDCON_LOGO` and `DROIDCON_LOGO_DARK` to `Resources.Images`.
+- [x] Check: `./gradlew :shared:resources:compileKotlinJvm` passes; open each SVG in a browser and confirm it matches the original logo.
+- [x] Commit: `feat: add droidcon logo SVGs`
 
 ### Task 4: Cube model port
 **Serves:** R4

@@ -14,6 +14,10 @@ object Resources {
 
     object Images {
 
+        //Logos
+        val DROIDCON_LOGO = Res.drawable.droidcon_logo
+        val DROIDCON_LOGO_DARK = Res.drawable.droidcon_logo_dark
+
         //People
         val IAN = Res.drawable.ian_dooley
         val IVANA = Res.drawable.ivana_cajina
