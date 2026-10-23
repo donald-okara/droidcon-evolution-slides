@@ -236,3 +236,27 @@ val navigation3Notes = listOf(
     AnnotatedString("Most of what the app now does with live sessions started here. The Now and Up next chips are the live rail, and the recording shows tabs switching with each back stack kept."),
     AnnotatedString("The recording shows the behaviour, not the performance of it, so do not quote timings from it. Takeaway to return to: the back stacks kept, so the app remembers where you were. Hand-off cue: \"That is where 2025 ended. Now, 2026.\"")
 )
+
+val twoReadersNotes = listOf(
+    AnnotatedString("The fix for quiet years is to write the things down. The same file, AGENTS.md, now briefs a new contributor and a coding agent, and it was dated 13 August 2026."),
+    AnnotatedString("The 3,500-line plan deletes items as they are done, so it stays a plan and not a log. The line count does not measure how good the plan is, only how much of it there is."),
+    AnnotatedString("Takeaway to return to: this afternoon we test whether the file works for a new person, so say it as a test and not a promise. Hand-off cue: \"Seven modules to twenty.\"")
+)
+
+val modulesNotes = listOf(
+    AnnotatedString("The counter runs from 7 modules on 1 August, after KMP was removed, to 20 by 22 October. The 17 on 11 September is the split that took out :presentation, so the climb was not one step."),
+    AnnotatedString("A module count does not measure build time, code size or whether the split is a good one. It counts Gradle modules and nothing else."),
+    AnnotatedString("Takeaway to return to: the rules matter more than the count. The third rule came from a feature's tests reaching into another feature's fakes, which is why core:testing exists. Hand-off cue: \"Now the numbers, measured.\"")
+)
+
+val measuredNotes = listOf(
+    AnnotatedString("Every figure here was measured on the CS50C at API 34, as the median of 15 runs. Cold start went from 1,335 to 1,047 ms, which is 22 percent down, and the release APK went from 6.4 to 4.6 MB, which is 28 percent down."),
+    AnnotatedString("The cold start figure excludes warm starts, so it says nothing about a process that is already running. The counters also do not measure frame time, jank or battery use, and the download figure is Pixel-class, not a promise for every phone."),
+    AnnotatedString("Takeaway to return to: every number has a device, a median and a caveat. Full AOT was slower at 1,228 ms, and the doc keeps it as an experiment that did not help. Hand-off cue: \"Last, the new look.\"")
+)
+
+val newLookNotes = listOf(
+    AnnotatedString("The tablet promise from 2018 is finally kept. The sessions screen now adapts to phones, foldables, tablets and desktop windows, and the four placeholders are the goldens for each one."),
+    AnnotatedString("Credit Joel Kanyi for the shared-element transitions and mutukuian for the redesigned speakers. The WCAG AA check covers every colour pair, and it does not measure how the palette feels to a reader with low vision."),
+    AnnotatedString("Takeaway to return to: nothing of the I/O app is left on screen, and the brand, the motion and the cube are droidcon Kenya's own. Hand-off cue: \"That is 2026. The next act is the live demo.\"")
+)

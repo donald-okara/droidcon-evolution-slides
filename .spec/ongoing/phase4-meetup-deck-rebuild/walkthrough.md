@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-7 done (through 2022-2025 slides S11-S17).
-- Next: Task 8 (2026 slides S18-S21).
-- Open: S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
+- Tasks 1-8 done (through 2026 slides S18-S21).
+- Next: Task 9 (live and stack slides S22-S26).
+- Open: old phase 3 note at SlidesNotes.kt:79 contains "35% faster"; Task 11 removes it. S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 8: Task 5 compile check; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
 - Task 7: same compile check as Task 5.
 - Task 6: same compile check as Task 5 (`:segments:demos` JVM and WasmJs).
 - Task 5: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs`; step through S04 on `:desktopApp:run` once registered (Task 11).
@@ -53,6 +54,12 @@
 - `talk/OneRepoSlides.kt`: `Y2022ComposeSlide`, `ChaiSlide`, `OneRepoSlide`, `CommunityPeakSlide`, `QuietYearSlide`, `KmpThreadSlide`, `Navigation3Slide`; notes in `SlidesNotes.kt`.
 - Delight: S11 columns grow, July highlighted; S12 chai swatches pop in; S13 file count 0 to 280; S14 confetti on "41"; S15 "3" pops in; S16 callout pops in after module chart; S17 chips pop in.
 - NOTE: S11 also has a D2 chart; S14 shows four named contributors, not a wall of names; S16 omits "-2,111 lines" and the "14 modules" figure appears only in the chart.
+
+### Task 8: 2026 slides S18-S21
+- `talk/MeasuredSlides.kt`: `TwoReadersSlide`, `ModulesSlide`, `MeasuredSlide`, `NewLookSlide`; notes in `SlidesNotes.kt` (`measuredNotes` states device CS50C API 34, median of 15, warm starts excluded).
+- `SwatchRow`, `hexOf` and palette lists moved from `LaunchSlides.kt` to `common/Swatches.kt` (internal); `LaunchDesignSlide` unchanged in output.
+- Delight: S18 quote pops in; S19 module count 7 to 20; S20 tiles count up and shrink; S21 form-factor placeholders pop in staggered.
+- NOTE: S19 third rule taken from overview S19 text (feature tests and fakes, core:testing).
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.

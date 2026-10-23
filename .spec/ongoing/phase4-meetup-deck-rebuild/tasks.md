@@ -96,11 +96,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/MeasuredSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `segments/demos/.../droidcon/launch/LaunchSlides.kt` (for `StatTile` use)
 
-- [ ] `TwoReadersSlide` (S18), `ModulesSlide` (S19, module-count line from D8, plus three rule bullets), `MeasuredSlide` (S20: `StatTile` for cold start 22% down, APK 28% down, download 7.4% down, and a `BarChart` of D7's four startup modes; full AOT slower), `NewLookSlide` (S21, then and now palette swatches reused from `LaunchDesignSlide`, form-factor placeholders).
-- [ ] Notes: `measuredNotes` states device, median of 15 runs and that startup excludes warm starts. The 35% figure appears nowhere.
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S19 module count ticks 7 to 20, S20 tiles shrink as they count; others of your choice) and list them one line per slide in your report.
-- [ ] Check: compile check from Task 5 passes; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
-- [ ] Commit: `feat: 2026 slides S18-S21`
+- [x] `TwoReadersSlide` (S18), `ModulesSlide` (S19, module-count line from D8, plus three rule bullets), `MeasuredSlide` (S20: `StatTile` for cold start 22% down, APK 28% down, download 7.4% down, and a `BarChart` of D7's four startup modes; full AOT slower), `NewLookSlide` (S21, then and now palette swatches reused from `LaunchDesignSlide`, form-factor placeholders).
+- [x] Notes: `measuredNotes` states device, median of 15 runs and that startup excludes warm starts. The 35% figure appears nowhere.
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S19 module count ticks 7 to 20, S20 tiles shrink as they count; others of your choice) and list them one line per slide in your report.
+- [x] Check: compile check from Task 5 passes; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
+- [x] Commit: `feat: 2026 slides S18-S21`
 
 ### Task 9: Live and stack slides S22 to S26
 **Serves:** R7, R11
