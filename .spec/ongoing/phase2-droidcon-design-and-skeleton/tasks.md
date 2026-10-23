@@ -165,6 +165,6 @@ This task writes perspective drawing code; run the implementer on Sonnet.
 **Serves:** R8
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/background/DroidconBackground.kt` (edit)
 
-- [ ] Change the floor cells' alpha from 0.10 to 0.20 in light and 0.25 in dark, choosing by the same dark-theme signal the deck already uses (e.g. the one that picks the light or dark logo). Change nothing else: horizon, scroll speed and cube stay as they are.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.10f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are clearly visible and slide text stays readable in light and dark.
-- [ ] Commit: `feat: per-theme checker alpha`
+- [x] Change the floor cells' alpha from 0.10 to 0.20 in light and 0.25 in dark, choosing by the same dark-theme signal the deck already uses (e.g. the one that picks the light or dark logo). Change nothing else: horizon, scroll speed and cube stay as they are.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.10f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) the checkers are clearly visible and slide text stays readable in light and dark.
+- [x] Commit: `feat: per-theme checker alpha`

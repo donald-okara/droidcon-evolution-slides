@@ -2,8 +2,8 @@
 
 ## Current state
 
-- Done: Tasks 1 to 14.
-- Next: Task 15 (checker alpha 0.20 light / 0.25 dark), from review 4.
+- Done: Tasks 1 to 15 (all tasks).
+- Next: the user's visual check, then `/donatello:phase-review`.
 - Then: the user checks visuals on `./gradlew :desktopApp:run`, then `/donatello:phase-review` and `/donatello:phase-archive`.
 - Visual check list: font, colours, snake frame, logo-only header, green footer dot, floor (clearly visible, moving, text readable in light and dark), fades forward and back, cube animation, 19 slides in order, no footer on opening-title and qa.
 - Open: placeholder titles were chosen by the implementer; presenters to confirm.
@@ -29,6 +29,7 @@
 
 - Task 13: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.06f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, checkers are visible at a glance and text stays readable in light and dark (user to check).
 - Task 14: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -c "ScreenTransition.Fade" SkiPresentationSlides.kt` prints 19; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, slides fade forward and back in both windows (user to check).
+- Task 15: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -n "0.10f" DroidconBackground.kt` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, checkers are clearly visible and text stays readable in light and dark (user to check).
 
 ## Changes by task
 
@@ -105,6 +106,9 @@
 ### Task 14: Fade transitions on every slide
 - `SkiPresentationSlides.kt`: added `transition = ScreenTransition.Fade` to the 18 slide calls without it (single-line, after `notes`); labels, notes, `showFooter` and order unchanged.
 - Reviewer NOTE: compile, grep (19) and `shared/components` checks pass; fade check left to the user.
+### Task 15: Per-theme checker alpha
+- `DroidconBackground.kt`: `FLOOR_ALPHA` (0.10) replaced by `FLOOR_ALPHA_LIGHT` 0.20 and `FLOOR_ALPHA_DARK` 0.25, chosen by `MaterialTheme.colorScheme.surface.luminance() < 0.5f` (the same signal as the logo in `Components.kt`). Horizon, scroll and cube unchanged.
+- Reviewer NOTE: compile, grep and `shared/components` checks pass; visual check left to the user.
 
 ## Deviations from spec
 

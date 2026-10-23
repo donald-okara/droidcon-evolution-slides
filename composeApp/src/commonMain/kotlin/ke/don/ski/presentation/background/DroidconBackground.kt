@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.unit.dp
 import io.github.donald_okara.components.backgrounds.Background
 import io.github.donald_okara.components.backgrounds.decorator_image.DecoratorImage
@@ -28,7 +29,8 @@ import kotlin.math.ceil
 import kotlin.math.floor
 
 private const val HORIZON = 0.4f
-private const val FLOOR_ALPHA = 0.10f
+private const val FLOOR_ALPHA_LIGHT = 0.20f
+private const val FLOOR_ALPHA_DARK = 0.25f
 private const val TILE_DEPTH = 0.5f
 private const val ROWS = 30
 private const val COLUMNS_ACROSS = 6f
@@ -45,6 +47,8 @@ class DroidconBackground : Background {
     @Composable
     override fun Render() {
         val backgroundColor = MaterialTheme.colorScheme.background
+        val isDarkTheme = MaterialTheme.colorScheme.surface.luminance() < 0.5f
+        val floorAlpha = if (isDarkTheme) FLOOR_ALPHA_DARK else FLOOR_ALPHA_LIGHT
         // Two tiles per loop so the checker parity repeats and the loop is seamless.
         val scroll by rememberInfiniteTransition(label = "floor").animateFloat(
             initialValue = 0f,
@@ -61,7 +65,7 @@ class DroidconBackground : Background {
                 val shift = scroll
                 val whole = floor(shift).toInt()
                 val frac = shift - whole
-                val color = NeonGreen.copy(alpha = FLOOR_ALPHA)
+                val color = NeonGreen.copy(alpha = floorAlpha)
 
                 // Ground depth d maps to screen y = horizon + floorHeight / d (d = 1 at the bottom edge).
                 for (r in -1 until ROWS) {
