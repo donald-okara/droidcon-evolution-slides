@@ -118,11 +118,11 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/.../droidcon/talk/LessonsActSlides.kt` (new), `SlidesNotes.kt` (edit)
 **Pattern:** `segments/demos/.../droidcon/close/CloseSlides.kt`
 
-- [ ] `LostAndFoundSlide` (S27), `UncomfortableChartSlide` (S28, D5 chart, one large number), `EightYearsTeachSlide` (S29, 4 revealed lessons, `EIGHT_YEARS_STEPS = 4`), `ThankYouSlide` (S30, contributor names), `BreakItSlide` (S31, bounty hand-over, `showFooter = false` candidate).
-- [ ] Notes for each; S30 notes include the "Pass the mic" guest list.
-- [ ] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S28 flat community bar against a growing code bar, S30 names pop in, S31 wiggling bug) and list them one line per slide in your report.
-- [ ] Check: compile check from Task 5 passes.
-- [ ] Commit: `feat: lessons and close slides S27-S31`
+- [x] `LostAndFoundSlide` (S27), `UncomfortableChartSlide` (S28, D5 chart, one large number), `EightYearsTeachSlide` (S29, 4 revealed lessons, `EIGHT_YEARS_STEPS = 4`), `ThankYouSlide` (S30, contributor names), `BreakItSlide` (S31, bounty hand-over, `showFooter = false` candidate).
+- [x] Notes for each; S30 notes include the "Pass the mic" guest list.
+- [x] Delight: add one delight moment per slide from the Task 3 and 4 blocks (S28 flat community bar against a growing code bar, S30 names pop in, S31 wiggling bug) and list them one line per slide in your report.
+- [x] Check: compile check from Task 5 passes.
+- [x] Commit: `feat: lessons and close slides S27-S31`
 
 ### Task 11: Register the new deck and remove the old slides
 **Serves:** R9, R10

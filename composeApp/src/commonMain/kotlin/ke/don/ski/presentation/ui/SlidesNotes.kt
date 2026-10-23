@@ -291,3 +291,37 @@ val codeGrewNotes = listOf(
     AnnotatedString("Lines of code do not measure quality, complexity or how much of the app a user touches. The test file count does not measure coverage, so it does not say whether those tests check the right things."),
     AnnotatedString("The 180 screenshot goldens are a check that screens still look the way they did, and they do not show that a screen works. Takeaway to return to: the tests grew faster than the code. Hand-off cue: \"Now, what it means.\"")
 )
+
+val lostAndFoundNotes = listOf(
+    AnnotatedString("This is the lost-and-found slide, and it is the first of act 7. Read the table across each row, from the idea, to what it was then, to what became of it now. Keep it light: this is the room remembering ideas, not a list of failures."),
+    AnnotatedString("The first three rows are kept or in progress. The starred-session pushes are in pull request #448, which is still open, so say that plainly and do not promise a date. The venue map was planned in section 11.6 and needs an SVG before it can ship. Phones and tablets were promised in 2018 and are kept in 2026, which is the one good news line on the slide."),
+    AnnotatedString("The last row is the question. Travel details existed in the 2018 and 2019 repos and are gone now. Ask the room directly whether they want them back, and let the answer be the hand-off to the bounty and the bash. Sources are the package lists of the 2018 and 2019 repos, plan section 11.6, and issues #410 and #448."),
+    AnnotatedString("Takeaway to return to: some of the best ideas are already in the old repos. Hand-off cue: \"The code grew, and the community didn't. Here is the chart.\"")
+)
+
+val uncomfortableChartNotes = listOf(
+    AnnotatedString("This is the uncomfortable chart. The left bars are people committing per year, distinct author names with bots excluded, so the figures are approximate because some people commit under two names. The figures are 41 in 2023, then 8, 9 and 5 in 2024, 2025 and 2026."),
+    AnnotatedString("The right bars are Kotlin lines of code in thousands, from the same snapshots as the line on the previous slide: 14.7 thousand in March 2023, 17.4 in December 2024, 27.8 on 1 October 2026 and 39.9 on 22 October 2026. Each chart is scaled to its own largest value, so read the captions, not the heights, when you compare them."),
+    AnnotatedString("Say it plainly: the year with the most code had the fewest people. That is not a boast. It is a risk, and it is the reason for this afternoon. Let the flat community bar sit for a beat before the code bar finishes growing."),
+    AnnotatedString("Takeaway to return to: the code grew, and the community didn't. Hand-off cue: \"Here is what eight years teach us.\"")
+)
+
+val eightYearsTeachNotes = listOf(
+    AnnotatedString("This slide has four lessons, one per press of Right. Keep each one to one sentence, and say it in the order shown. Each lesson appears with its number, and the hidden ones keep their space, so the list does not jump."),
+    AnnotatedString("Lesson one closes the I/O thread. We started as a clone of Google's app, and we became our own. That is a good way to begin anything, so say it as a thank-you to the first version. If there is time, point at the 2018 I/O-clone thumbnail from the earlier slide."),
+    AnnotatedString("Lesson two is that repos with a year in the name reset the community, so each new one started the count again. Lesson three is that removing an experiment is still progress. Lesson four is write it down for whoever comes next, human or agent, and it sets up the bash."),
+    AnnotatedString("Takeaway to return to: copy the best, then stand on your own, and write it down. Hand-off cue: \"Thank you. Here are the people who wrote it.\"")
+)
+
+val thankYouNotes = listOf(
+    AnnotatedString("This is the thank-you slide. The names are grouped by era: 2018 and 2019, 2020, 2022, 2023 to 2025, and 2026. The names pop in as the slide opens, one after another, so give them a moment to land before you talk."),
+    AnnotatedString("Ask anyone from the list who is in the room to stand up. Do not read every name out. The list was taken from git shortlog per repo, and it was checked against the README contributors section; check it again against the README on the day, because people join and leave."),
+    AnnotatedString("Pass the mic: the strongest version of this talk is not one voice. Invite one person per era for about 90 seconds each, with one memory and one decision they would make differently. Candidates from the log, to ask on the day: 2018 and 2019, Michael Bukachi. 2020, Oliver Muthomi, Jabez Magomere or David Odari. 2022, Evans Chepsiror, Gibson Silali or Waitara. Chai, tamzi. 2023, Hannah Olukoye or Peter Chege. 2025, Michael Ndiritu on Kotlin Multiplatform. 2026, donald-okara, Joel Kanyi or mutukuian."),
+    AnnotatedString("Takeaway to return to: the app is ours because all of these people kept it going, era by era. Hand-off cue: \"Now, let's break it.\"")
+)
+
+val breakItNotes = listOf(
+    AnnotatedString("This is the hand-over to the bounty. The cockroach wiggles on screen, which is the cue for the bug hunt. Say that Msako wa Mende, the cockroach crackdown, starts in 10 minutes, and that the bounty lead takes over from here."),
+    AnnotatedString("Before you hand over, check the on-screen line: phone ready, app updated and GitHub account open. The bounty briefing slides carry the QR code to the bounty issue template, so have them ready to show next."),
+    AnnotatedString("If this slide is shown without a footer, the talk ends cleanly here. Hand the stage to the bounty lead and step aside. Takeaway to return to: break it, and file what you find so the next person can fix it. Hand-off cue: \"Over to the bounty lead.\"")
+)

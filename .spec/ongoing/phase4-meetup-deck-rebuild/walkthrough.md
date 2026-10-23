@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-9 done (through live and stack slides S22-S26).
-- Next: Task 10 (lessons and close slides S27-S31).
-- Open: old phase 3 note at SlidesNotes.kt:79 contains "35% faster"; Task 11 removes it. S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
+- Tasks 1-10 done (through lessons and close slides S27-S31).
+- Next: Task 11 (register the 31 slides, remove phase 3 slides).
+- Open: old phase 3 note at SlidesNotes.kt:79 contains "35% faster"; Task 11 removes it. S05 marks only the Oct 2026 meetup month. Slides and notes are not registered until Task 11. S31 `showFooter` decided in Task 11. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
 - Known issues: none.
 
 ## How to verify
 
+- Task 10: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 9: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 8: Task 5 compile check; `grep -rn "35%" segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk` is empty.
 - Task 7: same compile check as Task 5.
@@ -66,6 +67,11 @@
 - `talk/LiveSlides.kt`: `CubeWidgetSlide`, `FollowsConferenceSlide`, `LiveDemoSlide` (`LIVE_DEMO_STEPS = 6`), `StackSlide`, `CodeGrewSlide`; notes in `SlidesNotes.kt` (`liveDemoNotes` has the date-back and fallback-video cues).
 - Delight: S22 widget and Spec/Plan/Code chips pop in; S23 Before/During/After placeholders pop in; S24 step numbers turn into springing checks; S25 layer rows drop in; S26 StatTiles count up.
 - NOTE: S24 uses a `RevealItem`-based `DemoStepRow` checklist instead of `RevealBulletList` (same reveal mechanism). S22 cube is a `MediaPlaceholder`. S26 is a D4 `ColumnChart` of Kotlin LOC plus test-file StatTile.
+
+### Task 10: Lessons and close slides S27-S31
+- `talk/LessonsActSlides.kt`: `LostAndFoundSlide`, `UncomfortableChartSlide`, `EightYearsTeachSlide` (`EIGHT_YEARS_STEPS = 4`), `ThankYouSlide`, `BreakItSlide`; notes in `SlidesNotes.kt` (S30 has the "Pass the mic" guest list).
+- Delight: S27 rows drop in staggered; S28 flat community bar vs growing code bar, tagline pops in; S29 numbered disc per lesson; S30 names pop in; S31 cockroach wiggles.
+- NOTE: S28 large number is "5" (people committing in 2026, 41 in 2023); each chart scales to its own max. Review fix round: added the focal number.
 
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.
