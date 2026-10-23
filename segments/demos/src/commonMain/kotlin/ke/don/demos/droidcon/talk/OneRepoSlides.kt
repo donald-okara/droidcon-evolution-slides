@@ -36,6 +36,7 @@ import ke.don.demos.droidcon.common.Confetti
 import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 import kotlinx.coroutines.delay
@@ -94,11 +95,7 @@ fun Y2022ComposeSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: droidconKE2022Android gradle/libs.versions.toml; commit \"Deploy to playstore\" (2022-11-17)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: droidconKE2022Android gradle/libs.versions.toml; commit \"Deploy to playstore\" (2022-11-17)")
     }
 }
 
@@ -142,11 +139,7 @@ fun ChaiSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: the Designs section of the droidconKE2022Android README; the chai README",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: the Designs section of the droidconKE2022Android README; the chai README")
     }
 }
 
@@ -214,11 +207,7 @@ fun OneRepoSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git show --stat f3b81067; file-by-file comparison with droidconKE2022Android",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git show --stat f3b81067; file-by-file comparison with droidconKE2022Android")
     }
 }
 
@@ -301,11 +290,7 @@ fun CommunityPeakSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git shortlog for 2023; 326 commits in 2023",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git shortlog for 2023; 326 commits in 2023")
     }
 }
 
@@ -353,11 +338,7 @@ fun QuietYearSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git show --stat of #305; 2024 commit count from the git history",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git show --stat of #305; 2024 commit count from the git history")
     }
 }
 
@@ -412,11 +393,7 @@ fun KmpThreadSlide() {
             }
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git log; docs/IMPROVEMENT_PLAN.md §17.2 question 10",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git log; docs/IMPROVEMENT_PLAN.md §17.2 question 10")
     }
 }
 
@@ -458,11 +435,7 @@ fun Navigation3Slide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git log, Dec 2025 to Aug 2026 (commit 8faf624f and the back stack commits)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git log, Dec 2025 to Aug 2026 (commit 8faf624f and the back stack commits)")
     }
 }
 

@@ -37,6 +37,7 @@ import ke.don.demos.droidcon.common.CalloutCard
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 import kotlin.math.roundToInt
@@ -90,10 +91,11 @@ fun Y2018FirstSlide() {
             )
         }
         Text(
-            text = "Kotlin files: 0 in Dec 2018, 107 in Apr 2019 · Source: droidconKE git history (D6)",
+            text = "Kotlin files: 0 in Dec 2018, 107 in Apr 2019",
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+        SourceLine(text = "Source: droidconKE git history (D6)")
     }
 }
 
@@ -145,11 +147,7 @@ fun Y2018CloneSlide() {
             ScreenNameRow(iosName = "fragment_travel", droidconName = "fragment_travel")
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: droidconKE/iosched (fork of google/iosched), commits of 2018-03-28 and 2018-08-13; both READMEs",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: droidconKE/iosched (fork of google/iosched), commits of 2018-03-28 and 2018-08-13; both READMEs")
     }
 }
 
@@ -276,11 +274,7 @@ fun Y2019Slide() {
                 MediaPlaceholder(label = "2019 sesion_details.png", modifier = Modifier.weight(1f))
             }
         }
-        Text(
-            text = "Source: droidconKE2019App, 153 commits, Jul to Nov 2019",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: droidconKE2019App, 153 commits, Jul to Nov 2019")
     }
 }
 
@@ -345,11 +339,7 @@ fun Y2020ModularSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: droidconKE2020App settings.gradle.kts and buildSrc/.../Dependencies.kt; architecture diagram in the repo",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: droidconKE2020App settings.gradle.kts and buildSrc/.../Dependencies.kt; architecture diagram in the repo")
     }
 }
 
@@ -424,11 +414,7 @@ fun Y2020NoConferenceSlide() {
                 )
             }
         }
-        Text(
-            text = "Source: droidconKE2020App and droidconKE2022Android READMEs",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: droidconKE2020App and droidconKE2022Android READMEs")
     }
 }
 

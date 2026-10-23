@@ -138,9 +138,9 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Serves:** R9, R11, NF1, NF2
 **Files:** `segments/demos/.../droidcon/talk/*.kt` (edit), `segments/demos/.../droidcon/common/SlideBlocks.kt` (edit)
 
-- [ ] Give `SlideTitle` an entrance (fade plus slight upward slide, `tween(400)`) and make `BulletList` rows stagger in; keep reveal slides' behaviour unchanged.
-- [ ] Each slide that cites a source shows it via one shared `SourceLine(text)` block in `SlideBlocks.kt` (small, muted); replace per-slide ad hoc text.
-- [ ] Audit: read each slide task's delight list and add a moment to any slide missing one.
-- [ ] Make one-shot effects (Confetti, pulses) fire from the reveal step or slide entry, not from window-local timers, so both windows show them.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes. User: step through on `:desktopApp:run`.
-- [ ] Commit: `feat: delight audit, entrances and shared source line`
+- [x] Give `SlideTitle` an entrance (fade plus slight upward slide, `tween(400)`) and make `BulletList` rows stagger in; keep reveal slides' behaviour unchanged.
+- [x] Each slide that cites a source shows it via one shared `SourceLine(text)` block in `SlideBlocks.kt` (small, muted); replace per-slide ad hoc text.
+- [x] Audit: read each slide task's delight list and add a moment to any slide missing one.
+- [x] Make one-shot effects (Confetti, pulses) fire from the reveal step or slide entry, not from window-local timers, so both windows show them.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes. User: step through on `:desktopApp:run`.
+- [x] Commit: `feat: delight audit, entrances and shared source line`

@@ -37,7 +37,7 @@ val seasonsNotes = listOf(
 
 val y2018FirstNotes = listOf(
     AnnotatedString("Kotlin had been official on Android for a year, and this app still started in Java."),
-    AnnotatedString("A Kotlin branch ran beside the Java code from August 2018 and took over by April 2019, and the chart shows the Java count collapsing to two that month."),
+    AnnotatedString("A Kotlin branch ran beside the Java code from August 2018 and took over by April 2019, and the chart shows the Java count collapsing to two that month. It counts Java files only, so it does not measure lines of code or effort."),
     AnnotatedString("Takeaway to return to: real migrations look like that, a branch, then a long overlap, then a switch. Hand-off cue: \"Here is where the app started, copied from somebody else.\"")
 )
 
@@ -54,7 +54,7 @@ val y2019AllJetpackNotes = listOf(
 )
 
 val y2020ModularNotes = listOf(
-    AnnotatedString("This is the biggest jump in ambition: 13 modules, 7 of them dynamic features, plus static analysis and CI through GitHub Actions."),
+    AnnotatedString("This is the biggest jump in ambition: 13 modules, 7 of them dynamic features, plus static analysis and CI through GitHub Actions. The count is of Gradle modules, so it does not measure how well they are split."),
     AnnotatedString("Dynamic features were the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
     AnnotatedString("On the I/O thread, this is the first README without the I/O app's words, and the first architecture the team designed for itself. Takeaway to return to: the team learned modules here.")
 )
@@ -170,7 +170,7 @@ val lostAndFoundNotes = listOf(
 )
 
 val uncomfortableChartNotes = listOf(
-    AnnotatedString("This is the uncomfortable chart. The left bars are people committing per year, distinct author names with bots excluded, so the figures are approximate because some people commit under two names. The figures are 41 in 2023, then 8, 9 and 5 in 2024, 2025 and 2026."),
+    AnnotatedString("This is the uncomfortable chart. The left bars are people committing per year, distinct author names with bots excluded, so the figures are approximate because some people commit under two names. The chart counts names, so it does not measure how much anyone committed. The figures are 41 in 2023, then 8, 9 and 5 in 2024, 2025 and 2026."),
     AnnotatedString("The right bars are Kotlin lines of code in thousands, from the same snapshots as the line on the previous slide: 14.7 thousand in March 2023, 17.4 in December 2024, 27.8 on 1 October 2026 and 39.9 on 22 October 2026. Each chart is scaled to its own largest value, so read the captions, not the heights, when you compare them."),
     AnnotatedString("Say it plainly: the year with the most code had the fewest people. That is not a boast. It is a risk, and it is the reason for this afternoon. Let the flat community bar sit for a beat before the code bar finishes growing."),
     AnnotatedString("Takeaway to return to: the code grew, and the community didn't. Hand-off cue: \"Here is what eight years teach us.\"")

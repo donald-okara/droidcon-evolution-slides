@@ -1,5 +1,7 @@
 package ke.don.demos.droidcon.common
 
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -16,14 +18,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ke.don.domain.values.Values
+import kotlinx.coroutines.delay
 
 /**
  * The title block for a content slide, with an optional kicker line above the title.
@@ -37,8 +43,18 @@ fun SlideTitle(
     kicker: String? = null,
     modifier: Modifier = Modifier
 ) {
+    val entrance = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        entrance.animateTo(1f, tween(durationMillis = TITLE_ENTRANCE_MILLIS))
+    }
+    val rise = 24.dp
     Column(
-        modifier = modifier.padding(bottom = Values.Dimens.mediumPadding),
+        modifier = modifier
+            .padding(bottom = Values.Dimens.mediumPadding)
+            .graphicsLayer {
+                alpha = entrance.value
+                translationY = (1f - entrance.value) * rise.toPx()
+            },
         verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)
     ) {
         if (kicker != null) {
@@ -71,11 +87,42 @@ fun BulletList(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
     ) {
-        items.forEach { item ->
-            BulletRow(item)
+        items.forEachIndexed { i, item ->
+            StaggeredEntrance(delayMillis = i * BULLET_STAGGER_MILLIS) {
+                BulletRow(item)
+            }
         }
     }
 }
+
+/**
+ * Fades [content] in and lifts it a few dp after [delayMillis], once, when the slide composes.
+ *
+ * Used by [BulletList] only. Reveal steps use `RevealItem` and are not affected.
+ */
+@Composable
+private fun StaggeredEntrance(delayMillis: Int, content: @Composable () -> Unit) {
+    val progress = remember { Animatable(0f) }
+    LaunchedEffect(Unit) {
+        delay(delayMillis.toLong())
+        progress.animateTo(1f, tween(durationMillis = BULLET_ENTRANCE_MILLIS))
+    }
+    val lift = 8.dp
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .graphicsLayer {
+                alpha = progress.value
+                translationY = (1f - progress.value) * lift.toPx()
+            }
+    ) {
+        content()
+    }
+}
+
+private const val TITLE_ENTRANCE_MILLIS = 400
+private const val BULLET_ENTRANCE_MILLIS = 400
+private const val BULLET_STAGGER_MILLIS = 120
 
 /**
  * One bullet: a dot followed by the item text in `headlineSmall`.
@@ -125,6 +172,21 @@ fun CommitTag(sha: String, modifier: Modifier = Modifier) {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }
+}
+
+/**
+ * The source line for a slide that cites where its figures come from. Small and muted, shown at the foot of the slide.
+ *
+ * @param text The full citation, starting with "Source:".
+ */
+@Composable
+fun SourceLine(text: String, modifier: Modifier = Modifier) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier
+    )
 }
 
 /**

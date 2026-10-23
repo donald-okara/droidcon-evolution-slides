@@ -36,6 +36,7 @@ import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.RevealItem
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 
@@ -109,11 +110,7 @@ fun LostAndFoundSlide() {
             }
         }
         Spacer(modifier = Modifier.weight(1f))
-        Text(
-            text = "Source: package lists of the 2018 and 2019 repos; plan §11.6; #410; #448",
-            style = MaterialTheme.typography.labelMedium,
-            color = scheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: package lists of the 2018 and 2019 repos; plan §11.6; #410; #448")
     }
 }
 
@@ -181,11 +178,7 @@ fun UncomfortableChartSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: distinct author names per year, bots excluded (D5)",
-            style = MaterialTheme.typography.labelMedium,
-            color = scheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: distinct author names per year, bots excluded (D5)")
     }
 }
 
@@ -278,11 +271,7 @@ fun ThankYouSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = scheme.onSurfaceVariant
         )
-        Text(
-            text = "Source: git shortlog -sn per repo; checked against the README contributors section",
-            style = MaterialTheme.typography.labelMedium,
-            color = scheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git shortlog -sn per repo; checked against the README contributors section")
     }
 }
 

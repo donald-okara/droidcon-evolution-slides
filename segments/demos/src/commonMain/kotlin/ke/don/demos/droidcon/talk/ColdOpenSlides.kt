@@ -34,6 +34,7 @@ import ke.don.demos.droidcon.common.EvolutionStages
 import ke.don.demos.droidcon.common.EvolutionTimeline
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 import kotlin.math.roundToInt
@@ -211,11 +212,7 @@ fun SameAppSlide() {
             ScreenshotCard(label = "2026 Home screenshot", year = "2026", modifier = Modifier.weight(1f))
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git rev-list --count HEAD in each of the five app repos (Appendix D, D3)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git rev-list --count HEAD in each of the five app repos (Appendix D, D3)")
     }
 }
 
@@ -300,11 +297,7 @@ fun FamilyTreeSlide() {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: gh repo list droidconKE (D3)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: gh repo list droidconKE (D3)")
     }
 }
 
@@ -352,11 +345,7 @@ fun SeasonsSlide() {
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         MeetupFlag()
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: git log --format=%ad --date=format:%Y-%m | sort | uniq -c (D1, D2)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: git log --format=%ad --date=format:%Y-%m | sort | uniq -c (D1, D2)")
     }
 }
 

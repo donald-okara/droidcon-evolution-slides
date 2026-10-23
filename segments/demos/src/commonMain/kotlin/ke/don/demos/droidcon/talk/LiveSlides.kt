@@ -32,6 +32,7 @@ import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.RevealItem
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.popIn
@@ -94,11 +95,7 @@ fun CubeWidgetSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Text(
-            text = "Source: #446; the widget commits, Oct 2026",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: #446; the widget commits, Oct 2026")
     }
 }
 
@@ -149,11 +146,7 @@ fun FollowsConferenceSlide() {
             )
         )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: core/domain/.../schedule/Schedule.kt; #451, #453. Goldens: home_before, home_agenda, home_after",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: core/domain/.../schedule/Schedule.kt; #451, #453. Goldens: home_before, home_agenda, home_after")
     }
 }
 
@@ -266,10 +259,11 @@ fun StackSlide() {
         }
         Spacer(modifier = Modifier.weight(1f))
         Text(
-            text = "Read across a row and you get Android's history. Source: section 1.3 of the overview",
+            text = "Read across a row and you get Android's history.",
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
+        SourceLine(text = "Source: section 1.3 of the overview")
     }
 }
 
@@ -331,11 +325,7 @@ fun CodeGrewSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.primary
         )
-        Text(
-            text = "Source: snapshots from git ls-tree (D4)",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: snapshots from git ls-tree (D4)")
     }
 }
 

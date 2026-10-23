@@ -2,13 +2,14 @@
 
 ## Current state
 
-- Tasks 1-11 done: the 31-slide meetup deck is registered and phase 3 slides are removed.
-- Next: Task 12 (delight audit, polish, full build; user steps through on `:desktopApp:run`).
-- Open: confirm `showFooter = false` on S01 and S31 against the outline. Notes constants use the talk tasks' names, not literal `<label>Notes` as spec.md:41 says. S05 marks only the Oct 2026 meetup month. Optional tidy: rename `iosName` to `ioName` in `ScreenNameRow` (EarlyYearsSlides.kt).
+- Tasks 1-12 done: all phase 4 tasks ticked; deck registered, polished, full web build passes.
+- Next: user steps through on `:desktopApp:run` (Task 12 Check), then `/donatello:phase-review` and `/donatello:phase-archive`.
+- Open: decide `showFooter = false` on S01 and S31 (outline has no footer column; it comes from tasks.md "candidate"). S14 confetti fires after a fixed delay from slide entry; not checked across the two windows. Notes constants use talk task names, not literal `<label>Notes` (spec.md:41). S05 marks only the Oct 2026 meetup month. Optional tidy: `iosName` to `ioName` in `ScreenNameRow`.
 - Known issues: none.
 
 ## How to verify
 
+- Task 12: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution`; user steps through the deck on `:desktopApp:run`.
 - Task 11: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs`; `grep -c "label ="` on SkiPresentationSlides.kt is 31; `git diff --stat e02c712 -- shared/components` is empty.
 - Task 10: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
 - Task 9: Task 5 compile check (plus `:composeApp:compileKotlinJvm`).
@@ -79,9 +80,15 @@
 - Deleted `droidcon/{opening,history,launch,future,close}/` and 130 lines of phase 3 notes (the "35% faster" note is gone). `common/` untouched.
 - NOTE: notes constants keep the talk tasks' names rather than literal `<label>Notes` (spec.md:41).
 
+### Task 12: Delight audit, polish and full build
+- `SlideTitle` fades in and rises over 400ms; `BulletList` rows stagger 120ms; `RevealBulletList`/`RevealItem` untouched.
+- `SourceLine(text)` added to `SlideBlocks.kt`; 24 ad hoc "Source:" blocks replaced.
+- Delight audit: every slide already had a moment; none added. One-shot effects are composition-scoped.
+- NOTE: desktop step-through still pending (user).
+
 ### Fix: compose resources package (Task 1 regression)
 - Renaming the root project changed the generated `Res` package. `shared/resources/build.gradle.kts` now pins `packageOfResClass = "ski.shared.resources.generated.resources"`. Commit 0f47f4a.
 
 ## Deviations from spec
 
-None
+- Task 12: S20 now has one `StatTile` (cold start); APK 28% and download 7.4% are text, to keep one focal number (NF1). Notes for S06, S09, S28 gained "does not measure" caveats (R11).

@@ -25,6 +25,7 @@ import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.SwatchRow
@@ -88,11 +89,7 @@ fun TwoReadersSlide() {
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: AGENTS.md; docs/IMPROVEMENT_PLAN.md",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: AGENTS.md; docs/IMPROVEMENT_PLAN.md")
     }
 }
 
@@ -126,11 +123,7 @@ fun ModulesSlide() {
             )
         )
         Spacer(modifier = Modifier.weight(1f))
-        Text(
-            text = "Source: README.md module graph; AGENTS.md (module layout, dependency rules); D8",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: README.md module graph; AGENTS.md (module layout, dependency rules); D8")
     }
 }
 
@@ -148,7 +141,8 @@ fun MeasuredSlide() {
         SlideTitle(title = "Measured, not asserted", kicker = "Act 6")
         Row(
             modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
+            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             StatTile(
                 value = 22f,
@@ -158,23 +152,21 @@ fun MeasuredSlide() {
                 source = "docs/performance.md",
                 modifier = Modifier.weight(1f)
             )
-            StatTile(
-                value = 28f,
-                unit = "%",
-                label = "Release APK, 6.4 to 4.6 MB",
-                direction = StatDirection.Decrease,
-                source = "docs/performance.md",
-                modifier = Modifier.weight(1f)
-            )
-            StatTile(
-                value = 7.4f,
-                unit = "%",
-                label = "Download size, enforced in CI",
-                direction = StatDirection.Decrease,
-                source = "docs/performance.md",
-                decimals = 1,
-                modifier = Modifier.weight(1f)
-            )
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
+            ) {
+                Text(
+                    text = "Release APK 28% smaller, 6.4 to 4.6 MB",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Text(
+                    text = "Download size 7.4% smaller, enforced in CI",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
         }
         Spacer(modifier = Modifier.height(Values.Dimens.largePadding))
         Row(
@@ -217,11 +209,7 @@ fun MeasuredSlide() {
             }
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Source: docs/performance.md. Cold start on the CS50C, API 34, median of 15 runs.",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: docs/performance.md. Cold start on the CS50C, API 34, median of 15 runs.")
     }
 }
 
@@ -269,11 +257,7 @@ fun NewLookSlide() {
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.primary
         )
-        Text(
-            text = "Source: #410, #421, #425; git log",
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        SourceLine(text = "Source: #410, #421, #425; git log")
     }
 }
 
