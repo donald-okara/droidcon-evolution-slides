@@ -34,3 +34,8 @@
 **Decision:** The timeline shows details for the lit or clicked stage by default and hover only previews; the title slide shows the cube hero large (R3, R12).
 **Why:** Phase 4 review 1: hover details flickered, the selected phase needed no hover, and the intro cube was too small.
 **Tradeoff:** The details card is always visible on S04, so it takes slide space. Task 4 and Task 5 stay ticked as written; Tasks 13 and 14 revise them.
+
+### Ticket flow gap: no change needed (2026-10-23)
+**Decision:** Review 2's ticket flow gap needs no plan change. S23 and S24 step 5 stay as written (R7).
+**Why:** The scout surveyed a stale checkout. After `git fetch`, `origin/main` (e890100c) contains #453 and `:feature:ticket`, so the deck's claim holds. Tasks 9 and 10 stay ticked with no revisit.
+**Tradeoff:** Some features are still in review. The presenter says so aloud, or teases "download the app and see it at the event", rather than the slides hedging.

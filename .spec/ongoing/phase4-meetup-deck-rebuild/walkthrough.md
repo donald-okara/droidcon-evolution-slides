@@ -3,7 +3,7 @@
 ## Current state
 
 - Tasks 1-14 done; phase 4 review 1 requested changes, now addressed by Tasks 13-14.
-- Next: `/donatello:phase-review` again, then `/donatello:phase-archive`.
+- Review 2 (ticket flow gap) resolved with no plan change: ticketing is on the app's remote `main` (#453). Next: `/donatello:phase-archive`.
 - Open: `showFooter = false` on S01 and S31, S14 confetti across the two windows, notes constant names vs spec.md:41, S05 marks only the Oct 2026 meetup month, optional `iosName` to `ioName` tidy. Manual checks on `:desktopApp:run`: S04 hover without flicker (Task 13), S01 hero and corner cube returning on later slides (Task 14).
 - Known issues: none (a Gradle build-cache store error can appear once and passes on retry).
 
