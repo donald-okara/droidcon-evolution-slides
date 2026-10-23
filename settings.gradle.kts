@@ -1,4 +1,4 @@
-rootProject.name = "Ski"
+rootProject.name = "droidcon-evolution-slides"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

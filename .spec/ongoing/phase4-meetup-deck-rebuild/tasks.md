@@ -16,10 +16,10 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Serves:** R1
 **Files:** `settings.gradle.kts` (edit)
 
-- [ ] Change `rootProject.name = "Ski"` to `rootProject.name = "droidcon-evolution-slides"`.
-- [ ] `grep -rn "\"Ski\"" --include=*.kts --include=*.properties .` and report any other build reference to the root name; change one only if the build breaks without it.
-- [ ] Check: `./gradlew projects` lists the same modules as before.
-- [ ] Commit: `chore: rename gradle root project`
+- [x] Change `rootProject.name = "Ski"` to `rootProject.name = "droidcon-evolution-slides"`.
+- [x] `grep -rn "\"Ski\"" --include=*.kts --include=*.properties .` and report any other build reference to the root name; change one only if the build breaks without it.
+- [x] Check: `./gradlew projects` lists the same modules as before.
+- [x] Commit: `chore: rename gradle root project`
 
 ### Task 2: Outline and session length
 **Serves:** R2
