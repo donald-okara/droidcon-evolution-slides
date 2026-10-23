@@ -11,3 +11,6 @@
 
 ## Review 3: changes requested (2026-10-23, donald-okara)
 - Make the background checkers more visible.
+
+## Review 4: changes requested (2026-10-23, donald-okara)
+- Use fade instead of swipe for transitions.
