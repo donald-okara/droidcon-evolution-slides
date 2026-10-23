@@ -13,12 +13,12 @@
 **Serves:** R1, NF1
 **Files:** docs/talk/history.md (new)
 
-- [ ] Read only from `/Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin`. Use `git -C <path> log`, `git -C <path> shortlog -sn --since/--until`, and `git -C <path> log --follow -p` on `gradle/libs.versions.toml`, `settings.gradle.kts`, and `build.gradle.kts`. Also read its `README.md`, `CONTRIBUTING.md`, and `docs/` for context. Never write to that repo.
-- [ ] Find era boundaries: maintainer handovers (from changes in top authors per quarter), and big stack shifts (module layout in `settings.gradle.kts`, Kotlin/AGP/Compose versions, DI, networking, multiplatform). Mark 2026 (the app updated alongside 2 other apps) as its own era.
-- [ ] Write `docs/talk/history.md` with: a summary table (era, dates, maintainers, headline change), then one section per era with maintainers and commit counts, main changes, and stack shifts. Cite at least one short SHA per claim. Mark guesses "(inferred)".
-- [ ] End with an "Open questions for the user" list: commits or handovers whose reason git does not explain.
-- [ ] Check: run `git -C /Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin show --stat` on three cited SHAs and confirm each matches its claim. `git -C … status` shows no new changes.
-- [ ] Commit: `docs: add droidcon app history fact base`
+- [x] Read only from `/Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin`. Use `git -C <path> log`, `git -C <path> shortlog -sn --since/--until`, and `git -C <path> log --follow -p` on `gradle/libs.versions.toml`, `settings.gradle.kts`, and `build.gradle.kts`. Also read its `README.md`, `CONTRIBUTING.md`, and `docs/` for context. Never write to that repo.
+- [x] Find era boundaries: maintainer handovers (from changes in top authors per quarter), and big stack shifts (module layout in `settings.gradle.kts`, Kotlin/AGP/Compose versions, DI, networking, multiplatform). Mark 2026 (the app updated alongside 2 other apps) as its own era.
+- [x] Write `docs/talk/history.md` with: a summary table (era, dates, maintainers, headline change), then one section per era with maintainers and commit counts, main changes, and stack shifts. Cite at least one short SHA per claim. Mark guesses "(inferred)".
+- [x] End with an "Open questions for the user" list: commits or handovers whose reason git does not explain.
+- [x] Check: run `git -C /Users/donaldisoe/AndroidStudioProjects/droidconKeKotlin show --stat` on three cited SHAs and confirm each matches its claim. `git -C … status` shows no new changes.
+- [x] Commit: `docs: add droidcon app history fact base`
 
 ### Task 2: Draft the story outline
 **Serves:** R2
