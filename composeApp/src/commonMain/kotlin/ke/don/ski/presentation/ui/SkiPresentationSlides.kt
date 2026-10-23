@@ -3,25 +3,30 @@ package ke.don.ski.presentation.ui
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import ke.don.demos.DemoLayoutExample
-import ke.don.demos.DeviceGallery
-import ke.don.demos.FeatureSlide
-import ke.don.demos.FramesDemo
-import ke.don.demos.HorizontalSegmentsDemo
-import ke.don.demos.KodeViewerSlide
-import ke.don.demos.RevealDemo
-import ke.don.demos.ShortcutsSlide
-import ke.don.demos.SlidesAreComposablesDemo
-import ke.don.demos.VerticalSegmentsDemo
-import ke.don.demos.VideoSlide
-import ke.don.demos.WhiteboardSlide
+import ke.don.demos.droidcon.close.LessonsSlide
+import ke.don.demos.droidcon.close.QaSlide
+import ke.don.demos.droidcon.future.FutureInviteSlide
+import ke.don.demos.droidcon.future.FuturePlanSlide
+import ke.don.demos.droidcon.future.FutureRoadmapSlide
+import ke.don.demos.droidcon.history.DetourKmmSlide
+import ke.don.demos.droidcon.history.DetourKmpSlide
+import ke.don.demos.droidcon.history.DormantYearsSlide
+import ke.don.demos.droidcon.history.HistoryBootstrapSlide
+import ke.don.demos.droidcon.history.HistoryChurnSlide
+import ke.don.demos.droidcon.history.HistoryPluginsSlide
+import ke.don.demos.droidcon.launch.LaunchDesignSlide
+import ke.don.demos.droidcon.launch.LaunchFeaturesSlide
+import ke.don.demos.droidcon.launch.LaunchModulesSlide
+import ke.don.demos.droidcon.launch.LaunchPerfSlide
+import ke.don.demos.droidcon.launch.LaunchStackSlide
+import ke.don.demos.droidcon.launch.LaunchWipSlide
+import ke.don.demos.droidcon.opening.OpeningThesisSlide
+import ke.don.demos.droidcon.opening.OpeningTitleSlide
 import ke.don.domain.ScreenTransition
 import ke.don.domain.SlideConfig
 import ke.don.domain.SlidesConstants.SESSION_DURATION
 import ke.don.domain.generateDeck
 import ke.don.domain.timer.TimerController
-import ke.don.introduction.IntroductionScreen
-import ke.don.resources.Resources
 import kotlin.time.Duration
 
 @Composable
@@ -29,122 +34,91 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
     val timerController = rememberTimerController(sessionDuration)
 
     val slides = remember(timerController) {
-            generateDeck(
-                timerController = timerController
+        generateDeck(
+            timerController = timerController
+        ) {
+            // Section 1: Opening
+            slide(
+                label = "opening-title",
+                notes = openingTitleNotes,
+                transition = ScreenTransition.Fade,
+                showFooter = false
             ) {
-                slide(
-                    "Introduction",
-                    transition = ScreenTransition.Fade,
-                    notes = introductionNotes,
-                    footer = null
-                ) {
-                    IntroductionScreen()
-                }
-                slide("What Ski Is", notes = whatIsSkiNotes) {
-                    FeatureSlide(
-                        title = "What Ski Is",
-                        points = listOf(
-                            "A presentation framework built on Compose Multiplatform",
-                            "Slides are composables, built with state and components",
-                            "Runs as a browser app (Wasm) or a desktop app (JVM)"
-                        )
-                    )
-                }
-                slide("Slides Are Composables", notes = slidesAreComposablesNotes) {
-                    SlidesAreComposablesDemo()
-                }
-                slide("Stateful Reveals", notes = stateRevealNotes) {
-                    RevealDemo()
-                }
-                slide("Transitions", notes = transitionsNotes) {
-                    FeatureSlide(
-                        title = "Transitions",
-                        points = listOf(
-                            "Horizontal (default)",
-                            "Fade",
-                            "Vertical",
-                            "None"
-                        )
-                    )
-                }
-                slide("Frames", notes = framesNotes) {
-                    FramesDemo()
-                }
-                slide("Backgrounds", notes = backgroundsNotes) {
-                    FeatureSlide(
-                        title = "Backgrounds",
-                        points = listOf(
-                            "Built with BackgroundBuilder",
-                            "Patterns: Wavy, DiagonalWavy, AnimatedDiagonalWavyBackground",
-                            "Optional decorator image and alignment"
-                        )
-                    )
-                }
-                slide("Kode Viewer", notes = kodeViewerNotes) {
-                    KodeViewerSlide()
-                }
-                slide("Whiteboard Screen", notes = whiteboardNotes) {
-                    WhiteboardSlide()
-                }
-                slide("Horizontal Segments", notes = horizontalSegmentsNotes) {
-                    HorizontalSegmentsDemo()
-                }
-                slide("Vertical Segments", notes = verticalSegmentsNotes) {
-                    VerticalSegmentsDemo()
-                }
-                slide("Device Frames", notes = deviceFramesNotes) {
-                    DeviceGallery()
-                }
-                slide("Demo Layout", notes = demoLayoutNotes) {
-                    DemoLayoutExample()
-                }
-                slide("Video", notes = videoNotes) {
-                    VideoSlide(
-                        videoUri = Resources.Videos.SAMPLE_VIDEO_PATH,
-                        title = "Video in Slides",
-                        explanation = listOf(
-                            "Plays a bundled file or a remote URL",
-                            "Controls hide during playback"
-                        ),
-                        code = "VideoSlide(videoUri = Resources.Videos.SAMPLE_VIDEO_PATH, ...)"
-                    )
-                }
-                slide("Presenter Mode", notes = presenterModeNotes) {
-                    FeatureSlide(
-                        title = "Presenter Mode",
-                        points = listOf(
-                            "Presenter panel: notes, timer, table of contents, shortcuts",
-                            "Audience window: the slide only",
-                            "Desktop windows stay in sync automatically"
-                        )
-                    )
-                }
-                slide("Keyboard Shortcuts", notes = shortcutsNotes) {
-                    ShortcutsSlide()
-                }
-                slide("Use It in Your Project", notes = useItNotes) {
-                    FeatureSlide(
-                        title = "Use It in Your Project",
-                        points = listOf(
-                            "Add io.github.donald-okara:ski from Maven Central",
-                            "Or work in this repo with local components",
-                            "Write each slide as a composable in a segment"
-                        )
-                    )
-                }
-                slide("Questions", notes = questionsNotes, showFooter = false) {
-                    FeatureSlide(
-                        title = "Questions",
-                        points = listOf(
-                            "Live gallery: ski-gallery.vercel.app",
-                            "Toolkit and docs: the README in this repo"
-                        )
-                    )
-                }
+                OpeningTitleSlide()
+            }
+            slide(label = "opening-thesis", notes = openingThesisNotes) {
+                OpeningThesisSlide()
+            }
+
+            // Section 2: History, 2023
+            slide(label = "history-bootstrap", notes = historyBootstrapNotes) {
+                HistoryBootstrapSlide()
+            }
+            slide(label = "history-plugins", notes = historyPluginsNotes) {
+                HistoryPluginsSlide()
+            }
+            slide(label = "history-churn", notes = historyChurnNotes) {
+                HistoryChurnSlide()
+            }
+
+            // Section 3: Detours and dormant years
+            slide(label = "detour-kmm", notes = detourKmmNotes) {
+                DetourKmmSlide()
+            }
+            slide(label = "detour-kmp", notes = detourKmpNotes) {
+                DetourKmpSlide()
+            }
+            slide(label = "dormant-years", notes = dormantYearsNotes) {
+                DormantYearsSlide()
+            }
+
+            // Section 4: 2026 update, done
+            slide(label = "launch-stack", notes = launchStackNotes) {
+                LaunchStackSlide()
+            }
+            slide(label = "launch-modules", notes = launchModulesNotes) {
+                LaunchModulesSlide()
+            }
+            slide(label = "launch-perf", notes = launchPerfNotes) {
+                LaunchPerfSlide()
+            }
+            slide(label = "launch-design", notes = launchDesignNotes) {
+                LaunchDesignSlide()
+            }
+            slide(label = "launch-features", notes = launchFeaturesNotes) {
+                LaunchFeaturesSlide()
+            }
+
+            // Section 5: 2026 update, work in progress
+            slide(label = "launch-wip", notes = launchWipNotes) {
+                LaunchWipSlide()
+            }
+
+            // Section 6: The improvement plan
+            slide(label = "future-plan", notes = futurePlanNotes) {
+                FuturePlanSlide()
+            }
+            slide(label = "future-roadmap", notes = futureRoadmapNotes) {
+                FutureRoadmapSlide()
+            }
+            slide(label = "future-invite", notes = futureInviteNotes) {
+                FutureInviteSlide()
+            }
+
+            // Section 7: Lessons and close
+            slide(label = "lessons", notes = lessonsNotes) {
+                LessonsSlide()
+            }
+
+            // Section 8: Q&A
+            slide(label = "qa", notes = qaNotes, showFooter = false) {
+                QaSlide()
             }
         }
+    }
     return slides
 }
+
 @Composable
 fun rememberTimerController(
     sessionDuration: Duration

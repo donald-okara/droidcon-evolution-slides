@@ -104,11 +104,11 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Serves:** R6, R7, NF1
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt` (edit), `segments/demos/src/commonMain/kotlin/ke/don/demos/{DemoLayoutExample,DeviceGallery,ExampleSlide,FeatureSlides,KodeViewerExample,SegmentedDemos,VideoSlide,WhiteboardExample}.kt` (delete)
 
-- [ ] In `SlidesNotes.kt`, delete every demo notes constant and add one constant per slide (e.g. `openingTitleNotes`): `"PLACEHOLDER. Presenter: <name>. <intent>"`.
-- [ ] In `skiPresentationSlides()`, replace all demo `slide(...)` calls with the 19 slides in outline order, `slide(label = "<label>", notes = <notes>) { <Composable>() }`, labels exactly as in the outline. `opening-title` uses `transition = ScreenTransition.Fade` and `showFooter = false`; `qa` uses `showFooter = false`. Keep the timer setup. Remove unused imports, including `IntroductionScreen`.
-- [ ] Delete the eight demo files listed above. Keep `VideoPlayer.kt` and its platform `actual`s.
-- [ ] Check: `./gradlew :desktopApp:run` shows 19 slides in outline order in both windows; `./gradlew :webApp:wasmJsBrowserDistribution` succeeds; `git diff --stat main -- shared/components` is empty.
-- [ ] Commit: `feat: register talk skeleton and remove Ski demos`
+- [x] In `SlidesNotes.kt`, delete every demo notes constant and add one constant per slide (e.g. `openingTitleNotes`): `"PLACEHOLDER. Presenter: <name>. <intent>"`.
+- [x] In `skiPresentationSlides()`, replace all demo `slide(...)` calls with the 19 slides in outline order, `slide(label = "<label>", notes = <notes>) { <Composable>() }`, labels exactly as in the outline. `opening-title` uses `transition = ScreenTransition.Fade` and `showFooter = false`; `qa` uses `showFooter = false`. Keep the timer setup. Remove unused imports, including `IntroductionScreen`.
+- [x] Delete the eight demo files listed above. Keep `VideoPlayer.kt` and its platform `actual`s.
+- [x] Check: `./gradlew :desktopApp:run` shows 19 slides in outline order in both windows; `./gradlew :webApp:wasmJsBrowserDistribution` succeeds; `git diff --stat main -- shared/components` is empty.
+- [x] Commit: `feat: register talk skeleton and remove Ski demos`
 
 ### Task 10: Snake frame with logo-and-cube header (revises Task 6)
 **Serves:** R5

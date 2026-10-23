@@ -2,15 +2,14 @@
 
 ## Current state
 
-- Done: Tasks 1 to 8 and 10 (snake frame with a logo-and-cube-only header; placeholder slides for all 8 sections, not yet registered).
-- Next: Task 9 (register the 19 slides, remove the demos).
-- Open: the outline has no slide titles, so the placeholder titles were chosen by the implementer (e.g. "Thesis"); presenters to confirm.
-- Task 9 uses `showFooter = false` on `opening-title` and `qa`.
-- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube perspective and animation, cube bullet, and that Questions has no footer.
-- Open: `MainHeader`'s `mode` parameter is unused since Task 10 (kept so the `PresentationDeck` call is unchanged).
+- Done: all 10 tasks. The deck now registers the 19 placeholder slides in outline order; Ski demos removed.
+- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
+- Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube animation, cube bullet, 19 slides in order in both windows, and no footer on opening-title and qa.
+- Open: placeholder titles were chosen by the implementer (the outline has none); presenters to confirm.
+- Open: `MainHeader`'s `mode` parameter is unused since Task 10.
+- Open: the `segments/introduction` module is still wired in settings and composeApp but unused since Task 9.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
-- Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`.
-- Open: the R4 check `grep "import android"` also matches `androidx`; use `grep "import android\."` instead.
+- Open: unused Google Sans TTFs (about 4 MB) remain in `shared/resources/.../font/`. The R4 check should use `grep "import android\."`.
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify
@@ -24,6 +23,7 @@
 - Task 10: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer (user to check).
 - Task 7: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 8: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- Task 9: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs :webApp:wasmJsBrowserDistribution` passes; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show 19 slides in outline order (user to check).
 
 ## Changes by task
 
@@ -76,6 +76,11 @@
 - Presenters: Donald Isoe (launch); Ian Nthuli (future, lessons); "All, moderated by Annunziata Kinya" (qa).
 - The Lessons intent drops the outline's `(details in "Lessons (draft)")` aside.
 - Reviewer NOTE: all 11 intents match the outline apart from that aside, which is acceptable (it points to an outline section, not slide content).
+### Task 9: Register the talk and remove the demos
+- `SkiPresentationSlides.kt`: the 19 slides in outline order with outline labels; `opening-title` uses `ScreenTransition.Fade` and `showFooter = false`, `qa` uses `showFooter = false`; timer setup kept; `IntroductionScreen` and `Resources` imports dropped.
+- `SlidesNotes.kt`: demo notes removed; 19 constants built by a private `placeholderNotes(...)` helper producing "PLACEHOLDER. Presenter: <name>. <intent>".
+- Deleted the eight demo files in `segments/demos`; `VideoPlayer.kt` and its actuals kept.
+- Reviewer NOTE: the helper is equivalent to literal constants. `segments/introduction` is now unused but still wired; cleanup candidate.
 
 ## Deviations from spec
 
