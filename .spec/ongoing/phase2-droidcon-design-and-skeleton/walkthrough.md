@@ -2,8 +2,9 @@
 
 ## Current state
 
-- Done: Tasks 1 to 6 and 10 (snake frame again; header shows only the logo and cube, as review 1 asked).
-- Next: Tasks 7, 8 and 9.
+- Done: Tasks 1 to 7 and 10 (snake frame with a logo-and-cube-only header; placeholder slides for sections 1 to 3).
+- Next: Tasks 8 and 9.
+- Open: the outline has no slide titles, so the placeholder titles were chosen by the implementer (e.g. "Thesis"); presenters to confirm.
 - Task 9 uses `showFooter = false` on `opening-title` and `qa`.
 - Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, snake frame, logo-and-cube-only header, cube perspective and animation, cube bullet, and that Questions has no footer.
 - Open: `MainHeader`'s `mode` parameter is unused since Task 10 (kept so the `PresentationDeck` call is unchanged).
@@ -21,6 +22,7 @@
 - Task 5: same compile and grep checks as Task 4; the cube animates without distortion in the header after Task 6 (not yet checked visually).
 - Task 6: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `git diff --stat -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the logo and animated cube in the header and the cube bullet in the footer, and the Questions slide has no footer (not yet checked visually).
 - Task 10: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run`, both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer (user to check).
+- Task 7: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 
 ## Changes by task
 
@@ -63,6 +65,11 @@
 - `MainHeader`: only the logo (light/dark by luminance, 180dp wide, 1246:246) and `CubeHero(96.dp)`; "Ski" title, subtitle and `LinearBullet` rail removed with their imports; KDoc updated. The `mode` parameter is now unused but kept.
 - `DroidconFrame.kt` deleted (with the empty `frame/` directory). `CubeBullet` and `showFooter` handling untouched.
 - Reviewer NOTE: compile, grep and `shared/components` checks pass; visual check left to the user.
+### Task 7: Placeholder slide and sections 1 to 3
+- `droidcon/common/PlaceholderSlide.kt`: `PlaceholderSlide(title, intent, presenter, modifier)`, using `displayMedium`, `bodyLarge` and `labelLarge`, centred, theme colours, `Values.Dimens` padding.
+- `droidcon/opening/OpeningSlides.kt` (2 slides) and `droidcon/history/HistorySlides.kt` (6 slides): intents copied verbatim from `docs/talk/outline.md`, commit hashes included; presenter Annunziata Kinya for all of them (sections 1 to 3). Reveal notes are omitted.
+- Titles chosen by the implementer, since the outline has none.
+- Reviewer NOTE: intents and presenters match the outline; the extra `modifier` parameter is harmless; titles need the presenters' confirmation.
 
 ## Deviations from spec
 

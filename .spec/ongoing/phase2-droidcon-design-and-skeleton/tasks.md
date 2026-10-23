@@ -83,10 +83,10 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/PlaceholderSlide.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/opening/OpeningSlides.kt` (new), `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt` (new)
 **Pattern:** `segments/demos/src/commonMain/kotlin/ke/don/demos/FeatureSlides.kt`
 
-- [ ] Add `PlaceholderSlide(title: String, intent: String, presenter: String)`: title in `displayMedium`, intent in `bodyLarge`, presenter in `labelLarge`, centred, theme colours only.
-- [ ] In `OpeningSlides.kt` add `OpeningTitleSlide()` and `OpeningThesisSlide()`; in `HistorySlides.kt` add `HistoryBootstrapSlide()`, `HistoryPluginsSlide()`, `HistoryChurnSlide()`, `DetourKmmSlide()`, `DetourKmpSlide()`, `DormantYearsSlide()`. Each calls `PlaceholderSlide` with the intent text copied from the `docs/talk/outline.md` slide list and the presenter from its section table.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
-- [ ] Commit: `feat: add placeholder slides for opening and history`
+- [x] Add `PlaceholderSlide(title: String, intent: String, presenter: String)`: title in `displayMedium`, intent in `bodyLarge`, presenter in `labelLarge`, centred, theme colours only.
+- [x] In `OpeningSlides.kt` add `OpeningTitleSlide()` and `OpeningThesisSlide()`; in `HistorySlides.kt` add `HistoryBootstrapSlide()`, `HistoryPluginsSlide()`, `HistoryChurnSlide()`, `DetourKmmSlide()`, `DetourKmpSlide()`, `DormantYearsSlide()`. Each calls `PlaceholderSlide` with the intent text copied from the `docs/talk/outline.md` slide list and the presenter from its section table.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm` passes.
+- [x] Commit: `feat: add placeholder slides for opening and history`
 
 ### Task 8: Sections 4 to 8
 **Serves:** R6
