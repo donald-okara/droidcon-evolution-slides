@@ -23,19 +23,25 @@ val openingThesisNotes = listOf(
     AnnotatedString("Takeaway to return to: history, then about to launch, then the future. Hand-off cue: \"So let's start in 2023, with the bootstrap.\"")
 )
 
-val historyBootstrapNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "2023 layered modules (app, chai, data, domain, presentation), Chai colours (`740ce113`)"
+val historyBootstrapNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("The app started in February 2023 with five layers: app, chai, data, domain and presentation. The founding commit is 5b83edae, by Evans Chepsiror."),
+    AnnotatedString("Chai colours arrived in commit 740ce113 on 2023-04-02. Each press of Right reveals one library: Hilt, then Room, Ktor and Compose."),
+    AnnotatedString("Takeaway to return to: the layers came first, before any feature. Hand-off cue: \"Those layers made the next step possible: convention plugins.\"")
 )
 
-val historyPluginsNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "Convention plugins replace per-module build setup (`6a6845e4`, `996ca6fe`)"
+val historyPluginsNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("Commit 6a6845e4, on 2023-07-17, added the Hilt convention plugin in pull request 147."),
+    AnnotatedString("Commit 996ca6fe then moved the Compose dependencies and Kotlin application config into plugins too. Each press of Right reveals one: Hilt, Compose, then Kotlin application."),
+    AnnotatedString("Hand-off cue: \"Plugins kept the build setup in one place. Next, who was doing this work?\"")
 )
 
-val historyChurnNotes = placeholderNotes(
-    "Annunziata Kinya",
-    "Contributor rotation, offline-first feed (`91322d29`), and the silence after 2023-11-09"
+val historyChurnNotes = listOf(
+    AnnotatedString("Draft from history.md; Annie to replace with her own content."),
+    AnnotatedString("Evans Chepsiror was the top committer in both 2023 windows, with 17 commits from February to June and 41 from July to November. Other people joined and stepped back, with no formal handover."),
+    AnnotatedString("The counts are commits per author in each window. They do not measure effort, review time or the size of each change."),
+    AnnotatedString("Commit 91322d29 added the offline-first feed in September 2023. The last commit before the silence is 2023-11-09, and the next is 2024-03-28. The git history does not say why the silence happened.")
 )
 
 val detourKmmNotes = placeholderNotes(

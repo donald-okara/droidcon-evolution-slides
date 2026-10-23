@@ -2,10 +2,10 @@
 
 ## Current state
 
-- Tasks 1 to 5 done and committed (through the opening slides).
-- Next: Task 6 (history: bootstrap, plugins, churn).
-- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile animation, opening slides look) are left to the user.
-- `placeholderNotes` stays in `SlidesNotes.kt` until Task 12.
+- Tasks 1 to 6 done and committed (through the history bootstrap, plugins and churn slides).
+- Next: Task 7 (detours: KMM, KMP, dormant years).
+- Open: desktop manual checks (Right press on `opening-title`, window and web popup sync, stat tile, opening slides, history reveals 4 then 3) are left to the user.
+- `placeholderNotes` and `PlaceholderSlide.kt` stay until Task 12.
 
 ## How to verify
 
@@ -15,6 +15,7 @@
 - Task 3: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - Task 4: same compile check as Task 3 passes.
 - Task 5: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes. User: look at `opening-title` and `opening-thesis` on `:desktopApp:run`.
+- Task 6: compile check passes. User: on desktop, Right reveals 4 steps on `history-bootstrap` and 3 on `history-plugins`.
 
 ## Changes by task
 
@@ -41,6 +42,11 @@
 ### Task 5: Opening slides
 - `OpeningSlides.kt`: `OpeningTitleSlide` (title, subtitle, three presenter cards with photo placeholders) and `OpeningThesisSlide` (thesis verbatim from the outline, then History / About to launch / Future chips). Cube hero skipped (optional in the task).
 - `SlidesNotes.kt`: real `openingTitleNotes` and `openingThesisNotes` for Annunziata Kinya. No "draft, Annie to replace" line, since the task doesn't ask for it.
+
+### Task 6: History: bootstrap, plugins, churn
+- `HistorySlides.kt`: `HistoryBootstrapSlide` (five layer boxes, `740ce113`, reveal; `HISTORY_BOOTSTRAP_STEPS = 4`), `HistoryPluginsSlide` (`6a6845e4`, `996ca6fe`, reveal; `HISTORY_PLUGINS_STEPS = 3`), `HistoryChurnSlide` (no reveal; era counts, `91322d29`, silence after 2023-11-09). Steps registered in `SkiPresentationSlides.kt`.
+- `SlidesNotes.kt`: real notes for the three history slides; each opens with a "Draft from history.md; Annie to replace" line. No on-slide draft marker.
+- Reviewer NOTE: WasmJs compile was not run by the reviewer; the implementer's run passed both targets.
 
 ## Deviations from spec
 

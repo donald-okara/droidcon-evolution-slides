@@ -11,6 +11,8 @@ import ke.don.demos.droidcon.future.FutureRoadmapSlide
 import ke.don.demos.droidcon.history.DetourKmmSlide
 import ke.don.demos.droidcon.history.DetourKmpSlide
 import ke.don.demos.droidcon.history.DormantYearsSlide
+import ke.don.demos.droidcon.history.HISTORY_BOOTSTRAP_STEPS
+import ke.don.demos.droidcon.history.HISTORY_PLUGINS_STEPS
 import ke.don.demos.droidcon.history.HistoryBootstrapSlide
 import ke.don.demos.droidcon.history.HistoryChurnSlide
 import ke.don.demos.droidcon.history.HistoryPluginsSlide
@@ -51,10 +53,20 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             }
 
             // Section 2: History, 2023
-            slide(label = "history-bootstrap", notes = historyBootstrapNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "history-bootstrap",
+                notes = historyBootstrapNotes,
+                transition = ScreenTransition.Fade,
+                steps = HISTORY_BOOTSTRAP_STEPS
+            ) {
                 HistoryBootstrapSlide()
             }
-            slide(label = "history-plugins", notes = historyPluginsNotes, transition = ScreenTransition.Fade) {
+            slide(
+                label = "history-plugins",
+                notes = historyPluginsNotes,
+                transition = ScreenTransition.Fade,
+                steps = HISTORY_PLUGINS_STEPS
+            ) {
                 HistoryPluginsSlide()
             }
             slide(label = "history-churn", notes = historyChurnNotes, transition = ScreenTransition.Fade) {

@@ -90,12 +90,12 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/history/HistorySlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/Reveal.kt
 
-- [ ] `HistoryBootstrapSlide`: kicker "2023", the five layered modules (app, chai, data, domain, presentation) shown as a static row of labelled boxes, `CommitTag("740ce113")`, then `RevealBulletList(listOf("Hilt", "Room", "Ktor", "Compose"))`. `HISTORY_BOOTSTRAP_STEPS = 4`.
-- [ ] `HistoryPluginsSlide`: convention plugins replace per-module build setup, with `CommitTag`s `6a6845e4` and `996ca6fe`, and a reveal of the Hilt, Compose and Kotlin application plugins. `HISTORY_PLUGINS_STEPS = 3`.
-- [ ] `HistoryChurnSlide`: contributor rotation (maintainers and commit counts from `history.md` eras 1 and 2), the offline-first feed (`91322d29`), and "silence after 2023-11-09". No reveal.
-- [ ] Register `steps = HISTORY_BOOTSTRAP_STEPS` and `steps = HISTORY_PLUGINS_STEPS` in `SkiPresentationSlides.kt`. Replace the three notes constants with real notes for Annunziata Kinya. Mark the slides as a draft she may replace, with a first note line: "Draft from history.md; Annie to replace with her own content."
-- [ ] Check: the standard check. The user checks that Right reveals four, then three items on desktop.
-- [ ] Commit: `feat: history bootstrap, plugins and churn slides`
+- [x] `HistoryBootstrapSlide`: kicker "2023", the five layered modules (app, chai, data, domain, presentation) shown as a static row of labelled boxes, `CommitTag("740ce113")`, then `RevealBulletList(listOf("Hilt", "Room", "Ktor", "Compose"))`. `HISTORY_BOOTSTRAP_STEPS = 4`.
+- [x] `HistoryPluginsSlide`: convention plugins replace per-module build setup, with `CommitTag`s `6a6845e4` and `996ca6fe`, and a reveal of the Hilt, Compose and Kotlin application plugins. `HISTORY_PLUGINS_STEPS = 3`.
+- [x] `HistoryChurnSlide`: contributor rotation (maintainers and commit counts from `history.md` eras 1 and 2), the offline-first feed (`91322d29`), and "silence after 2023-11-09". No reveal.
+- [x] Register `steps = HISTORY_BOOTSTRAP_STEPS` and `steps = HISTORY_PLUGINS_STEPS` in `SkiPresentationSlides.kt`. Replace the three notes constants with real notes for Annunziata Kinya. Mark the slides as a draft she may replace, with a first note line: "Draft from history.md; Annie to replace with her own content."
+- [x] Check: the standard check. The user checks that Right reveals four, then three items on desktop.
+- [x] Commit: `feat: history bootstrap, plugins and churn slides`
 
 ### Task 7: Detours and the dormant years
 **Serves:** R5, R9
