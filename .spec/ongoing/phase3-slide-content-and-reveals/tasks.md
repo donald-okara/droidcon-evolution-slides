@@ -54,11 +54,11 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (new), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/Reveal.kt (new)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/PlaceholderSlide.kt
 
-- [ ] In `SlideBlocks.kt`, add `SlideTitle(title: String, kicker: String? = null)` (kicker in `labelLarge`/`primary`, title in `displaySmall` bold), `BulletList(items: List<String>)` (a green dot from `colorScheme.secondaryContainer`, then the text in `headlineSmall`), `CommitTag(sha: String)` (small rounded tag, `FontFamily.Monospace`, `labelMedium`, `onSurfaceVariant` on `surfaceVariant`), and `MediaPlaceholder(label: String, modifier)` (dashed or outlined `outline`-coloured box with the label centred). Give each a KDoc, like `PlaceholderSlide`.
-- [ ] In `Reveal.kt`, add `RevealItem(index: Int, content: @Composable () -> Unit)`, which reads `LocalRevealStep.current` and shows its content at full alpha when `step >= index` (1-based) and alpha 0 otherwise, animated with `animateFloatAsState` (about 300 ms). Hidden items keep their space, so the layout doesn't jump. Also add `RevealBulletList(items: List<String>)`, which renders item `i` inside `RevealItem(i + 1)`.
-- [ ] Use `Values.Dimens` padding as `PlaceholderSlide` does.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
-- [ ] Commit: `feat: shared droidcon slide blocks and reveal item`
+- [x] In `SlideBlocks.kt`, add `SlideTitle(title: String, kicker: String? = null)` (kicker in `labelLarge`/`primary`, title in `displaySmall` bold), `BulletList(items: List<String>)` (a green dot from `colorScheme.secondaryContainer`, then the text in `headlineSmall`), `CommitTag(sha: String)` (small rounded tag, `FontFamily.Monospace`, `labelMedium`, `onSurfaceVariant` on `surfaceVariant`), and `MediaPlaceholder(label: String, modifier)` (dashed or outlined `outline`-coloured box with the label centred). Give each a KDoc, like `PlaceholderSlide`.
+- [x] In `Reveal.kt`, add `RevealItem(index: Int, content: @Composable () -> Unit)`, which reads `LocalRevealStep.current` and shows its content at full alpha when `step >= index` (1-based) and alpha 0 otherwise, animated with `animateFloatAsState` (about 300 ms). Hidden items keep their space, so the layout doesn't jump. Also add `RevealBulletList(items: List<String>)`, which renders item `i` inside `RevealItem(i + 1)`.
+- [x] Use `Values.Dimens` padding as `PlaceholderSlide` does.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- [x] Commit: `feat: shared droidcon slide blocks and reveal item`
 
 ### Task 4: Stat tile
 **Serves:** R3, R6
