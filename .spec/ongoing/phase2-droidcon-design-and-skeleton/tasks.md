@@ -27,11 +27,11 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 **Files:** `shared/design/src/commonMain/kotlin/ke/don/design/theme/Color.kt` (edit), `shared/design/src/commonMain/kotlin/ke/don/design/theme/ChaiColors.kt` (new), `shared/design/src/commonMain/kotlin/ke/don/design/theme/Theme.kt` (edit)
 **Pattern:** `DS/colors/ChaiColorScheme.kt`
 
-- [ ] Replace the Ski purple values in `Color.kt` with the Chai light and dark scheme values from `docs/talk/design-inventory.md` §1.2 (source: `DS/colors/ChaiColorScheme.kt`, atoms in `DS/atoms/Color.kt`), keeping the existing `*Light`/`*Dark` naming that `Theme.kt` reads. Remove the contrast variants if Chai has none and point `Theme.kt` at the base schemes.
-- [ ] In `ChaiColors.kt`, add a `ChaiColors` data class with the extras from §1.3 (`DS/colors/ChaiColors.kt`), light and dark instances, `CubeColors` from §1.4, a `Pre2026Palette` object with the colours from §4 "Pre-2026 palette", and `val LocalChaiColors = staticCompositionLocalOf { lightChaiColors }`.
-- [ ] In `AppTheme` (`Theme.kt`), provide `LocalChaiColors` with the light or dark instance to match the scheme.
-- [ ] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -n "6D538B" shared/design/src` returns nothing.
-- [ ] Commit: `feat: adopt the droidcon 2026 colour schemes`
+- [x] Replace the Ski purple values in `Color.kt` with the Chai light and dark scheme values from `docs/talk/design-inventory.md` §1.2 (source: `DS/colors/ChaiColorScheme.kt`, atoms in `DS/atoms/Color.kt`), keeping the existing `*Light`/`*Dark` naming that `Theme.kt` reads. Remove the contrast variants if Chai has none and point `Theme.kt` at the base schemes.
+- [x] In `ChaiColors.kt`, add a `ChaiColors` data class with the extras from §1.3 (`DS/colors/ChaiColors.kt`), light and dark instances, `CubeColors` from §1.4, a `Pre2026Palette` object with the colours from §4 "Pre-2026 palette", and `val LocalChaiColors = staticCompositionLocalOf { lightChaiColors }`.
+- [x] In `AppTheme` (`Theme.kt`), provide `LocalChaiColors` with the light or dark instance to match the scheme.
+- [x] Check: `./gradlew :shared:design:compileKotlinJvm` passes; `grep -n "6D538B" shared/design/src` returns nothing.
+- [x] Commit: `feat: adopt the droidcon 2026 colour schemes`
 
 ### Task 3: Logo SVGs
 **Serves:** R3
