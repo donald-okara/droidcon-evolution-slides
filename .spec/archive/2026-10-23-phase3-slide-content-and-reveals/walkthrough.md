@@ -2,10 +2,12 @@
 
 ## Current state
 
-- All 12 tasks done and committed. The placeholder scaffolding is gone and the full build passes.
-- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
-- Open: desktop manual checks (reveal step counts on all reveal slides, stat tiles, window and web sync) are left to the user.
-- Presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" sign-off and the "Harun included" line (Task 10); shared close is the presenters' call (Task 11).
+- Phase closed. All 12 tasks done: reveal steps in `DeckNavigator` and web sync, shared slide blocks and stat tile, content and notes for all 19 slides, placeholder scaffolding removed. The full build passed.
+- Review 1 (2026-10-23): changes requested. Archived anyway; its comments (more pleasant and delightful slides, an evolution timeline with hover details and labelled stages) moved to phase 4.
+- Deferred: Rebuild the deck from Harun Wangereka's 2018-to-2026 meetup overview (saved at `docs/talk/harun-overview.md`): new slide list, the "I/O clone to its own app" thread, an animated evolution timeline, a polish pass, and the 22% versus 35% startup figure. Moved to phase 4 on 2026-10-23.
+- Open: desktop manual checks (reveal counts, stat tiles, window and web sync) were never done by the user.
+- Open for the presenters: KMP note attribution (Task 7); notifications merge status by talk day (Task 9); "not married to it" sign-off and the "Harun included" line (Task 10); shared close (Task 11).
+- Known conflict: `launch-perf` shows startup 35% faster (Harun, 2026-10-23), while his overview says cold start -22% (1,335 to 1,047 ms, `docs/performance.md`).
 
 ## How to verify
 

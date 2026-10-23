@@ -26,8 +26,28 @@ Describes the current state of the talk material; updated as phases ship.
 
 ## Slide skeleton
 
-- The deck registers the outline's 19 slides in order, with labels matching the outline exactly. Each body is a named composable under `ke.don.demos.droidcon`, and each has a notes constant in `SlidesNotes.kt`. Until phase 3 these show placeholder title, intent and presenter.
+- The deck registers the outline's 19 slides in order, with labels matching the outline exactly. Each body is a named composable under `ke.don.demos.droidcon`, and each has a notes constant in `SlidesNotes.kt`.
 - No Ski demo slide, demo notes or demo-only composable remains; `VideoPlayer*` stays.
+- `PlaceholderSlide` and the placeholder notes helper no longer exist.
+
+## Slide content
+
+- All 19 slides show the content in the outline's rows, drafted from `docs/talk/history.md`, `outline.md` and `design-inventory.md`. Commit-backed claims show their short SHA, and "(inferred)" stays marked. The history slides are a draft for Annunziata Kinya to replace.
+- `launch-perf` shows three stat tiles: startup 35% faster (Harun Wangereka, no SHA), release APK 28% smaller (`5a42a5a7`) and download 7.4% smaller (`1fc20ee5`). Each counts up from 0, shrinks while it counts, shows a down arrow and is green.
+- `launch-design` sets the pre-2026 palette against the 2026 Chai colours as "then" and "now" swatches. `launch-wip` shows notifications as in progress on its branch.
+- `lessons` has three lessons delivered by Ian Nthuli; `qa` has no footer.
+- Recordings, screenshots and presenter photos are labelled placeholders until the presenters choose them.
+- Shared blocks (`SlideTitle`, `BulletList`, `CommitTag`, `MediaPlaceholder`, `RevealItem`, `RevealBulletList`, `StatTile`) are in `ke.don.demos.droidcon.common` and use `MaterialTheme` colours and typography.
+
+## Reveals
+
+- A slide can declare reveal steps (default 0). Right, Space and Enter show the next hidden item before moving on; Left hides the last one. Going back into a slide shows it fully revealed; table-of-contents jumps open at step 0.
+- Reveal slides and their steps: `history-bootstrap` 4, `history-plugins` 3, `detour-kmp` 3, `launch-modules` 3, `launch-features` 5, `launch-wip` 6, `future-roadmap` 5, `lessons` 3.
+- The presenter and audience windows show the same step on desktop, and the web `/?slides` popup follows the step as well as the slide index.
+
+## Speaker notes
+
+- Every slide has a notes constant with spoken points following `docs/speaker-notes.md`: numbers, names and SHAs, a "what this number does not measure" line for each on-screen number, and what each press shows on reveal slides.
 
 ## Library
 

@@ -30,6 +30,10 @@ Already documented elsewhere, so not repeated here:
 - Logos are SVG in Compose Resources; Android doesn't render them, which is accepted because desktop and web are the presenting targets.
 - The main frame is the stock `snake` frame; slides hide the footer with `showFooter = false` (a flag in `:core:domain`).
 - Every slide sets `transition = ScreenTransition.Fade` itself, so `:core:domain` and the library stay untouched.
+- Reveal steps live in `DeckNavigator` (`SlideConfig.steps`, `currentStep`, `LocalRevealStep`), so both windows show the same step and web sync carries it in `DeckSyncState`. Each reveal slide exposes `const val <SLIDE>_STEPS`, used by the composable and by `steps =` in `SkiPresentationSlides.kt`, so the count can't drift.
+- Going back into a slide shows it fully revealed, and table-of-contents jumps start at step 0, because a presenter who steps back to point at something shouldn't re-click the reveals.
+- Media that isn't chosen yet is a labelled outlined placeholder (`MediaPlaceholder`), so gaps are visible in a dry run.
+- Commit-backed claims show a small monospace SHA tag (`CommitTag`), and improvements are animated stat tiles (`StatTile`) that count up. Direction (arrow) and meaning (green or red) are separate, so a drop that is good still reads green.
 
 ## Known stale facts
 
