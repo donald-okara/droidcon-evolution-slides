@@ -2,13 +2,13 @@
 
 ## Current state
 
-- Done: Tasks 1 to 6 (font, colours, logos, cube model, painter and composables, droidcon frame with `showFooter`).
-- Next: Task 7 (placeholder slide and sections 1 to 3).
-- Task 9: use `showFooter = false` (not `footer = null`) on `opening-title` and `qa`; the user decided this during Task 6.
+- Done: Tasks 1 to 6. Review 1 (partial) requested changes: snake frame, header with only the logo and cube.
+- Next: Task 10 (snake frame with logo-and-cube header, revises Task 6), then Tasks 7, 8 and 9.
+- Task 9 uses `showFooter = false` on `opening-title` and `qa`.
 - Open: nothing has been checked visually. The user must run `./gradlew :desktopApp:run` and confirm the font, colours, logo, cube perspective and animation, cube bullet, and that Questions has no footer.
 - Open with the user: code snippets use `FontFamily.Monospace`, not Roboto Mono; fixing it means editing `:shared:components` (NF2).
-- Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`; delete them in a cleanup if wanted.
-- Open: the spec/tasks check `grep "import android"` also matches `androidx`; use `grep "import android\."` instead.
+- Open: the unused Google Sans TTFs (about 4 MB) are still in `shared/resources/.../font/`.
+- Open: the R4 check `grep "import android"` also matches `androidx`; use `grep "import android\."` instead.
 - Known issues: Mobile is not a priority; verify on desktop and wasm only. Check common code on wasm too. Agents cannot see the desktop windows, so leave visual checks to the user and do not `pkill` desktopApp.
 
 ## How to verify

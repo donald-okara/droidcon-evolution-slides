@@ -6,7 +6,7 @@ Source repo (read-only) is `/Users/donaldisoe/AndroidStudioProjects/droidconKeKo
 1. Montserrat font ───────────────┐
 2. Droidcon colours ──────────────┼─> 7. Placeholder + sections 1-3 ─> 8. Sections 4-8 ─┐
 3. Logo SVGs ─────────────┐       │                                                    ├─> 9. Register slides, remove demos
-4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ──────────────┘
+4. Cube model port ─> 5. Cube painter + composables ─> 6. Droidcon frame ─> 10. Snake frame + logo/cube header ┘
    (5 also needs 2)
 ```
 
@@ -105,7 +105,17 @@ This task rewrites Android graphics code; run the implementer on Sonnet.
 **Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt` (edit), `segments/demos/src/commonMain/kotlin/ke/don/demos/{DemoLayoutExample,DeviceGallery,ExampleSlide,FeatureSlides,KodeViewerExample,SegmentedDemos,VideoSlide,WhiteboardExample}.kt` (delete)
 
 - [ ] In `SlidesNotes.kt`, delete every demo notes constant and add one constant per slide (e.g. `openingTitleNotes`): `"PLACEHOLDER. Presenter: <name>. <intent>"`.
-- [ ] In `skiPresentationSlides()`, replace all demo `slide(...)` calls with the 19 slides in outline order, `slide(label = "<label>", notes = <notes>) { <Composable>() }`, labels exactly as in the outline. `opening-title` uses `transition = ScreenTransition.Fade` and `footer = null`; `qa` uses `footer = null`. Keep the timer setup. Remove unused imports, including `IntroductionScreen`.
+- [ ] In `skiPresentationSlides()`, replace all demo `slide(...)` calls with the 19 slides in outline order, `slide(label = "<label>", notes = <notes>) { <Composable>() }`, labels exactly as in the outline. `opening-title` uses `transition = ScreenTransition.Fade` and `showFooter = false`; `qa` uses `showFooter = false`. Keep the timer setup. Remove unused imports, including `IntroductionScreen`.
 - [ ] Delete the eight demo files listed above. Keep `VideoPlayer.kt` and its platform `actual`s.
 - [ ] Check: `./gradlew :desktopApp:run` shows 19 slides in outline order in both windows; `./gradlew :webApp:wasmJsBrowserDistribution` succeeds; `git diff --stat main -- shared/components` is empty.
 - [ ] Commit: `feat: register talk skeleton and remove Ski demos`
+
+### Task 10: Snake frame with logo-and-cube header (revises Task 6)
+**Serves:** R5
+**Files:** `composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt` (edit), `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/frame/DroidconFrame.kt` (delete)
+
+- [ ] In `Deck.kt`, build `mainFrame` from the stock `snake` frame again (as before Task 6) and drop the `droidconFrameFactory` import. Leave `guidesFrame` as is. Do not edit `:shared:components`.
+- [ ] In `MainHeader` (`Components.kt`), remove the "Ski" title, the `DeckMode` subtitle ("Ski presentation deck" text) and the bullet rail, so the header shows only the droidcon logo (light or dark per theme, sized explicitly) and `CubeHero`. Remove imports that become unused.
+- [ ] Delete `DroidconFrame.kt`. Keep `CubeBullet` in `MainFooter` and the `showFooter` handling in `PresentationDeck`.
+- [ ] Check: `./gradlew :composeApp:compileKotlinJvm :composeApp:compileKotlinWasmJs` passes; `grep -rn "DroidconFrame\|droidconFrameFactory" composeApp/src` returns nothing; `git diff --stat main -- shared/components` is empty; on `./gradlew :desktopApp:run` (checked by the user) both windows show the snake frame with only the logo and cube in the header and the cube bullet in the footer.
+- [ ] Commit: `feat: use snake frame with logo-and-cube header`

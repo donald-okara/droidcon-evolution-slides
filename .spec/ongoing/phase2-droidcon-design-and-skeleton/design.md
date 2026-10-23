@@ -34,3 +34,8 @@
 **Decision:** Delete the demo composables in `segments/demos` except `VideoPlayer*` (all source sets), which phase 3 may use for recordings.
 **Why:** `docs/video.md` documents video in slides, and recordings are still an open choice.
 **Tradeoff:** One unused file set stays until phase 3 decides.
+
+### Snake frame with logo-and-cube header (2026-10-23)
+**Decision:** The main frame goes back to the stock `snake` frame; `DroidconFrame` is deleted. `MainHeader` shows only the droidcon logo and `CubeHero`, dropping the "Ski" title, deck-mode subtitle and bullet rail. The footer keeps `CubeBullet`, and slides hide it with `showFooter = false` (the flag added in Task 6). Replaces "Droidcon frame in `:composeApp`" (R5).
+**Why:** Maintainer review 1, 2026-10-23.
+**Tradeoff:** The presenter window loses its deck-mode label in the header. The `showFooter` flag in `:core:domain` stays as a small addition to the domain API.

@@ -23,10 +23,10 @@
 - A static cube composable is available at bullet size.
 - **Check:** `grep -rn "import android" shared/design/src/commonMain` returns nothing; the cube animates in the desktop header.
 
-### R5. Droidcon frame
-- The deck's main frame is the droidcon frame in both windows.
-- Its header shows the droidcon logo (light or dark per theme) and the animated cube; its footer uses the static cube as the bullet.
-- Slides registered with `footer = null` still show no footer.
+### R5. Snake frame with droidcon header
+- The deck's main frame is the stock snake frame in both windows.
+- Its header shows only the droidcon logo (light or dark per theme) and the animated cube: no "Ski" title, deck-mode subtitle or bullet rail. Its footer uses the static cube as the bullet.
+- Slides registered with `showFooter = false` show no footer.
 - **Check:** `./gradlew :desktopApp:run`; look at the presenter and audience windows.
 
 ### R6. Slide skeleton

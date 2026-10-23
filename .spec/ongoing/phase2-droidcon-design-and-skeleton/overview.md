@@ -10,7 +10,7 @@ Give the deck the droidcon Kenya 2026 look (palette, Montserrat, logo, cube hero
 - Montserrat as the font family for every text style, with Ski's type sizes and weights unchanged, and the `GOOGLE_SANS_EXTRA_LIGHT` bug gone.
 - The droidcon logo (light and dark) as SVG resources.
 - The cube hero ported to common Compose code, with a static cube bullet.
-- A droidcon frame: header with the logo and the cube, footer with the cube bullet, used by the deck's main frame.
+- The snake frame as the deck's main frame, with a header showing only the logo and the cube, and a footer with the cube bullet.
 - The 19 slides from `docs/talk/outline.md`, in order, with exact labels, each a named placeholder composable with placeholder notes.
 - The 18 Ski demo slides, their notes and their demo-only composables removed.
 
