@@ -24,3 +24,8 @@
 **Decision:** `rootProject.name` changes from "Ski" to "droidcon-evolution-slides"; module paths, packages and the published artifact are untouched.
 **Why:** The user asked to rename the project in `settings.gradle`; the identity rename was excluded.
 **Tradeoff:** Build output and IDE names change; nothing the published library depends on does.
+
+### Delight is a standing requirement (2026-10-23)
+**Decision:** Every slide task adds a named delight moment built from shared blocks (`popIn`, `Confetti`, count-ups, timeline pulses), instead of leaving it to a final polish task (R11).
+**Why:** The phase 3 review asked for more pleasant, entertaining slides, and the user wants it applied at every chance.
+**Tradeoff:** More work per slide task and more animation code to keep in sync across both windows; the Task 12 audit catches slides that skipped it.

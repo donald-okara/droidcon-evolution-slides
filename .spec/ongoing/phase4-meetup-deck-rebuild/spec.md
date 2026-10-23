@@ -45,6 +45,10 @@
 ### R10. Library untouched
 - **Check:** `git diff --stat e02c712 -- shared/components` is empty.
 
+### R11. Delight on every slide
+- Every slide has at least one named delight moment: an entrance, count-up, animated reveal, hover or tap surprise, or playful copy. It never hides content, delays stepping, or desynchronises the two windows.
+- **Check:** each slide task's report lists one line per slide naming its moment; on `:desktopApp:run` each slide shows it.
+
 ## Non-Functional Requirements
 
 - **NF1. One number per slide:** a slide that leads with a number shows one large number; the rest is secondary text. Checked by looking at S03, S20, S28.
