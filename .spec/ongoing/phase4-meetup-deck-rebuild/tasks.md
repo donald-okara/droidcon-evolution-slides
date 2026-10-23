@@ -36,12 +36,12 @@ Common to every slide task: read only the named slide entries in `docs/talk/haru
 **Files:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/Charts.kt` (new), `.../common/CalloutCard.kt` (new)
 **Pattern:** `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/StatTile.kt`
 
-- [ ] `ChartPoint(label: String, value: Float, highlight: Boolean = false)`.
-- [ ] `ColumnChart(points, modifier, caption)`: vertical columns scaled to the max value, value label above each, bar heights animate from 0 with `Animatable` and `tween(800)`, highlighted points use `secondary`.
-- [ ] `BarChart(points, modifier, valueSuffix)`: horizontal bars, label left, value right, same animation.
-- [ ] `CalloutCard(title, modifier, content)`: rounded outlined box with a small title chip ("Kotlin Kenya corner") using `MaterialTheme` colours.
-- [ ] `Modifier.popIn(delayMillis: Int = 0)`: scale 0.8 to 1 and fade in with a spring that overshoots slightly. `Confetti(trigger: Boolean, modifier)`: a 1.2 s burst of 24 coloured dots from `Canvas` using theme colours, playing once per `trigger` change.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
+- [x] `ChartPoint(label: String, value: Float, highlight: Boolean = false)`.
+- [x] `ColumnChart(points, modifier, caption)`: vertical columns scaled to the max value, value label above each, bar heights animate from 0 with `Animatable` and `tween(800)`, highlighted points use `secondary`.
+- [x] `BarChart(points, modifier, valueSuffix)`: horizontal bars, label left, value right, same animation.
+- [x] `CalloutCard(title, modifier, content)`: rounded outlined box with a small title chip ("Kotlin Kenya corner") using `MaterialTheme` colours.
+- [x] `Modifier.popIn(delayMillis: Int = 0)`: scale 0.8 to 1 and fade in with a spring that overshoots slightly. `Confetti(trigger: Boolean, modifier)`: a 1.2 s burst of 24 coloured dots from `Canvas` using theme colours, playing once per `trigger` change.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm :segments:demos:compileKotlinWasmJs` passes.
 - [ ] Commit: `feat: chart blocks and callout card`
 
 ### Task 4: Evolution timeline
