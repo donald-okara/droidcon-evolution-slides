@@ -43,11 +43,11 @@ Tasks 5 to 11 all edit `SlidesNotes.kt` and `SkiPresentationSlides.kt`, so run t
 **Files:** composeApp/src/commonMain/kotlin/ke/don/ski/presentation/DeckHost.kt (edit), webApp/src/commonMain/kotlin/ke/don/ski/web/WebMain.kt (edit)
 **Pattern:** composeApp/src/commonMain/kotlin/ke/don/ski/presentation/DeckHost.kt
 
-- [ ] In `DeckHost`, wrap `slides[index].Render()` in `CompositionLocalProvider(LocalRevealStep provides ...)`. The current index gets `navigator.currentStep`. An outgoing index gets `slides[index].steps` (fully revealed during the fade).
-- [ ] In `WebMain.kt`, add `navigator.currentStep` to the `LaunchedEffect` keys, write `step = navigator.currentStep` into `DeckSyncState`, and call `navigator.goTo(syncState.slideIndex, syncState.step)` in the `storage` listener.
-- [ ] Leave the TOC call `navigator.goTo(it)` in `DeckScaffolding.kt:198` as it is (step 0 by default).
-- [ ] Check: the standard check plus `./gradlew :webApp:wasmJsBrowserDistribution` passes. The user checks that `opening-title` still changes slides on one Right press on desktop.
-- [ ] Commit: `feat: provide reveal step to slides and sync it on web`
+- [x] In `DeckHost`, wrap `slides[index].Render()` in `CompositionLocalProvider(LocalRevealStep provides ...)`. The current index gets `navigator.currentStep`. An outgoing index gets `slides[index].steps` (fully revealed during the fade).
+- [x] In `WebMain.kt`, add `navigator.currentStep` to the `LaunchedEffect` keys, write `step = navigator.currentStep` into `DeckSyncState`, and call `navigator.goTo(syncState.slideIndex, syncState.step)` in the `storage` listener.
+- [x] Leave the TOC call `navigator.goTo(it)` in `DeckScaffolding.kt:198` as it is (step 0 by default).
+- [x] Check: the standard check plus `./gradlew :webApp:wasmJsBrowserDistribution` passes. The user checks that `opening-title` still changes slides on one Right press on desktop.
+- [x] Commit: `feat: provide reveal step to slides and sync it on web`
 
 ### Task 3: Shared slide building blocks
 **Serves:** R3
