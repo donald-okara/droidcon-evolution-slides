@@ -30,13 +30,13 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SpinningCube.kt (new), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/ColdOpenSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/LiveSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/Deck.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/ColdOpenSlides.kt (`SpinningCube`, lines 89-105)
 
-- [ ] Move `SpinningCube` and its constants (`CUBE_SPIN_MILLIS`, `CUBE_HERO_FILL`) from `ColdOpenSlides.kt` to `common/SpinningCube.kt` as a public `SpinningCube(modifier: Modifier = Modifier)`. `TitleSlide` (S01) calls the shared one; S01 looks unchanged.
-- [ ] In `LiveSlides.kt` `CubeWidgetSlide` (S22), replace the "Cube hero" `MediaPlaceholder` (line 68) with `SpinningCube`, sized to the space the placeholder had.
-- [ ] Add a public `const val CUBE_WIDGET_LABEL = "y2026-cube-widget"` next to `COLD_TITLE_LABEL` in `ColdOpenSlides.kt` (same visibility as that constant), and use it for the S22 `slide(label = ...)` in `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (line 146).
-- [ ] In `Deck.kt` line 51, hide the background cube when the current label is `COLD_TITLE_LABEL` or `CUBE_WIDGET_LABEL`; update the comment on line 49 to name both slides.
-- [ ] Leave the S22 widget placeholder for Task 5.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm`; desktop run: S01 and S22 show one big spinning cube and no corner cube; S21 shows the corner cube.
-- [ ] Commit: `feat: live cube hero on S22`
+- [x] Move `SpinningCube` and its constants (`CUBE_SPIN_MILLIS`, `CUBE_HERO_FILL`) from `ColdOpenSlides.kt` to `common/SpinningCube.kt` as a public `SpinningCube(modifier: Modifier = Modifier)`. `TitleSlide` (S01) calls the shared one; S01 looks unchanged.
+- [x] In `LiveSlides.kt` `CubeWidgetSlide` (S22), replace the "Cube hero" `MediaPlaceholder` (line 68) with `SpinningCube`, sized to the space the placeholder had.
+- [x] Add a public `const val CUBE_WIDGET_LABEL = "y2026-cube-widget"` next to `COLD_TITLE_LABEL` in `ColdOpenSlides.kt` (same visibility as that constant), and use it for the S22 `slide(label = ...)` in `composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt` (line 146).
+- [x] In `Deck.kt` line 51, hide the background cube when the current label is `COLD_TITLE_LABEL` or `CUBE_WIDGET_LABEL`; update the comment on line 49 to name both slides.
+- [x] Leave the S22 widget placeholder for Task 5.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm`; desktop run: S01 and S22 show one big spinning cube and no corner cube; S21 shows the corner cube.
+- [x] Commit: `feat: live cube hero on S22`
 
 ### Task 3: Cold open: S02 assets, remove S03
 **Serves:** R3, R4, R7
