@@ -63,6 +63,7 @@ Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them
 | S28 | 7 | `lessons-uncomfortable-chart` | The code grew; the community didn't (D5) | 0 |
 | S29 | 7 | `lessons-eight-years` | What eight years teach: four lessons | 4 |
 | S30 | 7 | `lessons-thank-you` | Thank you: contributors grouped by era | 0 |
+| S30b | 7 | `lessons-credits` | Credits: top contributors per era with their biggest contribution, as a scrolling marquee | 0 |
 | S31 | 7 | `lessons-break-it` | Now, let's break it: hand over to the bounty | 0 |
 
 Reveal total: 7 + 6 + 4 = 17 steps across three slides.

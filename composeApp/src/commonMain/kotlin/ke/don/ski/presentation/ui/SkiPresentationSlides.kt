@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import ke.don.demos.droidcon.talk.BreakItSlide
+import ke.don.demos.droidcon.talk.CreditsSlide
 import ke.don.demos.droidcon.talk.COLD_TITLE_LABEL
 import ke.don.demos.droidcon.talk.CUBE_WIDGET_LABEL
 import ke.don.demos.droidcon.talk.CodeGrewSlide
@@ -176,6 +177,9 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             }
             slide(label = "lessons-thank-you", notes = thankYouNotes, transition = ScreenTransition.Fade) {
                 ThankYouSlide()
+            }
+            slide(label = "lessons-credits", notes = creditsNotes, transition = ScreenTransition.Fade) {
+                CreditsSlide()
             }
             slide(
                 label = "lessons-break-it",

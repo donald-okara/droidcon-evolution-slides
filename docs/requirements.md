@@ -26,7 +26,7 @@ Describes the current state of the talk material; updated as phases ship.
 
 ## Slide skeleton
 
-- The deck registers 29 slides in outline order with matching labels (outline S03 `cold-same-app` and S24 `y2026-live-demo` are cut; other slides keep their outline IDs), `ScreenTransition.Fade`, and a `<label>Notes` constant each; reveal slides expose `const val <SLIDE>_STEPS`.
+- The deck registers 30 slides in outline order with matching labels (outline S03 `cold-same-app` and S24 `y2026-live-demo` are cut, S30b `lessons-credits` is added; other slides keep their outline IDs), `ScreenTransition.Fade`, and a `<label>Notes` constant each; reveal slides expose `const val <SLIDE>_STEPS`.
 - No Ski demo slide, demo notes or demo-only composable remains; `VideoPlayer*` stays.
 - `PlaceholderSlide` and the placeholder notes helper no longer exist.
 
@@ -37,6 +37,7 @@ Describes the current state of the talk material; updated as phases ship.
 - S10 and S30 credit contributors by name; S16 carries the Kotlin Kenya corner callout.
 - Images come only from drawables in `Resources.Images`: S02 shows the Play listing and repo QR codes, S09 `settings.gradle.kts`, S18 the top of AGENTS.md, S21 the 2026 Sessions screen, S23 the 2026 Home as the "before" state. Each is labelled with what it is, fit uncropped with a rounded outline. No labelled placeholder boxes remain.
 - S07, S08, S12, S13, S15 and S17 use one two-column layout: title and focal element (number, count-up, chips or swatches) left, details right.
+- S30b "Credits" shows the top contributors of each era as an endlessly scrolling row of cards: username, era and biggest contribution.
 - S22 shows only the live spinning cube, its caption and source line; S10 reads "13 modules, 7 of them dynamic features".
 - Shared blocks (`SlideTitle`, `BulletList`, `CommitTag`, `SlideImage`, `SplitSlide`, `SpinningCube`, `RevealItem`, `RevealBulletList`, `StatTile`, `SourceLine`) are in `ke.don.demos.droidcon.common` and use `MaterialTheme` colours and typography.
 

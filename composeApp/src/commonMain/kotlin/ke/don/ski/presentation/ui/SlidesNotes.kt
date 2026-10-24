@@ -174,7 +174,13 @@ val thankYouNotes = listOf(
     AnnotatedString("This is the thank-you slide. The names are grouped by era: 2018 and 2019, 2020, 2022, 2023 to 2025, and 2026. The names pop in as the slide opens, one after another, so give them a moment to land before you talk."),
     AnnotatedString("Ask anyone from the list who is in the room to stand up. Do not read every name out. The list was taken from git shortlog per repo, and it was checked against the README contributors section; check it again against the README on the day, because people join and leave."),
     AnnotatedString("Pass the mic: the strongest version of this talk is not one voice. Invite one person per era for about 90 seconds each, with one memory and one decision they would make differently. Candidates from the log, to ask on the day: 2018 and 2019, Michael Bukachi. 2020, Oliver Muthomi, Jabez Magomere or David Odari. 2022, Evans Chepsiror, Gibson Silali or Waitara. Chai, tamzi. 2023, Hannah Olukoye or Peter Chege. 2025, Michael Ndiritu on Kotlin Multiplatform. 2026, donald-okara, Joel Kanyi or mutukuian."),
-    AnnotatedString("Takeaway to return to: the app is ours because all of these people kept it going, era by era. Hand-off cue: \"Now, let's break it.\"")
+    AnnotatedString("Takeaway to return to: the app is ours because all of these people kept it going, era by era. Hand-off cue: \"Here is what the biggest contributors left behind.\"")
+)
+
+val creditsNotes = listOf(
+    AnnotatedString("The scrolling row credits the top contributors in each era, each with their biggest contribution. Let it run; pick one or two cards to name, ideally someone in the room."),
+    AnnotatedString("The counts come from git shortlog per repo, with bots excluded, and the contributions are summarised from each person's own commits. They measure commits only: review, design, organising and mentoring work does not show up in them, so say that out loud and thank those people too."),
+    AnnotatedString("Takeaway to return to: every era had people who carried it. Hand-off cue: \"Now, let's break it.\"")
 )
 
 val breakItNotes = listOf(

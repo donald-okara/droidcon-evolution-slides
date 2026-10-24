@@ -7,6 +7,8 @@ import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.basicMarquee
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +19,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -48,6 +51,31 @@ private const val ROW_STAGGER_MILLIS = 320
 private const val WIGGLE_DEGREES = 12f
 private const val WIGGLE_HALF_PERIOD_MILLIS = 220
 private const val LESSON_NUMBER_SIZE_DP = 44
+private const val CREDIT_CARD_WIDTH_DP = 300
+private const val CREDITS_VELOCITY_DP = 36f
+
+/** One credit card on [ThankYouSlide]: who, which era, and their biggest contribution. */
+private data class Credit(val username: String, val era: String, val contribution: String)
+
+private val thankYouCredits = listOf(
+    Credit("wangerekaharun", "2018", "Started the app: first agenda and session UI, later moved it to Firestore"),
+    Credit("Michael Bukachi", "2018", "Set up Kotlin, added a base ViewModel and the first tests"),
+    Credit("muhosteve", "2018", "Firebase sign-in, offline data and Cloud Functions"),
+    Credit("Harun Wangereka", "2019", "Sign-in screens, favourites filter, navigation drawer"),
+    Credit("Michael Bukachi", "2019", "Sign-in logic, starred sessions, CI and releases"),
+    Credit("Harun Wangereka", "2020", "Created the modular app and its screen flow"),
+    Credit("Oliver Muthomi", "2020", "Home, sponsors and session details, plus tests with fakes"),
+    Credit("Michael Bukachi", "2020", "API endpoints, login token handling, deploy pipeline"),
+    Credit("Gibson Silali", "2022", "Sessions screen: session cards and the day filter"),
+    Credit("Harun Wangereka", "2022", "Material 3 setup and convention plugins"),
+    Credit("Juma Allan", "2022", "Data layer: Hilt, Room on KSP, logging"),
+    Credit("chepsi", "2023–25", "Founded droidconKeKotlin, kept CI green, set up KMM"),
+    Credit("Michael Ndiritu", "2023–25", "Compose Multiplatform and the iOS app"),
+    Credit("Raynafs", "2023–25", "Code coverage and the CI matrix"),
+    Credit("Harun Wangereka", "2026", "New look (Expressive + rebrand), 17-module split, APK -28%, cube"),
+    Credit("donald-okara", "2026", "Navigation 3, session stepper, periodic sync, notifications, Glance widget"),
+    Credit("mutukuian", "2026", "Redesigned the speakers list and details screens")
+)
 
 /**
  * S27. Lost and found. A two-column "then and now" table: ideas from the 2018 and 2019 repos, what became of
@@ -236,42 +264,130 @@ fun ThankYouSlide() {
             .padding(Values.Dimens.largePadding)
     ) {
         SlideTitle(title = "Thank you", kicker = "Act 7")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-        ) {
-            eras.forEachIndexed { eraIndex, (era, names) ->
-                val namesBefore = eras.take(eraIndex).sumOf { it.second.size }
-                Column(
-                    modifier = Modifier.weight(1f),
-                    verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)
-                ) {
-                    Text(
-                        text = era,
-                        style = MaterialTheme.typography.titleSmall,
-                        fontWeight = FontWeight.Bold,
-                        color = scheme.primary,
-                        modifier = Modifier.padding(bottom = Values.Dimens.tinyPadding)
-                    )
-                    names.forEachIndexed { nameIndex, name ->
-                        Text(
-                            text = name,
-                            style = MaterialTheme.typography.bodyLarge,
-                            color = scheme.onSurface,
-                            modifier = Modifier.popIn(
-                                delayMillis = (namesBefore + nameIndex) * NAME_STAGGER_MILLIS
-                            )
-                        )
-                    }
-                }
-            }
-        }
+        EraColumns(eras = eras, modifier = Modifier.fillMaxWidth().weight(1f))
         Text(
             text = "Ask anyone from the list who is in the room to stand up.",
             style = MaterialTheme.typography.titleMedium,
             color = scheme.onSurfaceVariant
         )
         SourceLine(text = "Source: git shortlog -sn per repo; checked against the README contributors section")
+    }
+}
+
+/**
+ * S30b. Credits. The top contributors of each era as one row of cards that scrolls sideways without end. Each card
+ * names a contributor, their era and their biggest contribution. Not reveal-stepped.
+ */
+@Composable
+fun CreditsSlide() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(Values.Dimens.largePadding)
+    ) {
+        SlideTitle(title = "Credits", kicker = "Act 7")
+        Box(
+            modifier = Modifier.fillMaxWidth().weight(1f),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            CreditsMarquee(credits = thankYouCredits)
+        }
+        SourceLine(text = "Source: git shortlog -sn per repo, bots excluded; contributions summarised from each person's commits")
+    }
+}
+
+/**
+ * The contributors' names, one column per era. Each name pops in one after another, in reading order.
+ */
+@Composable
+private fun EraColumns(eras: List<Pair<String, List<String>>>, modifier: Modifier = Modifier) {
+    val scheme = MaterialTheme.colorScheme
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
+    ) {
+        eras.forEachIndexed { eraIndex, (era, names) ->
+            val namesBefore = eras.take(eraIndex).sumOf { it.second.size }
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)
+            ) {
+                Text(
+                    text = era,
+                    style = MaterialTheme.typography.titleSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = scheme.primary,
+                    modifier = Modifier.padding(bottom = Values.Dimens.tinyPadding)
+                )
+                names.forEachIndexed { nameIndex, name ->
+                    Text(
+                        text = name,
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = scheme.onSurface,
+                        modifier = Modifier.popIn(
+                            delayMillis = (namesBefore + nameIndex) * NAME_STAGGER_MILLIS
+                        )
+                    )
+                }
+            }
+        }
+    }
+}
+
+/**
+ * A single row of [CreditCard]s that scrolls sideways endlessly. The row takes only the height its cards need.
+ *
+ * @param credits the cards, in the order they are shown.
+ * @param modifier applied outside the marquee, so padding here does not scroll.
+ */
+@Composable
+private fun CreditsMarquee(credits: List<Credit>, modifier: Modifier = Modifier) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .basicMarquee(
+                iterations = Int.MAX_VALUE,
+                velocity = CREDITS_VELOCITY_DP.dp
+            ),
+        horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
+    ) {
+        credits.forEach { credit -> CreditCard(credit = credit) }
+    }
+}
+
+/**
+ * One credit on [CreditsMarquee]: username, era and contribution in a rounded, outlined card. The card has a fixed
+ * width, so long contributions wrap onto more lines instead of stretching the card.
+ *
+ * @param credit the contributor to show.
+ */
+@Composable
+private fun CreditCard(credit: Credit) {
+    val scheme = MaterialTheme.colorScheme
+    Column(
+        modifier = Modifier
+            .width(CREDIT_CARD_WIDTH_DP.dp)
+            .clip(RoundedCornerShape(Values.Dimens.smallPadding))
+            .border(1.dp, scheme.outline, RoundedCornerShape(Values.Dimens.smallPadding))
+            .padding(Values.Dimens.mediumPadding),
+        verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
+    ) {
+        Text(
+            text = credit.username,
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            color = scheme.primary
+        )
+        Text(
+            text = credit.era,
+            style = MaterialTheme.typography.labelLarge,
+            color = scheme.onSurfaceVariant
+        )
+        Text(
+            text = credit.contribution,
+            style = MaterialTheme.typography.bodyLarge,
+            color = scheme.onSurface
+        )
     }
 }
 
