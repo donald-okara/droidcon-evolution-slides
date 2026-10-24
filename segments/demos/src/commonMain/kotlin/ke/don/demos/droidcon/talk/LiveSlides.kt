@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -29,9 +31,10 @@ import androidx.compose.ui.unit.dp
 import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.ColumnChart
-import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.RevealItem
+import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.SpinningCube
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
@@ -39,9 +42,12 @@ import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.LocalRevealStep
 import ke.don.domain.values.Values
+import ke.don.resources.Resources
 
 /** The number of reveal steps on the live demo slide: one per demo step, in the order of section 1.7. */
 const val LIVE_DEMO_STEPS = 6
+
+private const val PHONE_ASPECT = 9f / 19.5f
 
 private const val PHASE_STAGGER_MILLIS = 250
 private const val WIDGET_CHIP_DELAY_MILLIS = 600
@@ -62,28 +68,19 @@ fun CubeWidgetSlide() {
             .padding(Values.Dimens.largePadding)
     ) {
         SlideTitle(title = "The cube and the widget", kicker = "Act 6")
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
+            verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
         ) {
-            SpinningCube(modifier = Modifier.weight(1f).popIn())
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
-                MediaPlaceholder(
-                    label = "Glance widget: what's on now and next",
-                    modifier = Modifier.weight(1f).popIn(delayMillis = PHASE_STAGGER_MILLIS)
-                )
-                Row(horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
-                    listOf("Spec", "Plan", "Code").forEachIndexed { index, step ->
-                        WorkflowChip(
-                            text = step,
-                            modifier = Modifier
-                                .weight(1f)
-                                .popIn(delayMillis = WIDGET_CHIP_DELAY_MILLIS + index * WIDGET_CHIP_STAGGER_MILLIS)
-                        )
-                    }
+            SpinningCube(modifier = Modifier.fillMaxWidth().weight(1f).popIn())
+            Row(horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                listOf("Spec", "Plan", "Code").forEachIndexed { index, step ->
+                    WorkflowChip(
+                        text = step,
+                        modifier = Modifier
+                            .weight(1f)
+                            .popIn(delayMillis = WIDGET_CHIP_DELAY_MILLIS + index * WIDGET_CHIP_STAGGER_MILLIS)
+                    )
                 }
             }
         }
@@ -111,27 +108,32 @@ fun FollowsConferenceSlide() {
         SlideTitle(title = "An app that follows the conference", kicker = "Act 6")
         Row(
             modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
+            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
         ) {
-            listOf(
-                "Before: a countdown",
-                "During: today's agenda, clashes named",
-                "After: thank you and a feedback link"
-            ).forEachIndexed { index, label ->
-                Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .popIn(delayMillis = index * PHASE_STAGGER_MILLIS),
-                    verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)
-                ) {
+            SlideImage(
+                resource = Resources.Images.HOME_2026,
+                contentDescription = "Home screen, 2026, before the conference",
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .aspectRatio(PHONE_ASPECT, matchHeightConstraintsFirst = true)
+                    .popIn()
+            )
+            Column(
+                modifier = Modifier.weight(1f),
+                verticalArrangement = Arrangement.Center
+            ) {
+                listOf(
+                    "Before: a countdown",
+                    "During: today's agenda, clashes named",
+                    "After: thank you and a feedback link"
+                ).forEachIndexed { index, label ->
                     Text(
                         text = label,
-                        style = MaterialTheme.typography.titleSmall,
-                        color = MaterialTheme.colorScheme.primary
-                    )
-                    MediaPlaceholder(
-                        label = "Home: ${label.substringBefore(':')}",
-                        modifier = Modifier.weight(1f)
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier
+                            .padding(vertical = Values.Dimens.tinyPadding)
+                            .popIn(delayMillis = index * PHASE_STAGGER_MILLIS)
                     )
                 }
             }
@@ -150,43 +152,30 @@ fun FollowsConferenceSlide() {
 
 /**
  * S24. Live demo: from purchase to pass. The six demo steps from section 1.7 reveal one at a time, and each
- * check fills in as its step arrives. The phone mirror sits on the right, with a placeholder for the fallback video.
+ * check fills in as its step arrives. The title sits left and the steps sit right, in [SplitSlide].
  */
 @Composable
 fun LiveDemoSlide() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(Values.Dimens.largePadding)
-    ) {
-        SlideTitle(title = "Live demo: from purchase to pass", kicker = "Act 6")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
-                DemoStepRow(number = 1, text = "Time travel: home with the cube hero, pull to refresh")
-                DemoStepRow(number = 2, text = "Clashes: set the date to conference day 1, the agenda appears")
-                DemoStepRow(number = 3, text = "Widget: star two overlapping sessions, the clash banner appears")
-                DemoStepRow(number = 4, text = "Add the Next-session widget to the launcher")
-                DemoStepRow(number = 5, text = "A ticket, bought now: purchase on mobile data, add it, show the pass")
-                DemoStepRow(number = 6, text = "Optional: tablet or resizable window, list-detail")
-            }
-            MediaPlaceholder(
-                label = "Phone mirrored with scrcpy. Fallback video ready",
-                modifier = Modifier.weight(1f)
+    SplitSlide(
+        modifier = Modifier.padding(Values.Dimens.largePadding),
+        lead = {
+            SlideTitle(title = "Live demo: from purchase to pass", kicker = "Act 6")
+        },
+        details = {
+            DemoStepRow(number = 1, text = "Time travel: home with the cube hero, pull to refresh")
+            DemoStepRow(number = 2, text = "Clashes: set the date to conference day 1, the agenda appears")
+            DemoStepRow(number = 3, text = "Widget: star two overlapping sessions, the clash banner appears")
+            DemoStepRow(number = 4, text = "Add the Next-session widget to the launcher")
+            DemoStepRow(number = 5, text = "A ticket, bought now: purchase on mobile data, add it, show the pass")
+            DemoStepRow(number = 6, text = "Optional: tablet or resizable window, list-detail")
+            Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
+            Text(
+                text = "Airplane mode, then reopen the pass: it is still there.",
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.primary
             )
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Airplane mode, then reopen the pass: it is still there.",
-            style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.primary
-        )
-    }
+    )
 }
 
 /**

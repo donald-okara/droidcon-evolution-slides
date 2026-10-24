@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,7 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import ke.don.demos.droidcon.common.BarChart
 import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
-import ke.don.demos.droidcon.common.MediaPlaceholder
+import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
@@ -33,13 +35,14 @@ import ke.don.demos.droidcon.common.currentSchemeSwatches
 import ke.don.demos.droidcon.common.pre2026Swatches
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
+import ke.don.resources.Resources
 import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
 
+private const val PHONE_ASPECT = 9f / 19.5f
 private const val MODULE_COUNT_FROM = 7
 private const val MODULE_COUNT_TO = 20
 private const val MODULE_TICK_MILLIS = 1600
-private const val FORM_FACTOR_STAGGER_MILLIS = 200
 private const val TWO_READERS_QUOTE_DELAY_MILLIS = 300
 private const val MODULE_TICK_DELAY_MILLIS = 400L
 
@@ -83,8 +86,9 @@ fun TwoReadersSlide() {
                     )
                 )
             }
-            MediaPlaceholder(
-                label = "Top of AGENTS.md",
+            SlideImage(
+                resource = Resources.Images.TOP_OF_AGENTS,
+                contentDescription = "Top of AGENTS.md",
                 modifier = Modifier.weight(1f)
             )
         }
@@ -214,8 +218,8 @@ fun MeasuredSlide() {
 }
 
 /**
- * S21. A new look. The then and now palettes reuse the swatch rows from `LaunchDesignSlide`, then four
- * form-factor placeholders for the sessions screen arrive one after another.
+ * S21. A new look. The then and now palettes reuse the swatch rows from `LaunchDesignSlide`, beside the 2026
+ * sessions screen at phone aspect.
  */
 @Composable
 fun NewLookSlide() {
@@ -225,38 +229,50 @@ fun NewLookSlide() {
             .padding(Values.Dimens.largePadding)
     ) {
         SlideTitle(title = "A new look", kicker = "Act 6")
-        SwatchRow(label = "Then: pre-2026 palette", swatches = pre2026Swatches())
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SwatchRow(label = "Now: 2026 scheme", swatches = currentSchemeSwatches())
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        BulletList(
-            items = listOf(
-                "Material 3 Expressive and the 2026 droidcon rebrand",
-                "Phones, foldables, tablets and desktop windows",
-                "Shared-element transitions and redesigned speakers",
-                "WCAG AA contrast tested for every colour pair"
-            )
-        )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         Row(
             modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
+            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
         ) {
-            listOf("Phone", "Foldable", "Tablet", "Desktop window").forEachIndexed { index, name ->
-                MediaPlaceholder(
-                    label = "Golden: $name, sessions screen",
+            Column(modifier = Modifier.weight(1f)) {
+                SwatchRow(label = "Then: pre-2026 palette", swatches = pre2026Swatches())
+                Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
+                SwatchRow(label = "Now: 2026 scheme", swatches = currentSchemeSwatches())
+                Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
+                BulletList(
+                    items = listOf(
+                        "Material 3 Expressive and the 2026 droidcon rebrand",
+                        "Phones, foldables, tablets and desktop windows",
+                        "Shared-element transitions and redesigned speakers",
+                        "WCAG AA contrast tested for every colour pair"
+                    )
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Text(
+                    text = "Credit: Joel Kanyi for the shared elements, mutukuian for the speakers redesign",
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
+            Column(
+                modifier = Modifier.fillMaxHeight().popIn(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)
+            ) {
+                SlideImage(
+                    resource = Resources.Images.SESSIONS_2026,
+                    contentDescription = "Sessions screen, 2026",
                     modifier = Modifier
                         .weight(1f)
-                        .popIn(delayMillis = index * FORM_FACTOR_STAGGER_MILLIS)
+                        .aspectRatio(PHONE_ASPECT, matchHeightConstraintsFirst = true)
+                )
+                Text(
+                    text = "Sessions, 2026",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Text(
-            text = "Credit: Joel Kanyi for the shared elements, mutukuian for the speakers redesign",
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.primary
-        )
         SourceLine(text = "Source: #410, #421, #425; git log")
     }
 }

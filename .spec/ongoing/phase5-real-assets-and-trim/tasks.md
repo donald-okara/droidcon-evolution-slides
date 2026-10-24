@@ -65,14 +65,14 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Serves:** R3, R4, R8
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/MeasuredSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/LiveSlides.kt (edit)
 
-- [ ] S18 `TwoReadersSlide`: replace the "Top of AGENTS.md" placeholder (MeasuredSlides.kt line 86) with `SlideImage(Resources.Images.TOP_OF_AGENTS, "Top of AGENTS.md")`.
-- [ ] S21 `NewLookSlide`: replace the four golden placeholders (line 246 loop) with one `SlideImage(Resources.Images.SESSIONS_2026, "Sessions screen, 2026")` at phone aspect, labelled "Sessions, 2026" (not "Golden"), beside the swatch rows.
-- [ ] S22 `CubeWidgetSlide`: remove the widget placeholder (LiveSlides.kt line 76); the cube from Task 2 takes the freed space.
-- [ ] S23 `FollowsConferenceSlide`: show the 2026 Home as the "before" state via `SlideImage(Resources.Images.HOME_2026, ...)` at phone aspect; remove "during" and "after" image slots but keep their text labels if the slide lists the three states.
-- [ ] S24 `LiveDemoSlide`: remove the scrcpy placeholder (line 180). Use `SplitSlide` (from Task 4): lead = `SlideTitle` alone (no focal element), details = the `DemoStepRow`s, keeping their pop-in.
-- [ ] Remove now-unused `MediaPlaceholder` imports.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18, S21, S22, S23, S24 (S24: title left, steps right).
-- [ ] Commit: `feat: real screenshots on S18, S21, S23, trim missing media`
+- [x] S18 `TwoReadersSlide`: replace the "Top of AGENTS.md" placeholder (MeasuredSlides.kt line 86) with `SlideImage(Resources.Images.TOP_OF_AGENTS, "Top of AGENTS.md")`.
+- [x] S21 `NewLookSlide`: replace the four golden placeholders (line 246 loop) with one `SlideImage(Resources.Images.SESSIONS_2026, "Sessions screen, 2026")` at phone aspect, labelled "Sessions, 2026" (not "Golden"), beside the swatch rows.
+- [x] S22 `CubeWidgetSlide`: remove the widget placeholder (LiveSlides.kt line 76); the cube from Task 2 takes the freed space.
+- [x] S23 `FollowsConferenceSlide`: show the 2026 Home as the "before" state via `SlideImage(Resources.Images.HOME_2026, ...)` at phone aspect; remove "during" and "after" image slots but keep their text labels if the slide lists the three states.
+- [x] S24 `LiveDemoSlide`: remove the scrcpy placeholder (line 180). Use `SplitSlide` (from Task 4): lead = `SlideTitle` alone (no focal element), details = the `DemoStepRow`s, keeping their pop-in.
+- [x] Remove now-unused `MediaPlaceholder` imports.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18, S21, S22, S23, S24 (S24: title left, steps right).
+- [x] Commit: `feat: real screenshots on S18, S21, S23, trim missing media`
 
 ### Task 6: Notes, asset list, and cleanup
 **Serves:** R4, R6
