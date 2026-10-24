@@ -1125,9 +1125,7 @@ app left on screen. The brand, the motion and the cube are all droidcon Kenya's 
 
 **Visual:** the cube spinning, with the Spec / Plan / Code chips.
 
-**Say:** The cube is pure play, and the plan has a list of easter eggs it could grow. The chips
-name the order the work went in: spec first, then plan, then code. That is a good habit, with or
-without an agent.
+**Say:** The cube is pure play, and the plan has a list of easter eggs it could grow.
 
 **Source:** #446.
 

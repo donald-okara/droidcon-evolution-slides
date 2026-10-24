@@ -128,8 +128,7 @@ val newLookNotes = listOf(
 
 val cubeWidgetNotes = listOf(
     AnnotatedString("The cube is pure play. It is drawn on a Compose canvas, and the plan has a list of easter eggs it could grow, so say that before anyone asks whether it does anything useful."),
-    AnnotatedString("The three chips are Spec, Plan and Code, the order this app's work went in: a design spec first, then a plan, then code. Each one is a file you can read, so point at the chips and say so. Do not claim the spec proves anything runs."),
-    AnnotatedString("Takeaway to return to: the cube is play, and the chips are the order the work went in. Hand-off cue: \"The app also follows the conference.\"")
+    AnnotatedString("Takeaway to return to: the cube is play. Hand-off cue: \"The app also follows the conference.\"")
 )
 
 val followsConferenceNotes = listOf(
