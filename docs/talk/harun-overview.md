@@ -1121,9 +1121,8 @@ app left on screen. The brand, the motion and the cube are all droidcon Kenya's 
 
 **On screen**
 - A 3D Rubik's cube hero, drawn on a Compose `Canvas`, spinning
-- Spec, Plan and Code chips beside the cube
 
-**Visual:** the cube spinning, with the Spec / Plan / Code chips.
+**Visual:** the cube spinning.
 
 **Say:** The cube is pure play, and the plan has a list of easter eggs it could grow.
 
@@ -1757,6 +1756,6 @@ date,stage,event
 | S23 | Home with a ticket | `feature/home/src/test/screenshots/screens/home_ticket` |
 | S21 | Phone, foldable, tablet, desktop | `phone.png`, `foldable.png`, `tablet.png` and `desktop.png` in any `form_factors/` folder, for example `feature/sessions/src/test/screenshots/form_factors/sessions` |
 | S19 | Module graph | The mermaid diagram in `README.md`. Render it with mermaid.live |
-| S22 | The cube spinning, with the Spec / Plan / Code chips | Screen recording from a phone |
+| S22 | The cube spinning | Screen recording from a phone |
 | S30 | Contributor avatars | The contributors section of `README.md` |
 | All | Brand | Colours and type from `core:designsystem` (chai); the 2026 droidcon identity from #425 |

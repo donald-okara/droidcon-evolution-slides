@@ -55,7 +55,7 @@ Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them
 | S19 | 6 | `y2026-modules` | Seven modules to twenty | 0 |
 | S20 | 6 | `y2026-measured` | Measured wins: cold start, APK, download, full AOT slower (D7) | 0 |
 | S21 | 6 | `y2026-new-look` | A new look: Material 3 Expressive and the 2026 rebrand | 0 |
-| S22 | 6 | `y2026-cube-widget` | The cube hero, with Spec / Plan / Code chips | 0 |
+| S22 | 6 | `y2026-cube-widget` | The cube hero, spinning on its own | 0 |
 | S23 | 6 | `y2026-follows-conference` | An app that follows the conference: before, during, after | 0 |
 | S25 | 6 | `y2026-stack` *(optional)* | The stack, layer by layer, 2018 to 2026 | 0 |
 | S26 | 6 | `y2026-code-grew` | How the code grew: LOC and test files (D4) | 0 |

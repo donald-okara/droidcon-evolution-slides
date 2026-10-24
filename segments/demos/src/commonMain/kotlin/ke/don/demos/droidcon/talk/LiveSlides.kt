@@ -1,8 +1,6 @@
 package ke.don.demos.droidcon.talk
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,15 +10,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.ColumnChart
@@ -37,13 +31,10 @@ import ke.don.resources.Resources
 private const val PHONE_ASPECT = 9f / 19.5f
 
 private const val PHASE_STAGGER_MILLIS = 250
-private const val WIDGET_CHIP_DELAY_MILLIS = 600
-private const val WIDGET_CHIP_STAGGER_MILLIS = 200
 private const val STACK_ROW_STAGGER_MILLIS = 120
 
 /**
- * S22. The cube. The cube is a hero drawn on a Compose canvas. Three chips name the order the work went in:
- * spec, then plan, then code.
+ * S22. The cube. The cube is a hero drawn on a Compose canvas, filling the space under the title.
  */
 @Composable
 fun CubeWidgetSlide() {
@@ -53,22 +44,7 @@ fun CubeWidgetSlide() {
             .padding(Values.Dimens.largePadding)
     ) {
         SlideTitle(title = "The cube", kicker = "Act 6")
-        Column(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-        ) {
-            SpinningCube(modifier = Modifier.fillMaxWidth().weight(1f).popIn())
-            Row(horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
-                listOf("Spec", "Plan", "Code").forEachIndexed { index, step ->
-                    WorkflowChip(
-                        text = step,
-                        modifier = Modifier
-                            .weight(1f)
-                            .popIn(delayMillis = WIDGET_CHIP_DELAY_MILLIS + index * WIDGET_CHIP_STAGGER_MILLIS)
-                    )
-                }
-            }
-        }
+        SpinningCube(modifier = Modifier.fillMaxWidth().weight(1f).popIn())
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         Text(
             text = "The cube is pure play. The plan has a list of easter eggs it could grow.",
@@ -273,21 +249,3 @@ fun CodeGrewSlide() {
     }
 }
 
-/** A small rounded label for the widget's build order. */
-@Composable
-private fun WorkflowChip(text: String, modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .clip(RoundedCornerShape(percent = 50))
-            .background(MaterialTheme.colorScheme.secondaryContainer)
-            .padding(horizontal = Values.Dimens.mediumPadding, vertical = Values.Dimens.smallPadding),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSecondaryContainer,
-            textAlign = TextAlign.Center
-        )
-    }
-}

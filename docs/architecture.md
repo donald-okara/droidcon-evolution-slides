@@ -32,13 +32,13 @@ Already documented elsewhere, so not repeated here:
 - Every slide sets `transition = ScreenTransition.Fade` itself, so `:core:domain` and the library stay untouched.
 - Reveal steps live in `DeckNavigator` (`SlideConfig.steps`, `currentStep`, `LocalRevealStep`), so both windows show the same step and web sync carries it in `DeckSyncState`. Each reveal slide exposes `const val <SLIDE>_STEPS`, used by the composable and by `steps =` in `SkiPresentationSlides.kt`, so the count can't drift.
 - Going back into a slide shows it fully revealed, and table-of-contents jumps start at step 0, because a presenter who steps back to point at something shouldn't re-click the reveals.
-- Media that isn't chosen yet is a labelled outlined placeholder (`MediaPlaceholder`), so gaps are visible in a dry run.
+- A slide shows media only if its file is in `shared/resources/src/commonMain/composeResources/drawable/`, rendered with `SlideImage`; media without a file is removed, not boxed, because labelled placeholders read as unfinished on stage. Slides left without media use `SplitSlide` (title and focal element left, details right) so they don't stretch into filler.
 - Commit-backed claims show a small monospace SHA tag (`CommitTag`), and improvements are animated stat tiles (`StatTile`) that count up. Direction (arrow) and meaning (green or red) are separate, so a drop that is good still reads green.
 - Startup figures follow `docs/performance.md` (cold start -22%, 1,335 to 1,047 ms, median of 15 runs); the 35% claim was dropped because it had no source command.
 - `EvolutionTimeline` uses common `hoverable` and click; the lit or clicked stage shows its details and hover only previews, and reveal steps light stages in order.
 - Every slide has a named delight moment built from shared blocks (`popIn`, `Confetti`, count-ups); one-shot effects fire from the reveal step or slide entry so both windows show them.
 - Only the Gradle `rootProject.name` is "droidcon-evolution-slides"; modules, packages and the published artifact keep the Ski names.
-- The corner background cube hides on S01 (`COLD_TITLE_LABEL`) so the hero is the only cube.
+- The spin-in cube hero is the shared `SpinningCube` (`ke.don.demos.droidcon.common`), reused by S01 and S22; the corner background cube hides on both by label (`COLD_TITLE_LABEL`, `CUBE_WIDGET_LABEL`) so the hero is the only cube.
 
 ## Known stale facts
 

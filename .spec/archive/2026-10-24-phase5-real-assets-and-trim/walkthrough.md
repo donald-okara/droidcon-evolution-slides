@@ -2,24 +2,25 @@
 
 ## Current state
 
-- All seven tasks done and reviewed PASS (Tasks 1-7). Real assets on S02, S09, S18, S21, S23; live cube on S01/S22; S03 removed; trimmed slides use `SplitSlide`.
-- Notes describe what is on screen and say trimmed media aloud; `docs/talk/needed-from-us.md` Include column filled; `MediaPlaceholder` deleted.
-- Open: desktop visual runs for Tasks 2-7 not done (compile-only). S10 caption "of them dynamic features" sits beside 13 with no 7 shown; copy needs fixing (outside this phase).
-- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
+- Shipped: six drawables in `Resources.Images` shown via `SlideImage` (S02 QRs, S09, S18, S21, S23); `SpinningCube` shared and live on S01/S22 with the corner cube hidden on both; S03 removed; every `MediaPlaceholder` trimmed and the block deleted; S07, S08, S12, S13, S15, S17 use `SplitSlide`.
+- After the tasks (same phase, outside the spec): S24 live demo slide removed (deck is 29 slides), S22 is cube-only (widget and Spec/Plan/Code chips removed), S10 caption shows "13 modules, 7 of them dynamic features", TOC entries numbered by position.
+- Notes say trimmed media aloud; `docs/talk/needed-from-us.md` Include column filled.
+- Not reviewed (no `/donatello:phase-review` run). Desktop visual runs for Tasks 2-7 not done; compile only.
+- Deferred: new assets (2018/2019 screenshots, chai cover, terminal/diff captures, recordings, goldens, widget); S32-S53; phase 4 "Open" items (showFooter on S01/S31, S14 confetti, constant names, `iosName` tidy); Android/iOS checks.
+- Carried over: none.
 - Known issues: Gradle build-cache store can fail transiently ("Could not pack tree ... shrunk-classpath-snapshot.bin") on `:segments:demos:compileKotlinJvm`; rerun once.
 
 ## How to verify
 
-- `./gradlew :segments:demos:compileKotlinJvm` passes (also compiles `:shared:resources`).
-- Read `shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt`: the `//Talk assets` group lists the six drawables.
-- Read `SlideImage` in `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt`: fit, no cropping, rounded clip and outline, no `fillMaxSize()`.
-- No slide uses `SlideImage` yet, so there is nothing to see on the desktop run.
-- Task 2: `./gradlew :composeApp:compileKotlinJvm`; desktop run: S01 and S22 show one big spinning cube and no corner cube; S21 shows the corner cube.
-- Task 3: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two square, fully visible QRs, next slide is the family tree.
-- Task 4: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the `settings.gradle.kts` image.
-- Task 6: `grep -rn "MediaPlaceholder" segments/` returns nothing; `./gradlew :composeApp:compileKotlinJvm` passes; read `docs/talk/needed-from-us.md` Include column.
-- Task 5: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18 (AGENTS.md image), S21 (Sessions 2026 phone shot beside swatches), S22 (full-width cube, chips beneath), S23 (2026 Home as before state), S24 (title left, steps right).
-- Task 7: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
+- `./gradlew :composeApp:compileKotlinJvm` passes.
+- `grep -rn "MediaPlaceholder\|SameAppSlide\|sameAppNotes\|LiveDemoSlide" composeApp segments` returns nothing.
+- `./gradlew :desktopApp:run`, then step through:
+  - S01 and S22: one large spinning cube, no corner cube; every other slide shows the corner cube. S22 shows only the cube, its caption and source line.
+  - S02: two square, uncropped QRs (Play listing, Repo); the next slide is the family tree (S04).
+  - S09 `settings.gradle.kts`, S18 top of AGENTS.md, S21 Sessions 2026 phone shot beside swatches, S23 2026 Home as the "before" state.
+  - S07, S08, S12, S13, S15, S17: title and focal element left, details right, no blank half.
+  - S10 reads "13 modules, 7 of them dynamic features"; S23 is followed by S25 (stack); the TOC numbers entries 1-29.
+- Read `docs/talk/needed-from-us.md`: every Include cell is `yes (<file>)` or `no (trimmed)`.
 
 ## Changes by task
 
@@ -67,4 +68,6 @@
 
 ## Deviations from spec
 
-- None.
+- R4/R8: S24 was later removed outright (dc97231) instead of using `SplitSlide`, so the split layout covers six slides, not seven.
+- R5/R3: S22 dropped the widget entirely and, after archiving, the Spec/Plan/Code chips too; only the live cube remains.
+- Outside the spec: S10 caption fix and numbered TOC entries (3753044, 66c62c0).
