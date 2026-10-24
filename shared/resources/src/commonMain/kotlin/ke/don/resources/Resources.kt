@@ -23,6 +23,14 @@ object Resources {
         val IVANA = Res.drawable.ivana_cajina
         val RAFAELLA = Res.drawable.rafaella_mendes
         val ANDROID_ROBOT = Res.drawable.android_head_3D
+
+        //Talk assets
+        val PLAY_QR = Res.drawable.playstore_droidcon_kotlin
+        val REPO_QR = Res.drawable.github_droidcon_ke_kotlin
+        val HOME_2026 = Res.drawable.home_screen_2026_w_agenda
+        val SESSIONS_2026 = Res.drawable.sessions_2026
+        val SETTINGS_GRADLE = Res.drawable.settings_gradle
+        val TOP_OF_AGENTS = Res.drawable.top_of_agents
     }
 
     object Videos {

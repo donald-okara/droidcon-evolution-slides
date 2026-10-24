@@ -2,6 +2,7 @@ package ke.don.demos.droidcon.common
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -24,12 +25,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ke.don.domain.values.Values
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.painterResource
 
 /**
  * The title block for a content slide, with an optional kicker line above the title.
@@ -215,4 +219,28 @@ fun MediaPlaceholder(label: String, modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center
         )
     }
+}
+
+/**
+ * A drawable from `Resources.Images`, fitted inside its box without cropping, with the same rounded outline as [MediaPlaceholder].
+ *
+ * Does not set a size: the caller sizes it, for example with `fillMaxSize()` or an aspect ratio.
+ *
+ * @param resource The drawable to show.
+ * @param contentDescription What the image shows, read by screen readers.
+ */
+@Composable
+fun SlideImage(resource: DrawableResource, contentDescription: String, modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(resource),
+        contentDescription = contentDescription,
+        contentScale = ContentScale.Fit,
+        modifier = modifier
+            .clip(RoundedCornerShape(Values.Dimens.smallPadding))
+            .border(
+                width = 1.dp,
+                color = MaterialTheme.colorScheme.outline,
+                shape = RoundedCornerShape(Values.Dimens.smallPadding)
+            )
+    )
 }
