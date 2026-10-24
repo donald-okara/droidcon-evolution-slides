@@ -26,19 +26,15 @@ Assets the talk asked for, and whether each one is in the deck now. Fill in **In
 | S21 | Goldens: Tablet (sessions screen) | screenshot | no (trimmed) |
 | S21 | Goldens: Desktop (sessions screen) | screenshot | no (trimmed) |
 | S22 | Cube hero: 3D Rubik's cube on a Compose Canvas | live Canvas or recording (confirm) | yes (live CubeHero) |
-| S22 | Glance widget: what's on now and next | screenshot or recording | no (trimmed) |
 | S23 | Home: before | screenshot | yes (home_screen_2026_w_agenda.jpeg) |
 | S23 | Home: during | screenshot | no (trimmed) |
 | S23 | Home: after | screenshot | no (trimmed) |
-| S24 | Phone mirrored with scrcpy, plus fallback video | live mirror, recording | no (slide removed) |
 
 ## Other items from the overview
 
 - **Release APK behind a QR** as a fallback in case the Play rollout has not reached every phone (S02, and the 09:30 door slot).
-- **Fallback video of the whole demo**, recorded on Friday with scrcpy (S24).
-- **Cube and widget screen recording** from a phone (S22).
+- **Cube screen recording** from a phone (S22).
 - **Home ticket golden** (`home_ticket`) for S23.
-- **Live ticket buyer**: pick the person in advance and do a Friday dry run on mobile data (overview decision 1).
 - **Bounty-issue QR** and "QR codes, and the cube" (overview lines near 1371 and 1509): confirm which slide they belong to.
 
 ## To check

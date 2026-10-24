@@ -40,7 +40,7 @@ Describes the current state of the talk material; updated as phases ship.
 ## Reveals
 
 - A slide can declare reveal steps (default 0). Right, Space and Enter show the next hidden item before moving on; Left hides the last one. Going back into a slide shows it fully revealed; table-of-contents jumps open at step 0.
-- S04 has 7 steps, S24 has 6, S29 has 4.
+- S04 has 7 steps, S29 has 4.
 - The presenter and audience windows show the same step on desktop, and the web `/?slides` popup follows the step as well as the slide index.
 
 ## Timeline, charts and delight

@@ -30,7 +30,7 @@ Ten minutes remain in the 40-minute session for Q&A.
 
 ## Slide list
 
-Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them. Reveal steps come from the slide's reveal state (`context.md` rule 1); S04 has 7 stages, S24 has 6 demo steps, S29 has 4 lessons, and the rest have 0. S25 is optional.
+Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them. Reveal steps come from the slide's reveal state (`context.md` rule 1); S04 has 7 stages, S29 has 4 lessons, and the rest have 0. S25 is optional.
 
 | # | Act | Label | Intent | Reveal steps |
 |---|-----|-------|--------|--------------|
@@ -55,9 +55,8 @@ Labels are kebab-case and match `slide(label = ...)` once Task 11 registers them
 | S19 | 6 | `y2026-modules` | Seven modules to twenty | 0 |
 | S20 | 6 | `y2026-measured` | Measured wins: cold start, APK, download, full AOT slower (D7) | 0 |
 | S21 | 6 | `y2026-new-look` | A new look: Material 3 Expressive and the 2026 rebrand | 0 |
-| S22 | 6 | `y2026-cube-widget` | The cube hero and the Glance widget | 0 |
+| S22 | 6 | `y2026-cube-widget` | The cube hero, with Spec / Plan / Code chips | 0 |
 | S23 | 6 | `y2026-follows-conference` | An app that follows the conference: before, during, after | 0 |
-| S24 | 6 | `y2026-live-demo` | Live demo: time travel, clashes, widget, purchase to pass | 6 |
 | S25 | 6 | `y2026-stack` *(optional)* | The stack, layer by layer, 2018 to 2026 | 0 |
 | S26 | 6 | `y2026-code-grew` | How the code grew: LOC and test files (D4) | 0 |
 | S27 | 7 | `lessons-lost-and-found` | Lost and found: what came back, what didn't | 0 |

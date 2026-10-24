@@ -78,22 +78,19 @@ Kotlin, no device) · demos and results 20 min.
 - **The build includes ticketing.** It merged to `main` as #453 on 2026-10-22, and everyone hunts
   on that build. Keep a release APK on a QR code as a fallback, in case the Play rollout hasn't
   reached every phone.
-- **Tickets are real.** One person buys a ticket during the talk and shows the pass live (slide
-  S24). Anyone who already has a ticket can add theirs for the "At the door" quest.
+- **Tickets are real.** Anyone who already has a ticket can add theirs for the "At the door" quest.
 
 **Still to decide:**
 
 | # | Decision | Recommendation |
 | --- | --- | --- |
-| 1 | **Who buys the live ticket?** | Pick them in advance and do a dry run on Friday with a ticket bought the same way. Check how long the ticket email takes to arrive. Buy and add it on **mobile data**, not the venue Wi-Fi (see 2). Keep the Friday ticket as the fallback if the email is slow. |
-| 2 | **Rate limit at the venue.** The lookup allows 30 requests a minute per IP, and the whole room shares the Wi-Fi's address. | Ask ticket holders to add their ticket **at home on Friday**. On the day, the "At the door" quest uses mobile data. |
-| 3 | **Scanning the live ticket.** | Scan it with an ordinary camera app, which shows the check-in address. **Don't scan it with the real gate check-in** unless the organisers confirm that a meetup scan won't affect entry on conference day. |
-| 4 | **Debug or release?** | Release for hunting. R8-only bugs only show there; #446 fixed a release-only crash. Debug builds include Chucker, so for network bugs a hunter can reproduce on debug and attach the Chucker export. |
-| 5 | **Reviewers.** `.github/CODEOWNERS` was deleted on 2026-08-13. | Name 2–3 reviewers for bash PRs on the day. |
-| 6 | **Labels and template.** The repo has only GitHub's default labels. The existing bug template is stale (it asks for a "Recoin version" and an iOS browser). | Create `bounty`, `bounty:confirmed`, `bounty:duplicate`, `a11y` and `feature-bash`. Add the template in Appendix A as `.github/ISSUE_TEMPLATE/bounty.md`. |
-| 7 | **Prizes**, including whether the live ticket buyer is reimbursed. | See the prize table in 2.8. Fill in the actual prizes. |
-| 8 | **Device pool.** | At least one tablet or foldable, one old phone on Android 8 (minSdk is 26), one small phone, and a Chromebook or desktop window if available. Bingo needs them. |
-| 9 | **Notifications PR.** #448 (reminders, typed pushes, settings, deep links) is open. | Keep it out of the bash so nobody collides with it. If it merges before Saturday, add its features to the bounty scope. |
+| 1 | **Rate limit at the venue.** The lookup allows 30 requests a minute per IP, and the whole room shares the Wi-Fi's address. | Ask ticket holders to add their ticket **at home on Friday**. On the day, the "At the door" quest uses mobile data. |
+| 2 | **Debug or release?** | Release for hunting. R8-only bugs only show there; #446 fixed a release-only crash. Debug builds include Chucker, so for network bugs a hunter can reproduce on debug and attach the Chucker export. |
+| 3 | **Reviewers.** `.github/CODEOWNERS` was deleted on 2026-08-13. | Name 2–3 reviewers for bash PRs on the day. |
+| 4 | **Labels and template.** The repo has only GitHub's default labels. The existing bug template is stale (it asks for a "Recoin version" and an iOS browser). | Create `bounty`, `bounty:confirmed`, `bounty:duplicate`, `a11y` and `feature-bash`. Add the template in Appendix A as `.github/ISSUE_TEMPLATE/bounty.md`. |
+| 5 | **Prizes.** | See the prize table in 2.8. Fill in the actual prizes. |
+| 6 | **Device pool.** | At least one tablet or foldable, one old phone on Android 8 (minSdk is 26), one small phone, and a Chromebook or desktop window if available. Bingo needs them. |
+| 7 | **Notifications PR.** #448 (reminders, typed pushes, settings, deep links) is open. | Keep it out of the bash so nobody collides with it. If it merges before Saturday, add its features to the bounty scope. |
 
 ### Pre-work for participants (send on Thursday)
 
@@ -395,28 +392,8 @@ Part 4 has the slides for each act.
 | 3 | **2020: the modular one** | 3 | S09–S10 | Its own structure, 120 stars. **Hand the mic to someone from 2020** for the conference that didn't happen |
 | 4 | **2022: Compose arrives** | 3 | S11–S12 | About two dozen volunteers, five months, Compose in production. **Standing on its own:** its own designs and chai |
 | 5 | **2023–25: one repo** | 5 | S13–S17 | Evergreen repo carried forward; the 2023 community peak; the quiet 2024; the KMP thread; Navigation 3 |
-| 6 | **2026: measured** | 8 | S18–S26 | Two kinds of reader, 20 modules, measured wins, the new look. **Live demo, ending on the live ticket** |
+| 6 | **2026: measured** | 8 | S18–S26 | Two kinds of reader, 20 modules, measured wins, the new look |
 | 7 | **Lessons and the ask** | 3 | S27–S31 | From clone to its own app. "The code grew; the community didn't. Let's fix that this afternoon." Hand over to the bounty |
-
-#### Live demo, 4 minutes in act 6
-
-Record a fallback video on Friday. Mirror the phone with `scrcpy`.
-
-1. Home with the cube hero. Pull to refresh.
-2. Set the phone's date to day 1 of the conference. Home switches to the agenda with clashes. This
-   works because `TimeModule` provides `Clock.System` and the phase is derived from session
-   instants. Rehearse it, and **set the date back** before step 5.
-3. Star two overlapping sessions. The clash banner appears.
-4. Add the Next-session widget to the launcher.
-5. **From purchase to pass, live.** Someone in the audience, chosen and rehearsed in advance, buys a
-   droidcon ticket on their phone. It must be on mobile data. When the email arrives, they add the
-   ticket in the app by number and email. The pass fills the screen at full brightness. A volunteer
-   points an ordinary camera app at it and the check-in address appears on the projector. Then
-   turn on airplane mode and reopen the pass: it is still there.
-   - **If the email is slow:** carry on with the talk and come back to it at the end of act 7. If it
-     never arrives, use the ticket from Friday's dry run.
-   - **Don't scan it with the real gate check-in** (see the decisions above).
-6. Optional: a tablet or resizable emulator showing list-detail.
 
 #### "Git archaeology" moment, 1 minute, live in the terminal
 
@@ -485,7 +462,7 @@ also makes the accessibility finds the most valuable ones.
 **Out of scope (do not do these):**
 
 - The backend, the API, or the Firebase project. No scripted requests, no load testing, no fuzzing endpoints.
-- Looking up anybody else's ticket. The lookup is by number plus email by design. Use only your own ticket, or the one bought live in the talk.
+- Looking up anybody else's ticket. The lookup is by number plus email by design. Use only your own ticket.
 - Denial of service, social engineering, or anything on other attendees' phones.
 - **App-side security issues** (data in logs, exported components, storage): report these **privately to the organisers**, not as a public issue. They still score (see 2.4).
 
@@ -559,7 +536,7 @@ is fragile or untested.
 5. **Two panes.** On a tablet, foldable or resizable window: open a session beside the list,
    rotate, resize, press back. Does the right thing stay selected? (§4.4 says there is no selected
    state yet. Treat that as known; look for things that are *worse* than that.)
-6. **At the door** (needs a ticket: your own, or the one bought live in the talk). Add it by number
+6. **At the door** (needs your own ticket). Add it by number
    and by scanning a printed code. Use mobile data, not the venue Wi-Fi. Set brightness to minimum,
    then scan the pass with another phone's camera. Repeat in dark theme, at 200% font, and with no
    network. Try removing it and adding it again. Only touch your own ticket.
@@ -1140,19 +1117,19 @@ app left on screen. The brand, the motion and the cube are all droidcon Kenya's 
 
 **Source:** #410, #421, #425; git log.
 
-#### S22 · The cube and the widget
+#### S22 · The cube
 
 **On screen**
-- A 3D Rubik's cube hero, drawn on a Compose `Canvas`
-- A Glance home-screen widget: what's on now and next
-- The widget was built spec → plan → code
+- A 3D Rubik's cube hero, drawn on a Compose `Canvas`, spinning
+- Spec, Plan and Code chips beside the cube
 
-**Visual:** the cube animating; the widget on a launcher.
+**Visual:** the cube spinning, with the Spec / Plan / Code chips.
 
-**Say:** The cube is pure play, and the plan has a list of easter eggs it could grow. The widget is
-donald-okara's, written as a design spec first. That is a good habit, with or without an agent.
+**Say:** The cube is pure play, and the plan has a list of easter eggs it could grow. The chips
+name the order the work went in: spec first, then plan, then code. That is a good habit, with or
+without an agent.
 
-**Source:** #446; the widget commits, Oct 2026.
+**Source:** #446.
 
 #### S23 · An app that follows the conference
 
@@ -1169,18 +1146,6 @@ donald-okara's, written as a design spec first. That is a good habit, with or wi
 **Say:** The app reads the clock and the schedule and changes with the event. Let's see it.
 
 **Source:** `core/domain/.../schedule/Schedule.kt`; #451, #453.
-
-#### S24 · Live demo: from purchase to pass
-
-**On screen**
-- 1. Time travel · 2. Clashes · 3. Widget · 4. **A ticket, bought now**
-
-**Visual:** the phone mirrored with `scrcpy`. Keep a recorded fallback video ready.
-
-**Say:** Follow the demo steps in 1.7. The highlight: a volunteer buys a ticket on their phone
-(mobile data), adds it in the app, and the pass fills the screen. A camera app shows the check-in
-address. Turn on airplane mode, and the pass is still there. If the email is late, come back to it
-before the bounty.
 
 #### S25 · The stack, layer by layer *(optional)*
 
@@ -1794,7 +1759,6 @@ date,stage,event
 | S23 | Home with a ticket | `feature/home/src/test/screenshots/screens/home_ticket` |
 | S21 | Phone, foldable, tablet, desktop | `phone.png`, `foldable.png`, `tablet.png` and `desktop.png` in any `form_factors/` folder, for example `feature/sessions/src/test/screenshots/form_factors/sessions` |
 | S19 | Module graph | The mermaid diagram in `README.md`. Render it with mermaid.live |
-| S22 | The cube animating, the widget | Screen recording from a phone |
-| S24 | Demo fallback | A screen recording of the whole demo, made on Friday |
+| S22 | The cube spinning, with the Spec / Plan / Code chips | Screen recording from a phone |
 | S30 | Contributor avatars | The contributors section of `README.md` |
 | All | Brand | Colours and type from `core:designsystem` (chai); the 2026 droidcon identity from #425 |

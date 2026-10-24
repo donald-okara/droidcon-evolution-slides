@@ -50,7 +50,7 @@ val y2019AllJetpackNotes = listOf(
 
 val y2020ModularNotes = listOf(
     AnnotatedString("The big figure is 13, the Gradle modules in the 2020 settings.gradle.kts, and the image on the right is that include block. This is the biggest jump in ambition: static analysis and CI through GitHub Actions came with the split. The count is of Gradle modules, so it does not measure how well they are split."),
-    AnnotatedString("Dynamic features were the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
+    AnnotatedString("Seven of the 13 are dynamic features, the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
     AnnotatedString("On the I/O thread, this is the first README without the I/O app's words, and the first architecture the team designed for itself. Takeaway to return to: the team learned modules here.")
 )
 

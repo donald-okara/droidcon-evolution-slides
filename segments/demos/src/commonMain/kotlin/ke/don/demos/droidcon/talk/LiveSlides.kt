@@ -75,7 +75,7 @@ fun CubeWidgetSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        SourceLine(text = "Source: #446; the widget commits, Oct 2026")
+        SourceLine(text = "Source: #446, Oct 2026")
     }
 }
 

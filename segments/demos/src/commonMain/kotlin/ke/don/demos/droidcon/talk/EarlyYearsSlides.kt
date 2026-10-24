@@ -286,7 +286,7 @@ fun Y2020ModularSlide() {
             ) {
                 ModuleCountUp(target = MODULE_COUNT)
                 Text(
-                    text = "of them dynamic features",
+                    text = "modules, $DYNAMIC_FEATURE_COUNT of them dynamic features",
                     style = MaterialTheme.typography.headlineSmall,
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -311,6 +311,7 @@ fun Y2020ModularSlide() {
 
 /** The number of modules in the 2020 app's `settings.gradle.kts`, from Appendix D. */
 private const val MODULE_COUNT = 13
+private const val DYNAMIC_FEATURE_COUNT = 7
 
 /**
  * The module count as a large figure. It counts up from zero when the slide first composes.
