@@ -123,26 +123,19 @@ val measuredNotes = listOf(
 val newLookNotes = listOf(
     AnnotatedString("The tablet promise from 2018 is finally kept. The sessions screen now adapts to phones, foldables, tablets and desktop windows. The image shows the phone version, so say the other three aloud, since their screenshots are trimmed."),
     AnnotatedString("Credit Joel Kanyi for the shared-element transitions and mutukuian for the redesigned speakers. The WCAG AA check covers every colour pair, and it does not measure how the palette feels to a reader with low vision."),
-    AnnotatedString("Takeaway to return to: nothing of the I/O app is left on screen, and the brand, the motion and the cube are droidcon Kenya's own. Hand-off cue: \"That is 2026. The next act is the live demo.\"")
+    AnnotatedString("Takeaway to return to: nothing of the I/O app is left on screen, and the brand, the motion and the cube are droidcon Kenya's own. Hand-off cue: \"That is 2026. Now, the cube.\"")
 )
 
 val cubeWidgetNotes = listOf(
     AnnotatedString("The cube is pure play. It is drawn on a Compose canvas, and the plan has a list of easter eggs it could grow, so say that before anyone asks whether it does anything useful."),
-    AnnotatedString("The three chips are Spec, Plan and Code. The widget is donald-okara's, and it was written as a design spec first, then a plan, then code. Its screenshot is trimmed, so describe the widget aloud. A spec does not prove the widget works on every launcher, so the phone demo on the next slides is the proof."),
-    AnnotatedString("Takeaway to return to: spec, plan, code, and each one is a file you can read. Hand-off cue: \"The app also follows the conference. Let's see it.\"")
+    AnnotatedString("The three chips are Spec, Plan and Code, the order this app's work went in: a design spec first, then a plan, then code. Each one is a file you can read, so point at the chips and say so. Do not claim the spec proves anything runs."),
+    AnnotatedString("Takeaway to return to: the cube is play, and the chips are the order the work went in. Hand-off cue: \"The app also follows the conference.\"")
 )
 
 val followsConferenceNotes = listOf(
     AnnotatedString("The app reads the clock and the schedule, and the home screen changes with the event: a countdown before, today's agenda with clashes during, and a thank-you with a feedback link after."),
-    AnnotatedString("The image is the home screen before the conference. The during and after screens are trimmed, so describe them from the three labels. The phase comes from the clock and the session times, not from a switch, which is why the live demo can move the phone's date to show the agenda."),
-    AnnotatedString("Takeaway to return to: the app changes with the event, not with a release. Hand-off cue: \"Let's see it live.\"")
-)
-
-val liveDemoNotes = listOf(
-    AnnotatedString("This is the live demo, about four minutes of the act. The six steps on the slide are the run order. Switch to the scrcpy window for the phone mirror, and have the fallback video recorded on Friday ready to play if the mirror drops or the phone misbehaves."),
-    AnnotatedString("Set the phone's date to conference day 1 for step 2, and the home screen switches to the agenda with clashes. Rehearse that change first. Set the date back before step 5, as rehearsed, so the purchase runs on the right day."),
-    AnnotatedString("Step 5 needs the chosen volunteer on mobile data, not venue Wi-Fi. If the email is slow, carry on and come back to it at the end of act 7; if it never arrives, use the ticket from Friday's dry run. Do not scan the pass with the real gate check-in."),
-    AnnotatedString("Takeaway to return to: turn on airplane mode and reopen the pass, and it is still there. The checks fill as each step arrives, so keep to the order. Hand-off cue: \"Now the stack, layer by layer.\"")
+    AnnotatedString("The image is the home screen before the conference. The during and after screens are trimmed, so describe them from the three labels. The phase comes from the clock and the session times, not from a switch, which is why changing the phone's date changes the screen."),
+    AnnotatedString("Takeaway to return to: the app changes with the event, not with a release. Hand-off cue: \"Now, the stack.\"")
 )
 
 val stackNotes = listOf(

@@ -16,8 +16,6 @@ import ke.don.demos.droidcon.talk.FAMILY_TREE_STEPS
 import ke.don.demos.droidcon.talk.FamilyTreeSlide
 import ke.don.demos.droidcon.talk.FollowsConferenceSlide
 import ke.don.demos.droidcon.talk.KmpThreadSlide
-import ke.don.demos.droidcon.talk.LIVE_DEMO_STEPS
-import ke.don.demos.droidcon.talk.LiveDemoSlide
 import ke.don.demos.droidcon.talk.LostAndFoundSlide
 import ke.don.demos.droidcon.talk.MeasuredSlide
 import ke.don.demos.droidcon.talk.ModulesSlide
@@ -149,14 +147,6 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
                 transition = ScreenTransition.Fade
             ) {
                 FollowsConferenceSlide()
-            }
-            slide(
-                label = "y2026-live-demo",
-                notes = liveDemoNotes,
-                transition = ScreenTransition.Fade,
-                steps = LIVE_DEMO_STEPS
-            ) {
-                LiveDemoSlide()
             }
             slide(label = "y2026-stack", notes = stackNotes, transition = ScreenTransition.Fade) {
                 StackSlide()

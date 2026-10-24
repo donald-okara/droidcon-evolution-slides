@@ -1,7 +1,5 @@
 package ke.don.demos.droidcon.talk
 
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,38 +12,27 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.ColumnChart
-import ke.don.demos.droidcon.common.RevealItem
 import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
-import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.SpinningCube
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.popIn
-import ke.don.domain.LocalRevealStep
 import ke.don.domain.values.Values
 import ke.don.resources.Resources
-
-/** The number of reveal steps on the live demo slide: one per demo step, in the order of section 1.7. */
-const val LIVE_DEMO_STEPS = 6
 
 private const val PHONE_ASPECT = 9f / 19.5f
 
@@ -53,12 +40,10 @@ private const val PHASE_STAGGER_MILLIS = 250
 private const val WIDGET_CHIP_DELAY_MILLIS = 600
 private const val WIDGET_CHIP_STAGGER_MILLIS = 200
 private const val STACK_ROW_STAGGER_MILLIS = 120
-private const val DEMO_STEP_CHECK_SIZE_DP = 28
-private const val DEMO_STEP_SCALE_HIDDEN = 0.6f
 
 /**
- * S22. The cube and the widget. The cube is a hero drawn on a Compose canvas; the widget shows what is on now
- * and next. Three chips name the order the widget was built in: spec, then plan, then code.
+ * S22. The cube. The cube is a hero drawn on a Compose canvas. Three chips name the order the work went in:
+ * spec, then plan, then code.
  */
 @Composable
 fun CubeWidgetSlide() {
@@ -67,7 +52,7 @@ fun CubeWidgetSlide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "The cube and the widget", kicker = "Act 6")
+        SlideTitle(title = "The cube", kicker = "Act 6")
         Column(
             modifier = Modifier.fillMaxWidth().weight(1f),
             verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
@@ -148,34 +133,6 @@ fun FollowsConferenceSlide() {
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: core/domain/.../schedule/Schedule.kt; #451, #453. Goldens: home_before, home_agenda, home_after")
     }
-}
-
-/**
- * S24. Live demo: from purchase to pass. The six demo steps from section 1.7 reveal one at a time, and each
- * check fills in as its step arrives. The title sits left and the steps sit right, in [SplitSlide].
- */
-@Composable
-fun LiveDemoSlide() {
-    SplitSlide(
-        modifier = Modifier.padding(Values.Dimens.largePadding),
-        lead = {
-            SlideTitle(title = "Live demo: from purchase to pass", kicker = "Act 6")
-        },
-        details = {
-            DemoStepRow(number = 1, text = "Time travel: home with the cube hero, pull to refresh")
-            DemoStepRow(number = 2, text = "Clashes: set the date to conference day 1, the agenda appears")
-            DemoStepRow(number = 3, text = "Widget: star two overlapping sessions, the clash banner appears")
-            DemoStepRow(number = 4, text = "Add the Next-session widget to the launcher")
-            DemoStepRow(number = 5, text = "A ticket, bought now: purchase on mobile data, add it, show the pass")
-            DemoStepRow(number = 6, text = "Optional: tablet or resizable window, list-detail")
-            Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-            Text(
-                text = "Airplane mode, then reopen the pass: it is still there.",
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
-        }
-    )
 }
 
 /**
@@ -313,52 +270,6 @@ fun CodeGrewSlide() {
             color = MaterialTheme.colorScheme.primary
         )
         SourceLine(text = "Source: snapshots from git ls-tree (D4)")
-    }
-}
-
-/**
- * One demo step. Its number becomes a check mark and the row brightens once the reveal reaches it.
- * The check springs from a smaller size, so each step reads as ticked off as it arrives.
- */
-@Composable
-private fun DemoStepRow(number: Int, text: String) {
-    RevealItem(index = number) {
-        val done = LocalRevealStep.current >= number
-        val pop by animateFloatAsState(
-            targetValue = if (done) 1f else DEMO_STEP_SCALE_HIDDEN,
-            animationSpec = spring(dampingRatio = 0.5f, stiffness = 400f),
-            label = "demoStepPop"
-        )
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(DEMO_STEP_CHECK_SIZE_DP.dp)
-                    .graphicsLayer {
-                        scaleX = pop
-                        scaleY = pop
-                    }
-                    .clip(CircleShape)
-                    .background(
-                        if (done) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant
-                    ),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = if (done) "✓" else "$number",
-                    style = MaterialTheme.typography.labelLarge,
-                    color = if (done) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center
-                )
-            }
-            Text(
-                text = text,
-                style = MaterialTheme.typography.titleMedium,
-                color = if (done) MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
     }
 }
 

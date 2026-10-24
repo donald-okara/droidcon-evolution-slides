@@ -30,7 +30,7 @@ Assets the talk asked for, and whether each one is in the deck now. Fill in **In
 | S23 | Home: before | screenshot | yes (home_screen_2026_w_agenda.jpeg) |
 | S23 | Home: during | screenshot | no (trimmed) |
 | S23 | Home: after | screenshot | no (trimmed) |
-| S24 | Phone mirrored with scrcpy, plus fallback video | live mirror, recording | no (trimmed) |
+| S24 | Phone mirrored with scrcpy, plus fallback video | live mirror, recording | no (slide removed) |
 
 ## Other items from the overview
 
