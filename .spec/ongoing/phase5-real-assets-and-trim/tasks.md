@@ -18,11 +18,11 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Files:** shared/resources/src/commonMain/kotlin/ke/don/resources/Resources.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (edit)
 **Pattern:** composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/Components.kt (the `Image(painter = painterResource(...))` at line 130)
 
-- [ ] In `Resources.Images`, add a `//Talk assets` group: `PLAY_QR = Res.drawable.playstore_droidcon_kotlin`, `REPO_QR = Res.drawable.github_droidcon_ke_kotlin`, `HOME_2026 = Res.drawable.home_screen_2026_w_agenda`, `SESSIONS_2026 = Res.drawable.sessions_2026`, `SETTINGS_GRADLE = Res.drawable.settings_gradle`, `TOP_OF_AGENTS = Res.drawable.top_of_agents`.
-- [ ] In `common/SlideBlocks.kt`, next to `MediaPlaceholder`, add `SlideImage(resource: DrawableResource, contentDescription: String, modifier: Modifier = Modifier)`: an `Image` with `painterResource(resource)`, `ContentScale.Fit`, clipped and bordered with the same shape and outline as `MediaPlaceholder`. It must not call `fillMaxSize()` itself, so callers size it.
-- [ ] Add a KDoc line matching the file's style.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`
-- [ ] Commit: `feat: register talk drawables and add SlideImage`
+- [x] In `Resources.Images`, add a `//Talk assets` group: `PLAY_QR = Res.drawable.playstore_droidcon_kotlin`, `REPO_QR = Res.drawable.github_droidcon_ke_kotlin`, `HOME_2026 = Res.drawable.home_screen_2026_w_agenda`, `SESSIONS_2026 = Res.drawable.sessions_2026`, `SETTINGS_GRADLE = Res.drawable.settings_gradle`, `TOP_OF_AGENTS = Res.drawable.top_of_agents`.
+- [x] In `common/SlideBlocks.kt`, next to `MediaPlaceholder`, add `SlideImage(resource: DrawableResource, contentDescription: String, modifier: Modifier = Modifier)`: an `Image` with `painterResource(resource)`, `ContentScale.Fit`, clipped and bordered with the same shape and outline as `MediaPlaceholder`. It must not call `fillMaxSize()` itself, so callers size it.
+- [x] Add a KDoc line matching the file's style.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm`
+- [x] Commit: `feat: register talk drawables and add SlideImage`
 
 ### Task 2: Lift SpinningCube and show the live cube on S22
 **Serves:** R5
