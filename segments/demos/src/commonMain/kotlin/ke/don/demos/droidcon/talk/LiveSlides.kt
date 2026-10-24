@@ -32,6 +32,7 @@ import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.RevealItem
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SpinningCube
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
@@ -65,10 +66,7 @@ fun CubeWidgetSlide() {
             modifier = Modifier.fillMaxWidth().weight(1f),
             horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
         ) {
-            MediaPlaceholder(
-                label = "Cube hero: a 3D Rubik's cube on a Compose Canvas",
-                modifier = Modifier.weight(1f).popIn()
-            )
+            SpinningCube(modifier = Modifier.weight(1f).popIn())
             Column(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)

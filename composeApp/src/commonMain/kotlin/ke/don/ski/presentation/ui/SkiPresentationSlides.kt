@@ -5,6 +5,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import ke.don.demos.droidcon.talk.BreakItSlide
 import ke.don.demos.droidcon.talk.COLD_TITLE_LABEL
+import ke.don.demos.droidcon.talk.CUBE_WIDGET_LABEL
 import ke.don.demos.droidcon.talk.CodeGrewSlide
 import ke.don.demos.droidcon.talk.ChaiSlide
 import ke.don.demos.droidcon.talk.CommunityPeakSlide
@@ -143,7 +144,7 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             slide(label = "y2026-new-look", notes = newLookNotes, transition = ScreenTransition.Fade) {
                 NewLookSlide()
             }
-            slide(label = "y2026-cube-widget", notes = cubeWidgetNotes, transition = ScreenTransition.Fade) {
+            slide(label = CUBE_WIDGET_LABEL, notes = cubeWidgetNotes, transition = ScreenTransition.Fade) {
                 CubeWidgetSlide()
             }
             slide(

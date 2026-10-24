@@ -6,7 +6,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -24,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -34,9 +32,9 @@ import ke.don.demos.droidcon.common.EvolutionStages
 import ke.don.demos.droidcon.common.EvolutionTimeline
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
+import ke.don.demos.droidcon.common.SpinningCube
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
-import ke.don.design.cube.CubeHero
 import ke.don.domain.values.Values
 import kotlin.math.roundToInt
 
@@ -47,13 +45,14 @@ const val FAMILY_TREE_STEPS = 7
 private const val FAMILY_TREE_GAP_AFTER = 2
 
 private const val COUNT_UP_MILLIS = 1200
-private const val CUBE_SPIN_MILLIS = 900
 private const val QR_STAGGER_MILLIS = 150
 private const val FLAG_DELAY_MILLIS = 900
-private const val CUBE_HERO_FILL = 0.9f
 
 /** The label of S01. The deck hides its background cube on this slide, because the hero replaces it. */
 const val COLD_TITLE_LABEL = "cold-title"
+
+/** The label of S22. The deck hides its background cube on this slide too, because the live cube hero replaces it. */
+const val CUBE_WIDGET_LABEL = "y2026-cube-widget"
 
 /**
  * S01. The title: the talk's name, the meetup line, and this year's cube hero, which spins into place.
@@ -83,24 +82,6 @@ fun TitleSlide() {
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = Values.Dimens.mediumPadding)
         )
-    }
-}
-
-/**
- * The cube hero. It turns from edge-on to face-on once, when the slide first composes. It is sized from the
- * space it is given, so it fills most of the height above the title and stays square.
- */
-@Composable
-private fun SpinningCube(modifier: Modifier = Modifier) {
-    val turn = remember { Animatable(-90f) }
-    LaunchedEffect(Unit) {
-        turn.animateTo(0f, tween(durationMillis = CUBE_SPIN_MILLIS, easing = FastOutSlowInEasing))
-    }
-    BoxWithConstraints(
-        modifier = modifier.graphicsLayer { rotationY = turn.value },
-        contentAlignment = Alignment.Center
-    ) {
-        CubeHero(size = minOf(maxWidth, maxHeight) * CUBE_HERO_FILL)
     }
 }
 

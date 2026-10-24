@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import ke.don.demos.droidcon.talk.COLD_TITLE_LABEL
+import ke.don.demos.droidcon.talk.CUBE_WIDGET_LABEL
 import ke.don.domain.frames.FrameBuilder
 import io.github.donald_okara.components.frames.defaultSkiFrames
 import ke.don.domain.frames.LocalSkiFrames
@@ -46,9 +47,10 @@ fun Deck(
             .setOpacity(FRAME_OPACITY)
             .build()
 
-        // The title slide shows the cube as its own large hero, so the background cube steps aside there.
+        // S01 and S22 show the cube as their own large hero, so the background cube steps aside on both.
+        val heroCubeLabels = setOf(COLD_TITLE_LABEL, CUBE_WIDGET_LABEL)
         val background = remember(navigator) {
-            DroidconBackground(cubeVisible = { navigator.currentSlide.label != COLD_TITLE_LABEL })
+            DroidconBackground(cubeVisible = { navigator.currentSlide.label !in heroCubeLabels })
         }
 
 
