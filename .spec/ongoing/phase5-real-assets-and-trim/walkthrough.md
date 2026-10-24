@@ -2,15 +2,11 @@
 
 ## Current state
 
-- Task 1 done: six talk drawables registered in `Resources.Images`, and the `SlideImage` block added in `common/SlideBlocks.kt`.
-- Task 2 done (4196744, reviewed PASS): `SpinningCube` lifted to `common/`, live cube on S01 and S22, corner cube hidden on both.
-- Plan revised 2026-10-24: slides that lost their media use a shared `SplitSlide` (R8); Task 4 adds it, Task 7 covers S13/S15/S17, Task 5 uses it on S24.
-- Task 3 done: S02 shows real Play and Repo QRs (APK card gone); S03 and its notes removed.
-- Task 4 done: `SplitSlide` added; S07, S08, S12 use it; S09 shows the settings.gradle image.
-- Task 5 done: real screenshots on S18, S21, S23; S22 cube fills the row with chips beneath; S24 uses `SplitSlide`.
-- Task 7 done: S13, S15, S17 use `SplitSlide`; `OneRepoSlides.kt` no longer uses `MediaPlaceholder`.
-- Next: Task 6 (notes, asset list, delete `MediaPlaceholder`). Desktop runs for Tasks 2-5 and 7 not yet done (compile-only so far). `todayNotes` still mentions the APK QR (Task 6 fixes it). Run only via /donatello:phase-run.
-- Known issues: none.
+- All seven tasks done and reviewed PASS (Tasks 1-7). Real assets on S02, S09, S18, S21, S23; live cube on S01/S22; S03 removed; trimmed slides use `SplitSlide`.
+- Notes describe what is on screen and say trimmed media aloud; `docs/talk/needed-from-us.md` Include column filled; `MediaPlaceholder` deleted.
+- Open: desktop visual runs for Tasks 2-7 not done (compile-only). S10 caption "of them dynamic features" sits beside 13 with no 7 shown; copy needs fixing (outside this phase).
+- Next: `/donatello:phase-review`, then `/donatello:phase-archive`.
+- Known issues: Gradle build-cache store can fail transiently ("Could not pack tree ... shrunk-classpath-snapshot.bin") on `:segments:demos:compileKotlinJvm`; rerun once.
 
 ## How to verify
 
@@ -21,6 +17,7 @@
 - Task 2: `./gradlew :composeApp:compileKotlinJvm`; desktop run: S01 and S22 show one big spinning cube and no corner cube; S21 shows the corner cube.
 - Task 3: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two square, fully visible QRs, next slide is the family tree.
 - Task 4: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the `settings.gradle.kts` image.
+- Task 6: `grep -rn "MediaPlaceholder" segments/` returns nothing; `./gradlew :composeApp:compileKotlinJvm` passes; read `docs/talk/needed-from-us.md` Include column.
 - Task 5: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18 (AGENTS.md image), S21 (Sessions 2026 phone shot beside swatches), S22 (full-width cube, chips beneath), S23 (2026 Home as before state), S24 (title left, steps right).
 - Task 7: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
 
@@ -60,6 +57,13 @@
 ### Task 7: One-repo slides in split layout (S13, S15, S17)
 - `talk/OneRepoSlides.kt`: S13 lead = title + `OneRepoCountUp`, "files carried over" caption in details; S15 lead = title + headline "3" (popIn); S17 lead = title + `StatusChip` row. Terminal, diff and recording placeholders removed; `MediaPlaceholder` import removed; S15/S17 KDoc updated.
 - NOTE (reviewer): reveal state and animations unchanged. Desktop run not done.
+
+### Task 6: Notes, asset list, and cleanup
+- `SlidesNotes.kt`: the 13 listed notes describe current slides; trimmed media said aloud (S13 one commit/280 files, S15 three lines/three files, S17 tab switch, S21 other form factors, S22 widget, S23 during/after, S24 switch to scrcpy). `todayNotes` names the Play and repo QRs and points to the README for the APK.
+- `docs/talk/needed-from-us.md`: six used assets `yes (<file>)`, rest `no (trimmed)`; S21 goldens and S23 home screens split one row per image; intro no longer says "placeholders".
+- `common/SlideBlocks.kt`: `MediaPlaceholder` and unused `TextAlign` import deleted.
+- NOTE (implementer): S10 caption copy issue (13 shown, 7 not). Transient build-cache failure on first compile; rerun passed.
+- NOTE (reviewer): `todayNotes` QR line checked against the asset table, not the slide visuals.
 
 ## Deviations from spec
 

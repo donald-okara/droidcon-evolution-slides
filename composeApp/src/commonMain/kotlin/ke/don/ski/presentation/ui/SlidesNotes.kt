@@ -13,6 +13,7 @@ val titleNotes = listOf(
 
 val todayNotes = listOf(
     AnnotatedString("Install or update the app now, because you will need it within the hour: the talk starts at 10:05, the bounty at 10:55, the feature bash at 13:05, and results at 15:35."),
+    AnnotatedString("Point at the two QR codes on the right, the Play listing and the repo. If Play has not reached your phone yet, the APK link is in the repo README."),
     AnnotatedString("If you have a ticket and did not add it at home, wait and use mobile data for the lookup."),
     AnnotatedString("The ticket lookup is rate limited per Wi-Fi address, so one shared connection can hit the limit before everyone has finished.")
 )
@@ -37,18 +38,18 @@ val y2018FirstNotes = listOf(
 
 val y2018CloneNotes = listOf(
     AnnotatedString("Give this one time. The first droidcon Kenya app was a clone of Google's I/O app, and the highlight sweeps across the two READMEs, which share the same line word for word."),
-    AnnotatedString("The screens had the same names, so fragment_info, fragment_event and fragment_travel came across unchanged. The I/O code was already Kotlin, and we cloned its screens in Java anyway."),
+    AnnotatedString("The three rows on the right show the same screen names, so fragment_info, fragment_event and fragment_travel came across unchanged. The I/O code was already Kotlin, and we cloned its screens in Java anyway."),
     AnnotatedString("Takeaway to return to: copy the best app you can find and learn from it. The rest of this talk is the app slowly becoming its own.")
 )
 
 val y2019AllJetpackNotes = listOf(
-    AnnotatedString("The app was 100 percent Kotlin from day one, and it was built on Jetpack Navigation, Safe Args, LiveData and Firestore KTX."),
-    AnnotatedString("The community's name went into the package that year, com.android254, and it is still there today."),
+    AnnotatedString("The bullets say it: 100 percent Kotlin from day one, built on Jetpack Navigation with Safe Args, Firestore KTX and LiveData."),
+    AnnotatedString("Point at the package chip: the community's name went into the package that year, com.android254, and it is still there today."),
     AnnotatedString("Still one module. The README promised phones and tablets. Remember that promise.")
 )
 
 val y2020ModularNotes = listOf(
-    AnnotatedString("This is the biggest jump in ambition: 13 modules, 7 of them dynamic features, plus static analysis and CI through GitHub Actions. The count is of Gradle modules, so it does not measure how well they are split."),
+    AnnotatedString("The big figure is 13, the Gradle modules in the 2020 settings.gradle.kts, and the image on the right is that include block. This is the biggest jump in ambition: static analysis and CI through GitHub Actions came with the split. The count is of Gradle modules, so it does not measure how well they are split."),
     AnnotatedString("Dynamic features were the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
     AnnotatedString("On the I/O thread, this is the first README without the I/O app's words, and the first architecture the team designed for itself. Takeaway to return to: the team learned modules here.")
 )
@@ -67,13 +68,13 @@ val y2022ComposeNotes = listOf(
 
 val chaiNotes = listOf(
     AnnotatedString("Remember the I/O clone from 2018? This is the year the app stopped looking like anyone else's. The swatches spill in one at a time, so let each one land before you go on."),
-    AnnotatedString("The team had its own designs and named its design system after tea. Chai got its own repo in March 2023, and it still lives in the app as core:designsystem, with the same com.droidconke.chai package."),
+    AnnotatedString("The bullets tell the story: its own designs, a design system named chai, which is Swahili for tea, and its own repo from March 2023. It still lives in the app as core:designsystem, with the same com.droidconke.chai package."),
     AnnotatedString("The swatches show the four theme colours, not a full palette, so do not describe them as the complete chai set. Takeaway to return to: the same app, with its own look. Hand-off cue: \"In 2023 the code moved into one repo and stayed there.\"")
 )
 
 val oneRepoNotes = listOf(
-    AnnotatedString("Every earlier year started a fresh repo, and every fresh repo reset the contributor list. In February 2023 the code moved over and stayed, and the count shows how many files came along on day three."),
-    AnnotatedString("The 280 files and 15,888 lines come from commit f3b81067, and 173 of the 177 Kotlin files kept their path. The count of files does not measure code quality, test coverage or how much was rewritten."),
+    AnnotatedString("Every earlier year started a fresh repo, and every fresh repo reset the contributor list. In February 2023 the code moved over and stayed. The big number is the files carried over on day three, and the terminal capture is trimmed, so say the number aloud: one commit, 280 files."),
+    AnnotatedString("The 280 files and 15,888 lines come from commit f3b81067, 136 files are byte-for-byte identical, and 173 of the 177 Kotlin files kept their path. The count of files does not measure code quality, test coverage or how much was rewritten."),
     AnnotatedString("Takeaway to return to: this was a carry-forward, not a rewrite. Hand-off cue: \"Then came the busiest year for people.\"")
 )
 
@@ -84,7 +85,7 @@ val communityPeakNotes = listOf(
 )
 
 val quietYearNotes = listOf(
-    AnnotatedString("Quiet years happen in volunteer projects, and that is fine. The 2024 change was the Droidcon 2024 event slug, and it touched three lines across three files."),
+    AnnotatedString("Quiet years happen in volunteer projects, and that is fine. The big 3 is the lines changed in one pull request, #305, the Droidcon 2024 event slug. The diff is trimmed, so say it aloud: three lines, three files."),
     AnnotatedString("The 55 commits in 2024 count activity in this repo only. They do not measure work done outside it, or whether the three lines were the only thing anyone cared about that year."),
     AnnotatedString("Takeaway to return to: what matters is whether the next person can pick it up. Hand-off cue: \"That question shaped the Kotlin Multiplatform thread.\"")
 )
@@ -97,12 +98,12 @@ val kmpThreadNotes = listOf(
 
 val navigation3Notes = listOf(
     AnnotatedString("donald-okara carried the app through the winter. The Navigation 3 move with multiple back stacks landed in December 2025, in commit 8faf624f and the commits after it."),
-    AnnotatedString("Most of what the app now does with live sessions started here. The Now and Up next chips are the live rail, and the recording shows tabs switching with each back stack kept."),
-    AnnotatedString("The recording shows the behaviour, not the performance of it, so do not quote timings from it. Takeaway to return to: the back stacks kept, so the app remembers where you were. Hand-off cue: \"That is where 2025 ended. Now, 2026.\"")
+    AnnotatedString("Most of what the app now does with live sessions started here. The Now and Up next chips are the live rail. The recording is trimmed, so say it aloud: switching tabs keeps each back stack, so the app remembers where you were."),
+    AnnotatedString("No timings are on screen, so do not quote any, and do not claim anything about performance. Takeaway to return to: the back stacks kept, so the app remembers where you were. Hand-off cue: \"That is where 2025 ended. Now, 2026.\"")
 )
 
 val twoReadersNotes = listOf(
-    AnnotatedString("The fix for quiet years is to write the things down. The same file, AGENTS.md, now briefs a new contributor and a coding agent, and it was dated 13 August 2026."),
+    AnnotatedString("The image on the right is the top of AGENTS.md. The fix for quiet years is to write the things down. The same file, AGENTS.md, now briefs a new contributor and a coding agent, and it was dated 13 August 2026."),
     AnnotatedString("The 3,500-line plan deletes items as they are done, so it stays a plan and not a log. The line count does not measure how good the plan is, only how much of it there is."),
     AnnotatedString("Takeaway to return to: this afternoon we test whether the file works for a new person, so say it as a test and not a promise. Hand-off cue: \"Seven modules to twenty.\"")
 )
@@ -120,25 +121,25 @@ val measuredNotes = listOf(
 )
 
 val newLookNotes = listOf(
-    AnnotatedString("The tablet promise from 2018 is finally kept. The sessions screen now adapts to phones, foldables, tablets and desktop windows, and the four placeholders are the goldens for each one."),
+    AnnotatedString("The tablet promise from 2018 is finally kept. The sessions screen now adapts to phones, foldables, tablets and desktop windows. The image shows the phone version, so say the other three aloud, since their screenshots are trimmed."),
     AnnotatedString("Credit Joel Kanyi for the shared-element transitions and mutukuian for the redesigned speakers. The WCAG AA check covers every colour pair, and it does not measure how the palette feels to a reader with low vision."),
     AnnotatedString("Takeaway to return to: nothing of the I/O app is left on screen, and the brand, the motion and the cube are droidcon Kenya's own. Hand-off cue: \"That is 2026. The next act is the live demo.\"")
 )
 
 val cubeWidgetNotes = listOf(
     AnnotatedString("The cube is pure play. It is drawn on a Compose canvas, and the plan has a list of easter eggs it could grow, so say that before anyone asks whether it does anything useful."),
-    AnnotatedString("The widget is donald-okara's, and it was written as a design spec first, then a plan, then code. A spec does not prove the widget works on every launcher, so the phone demo on the next slides is the proof."),
+    AnnotatedString("The three chips are Spec, Plan and Code. The widget is donald-okara's, and it was written as a design spec first, then a plan, then code. Its screenshot is trimmed, so describe the widget aloud. A spec does not prove the widget works on every launcher, so the phone demo on the next slides is the proof."),
     AnnotatedString("Takeaway to return to: spec, plan, code, and each one is a file you can read. Hand-off cue: \"The app also follows the conference. Let's see it.\"")
 )
 
 val followsConferenceNotes = listOf(
     AnnotatedString("The app reads the clock and the schedule, and the home screen changes with the event: a countdown before, today's agenda with clashes during, and a thank-you with a feedback link after."),
-    AnnotatedString("The three screens are goldens, so they are placeholders here. The phase comes from the clock and the session times, not from a switch, which is why the live demo can move the phone's date to show the agenda."),
+    AnnotatedString("The image is the home screen before the conference. The during and after screens are trimmed, so describe them from the three labels. The phase comes from the clock and the session times, not from a switch, which is why the live demo can move the phone's date to show the agenda."),
     AnnotatedString("Takeaway to return to: the app changes with the event, not with a release. Hand-off cue: \"Let's see it live.\"")
 )
 
 val liveDemoNotes = listOf(
-    AnnotatedString("This is the live demo, about four minutes of the act. Mirror the phone with scrcpy, and have the fallback video recorded on Friday ready to play if the mirror drops or the phone misbehaves."),
+    AnnotatedString("This is the live demo, about four minutes of the act. The six steps on the slide are the run order. Switch to the scrcpy window for the phone mirror, and have the fallback video recorded on Friday ready to play if the mirror drops or the phone misbehaves."),
     AnnotatedString("Set the phone's date to conference day 1 for step 2, and the home screen switches to the agenda with clashes. Rehearse that change first. Set the date back before step 5, as rehearsed, so the purchase runs on the right day."),
     AnnotatedString("Step 5 needs the chosen volunteer on mobile data, not venue Wi-Fi. If the email is slow, carry on and come back to it at the end of act 7; if it never arrives, use the ticket from Friday's dry run. Do not scan the pass with the real gate check-in."),
     AnnotatedString("Takeaway to return to: turn on airplane mode and reopen the pass, and it is still there. The checks fill as each step arrives, so keep to the order. Hand-off cue: \"Now the stack, layer by layer.\"")

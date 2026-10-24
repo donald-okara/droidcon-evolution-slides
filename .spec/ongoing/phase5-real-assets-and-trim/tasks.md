@@ -78,11 +78,11 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Serves:** R4, R6
 **Files:** composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit), docs/talk/needed-from-us.md (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (edit)
 
-- [ ] In `SlidesNotes.kt`, update `todayNotes`, `y2018CloneNotes`, `y2019AllJetpackNotes`, `y2020ModularNotes`, `chaiNotes`, `oneRepoNotes`, `quietYearNotes`, `navigation3Notes`, `twoReadersNotes`, `newLookNotes`, `cubeWidgetNotes`, `followsConferenceNotes`, `liveDemoNotes` so each describes what is on screen now. Where media was removed, say it aloud instead (e.g. S13: "say the number: one commit, N files"). `liveDemoNotes` says to switch to the scrcpy window. `todayNotes` drops the APK QR and says the APK link is in the repo README if Play has not reached a phone.
-- [ ] In `docs/talk/needed-from-us.md`, fill every "Include?" cell: `yes (<file name>)` for the six used assets, `no (trimmed)` for the rest; S22 cube is `yes (live CubeHero)`.
-- [ ] If `grep -rn "MediaPlaceholder" segments/` shows only the definition, delete `MediaPlaceholder` from `SlideBlocks.kt` and its now-unused imports.
-- [ ] Check: `grep -rn "MediaPlaceholder" segments/` returns nothing; `./gradlew :composeApp:compileKotlinJvm` passes.
-- [ ] Commit: `docs: notes and asset list match trimmed slides`
+- [x] In `SlidesNotes.kt`, update `todayNotes`, `y2018CloneNotes`, `y2019AllJetpackNotes`, `y2020ModularNotes`, `chaiNotes`, `oneRepoNotes`, `quietYearNotes`, `navigation3Notes`, `twoReadersNotes`, `newLookNotes`, `cubeWidgetNotes`, `followsConferenceNotes`, `liveDemoNotes` so each describes what is on screen now. Where media was removed, say it aloud instead (e.g. S13: "say the number: one commit, N files"). `liveDemoNotes` says to switch to the scrcpy window. `todayNotes` drops the APK QR and says the APK link is in the repo README if Play has not reached a phone.
+- [x] In `docs/talk/needed-from-us.md`, fill every "Include?" cell: `yes (<file name>)` for the six used assets, `no (trimmed)` for the rest; S22 cube is `yes (live CubeHero)`.
+- [x] If `grep -rn "MediaPlaceholder" segments/` shows only the definition, delete `MediaPlaceholder` from `SlideBlocks.kt` and its now-unused imports.
+- [x] Check: `grep -rn "MediaPlaceholder" segments/` returns nothing; `./gradlew :composeApp:compileKotlinJvm` passes.
+- [x] Commit: `docs: notes and asset list match trimmed slides`
 
 ### Task 7: One-repo slides in split layout (S13, S15, S17)
 **Serves:** R4, R8

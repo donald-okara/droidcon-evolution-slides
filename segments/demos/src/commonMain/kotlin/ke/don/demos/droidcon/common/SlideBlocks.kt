@@ -30,7 +30,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ke.don.domain.values.Values
 import kotlinx.coroutines.delay
@@ -196,35 +195,7 @@ fun SourceLine(text: String, modifier: Modifier = Modifier) {
 }
 
 /**
- * An outlined box that marks where a screenshot, recording or photo will go.
- *
- * @param label What goes here, for example "Screen recording: Glance widget".
- */
-@Composable
-fun MediaPlaceholder(label: String, modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(Values.Dimens.smallPadding))
-            .border(
-                width = 1.dp,
-                color = MaterialTheme.colorScheme.outline,
-                shape = RoundedCornerShape(Values.Dimens.smallPadding)
-            )
-            .padding(Values.Dimens.mediumPadding),
-        contentAlignment = Alignment.Center
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center
-        )
-    }
-}
-
-/**
- * A drawable from `Resources.Images`, fitted inside its box without cropping, with the same rounded outline as [MediaPlaceholder].
+ * A drawable from `Resources.Images`, fitted inside its box without cropping, with a rounded outline.
  *
  * Does not set a size: the caller sizes it, for example with `fillMaxSize()` or an aspect ratio.
  *
