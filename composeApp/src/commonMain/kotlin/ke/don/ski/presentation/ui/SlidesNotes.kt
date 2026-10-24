@@ -17,12 +17,6 @@ val todayNotes = listOf(
     AnnotatedString("The ticket lookup is rate limited per Wi-Fi address, so one shared connection can hit the limit before everyone has finished.")
 )
 
-val sameAppNotes = listOf(
-    AnnotatedString("Both of these screenshots are the droidcon Kenya app. The one on the left began as a copy of somebody else's app."),
-    AnnotatedString("Everything between them is in git, and we read all of it."),
-    AnnotatedString("The counter shows how many commits the five app repos have between them. It does not measure effort, review time, or how large each change was.")
-)
-
 val familyTreeNotes = listOf(
     AnnotatedString("Each press lights the next stage on the timeline, in order: 2018, 2019, 2020, 2022, 2023, 2025, then 2026."),
     AnnotatedString("Hover or click a stage to open its details card. Every fact on the card is cited in the overview, so you can point to it if someone asks."),

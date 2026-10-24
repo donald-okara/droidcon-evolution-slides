@@ -42,10 +42,10 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Serves:** R3, R4, R7
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/ColdOpenSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SkiPresentationSlides.kt (edit), composeApp/src/commonMain/kotlin/ke/don/ski/presentation/ui/SlidesNotes.kt (edit)
 
-- [ ] S02 `TodaySlide`: keep two QR cards, "Play listing" with `Resources.Images.PLAY_QR` and "Repo" with `Resources.Images.REPO_QR`; delete the "APK fallback" card. Keep the pop-in by index (0, 1). In `QrCard`, replace `MediaPlaceholder` with `SlideImage`, keeping the QR square (`aspectRatio(1f)`).
-- [ ] Remove S03: delete `SameAppSlide` and the private helpers only it uses (`ScreenshotCard`, `CommitCountUp`, `withThousands`, and any constants only they use) from `ColdOpenSlides.kt`; delete its `slide(...)` block and import in `SkiPresentationSlides.kt`; delete `sameAppNotes` from `SlidesNotes.kt`.
-- [ ] Check: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two QRs, the next slide is the family tree.
-- [ ] Commit: `feat: real QR codes on S02, remove S03`
+- [x] S02 `TodaySlide`: keep two QR cards, "Play listing" with `Resources.Images.PLAY_QR` and "Repo" with `Resources.Images.REPO_QR`; delete the "APK fallback" card. Keep the pop-in by index (0, 1). In `QrCard`, replace `MediaPlaceholder` with `SlideImage`, keeping the QR square (`aspectRatio(1f)`).
+- [x] Remove S03: delete `SameAppSlide` and the private helpers only it uses (`ScreenshotCard`, `CommitCountUp`, `withThousands`, and any constants only they use) from `ColdOpenSlides.kt`; delete its `slide(...)` block and import in `SkiPresentationSlides.kt`; delete `sameAppNotes` from `SlidesNotes.kt`.
+- [x] Check: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two QRs, the next slide is the family tree.
+- [x] Commit: `feat: real QR codes on S02, remove S03`
 
 ### Task 4: SplitSlide layout and early years (S07, S08, S09, S12)
 **Serves:** R3, R4, R8

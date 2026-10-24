@@ -1,14 +1,12 @@
 package ke.don.demos.droidcon.talk
 
-import androidx.compose.animation.core.Animatable
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -18,8 +16,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,13 +26,14 @@ import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.EvolutionStages
 import ke.don.demos.droidcon.common.EvolutionTimeline
-import ke.don.demos.droidcon.common.MediaPlaceholder
+import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SpinningCube
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
-import kotlin.math.roundToInt
+import ke.don.resources.Resources
+import org.jetbrains.compose.resources.DrawableResource
 
 /** The number of reveal steps on the family tree slide: one per stage in [EvolutionStages]. */
 const val FAMILY_TREE_STEPS = 7
@@ -44,7 +41,6 @@ const val FAMILY_TREE_STEPS = 7
 /** The stage after which the family tree draws its 2021 gap. Stage 2 is 2020; stage 3 is 2022. */
 private const val FAMILY_TREE_GAP_AFTER = 2
 
-private const val COUNT_UP_MILLIS = 1200
 private const val QR_STAGGER_MILLIS = 150
 private const val FLAG_DELAY_MILLIS = 900
 
@@ -86,7 +82,7 @@ fun TitleSlide() {
 }
 
 /**
- * S02. Today's schedule, with three QR codes that pop in one after another: the Play listing, the APK, and the repo.
+ * S02. Today's schedule, with two QR codes that pop in one after another: the Play listing and the repo.
  */
 @Composable
 fun TodaySlide() {
@@ -113,9 +109,18 @@ fun TodaySlide() {
                 modifier = Modifier.weight(1f),
                 horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
             ) {
-                QrCard(label = "Play listing", index = 0, modifier = Modifier.weight(1f))
-                QrCard(label = "APK fallback", index = 1, modifier = Modifier.weight(1f))
-                QrCard(label = "github.com/droidconKE/droidconKeKotlin", index = 2, modifier = Modifier.weight(1f))
+                QrCard(
+                    label = "Play listing",
+                    resource = Resources.Images.PLAY_QR,
+                    index = 0,
+                    modifier = Modifier.weight(1f)
+                )
+                QrCard(
+                    label = "Repo",
+                    resource = Resources.Images.REPO_QR,
+                    index = 1,
+                    modifier = Modifier.weight(1f)
+                )
             }
         }
         Text(
@@ -151,13 +156,14 @@ private fun ScheduleRow(time: String, item: String) {
 }
 
 /**
- * A QR placeholder with its label underneath. It pops in after a short delay based on [index].
+ * A QR code with its label underneath. It pops in after a short delay based on [index].
  *
- * @param label What the code links to.
+ * @param label What the code links to, shown under the code.
+ * @param resource The QR code image.
  * @param index The position of the code, from 0, which sets the stagger.
  */
 @Composable
-private fun QrCard(label: String, index: Int, modifier: Modifier = Modifier) {
+private fun QrCard(label: String, resource: DrawableResource, index: Int, modifier: Modifier = Modifier) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
             modifier = Modifier
@@ -165,7 +171,11 @@ private fun QrCard(label: String, index: Int, modifier: Modifier = Modifier) {
                 .weight(1f)
                 .popIn(delayMillis = index * QR_STAGGER_MILLIS)
         ) {
-            MediaPlaceholder(label = "QR: $label")
+            SlideImage(
+                resource = resource,
+                contentDescription = "QR code: $label",
+                modifier = Modifier.aspectRatio(1f, matchHeightConstraintsFirst = true)
+            )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.tinyPadding))
         Text(
@@ -174,84 +184,6 @@ private fun QrCard(label: String, index: Int, modifier: Modifier = Modifier) {
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center
         )
-    }
-}
-
-/**
- * S03. The big number is the commit count, which counts up from zero. The title sits above it in secondary type.
- * The 2018 and 2026 screenshots sit side by side at the same size.
- */
-@Composable
-fun SameAppSlide() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(Values.Dimens.largePadding)
-    ) {
-        Text(
-            text = "Same app. Eight years. Five repos.",
-            style = MaterialTheme.typography.headlineSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        CommitCountUp(target = SAME_APP_COMMITS)
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-        ) {
-            ScreenshotCard(label = "2018 schedule screenshot", year = "2018", modifier = Modifier.weight(1f))
-            ScreenshotCard(label = "2026 Home screenshot", year = "2026", modifier = Modifier.weight(1f))
-        }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git rev-list --count HEAD in each of the five app repos (Appendix D, D3)")
-    }
-}
-
-/** Commits across the five app repos, from Appendix D, D3 of the overview. */
-private const val SAME_APP_COMMITS = 2100
-
-/**
- * The commit total as one large "~2,100 commits". It counts up from zero when the slide first composes.
- *
- * @param target The final count.
- */
-@Composable
-private fun CommitCountUp(target: Int) {
-    val progress = remember { Animatable(0f) }
-    LaunchedEffect(Unit) {
-        progress.animateTo(1f, tween(durationMillis = COUNT_UP_MILLIS, easing = FastOutSlowInEasing))
-    }
-    val shown = (target * progress.value).roundToInt()
-    Text(
-        text = "~${withThousands(shown)} commits",
-        style = MaterialTheme.typography.displayLarge,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary
-    )
-}
-
-/**
- * Groups the digits of a non-negative number in threes, for example 2100 becomes "2,100".
- */
-private fun withThousands(value: Int): String =
-    value.toString().reversed().chunked(3).joinToString(",").reversed()
-
-/**
- * A labelled placeholder for one screenshot, with its year above it.
- *
- * @param label What goes in the placeholder.
- * @param year The year shown above the screenshot.
- */
-@Composable
-private fun ScreenshotCard(label: String, year: String, modifier: Modifier = Modifier) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = year,
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.primary
-        )
-        Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
-            MediaPlaceholder(label = label)
-        }
     }
 }
 

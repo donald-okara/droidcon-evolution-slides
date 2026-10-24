@@ -25,7 +25,6 @@ import ke.don.demos.droidcon.talk.Navigation3Slide
 import ke.don.demos.droidcon.talk.NewLookSlide
 import ke.don.demos.droidcon.talk.OneRepoSlide
 import ke.don.demos.droidcon.talk.QuietYearSlide
-import ke.don.demos.droidcon.talk.SameAppSlide
 import ke.don.demos.droidcon.talk.SeasonsSlide
 import ke.don.demos.droidcon.talk.StackSlide
 import ke.don.demos.droidcon.talk.ThankYouSlide
@@ -65,9 +64,6 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             }
             slide(label = "cold-today", notes = todayNotes, transition = ScreenTransition.Fade) {
                 TodaySlide()
-            }
-            slide(label = "cold-same-app", notes = sameAppNotes, transition = ScreenTransition.Fade) {
-                SameAppSlide()
             }
             slide(
                 label = "cold-family-tree",
