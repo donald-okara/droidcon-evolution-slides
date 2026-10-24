@@ -6,7 +6,8 @@
 - Task 2 done (4196744, reviewed PASS): `SpinningCube` lifted to `common/`, live cube on S01 and S22, corner cube hidden on both.
 - Plan revised 2026-10-24: slides that lost their media use a shared `SplitSlide` (R8); Task 4 adds it, Task 7 covers S13/S15/S17, Task 5 uses it on S24.
 - Task 3 done: S02 shows real Play and Repo QRs (APK card gone); S03 and its notes removed.
-- Next: Task 4, then 7, 5, 6. `todayNotes` still mentions the APK QR (Task 6 fixes it). Run only via /donatello:phase-run.
+- Task 4 done: `SplitSlide` added; S07, S08, S12 use it; S09 shows the settings.gradle image.
+- Next: Task 7, then 5, 6. Desktop runs for Tasks 2-4 not yet done (compile-only so far). `todayNotes` still mentions the APK QR (Task 6 fixes it). Run only via /donatello:phase-run.
 - Known issues: none.
 
 ## How to verify
@@ -17,6 +18,7 @@
 - No slide uses `SlideImage` yet, so there is nothing to see on the desktop run.
 - Task 2: `./gradlew :composeApp:compileKotlinJvm`; desktop run: S01 and S22 show one big spinning cube and no corner cube; S21 shows the corner cube.
 - Task 3: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two square, fully visible QRs, next slide is the family tree.
+- Task 4: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the `settings.gradle.kts` image.
 
 ## Changes by task
 
@@ -38,6 +40,12 @@
 - `SkiPresentationSlides.kt`: S03 `slide(...)` and import removed. `SlidesNotes.kt`: `sameAppNotes` removed.
 - NOTE (reviewer): QR sizing checked by reading only; confirm on desktop that both QRs are square and uncropped.
 - One fix round (unused `COUNT_UP_MILLIS`; QR sizing switched to height-first).
+
+### Task 4: SplitSlide layout and early years (S07, S08, S09, S12)
+- `common/SlideBlocks.kt`: new `SplitSlide(lead, details, modifier)` (no existing two-column block): full-size `Row`, two equal-weight vertically centred `Column`s, `largePadding` gap, KDoc.
+- `talk/EarlyYearsSlides.kt`: S07 `ScreenshotPair` deleted; lead = title + both README lines stacked (side by side too narrow at half width), details = screen-name rows; sweep unchanged. S08 placeholders removed; lead = title + `PackageChip`, details = bullets. S09 uses `SlideImage(SETTINGS_GRADLE, ...)` in the weighted slot. `MediaPlaceholder` import dropped.
+- `talk/OneRepoSlides.kt`: S12 lead = title + `ChaiSwatches`, details = bullets and the 2018→2022 line. `MediaPlaceholder` import kept for S13/S15/S17 (Task 7).
+- NOTE (reviewer): `EarlyYearsSlides.kt` may keep unused `Box`/`Alignment` imports; harmless. Desktop run not done.
 
 ## Deviations from spec
 

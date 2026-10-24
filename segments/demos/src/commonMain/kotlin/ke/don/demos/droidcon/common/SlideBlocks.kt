@@ -8,8 +8,10 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -243,4 +245,36 @@ fun SlideImage(resource: DrawableResource, contentDescription: String, modifier:
                 shape = RoundedCornerShape(Values.Dimens.smallPadding)
             )
     )
+}
+
+/**
+ * A two-column slide layout for slides whose media was removed. The left column holds the title and focal
+ * element, the right column holds the details. Both columns are equal width and vertically centred.
+ *
+ * @param lead The left column: the slide title and its focal element.
+ * @param details The right column: the body text, rows or steps.
+ */
+@Composable
+fun SplitSlide(
+    lead: @Composable ColumnScope.() -> Unit,
+    details: @Composable ColumnScope.() -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier.fillMaxSize(),
+        horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
+    ) {
+        Column(
+            modifier = Modifier.weight(1f).fillMaxHeight(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            lead()
+        }
+        Column(
+            modifier = Modifier.weight(1f).fillMaxHeight(),
+            verticalArrangement = Arrangement.Center
+        ) {
+            details()
+        }
+    }
 }

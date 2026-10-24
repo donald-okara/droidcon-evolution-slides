@@ -35,11 +35,13 @@ import ke.don.demos.droidcon.common.BarChart
 import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.CalloutCard
 import ke.don.demos.droidcon.common.ChartPoint
-import ke.don.demos.droidcon.common.MediaPlaceholder
+import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SourceLine
+import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
+import ke.don.resources.Resources
 import kotlin.math.roundToInt
 
 private const val SWEEP_MILLIS = 1400
@@ -110,64 +112,37 @@ fun Y2018CloneSlide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "Born as a clone of Google's I/O app", kicker = "Act 1 · the highlight")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-        ) {
-            ScreenshotPair(label = "I/O 2018 app: schedule.png (google/iosched)", year = "I/O 2018", modifier = Modifier.weight(1f))
-            ScreenshotPair(label = "droidconKE 2018: schedule.png", year = "droidconKE 2018", modifier = Modifier.weight(1f))
-        }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         val sweep = remember { Animatable(0f) }
         LaunchedEffect(Unit) {
             sweep.animateTo(1f, tween(durationMillis = SWEEP_MILLIS, easing = FastOutSlowInEasing))
         }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-        ) {
-            ReadmeLine(
-                readme = "I/O README",
-                text = SHARED_README_LINE,
-                sweep = sweep.value,
-                modifier = Modifier.weight(1f)
-            )
-            ReadmeLine(
-                readme = "droidconKE README",
-                text = SHARED_README_LINE,
-                sweep = sweep.value,
-                modifier = Modifier.weight(1f)
-            )
-        }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)) {
-            ScreenNameRow(iosName = "fragment_info", droidconName = "fragment_info")
-            ScreenNameRow(iosName = "fragment_event", droidconName = "fragment_event")
-            ScreenNameRow(iosName = "fragment_travel", droidconName = "fragment_travel")
-        }
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "Born as a clone of Google's I/O app", kicker = "Act 1 · the highlight")
+                Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                    ReadmeLine(
+                        readme = "I/O README",
+                        text = SHARED_README_LINE,
+                        sweep = sweep.value
+                    )
+                    ReadmeLine(
+                        readme = "droidconKE README",
+                        text = SHARED_README_LINE,
+                        sweep = sweep.value
+                    )
+                }
+            },
+            details = {
+                Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.tinyPadding)) {
+                    ScreenNameRow(iosName = "fragment_info", droidconName = "fragment_info")
+                    ScreenNameRow(iosName = "fragment_event", droidconName = "fragment_event")
+                    ScreenNameRow(iosName = "fragment_travel", droidconName = "fragment_travel")
+                }
+            }
+        )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: droidconKE/iosched (fork of google/iosched), commits of 2018-03-28 and 2018-08-13; both READMEs")
-    }
-}
-
-/**
- * One screenshot placeholder with its name above it, used side by side on S07.
- *
- * @param label What goes in the placeholder.
- * @param year The name shown above the screenshot.
- */
-@Composable
-private fun ScreenshotPair(label: String, year: String, modifier: Modifier = Modifier) {
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(
-            text = year,
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.primary
-        )
-        Box(modifier = Modifier.fillMaxWidth().weight(1f)) {
-            MediaPlaceholder(label = label)
-        }
     }
 }
 
@@ -247,15 +222,13 @@ fun Y2019Slide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "2019: all Kotlin, all Jetpack", kicker = "Act 2")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "2019: all Kotlin, all Jetpack", kicker = "Act 2")
+                PackageChip(name = "com.android254.droidconke19")
+            },
+            details = {
                 BulletList(
                     items = listOf(
                         "100% Kotlin from day one",
@@ -264,16 +237,8 @@ fun Y2019Slide() {
                         "Travis CI"
                     )
                 )
-                PackageChip(name = "com.android254.droidconke19")
             }
-            Row(
-                modifier = Modifier.weight(1f),
-                horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
-                MediaPlaceholder(label = "2019 schedule.png", modifier = Modifier.weight(1f))
-                MediaPlaceholder(label = "2019 sesion_details.png", modifier = Modifier.weight(1f))
-            }
-        }
+        )
         SourceLine(text = "Source: droidconKE2019App, 153 commits, Jul to Nov 2019")
     }
 }
@@ -333,9 +298,10 @@ fun Y2020ModularSlide() {
                     )
                 )
             }
-            MediaPlaceholder(
-                label = "settings.gradle.kts include(...) block, with :features:* highlighted",
-                modifier = Modifier.weight(1f)
+            SlideImage(
+                resource = Resources.Images.SETTINGS_GRADLE,
+                contentDescription = "settings.gradle.kts include block",
+                modifier = Modifier.weight(1f).fillMaxSize()
             )
         }
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))

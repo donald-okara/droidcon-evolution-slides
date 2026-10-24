@@ -52,14 +52,14 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/EarlyYearsSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (existing slide blocks and their spacing from `Values.Dimens`)
 
-- [ ] In `common/SlideBlocks.kt`, add `SplitSlide(lead: @Composable ColumnScope.() -> Unit, details: @Composable ColumnScope.() -> Unit, modifier: Modifier = Modifier)`: a full-size `Row` of two equal-weight `Column`s with the deck's standard gap; `lead` is vertically centred, `details` is vertically centred. If `SlideBlocks.kt` already has an equivalent two-column block, reuse it and say so in the report. Add a KDoc line.
-- [ ] S09 `Y2020ModularSlide`: replace the `settings.gradle.kts` placeholder (EarlyYearsSlides.kt line 336) with `SlideImage(Resources.Images.SETTINGS_GRADLE, "settings.gradle.kts include block")`, keeping its weight in the row. S09 does not use `SplitSlide`.
-- [ ] S07 `Y2018CloneSlide`: remove the two `ScreenshotPair` calls and delete `ScreenshotPair`. Use `SplitSlide`: lead = `SlideTitle` + the README sweep line; details = the screen-name rows and any remaining text.
-- [ ] S08 `Y2019Slide`: remove the two 2019 placeholders (lines 273-274) and the `Row` around them. Use `SplitSlide`: lead = `SlideTitle` + the package chips; details = the remaining text.
-- [ ] S12 `ChaiSlide` (OneRepoSlides.kt): remove the chai cover placeholder. Use `SplitSlide`: lead = `SlideTitle` + `ChaiSwatches`; details = the remaining text.
-- [ ] Keep each slide's existing reveal state and animations; only the layout changes. Remove now-unused `MediaPlaceholder` imports.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the image.
-- [ ] Commit: `feat: SplitSlide layout, settings.gradle on S09, trim early years media`
+- [x] In `common/SlideBlocks.kt`, add `SplitSlide(lead: @Composable ColumnScope.() -> Unit, details: @Composable ColumnScope.() -> Unit, modifier: Modifier = Modifier)`: a full-size `Row` of two equal-weight `Column`s with the deck's standard gap; `lead` is vertically centred, `details` is vertically centred. If `SlideBlocks.kt` already has an equivalent two-column block, reuse it and say so in the report. Add a KDoc line.
+- [x] S09 `Y2020ModularSlide`: replace the `settings.gradle.kts` placeholder (EarlyYearsSlides.kt line 336) with `SlideImage(Resources.Images.SETTINGS_GRADLE, "settings.gradle.kts include block")`, keeping its weight in the row. S09 does not use `SplitSlide`.
+- [x] S07 `Y2018CloneSlide`: remove the two `ScreenshotPair` calls and delete `ScreenshotPair`. Use `SplitSlide`: lead = `SlideTitle` + the README sweep line; details = the screen-name rows and any remaining text.
+- [x] S08 `Y2019Slide`: remove the two 2019 placeholders (lines 273-274) and the `Row` around them. Use `SplitSlide`: lead = `SlideTitle` + the package chips; details = the remaining text.
+- [x] S12 `ChaiSlide` (OneRepoSlides.kt): remove the chai cover placeholder. Use `SplitSlide`: lead = `SlideTitle` + `ChaiSwatches`; details = the remaining text.
+- [x] Keep each slide's existing reveal state and animations; only the layout changes. Remove now-unused `MediaPlaceholder` imports.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the image.
+- [x] Commit: `feat: SplitSlide layout, settings.gradle on S09, trim early years media`
 
 ### Task 5: Measured and live slides (S18, S21, S22 widget, S23, S24)
 **Serves:** R3, R4, R8

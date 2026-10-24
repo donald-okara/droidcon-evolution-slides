@@ -37,6 +37,7 @@ import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SourceLine
+import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 import kotlinx.coroutines.delay
@@ -110,34 +111,29 @@ fun ChaiSlide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "Standing on its own: chai", kicker = "Act 4")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
-                BulletList(
-                    items = listOf(
-                        "Its own designs, light and dark, in Adobe XD",
-                        "Its own design system: chai. \"Chai is swahili word for tea.\"",
-                        "Born in Aug 2022 · its own repo in Mar 2023 · still com.droidconke.chai"
-                    )
-                )
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "Standing on its own: chai", kicker = "Act 4")
                 ChaiSwatches()
-                Text(
-                    text = "2018: I/O's screens  →  2020: its own structure  →  2022: its own look",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
+            },
+            details = {
+                Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                    BulletList(
+                        items = listOf(
+                            "Its own designs, light and dark, in Adobe XD",
+                            "Its own design system: chai. \"Chai is swahili word for tea.\"",
+                            "Born in Aug 2022 · its own repo in Mar 2023 · still com.droidconke.chai"
+                        )
+                    )
+                    Text(
+                        text = "2018: I/O's screens  →  2020: its own structure  →  2022: its own look",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.primary
+                    )
+                }
             }
-            MediaPlaceholder(
-                label = "chai cover (droidconKE/iconPack), next to the S07 I/O screenshot",
-                modifier = Modifier.weight(1f)
-            )
-        }
+        )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: the Designs section of the droidconKE2022Android README; the chai README")
     }
