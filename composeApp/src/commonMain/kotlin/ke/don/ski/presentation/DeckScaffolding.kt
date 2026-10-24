@@ -281,7 +281,7 @@ fun TableOfContent(
                         .fillMaxWidth()
                 ) {
                     Text(
-                        text = screen.label,
+                        text = "${index + 1}  ${screen.label}",
                         textAlign = TextAlign.Start,
                         style = MaterialTheme.typography.bodyMedium,
                         color = if (screen == currentSlide) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface,
