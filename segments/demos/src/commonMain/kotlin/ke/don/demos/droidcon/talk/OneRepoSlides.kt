@@ -34,7 +34,6 @@ import ke.don.demos.droidcon.common.CalloutCard
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.Confetti
 import ke.don.demos.droidcon.common.ColumnChart
-import ke.don.demos.droidcon.common.MediaPlaceholder
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.SplitSlide
@@ -174,34 +173,29 @@ fun OneRepoSlide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "2023: one repo to keep", kicker = "Act 5")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "2023: one repo to keep", kicker = "Act 5")
                 OneRepoCountUp(target = CARRIED_FILES)
-                Text(
-                    text = "files carried over on day three, from droidconKE2022Android",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                BulletList(
-                    items = listOf(
-                        "droidconKeKotlin, with no year in its name",
-                        "15,888 lines · 173 of 177 Kotlin files kept their path",
-                        "136 byte-for-byte identical: not a rewrite, a carry-forward"
+            },
+            details = {
+                Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                    Text(
+                        text = "files carried over on day three, from droidconKE2022Android",
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.onSurface
                     )
-                )
+                    BulletList(
+                        items = listOf(
+                            "droidconKeKotlin, with no year in its name",
+                            "15,888 lines · 173 of 177 Kotlin files kept their path",
+                            "136 byte-for-byte identical: not a rewrite, a carry-forward"
+                        )
+                    )
+                }
             }
-            MediaPlaceholder(
-                label = "Terminal: git show --stat f3b81067 | tail -1",
-                modifier = Modifier.weight(1f)
-            )
-        }
+        )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: git show --stat f3b81067; file-by-file comparison with droidconKE2022Android")
     }
@@ -291,7 +285,7 @@ fun CommunityPeakSlide() {
 }
 
 /**
- * S15. The quiet year. The Droidcon 2024 change was three lines, and the "3" pops in over the diff note.
+ * S15. The quiet year. The Droidcon 2024 change was three lines, and the "3" pops in beside the title.
  */
 @Composable
 fun QuietYearSlide() {
@@ -300,15 +294,10 @@ fun QuietYearSlide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "2024: the quiet year", kicker = "Act 5")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "2024: the quiet year", kicker = "Act 5")
                 Text(
                     text = "3",
                     style = MaterialTheme.typography.displayLarge,
@@ -316,23 +305,23 @@ fun QuietYearSlide() {
                     color = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.popIn()
                 )
-                Text(
-                    text = "lines changed in Feature: Droidcon 2024 (#305), the event slug",
-                    style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                BulletList(
-                    items = listOf(
-                        "55 commits in 2024",
-                        "K2 and the Compose compiler plugin · coverage on CI"
+            },
+            details = {
+                Column(verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                    Text(
+                        text = "lines changed in Feature: Droidcon 2024 (#305), the event slug",
+                        style = MaterialTheme.typography.headlineSmall,
+                        color = MaterialTheme.colorScheme.onSurface
                     )
-                )
+                    BulletList(
+                        items = listOf(
+                            "55 commits in 2024",
+                            "K2 and the Compose compiler plugin · coverage on CI"
+                        )
+                    )
+                }
             }
-            MediaPlaceholder(
-                label = "Diff of #305, full screen: 3 files, 3 lines",
-                modifier = Modifier.weight(1f)
-            )
-        }
+        )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: git show --stat of #305; 2024 commit count from the git history")
     }
@@ -394,8 +383,7 @@ fun KmpThreadSlide() {
 }
 
 /**
- * S17. Late 2025: Navigation 3 and multiple back stacks. The status chips pop in, and the screen recording
- * goes where the tab switching clip will play.
+ * S17. Late 2025: Navigation 3 and multiple back stacks. The status chips pop in beside the title.
  */
 @Composable
 fun Navigation3Slide() {
@@ -404,15 +392,16 @@ fun Navigation3Slide() {
             .fillMaxSize()
             .padding(Values.Dimens.largePadding)
     ) {
-        SlideTitle(title = "Late 2025: Navigation 3", kicker = "Act 5")
-        Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
-        ) {
-            Column(
-                modifier = Modifier.weight(1f),
-                verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
-            ) {
+        SplitSlide(
+            modifier = Modifier.weight(1f),
+            lead = {
+                SlideTitle(title = "Late 2025: Navigation 3", kicker = "Act 5")
+                Row(horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
+                    StatusChip(label = "Now", delayMillis = 0)
+                    StatusChip(label = "Up next", delayMillis = NAV_CHIP_DELAY_MILLIS)
+                }
+            },
+            details = {
                 BulletList(
                     items = listOf(
                         "Dec 2025: Navigation 3, with multiple back stacks",
@@ -420,16 +409,8 @@ fun Navigation3Slide() {
                         "2026: live \"Now / Up next\" sessions"
                     )
                 )
-                Row(horizontalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)) {
-                    StatusChip(label = "Now", delayMillis = 0)
-                    StatusChip(label = "Up next", delayMillis = NAV_CHIP_DELAY_MILLIS)
-                }
             }
-            MediaPlaceholder(
-                label = "Screen recording: switching tabs with back stacks kept, and the Now / Up next rail",
-                modifier = Modifier.weight(1f)
-            )
-        }
+        )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         SourceLine(text = "Source: git log, Dec 2025 to Aug 2026 (commit 8faf624f and the back stack commits)")
     }

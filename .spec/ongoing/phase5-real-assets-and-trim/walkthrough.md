@@ -8,7 +8,8 @@
 - Task 3 done: S02 shows real Play and Repo QRs (APK card gone); S03 and its notes removed.
 - Task 4 done: `SplitSlide` added; S07, S08, S12 use it; S09 shows the settings.gradle image.
 - Task 5 done: real screenshots on S18, S21, S23; S22 cube fills the row with chips beneath; S24 uses `SplitSlide`.
-- Next: Task 7, then 6. Desktop runs for Tasks 2-5 not yet done (compile-only so far). `todayNotes` still mentions the APK QR (Task 6 fixes it). Run only via /donatello:phase-run.
+- Task 7 done: S13, S15, S17 use `SplitSlide`; `OneRepoSlides.kt` no longer uses `MediaPlaceholder`.
+- Next: Task 6 (notes, asset list, delete `MediaPlaceholder`). Desktop runs for Tasks 2-5 and 7 not yet done (compile-only so far). `todayNotes` still mentions the APK QR (Task 6 fixes it). Run only via /donatello:phase-run.
 - Known issues: none.
 
 ## How to verify
@@ -21,6 +22,7 @@
 - Task 3: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two square, fully visible QRs, next slide is the family tree.
 - Task 4: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the `settings.gradle.kts` image.
 - Task 5: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18 (AGENTS.md image), S21 (Sessions 2026 phone shot beside swatches), S22 (full-width cube, chips beneath), S23 (2026 Home as before state), S24 (title left, steps right).
+- Task 7: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
 
 ## Changes by task
 
@@ -54,6 +56,10 @@
 - `talk/LiveSlides.kt`: S22 widget placeholder removed; cube fills width and remaining height, Spec/Plan/Code chips in a full-width row beneath. S23 shows `HOME_2026` as before state, three text labels kept with pop-in; during/after slots removed. S24 is `SplitSlide` (lead = `SlideTitle`, details = six `DemoStepRow`s + "Airplane mode" line); scrcpy placeholder removed.
 - One fix round (S22 cube was left at half width behind a spacer).
 - NOTE (reviewer): `PHONE_ASPECT` is duplicated as a private constant in both files; not blocking. Desktop run not done.
+
+### Task 7: One-repo slides in split layout (S13, S15, S17)
+- `talk/OneRepoSlides.kt`: S13 lead = title + `OneRepoCountUp`, "files carried over" caption in details; S15 lead = title + headline "3" (popIn); S17 lead = title + `StatusChip` row. Terminal, diff and recording placeholders removed; `MediaPlaceholder` import removed; S15/S17 KDoc updated.
+- NOTE (reviewer): reveal state and animations unchanged. Desktop run not done.
 
 ## Deviations from spec
 

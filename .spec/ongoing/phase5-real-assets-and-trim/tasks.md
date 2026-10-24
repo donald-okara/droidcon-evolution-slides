@@ -89,9 +89,9 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (edit)
 **Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (`ChaiSlide`, after Task 4 put it in `SplitSlide`)
 
-- [ ] S13 `OneRepoSlide` ("2023: one repo to keep"): remove the terminal placeholder (line 204). Use `SplitSlide`: lead = `SlideTitle` + `OneRepoCountUp`; details = the remaining text.
-- [ ] S15 `QuietYearSlide`: remove the diff placeholder (line 335). Use `SplitSlide`: lead = `SlideTitle` plus the slide's headline number if it has one (e.g. a "3 files, 3 lines" line), otherwise the title alone; details = the remaining text.
-- [ ] S17 `Navigation3Slide`: remove the recording placeholder (line 432). Use `SplitSlide`: lead = `SlideTitle` + the `StatusChip` row; details = the remaining text.
-- [ ] Keep reveal state and animations; remove the `MediaPlaceholder` import if now unused.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
-- [ ] Commit: `feat: split layout for S13, S15, S17`
+- [x] S13 `OneRepoSlide` ("2023: one repo to keep"): remove the terminal placeholder (line 204). Use `SplitSlide`: lead = `SlideTitle` + `OneRepoCountUp`; details = the remaining text.
+- [x] S15 `QuietYearSlide`: remove the diff placeholder (line 335). Use `SplitSlide`: lead = `SlideTitle` plus the slide's headline number if it has one (e.g. a "3 files, 3 lines" line), otherwise the title alone; details = the remaining text.
+- [x] S17 `Navigation3Slide`: remove the recording placeholder (line 432). Use `SplitSlide`: lead = `SlideTitle` + the `StatusChip` row; details = the remaining text.
+- [x] Keep reveal state and animations; remove the `MediaPlaceholder` import if now unused.
+- [x] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
+- [x] Commit: `feat: split layout for S13, S15, S17`
