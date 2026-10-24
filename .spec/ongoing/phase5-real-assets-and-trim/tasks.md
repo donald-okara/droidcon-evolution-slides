@@ -4,9 +4,10 @@
 1. Register drawables + SlideImage block
    ├─> 2. Lift SpinningCube, live cube on S22, hide corner cube
    ├─> 3. Cold open: S02, remove S03
-   ├─> 4. Early years + One repo: S07, S08, S09, S12, S13, S15, S17
-   └─> 5. Measured + Live: S18, S21, S22 widget, S23, S24
-         └─> 6. Notes, needed-from-us, delete MediaPlaceholder
+   └─> 4. SplitSlide block; early years: S07, S08, S09, S12
+         ├─> 7. One repo split: S13, S15, S17
+         └─> 5. Measured + Live: S18, S21, S22 widget, S23, S24
+               └─> 6. Notes, needed-from-us, delete MediaPlaceholder
 ```
 
 Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/` (written `talk/` below) and shared blocks in `segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/` (written `common/`).
@@ -46,29 +47,31 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 - [ ] Check: `./gradlew :composeApp:compileKotlinJvm`; `grep -rn "SameAppSlide\|sameAppNotes" composeApp segments` returns nothing; desktop run: S02 shows two QRs, the next slide is the family tree.
 - [ ] Commit: `feat: real QR codes on S02, remove S03`
 
-### Task 4: Early years and one-repo slides (S07, S08, S09, S12, S13, S15, S17)
-**Serves:** R3, R4
-**Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/EarlyYearsSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (edit)
+### Task 4: SplitSlide layout and early years (S07, S08, S09, S12)
+**Serves:** R3, R4, R8
+**Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/EarlyYearsSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (edit)
+**Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/common/SlideBlocks.kt (existing slide blocks and their spacing from `Values.Dimens`)
 
-- [ ] S09 `Y2020ModularSlide`: replace the `settings.gradle.kts` placeholder (EarlyYearsSlides.kt line 336) with `SlideImage(Resources.Images.SETTINGS_GRADLE, "settings.gradle.kts include block")`, keeping its weight in the row.
-- [ ] S07 `Y2018CloneSlide`: remove the two `ScreenshotPair` calls and delete `ScreenshotPair`; let the README sweep and screen-name rows fill the slide.
-- [ ] S08 `Y2019Slide`: remove the two 2019 placeholders (lines 273-274) and the `Row` around them; the package chips fill the space.
-- [ ] S12 `ChaiSlide`, S13 `OneRepoSlide`, S15 `QuietYearSlide`, S17 `Navigation3Slide`: remove the placeholder and give the remaining content (swatches, count-up, text, status chips) the freed `weight` so nothing sits in a blank half.
-- [ ] Remove now-unused `MediaPlaceholder` imports.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S09, S12, S13, S15, S17: no empty column.
-- [ ] Commit: `feat: settings.gradle on S09, trim missing media from early years and one repo`
+- [ ] In `common/SlideBlocks.kt`, add `SplitSlide(lead: @Composable ColumnScope.() -> Unit, details: @Composable ColumnScope.() -> Unit, modifier: Modifier = Modifier)`: a full-size `Row` of two equal-weight `Column`s with the deck's standard gap; `lead` is vertically centred, `details` is vertically centred. If `SlideBlocks.kt` already has an equivalent two-column block, reuse it and say so in the report. Add a KDoc line.
+- [ ] S09 `Y2020ModularSlide`: replace the `settings.gradle.kts` placeholder (EarlyYearsSlides.kt line 336) with `SlideImage(Resources.Images.SETTINGS_GRADLE, "settings.gradle.kts include block")`, keeping its weight in the row. S09 does not use `SplitSlide`.
+- [ ] S07 `Y2018CloneSlide`: remove the two `ScreenshotPair` calls and delete `ScreenshotPair`. Use `SplitSlide`: lead = `SlideTitle` + the README sweep line; details = the screen-name rows and any remaining text.
+- [ ] S08 `Y2019Slide`: remove the two 2019 placeholders (lines 273-274) and the `Row` around them. Use `SplitSlide`: lead = `SlideTitle` + the package chips; details = the remaining text.
+- [ ] S12 `ChaiSlide` (OneRepoSlides.kt): remove the chai cover placeholder. Use `SplitSlide`: lead = `SlideTitle` + `ChaiSwatches`; details = the remaining text.
+- [ ] Keep each slide's existing reveal state and animations; only the layout changes. Remove now-unused `MediaPlaceholder` imports.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S07, S08, S12: title and focal element left, details right; S09 shows the image.
+- [ ] Commit: `feat: SplitSlide layout, settings.gradle on S09, trim early years media`
 
 ### Task 5: Measured and live slides (S18, S21, S22 widget, S23, S24)
-**Serves:** R3, R4
+**Serves:** R3, R4, R8
 **Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/MeasuredSlides.kt (edit), segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/LiveSlides.kt (edit)
 
 - [ ] S18 `TwoReadersSlide`: replace the "Top of AGENTS.md" placeholder (MeasuredSlides.kt line 86) with `SlideImage(Resources.Images.TOP_OF_AGENTS, "Top of AGENTS.md")`.
 - [ ] S21 `NewLookSlide`: replace the four golden placeholders (line 246 loop) with one `SlideImage(Resources.Images.SESSIONS_2026, "Sessions screen, 2026")` at phone aspect, labelled "Sessions, 2026" (not "Golden"), beside the swatch rows.
 - [ ] S22 `CubeWidgetSlide`: remove the widget placeholder (LiveSlides.kt line 76); the cube from Task 2 takes the freed space.
 - [ ] S23 `FollowsConferenceSlide`: show the 2026 Home as the "before" state via `SlideImage(Resources.Images.HOME_2026, ...)` at phone aspect; remove "during" and "after" image slots but keep their text labels if the slide lists the three states.
-- [ ] S24 `LiveDemoSlide`: remove the scrcpy placeholder (line 180); the demo steps fill the slide.
+- [ ] S24 `LiveDemoSlide`: remove the scrcpy placeholder (line 180). Use `SplitSlide` (from Task 4): lead = `SlideTitle` alone (no focal element), details = the `DemoStepRow`s, keeping their pop-in.
 - [ ] Remove now-unused `MediaPlaceholder` imports.
-- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18, S21, S22, S23, S24.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S18, S21, S22, S23, S24 (S24: title left, steps right).
 - [ ] Commit: `feat: real screenshots on S18, S21, S23, trim missing media`
 
 ### Task 6: Notes, asset list, and cleanup
@@ -80,3 +83,15 @@ Slide composables live in `segments/demos/src/commonMain/kotlin/ke/don/demos/dro
 - [ ] If `grep -rn "MediaPlaceholder" segments/` shows only the definition, delete `MediaPlaceholder` from `SlideBlocks.kt` and its now-unused imports.
 - [ ] Check: `grep -rn "MediaPlaceholder" segments/` returns nothing; `./gradlew :composeApp:compileKotlinJvm` passes.
 - [ ] Commit: `docs: notes and asset list match trimmed slides`
+
+### Task 7: One-repo slides in split layout (S13, S15, S17)
+**Serves:** R4, R8
+**Files:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (edit)
+**Pattern:** segments/demos/src/commonMain/kotlin/ke/don/demos/droidcon/talk/OneRepoSlides.kt (`ChaiSlide`, after Task 4 put it in `SplitSlide`)
+
+- [ ] S13 `OneRepoSlide` ("2023: one repo to keep"): remove the terminal placeholder (line 204). Use `SplitSlide`: lead = `SlideTitle` + `OneRepoCountUp`; details = the remaining text.
+- [ ] S15 `QuietYearSlide`: remove the diff placeholder (line 335). Use `SplitSlide`: lead = `SlideTitle` plus the slide's headline number if it has one (e.g. a "3 files, 3 lines" line), otherwise the title alone; details = the remaining text.
+- [ ] S17 `Navigation3Slide`: remove the recording placeholder (line 432). Use `SplitSlide`: lead = `SlideTitle` + the `StatusChip` row; details = the remaining text.
+- [ ] Keep reveal state and animations; remove the `MediaPlaceholder` import if now unused.
+- [ ] Check: `./gradlew :segments:demos:compileKotlinJvm`; desktop run S13, S15, S17: title and focal element left, details right.
+- [ ] Commit: `feat: split layout for S13, S15, S17`

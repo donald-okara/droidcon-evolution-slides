@@ -3,7 +3,9 @@
 ## Current state
 
 - Task 1 done: six talk drawables registered in `Resources.Images`, and the `SlideImage` block added in `common/SlideBlocks.kt`.
-- Next: Task 2 (lift `SpinningCube`, live cube on S22).
+- Task 2 code committed (4196744, live cube on S22) but not yet reviewed or ticked; review it next.
+- Plan revised 2026-10-24: slides that lost their media use a shared `SplitSlide` (R8); Task 4 adds it, Task 7 covers S13/S15/S17, Task 5 uses it on S24.
+- Then: Task 3, 4, 7, 5, 6. Run only via /donatello:phase-run.
 - Known issues: none.
 
 ## How to verify

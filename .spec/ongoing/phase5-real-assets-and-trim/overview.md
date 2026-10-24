@@ -10,7 +10,7 @@ Replace every `MediaPlaceholder` in the meetup deck with a real asset from `shar
 - A shared slide image block for screenshots and QR codes, so slides do not each hand-roll `Image` + clip + border.
 - The spinning cube from S01 lifted to a shared composable and reused live on S22; the background cube hides on S22 as it does on S01.
 - S03 ("same app", 2018 vs 2026) removed from the deck entirely.
-- Every placeholder without an asset removed, with the slide's layout rebalanced and its notes updated.
+- Every placeholder without an asset removed and its notes updated. Slides left with no media (S07, S08, S12, S13, S15, S17, S24) use a shared split layout: title and number or visual on the left, details on the right.
 - `docs/talk/needed-from-us.md` updated: "Include?" filled in for every row.
 
 ## Out of Scope

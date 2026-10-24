@@ -36,6 +36,13 @@
 - `docs/talk/needed-from-us.md` has every "Include?" filled: `yes (<file>)`, or `no (trimmed)`.
 - **Check:** read `SlidesNotes.kt` entries for touched slides; read the table.
 
+### R8. Slides that lost their media use a split layout
+- Applies to S07, S08, S12, S13, S15, S17 and S24 (slides whose only screenshot or recording was removed). S22 keeps the cube and is not covered.
+- The slide is two columns: the left holds the title (and kicker) above the slide's focal element (its number, count-up, chips or swatches); the right holds the details (body text, rows, steps).
+- A slide with no single focal element shows the title alone on the left, vertically centred.
+- All seven slides use one shared layout composable, so the column split and spacing match.
+- **Check:** desktop run of the seven slides: title and focal element on the left, details on the right, no blank half; grep shows each slide calls the shared layout.
+
 ## Non-Functional Requirements
 
 - **NF1. Builds:** `./gradlew :composeApp:compileKotlinJvm` passes after every task.

@@ -29,3 +29,8 @@
 **Decision:** The S24 "phone mirrored with scrcpy" placeholder is removed; the slide keeps its demo steps. The mirror runs in its own scrcpy window during the talk.
 **Why:** There is no drawable for it, and a live mirror cannot be embedded in the deck.
 **Tradeoff:** The presenter switches windows for the demo; the notes say when.
+
+### Split layout for slides that lost their media (2026-10-24)
+**Decision:** S07, S08, S12, S13, S15, S17 and S24 use a shared two-column layout: title and focal number or visual on the left, details on the right (R8). S22 is excluded because the live cube fills its media slot.
+**Why:** User call at plan review, with "2023: one repo to keep" (S13) as the example: once the screenshot column is gone, stretching the remaining content reads as filler; a fixed left/right split keeps the slides consistent.
+**Tradeoff:** Seven slides are re-laid out rather than just reflowed, so Tasks 4 and 5 grow and Task 4 is split (Task 7). The shared layout lives in `common/SlideBlocks.kt`, which Task 6 also edits.
