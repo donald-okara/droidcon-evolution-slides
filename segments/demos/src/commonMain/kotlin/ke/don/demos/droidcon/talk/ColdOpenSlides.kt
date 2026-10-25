@@ -29,7 +29,6 @@ import ke.don.demos.droidcon.common.EvolutionTimeline
 import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SpinningCube
-import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
 import ke.don.resources.Resources
@@ -218,8 +217,6 @@ fun FamilyTreeSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: gh repo list droidconKE (D3)")
     }
 }
 
@@ -266,8 +263,6 @@ fun SeasonsSlide() {
         )
         Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
         MeetupFlag()
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git log --format=%ad --date=format:%Y-%m | sort | uniq -c (D1, D2)")
     }
 }
 

@@ -8,13 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,18 +27,15 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import ke.don.demos.droidcon.common.BarChart
 import ke.don.demos.droidcon.common.BulletList
-import ke.don.demos.droidcon.common.CalloutCard
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
-import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
@@ -47,7 +45,6 @@ import kotlin.math.roundToInt
 private const val SWEEP_MILLIS = 1400
 private const val COUNT_UP_MILLIS = 900
 private const val PACKAGE_DELAY_MILLIS = 400
-private const val SHRUG_MILLIS = 600
 private const val SHARED_README_LINE = "…sessions, office hours, app reviews, codelabs…"
 
 /**
@@ -67,7 +64,9 @@ fun Y2018FirstSlide() {
             horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
         ) {
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
             ) {
                 BulletList(
@@ -88,7 +87,9 @@ fun Y2018FirstSlide() {
                     ChartPoint(label = "Dec 2018", value = 108f),
                     ChartPoint(label = "Apr 2019", value = 2f, highlight = true)
                 ),
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
                 valueSuffix = " Java files"
             )
         }
@@ -97,7 +98,6 @@ fun Y2018FirstSlide() {
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        SourceLine(text = "Source: droidconKE git history (D6)")
     }
 }
 
@@ -141,8 +141,6 @@ fun Y2018CloneSlide() {
                 }
             }
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: droidconKE/iosched (fork of google/iosched), commits of 2018-03-28 and 2018-08-13; both READMEs")
     }
 }
 
@@ -239,7 +237,6 @@ fun Y2019Slide() {
                 )
             }
         )
-        SourceLine(text = "Source: droidconKE2019App, 153 commits, Jul to Nov 2019")
     }
 }
 
@@ -304,8 +301,6 @@ fun Y2020ModularSlide() {
                 modifier = Modifier.weight(1f).fillMaxSize()
             )
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: droidconKE2020App settings.gradle.kts and buildSrc/.../Dependencies.kt; architecture diagram in the repo")
     }
 }
 
@@ -329,75 +324,5 @@ private fun ModuleCountUp(target: Int) {
         style = MaterialTheme.typography.displayLarge,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.primary
-    )
-}
-
-/** The two README lines, one from 2020 and one from 2022, with 2021 missing between them. */
-private const val NO_CONFERENCE_2020 = "…the 3rd Android Developer conference- droidcon to be held in Nairobi from August 6-8th 2020."
-private const val NO_CONFERENCE_2022 = "…the 3rd Android Developer conference- droidcon to be held in Nairobi from November 16-18th 2022."
-
-/**
- * S10. The conference that didn't happen. The two README lines are stacked, and the "pass the mic" callout
- * names the 2020 team. The 2021 gap gets a shrug that settles in once.
- */
-@Composable
-fun Y2020NoConferenceSlide() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(Values.Dimens.largePadding)
-    ) {
-        SlideTitle(title = "The conference that didn't happen", kicker = "Act 3")
-        Column(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            verticalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-        ) {
-            Text(
-                text = NO_CONFERENCE_2020,
-                style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Text(
-                text = NO_CONFERENCE_2022,
-                style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(Values.Dimens.mediumPadding)
-            ) {
-                Text(
-                    text = "2021: nothing",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Shrug()
-            }
-            CalloutCard(title = "Pass the mic") {
-                Text(
-                    text = "Top 2020 authors: Oliver Muthomi, Jabez Magomere and David Odari. Pass the mic to one of them.",
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
-        }
-        SourceLine(text = "Source: droidconKE2020App and droidconKE2022Android READMEs")
-    }
-}
-
-/**
- * A text shrug that tilts once, then settles upright, beside the 2021 gap.
- */
-@Composable
-private fun Shrug(modifier: Modifier = Modifier) {
-    val tilt = remember { Animatable(-20f) }
-    LaunchedEffect(Unit) {
-        tilt.animateTo(0f, tween(durationMillis = SHRUG_MILLIS, easing = FastOutSlowInEasing))
-    }
-    Text(
-        text = "¯\\_(ツ)_/¯",
-        style = MaterialTheme.typography.headlineSmall,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = modifier.graphicsLayer { rotationZ = tilt.value }
     )
 }

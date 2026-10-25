@@ -180,21 +180,6 @@ fun CommitTag(sha: String, modifier: Modifier = Modifier) {
 }
 
 /**
- * The source line for a slide that cites where its figures come from. Small and muted, shown at the foot of the slide.
- *
- * @param text The full citation, starting with "Source:".
- */
-@Composable
-fun SourceLine(text: String, modifier: Modifier = Modifier) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelMedium,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = modifier
-    )
-}
-
-/**
  * A drawable from `Resources.Images`, fitted inside its box without cropping, with a rounded outline.
  *
  * Does not set a size: the caller sizes it, for example with `fillMaxSize()` or an aspect ratio.

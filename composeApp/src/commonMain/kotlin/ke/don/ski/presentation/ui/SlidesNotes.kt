@@ -5,12 +5,6 @@ import androidx.compose.ui.text.AnnotatedString
 // One named constant per slide, referenced from skiPresentationSlides().
 // See docs/speaker-notes.md for how to write these.
 
-val titleNotes = listOf(
-    AnnotatedString("Welcome. Thank both communities, Android254 and Kotlin Kenya, and the hosts for putting this meetup together."),
-    AnnotatedString("Three things today: a story about how this app grew from an I/O clone, a bug hunt, and a build."),
-    AnnotatedString("Takeaway to return to: the app began as someone else's app, and eight years later it is the community's own.")
-)
-
 val todayNotes = listOf(
     AnnotatedString("Install or update the app now, because you will need it within the hour: the talk starts at 10:05, the bounty at 10:55, the feature bash at 13:05, and results at 15:35."),
     AnnotatedString("Point at the two QR codes on the right, the Play listing and the repo. If Play has not reached your phone yet, the APK link is in the repo README."),
@@ -52,12 +46,6 @@ val y2020ModularNotes = listOf(
     AnnotatedString("The big figure is 13, the Gradle modules in the 2020 settings.gradle.kts, and the image on the right is that include block. This is the biggest jump in ambition: static analysis and CI through GitHub Actions came with the split. The count is of Gradle modules, so it does not measure how well they are split."),
     AnnotatedString("Seven of the 13 are dynamic features, the modularisation advice of the time. Nobody uses them for this now, but the team learned modules here."),
     AnnotatedString("On the I/O thread, this is the first README without the I/O app's words, and the first architecture the team designed for itself. Takeaway to return to: the team learned modules here.")
-)
-
-val y2020NoConferenceNotes = listOf(
-    AnnotatedString("Mic hand-over: pass the mic to a guest from the 2020 team for 90 seconds, and ask what building an app for a conference that was cancelled was like."),
-    AnnotatedString("Both apps call themselves the third droidcon, one for August 2020 and one for November 2022. Nothing was held in 2021, and the shrug is for that gap."),
-    AnnotatedString("Takeaway to return to: the 2020 team built something for a conference that never happened. Hand-off cue: \"Now the 2022 Compose year.\"")
 )
 
 val y2022ComposeNotes = listOf(

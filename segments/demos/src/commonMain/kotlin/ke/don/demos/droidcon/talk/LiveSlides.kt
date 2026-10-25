@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +23,6 @@ import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
 import ke.don.demos.droidcon.common.SpinningCube
-import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.popIn
@@ -51,7 +52,6 @@ fun CubeWidgetSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        SourceLine(text = "Source: #446, Oct 2026")
     }
 }
 
@@ -106,8 +106,6 @@ fun FollowsConferenceSlide() {
                 "Your ticket, at the door"
             )
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: core/domain/.../schedule/Schedule.kt; #451, #453. Goldens: home_before, home_agenda, home_after")
     }
 }
 
@@ -183,7 +181,6 @@ fun StackSlide() {
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
-        SourceLine(text = "Source: section 1.3 of the overview")
     }
 }
 
@@ -218,7 +215,9 @@ fun CodeGrewSlide() {
                 modifier = Modifier.weight(1.6f).fillMaxSize()
             )
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
             ) {
                 StatTile(
@@ -245,7 +244,6 @@ fun CodeGrewSlide() {
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.primary
         )
-        SourceLine(text = "Source: snapshots from git ls-tree (D4)")
     }
 }
 

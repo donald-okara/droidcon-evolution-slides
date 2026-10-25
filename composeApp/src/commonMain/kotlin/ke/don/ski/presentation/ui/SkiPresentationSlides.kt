@@ -35,7 +35,6 @@ import ke.don.demos.droidcon.talk.Y2018CloneSlide
 import ke.don.demos.droidcon.talk.Y2018FirstSlide
 import ke.don.demos.droidcon.talk.Y2019Slide
 import ke.don.demos.droidcon.talk.Y2020ModularSlide
-import ke.don.demos.droidcon.talk.Y2020NoConferenceSlide
 import ke.don.demos.droidcon.talk.Y2022ComposeSlide
 import ke.don.domain.ScreenTransition
 import ke.don.domain.SlideConfig
@@ -55,7 +54,6 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             // Act 0: Cold open
             slide(
                 label = COLD_TITLE_LABEL,
-                notes = titleNotes,
                 transition = ScreenTransition.Fade,
                 showFooter = false
             ) {
@@ -92,13 +90,6 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             // Act 3: 2020, the modular one
             slide(label = "y2020-modular", notes = y2020ModularNotes, transition = ScreenTransition.Fade) {
                 Y2020ModularSlide()
-            }
-            slide(
-                label = "y2020-no-conference",
-                notes = y2020NoConferenceNotes,
-                transition = ScreenTransition.Fade
-            ) {
-                Y2020NoConferenceSlide()
             }
 
             // Act 4: 2022, Compose arrives

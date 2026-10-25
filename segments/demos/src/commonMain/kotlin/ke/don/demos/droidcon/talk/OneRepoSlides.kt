@@ -8,13 +8,14 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -35,7 +36,6 @@ import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.Confetti
 import ke.don.demos.droidcon.common.ColumnChart
 import ke.don.demos.droidcon.common.SlideTitle
-import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.SplitSlide
 import ke.don.demos.droidcon.common.popIn
 import ke.don.domain.values.Values
@@ -66,7 +66,9 @@ fun Y2022ComposeSlide() {
             horizontalArrangement = Arrangement.spacedBy(Values.Dimens.largePadding)
         ) {
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.spacedBy(Values.Dimens.smallPadding)
             ) {
                 Text(
@@ -94,8 +96,6 @@ fun Y2022ComposeSlide() {
                 caption = "Commits per month, droidconKE2022Android (D2)"
             )
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: droidconKE2022Android gradle/libs.versions.toml; commit \"Deploy to playstore\" (2022-11-17)")
     }
 }
 
@@ -133,8 +133,6 @@ fun ChaiSlide() {
                 }
             }
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: the Designs section of the droidconKE2022Android README; the chai README")
     }
 }
 
@@ -196,8 +194,6 @@ fun OneRepoSlide() {
                 }
             }
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git show --stat f3b81067; file-by-file comparison with droidconKE2022Android")
     }
 }
 
@@ -279,8 +275,6 @@ fun CommunityPeakSlide() {
                 caption = "Distinct author names per year, bots excluded; approximate (D5)"
             )
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git shortlog for 2023; 326 commits in 2023")
     }
 }
 
@@ -322,8 +316,6 @@ fun QuietYearSlide() {
                 }
             }
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git show --stat of #305; 2024 commit count from the git history")
     }
 }
 
@@ -377,8 +369,6 @@ fun KmpThreadSlide() {
                 }
             }
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git log; docs/IMPROVEMENT_PLAN.md §17.2 question 10")
     }
 }
 
@@ -411,8 +401,6 @@ fun Navigation3Slide() {
                 )
             }
         )
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: git log, Dec 2025 to Aug 2026 (commit 8faf624f and the back stack commits)")
     }
 }
 

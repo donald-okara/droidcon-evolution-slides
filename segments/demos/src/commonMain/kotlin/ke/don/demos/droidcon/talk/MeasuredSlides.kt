@@ -27,7 +27,6 @@ import ke.don.demos.droidcon.common.BulletList
 import ke.don.demos.droidcon.common.ChartPoint
 import ke.don.demos.droidcon.common.SlideImage
 import ke.don.demos.droidcon.common.SlideTitle
-import ke.don.demos.droidcon.common.SourceLine
 import ke.don.demos.droidcon.common.StatDirection
 import ke.don.demos.droidcon.common.StatTile
 import ke.don.demos.droidcon.common.SwatchRow
@@ -92,8 +91,6 @@ fun TwoReadersSlide() {
                 modifier = Modifier.weight(1f)
             )
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: AGENTS.md; docs/IMPROVEMENT_PLAN.md")
     }
 }
 
@@ -126,8 +123,6 @@ fun ModulesSlide() {
                 "A feature's tests never reach into another feature's fakes, which is why core:testing exists"
             )
         )
-        Spacer(modifier = Modifier.weight(1f))
-        SourceLine(text = "Source: README.md module graph; AGENTS.md (module layout, dependency rules); D8")
     }
 }
 
@@ -212,8 +207,6 @@ fun MeasuredSlide() {
                 )
             }
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: docs/performance.md. Cold start on the CS50C, API 34, median of 15 runs.")
     }
 }
 
@@ -272,8 +265,6 @@ fun NewLookSlide() {
                 )
             }
         }
-        Spacer(modifier = Modifier.height(Values.Dimens.smallPadding))
-        SourceLine(text = "Source: #410, #421, #425; git log")
     }
 }
 
