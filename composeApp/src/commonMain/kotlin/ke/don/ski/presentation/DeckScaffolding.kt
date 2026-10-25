@@ -67,8 +67,8 @@ fun DeckScaffolding(
     var showShortcuts by remember { mutableStateOf(false) }
 
     var showNotes by remember { mutableStateOf(false) }
-    var showHint by remember { mutableStateOf(true) }
-    var showFlashcard by remember { mutableStateOf(true) }
+    var showHint by remember { mutableStateOf(false) }
+    var showFlashcard by remember { mutableStateOf(false) }
 
     var showWhiteboard by remember { mutableStateOf(false) }
     var whiteboardValue by remember { mutableStateOf("") }

@@ -54,6 +54,7 @@ fun skiPresentationSlides(sessionDuration: Duration = SESSION_DURATION): List<Sl
             // Act 0: Cold open
             slide(
                 label = COLD_TITLE_LABEL,
+                notes = titleNotes,
                 transition = ScreenTransition.Fade,
                 showFooter = false
             ) {

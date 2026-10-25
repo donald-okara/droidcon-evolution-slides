@@ -5,6 +5,12 @@ import androidx.compose.ui.text.AnnotatedString
 // One named constant per slide, referenced from skiPresentationSlides().
 // See docs/speaker-notes.md for how to write these.
 
+val titleNotes = listOf(
+    AnnotatedString("Welcome. Thank both communities, Android254 and Kotlin Kenya, and the hosts for putting this meetup together."),
+    AnnotatedString("Three things today: a story about how this app grew from an I/O clone, a bug hunt, and a build."),
+    AnnotatedString("Takeaway to return to: the app began as someone else's app, and eight years later it is the community's own.")
+)
+
 val todayNotes = listOf(
     AnnotatedString("Install or update the app now, because you will need it within the hour: the talk starts at 10:05, the bounty at 10:55, the feature bash at 13:05, and results at 15:35."),
     AnnotatedString("Point at the two QR codes on the right, the Play listing and the repo. If Play has not reached your phone yet, the APK link is in the repo README."),
